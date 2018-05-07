@@ -1,4 +1,4 @@
-\documentclass[
+\message{ !name(solar.tex)}\documentclass[
 % 12pt,
 a4paper,
 svgnames,
@@ -15,10 +15,9 @@ justified,
 \XeTeXlinebreaklocale "th_TH"
 \XeTeXlinebreakskip = 0pt plus 1pt
 
-% \setmainfont{TeX Gyre Pagella}
 \newfontfamily{\thaifont}[Scale=1.23]{TH Sarabun New}
-% \newfontfamily{\thaifontsf}{TH Sarabun New}
-% \newfontfamily{\thaifonttt}{TH Sarabun New}
+\newfontfamily{\thaifontsf}{TH Sarabun New}
+\newfontfamily{\thaifonttt}{TH Sarabun New}
 
 \usepackage{geometry} % to change the page dimensions
 \geometry{a4paper} % or letterpaper (US) or a5paper or....
@@ -92,10 +91,8 @@ justified,
 
 \usepackage{float}
 \usepackage{amsmath}
-% \usepackage{newpxtext}
-% \usepackage{newpxmath}
-\usepackage{mathpazo}
-\let\openbox\relax
+% \usepackage{newtxmath}
+% \let\openbox\relax
 
 %Example environment
 \usepackage{amsthm}
@@ -141,6 +138,9 @@ headpunct={},
 
 
 \begin{document}
+
+\message{ !name(solar.tex) !offset(-3) }
+
 
 \frontmatter
 
@@ -430,7 +430,6 @@ headpunct={},
         fill=none},
       % xlabel={},
       ylabel={\$/Watt},
-      xlabel={Year},
       xtick distance=5,
       /pgf/number format/.cd,
       use comma,
@@ -456,18 +455,16 @@ headpunct={},
       bar width=1cm,
       width=0.95\textwidth,
       height=.6\textwidth,
-      legend style={at={(1,1)},
-        anchor=north east,
-        fill=none,
-        legend columns=3},
+      legend style={at={(0.5,1)},
+        anchor=north,
+        fill=none},
       % xlabel={},
       symbolic x coords={Residential, Commercial, Utility-Scale},
       xtick=data,
       ylabel={\$/Watt-DC},
       ytick distance=0.5,
       enlarge x limits=0.30,
-      cycle list/Paired,
-      every axis plot/.append style={fill} 
+      colorbrewer cycle list=Dark2,
       ]
       \addplot table[x=Type,y=PV Module]{\mydata};
       \addplot table[x=Type,y=Inverter]{\mydata};
@@ -476,71 +473,11 @@ headpunct={},
       \addplot table[x=Type,y=Direct Labor]{\mydata};
       \addplot table[x=Type,y=Engineering and Insurance]{\mydata};
       \addplot table[x=Type,y=Supply Chain OH and Margin]{\mydata};
-      \legend{PV, Inv, Elec, Struct, Labor, Eng and Ins, SC};
+      \legend{PV Module, Inv, Elec, Struct, Labor, Eng and Ins, SC OH and Margin};
     \end{axis}
   \end{tikzpicture}
   \caption{แผนภูมิแจกแจงต้นทุนของการผลิตไฟฟ้าด้วยเซลล์แสงอาทิตย์ในปี 2559}
 \end{figure} 
-
-\section{สภาพการทำงานของเซลล์แสงอาทิตย์}
-
- \pgfplotstableread[row sep=\\,col sep=&]{
-    Time  & Temperature & Radiation \\
-    5.972 & 27.714 & 79.696  \\
-    6.477 & 32.857 & 162.960 \\
-    7.011 & 37.048 & 269.163 \\
-    7.488 & 42.381 & 389.696 \\
-    7.994 & 47.143 & 501.640 \\
-    8.527 & 51.714 & 619.307 \\
-    9.004 & 58.000 & 711.172 \\
-    9.510 & 62.952 & 797.303 \\
-    10.015 & 65.810 & 874.832 \\
-    10.492 & 69.429 & 932.283 \\
-    11.026 & 70.190 & 966.801 \\
-    11.503 & 72.286 & 992.717 \\
-    12.037 & 69.429 & 1001.422 \\
-    12.486 & 69.429 & 990.067 \\
-    13.019 & 65.810 & 970.098 \\
-    13.497 & 62.000 & 918.600 \\
-    14.058 & 60.095 & 869.950 \\
-    14.479 & 56.857 & 801.242 \\
-    14.985 & 53.810 & 718.202 \\
-    15.462 & 50.762 & 615.078 \\
-    15.996 & 48.667 & 500.491 \\
-    16.501 & 44.667 & 388.771 \\
-    17.006 & 40.857 & 291.388 \\
-    17.540 & 38.381 & 185.397 \\
-    17.989 & 36.095 & 88.020 \\
-    18.495 & 36.286 & 42.244 \\
-    19.000 & 34.000 & 36.232 \\
-  }\mydata
-  
-  \begin{tikzpicture}
-    \begin{axis}[
-      width=0.9\textwidth,
-      height=.8\textwidth,
-      legend style={at={(0.5,1)},
-        anchor=north,legend columns=-1,
-        fill=none},
-      xlabel={Time of Day},
-      axis y line*=left,
-      ylabel={Temperature [C]},
-      ymin=0,ymax=100,
-      ]
-      \addplot table[x=Time,y=Temperature]{\mydata};
-    \end{axis}
-    \begin{axis}[
-      width=0.9\textwidth,
-      height=.8\textwidth,
-      axis y line*=right,
-      ylabel={Radiation [W/m$^2$]},
-      axis x line=none,
-      compat=1.16,
-      ]
-      \addplot[Red, mark=*] table[x=Time,y=Radiation]{\mydata};
-    \end{axis}
-  \end{tikzpicture}
-
 
 \begin{ตัวอย่าง} การคำนวณต้นทุนไฟฟ้าเฉลี่ยตลอดอายุโครงการของการติดตั้งเซลล์แสงอาทิตย์แบบคงที่ แบบติดตาม 1 แกน และแบบติดตาม 2 แกน
 
@@ -660,7 +597,7 @@ headpunct={},
 \begin{figure}[h]
   \centering
   \begin{tikzpicture}
-    \draw (0,2) to [V_=$V_{OC}$] ++(90:-2) to [short, -*] ++ (0:2) to [short] ++ (0:2) to [R,l_=$R_L$] ++ (90:2) to [short, -*] ++ (180:2) to [R=$R_{TEG}$, -*] ++ (180:2);
+    \draw (0,0) to [V=$V_{OC}$] ++(90:2) to [R=$R_{TEG}$, -*] ++ (0:2) to [short] ++ (0:2) to [R=$R_L$] ++ (-90:2) to [short, -*] ++ (180:2) -- (0,0);
     \node [yshift=1cm, xshift=2.5mm, draw, dashed, rounded corners=4mm, minimum width=3.5cm, minimum height=3.5cm](teg){};
     \node [below=of teg, yshift=1cm] {Thermoelectric Generator};
   \end{tikzpicture} 
@@ -804,16 +741,14 @@ eff}
       % xtick=data,
       xmin=0,xmax=400,
       ymin=0,ymax=0.6,
-      domain=0:400,
       ytick distance=0.1,
       xlabel={ส่วนต่างอุณหภูมิ $\Delta T$},
       ylabel={ประสิทธิภาพความร้อน \%},
-      % cycle list/Paired,
       ]
-      \addplot {\x / (50 + \x + 273)};
-      \addplot {\x / (2*(\x + 50 + 273) + 2*(\x + 273 + 50)/2 - \x/2) };
-      \addplot {\x / (2*(\x + 50 + 273) + 2*(\x + 273 + 50)/1 - \x/2) };
-      \addplot {\x / (2*(\x + 50 + 273) + 2*(\x +  273 + 50)/0.5 - \x/2) };
+      \addplot [domain=0:400, blue] {\x / (50 + \x + 273)};
+      \addplot [domain=0:400, green] {\x / (2*(\x + 50 + 273) + 2*(\x + 273 + 50)/2 - \x/2) };
+      \addplot [domain=0:400, red] {\x / (2*(\x + 50 + 273) + 2*(\x + 273 + 50)/1 - \x/2) };
+      \addplot [domain=0:400, yellow] {\x / (2*(\x + 50 + 273) + 2*(\x +  273 + 50)/0.5 - \x/2) };
       \legend{Carnot, ZT = 2, ZT = 1, ZT = 0.5};
     \end{axis}
   \end{tikzpicture}
@@ -1166,42 +1101,6 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
   \eta = \frac{W_e}{\Delta H} = \frac{nFV_L}{\Delta H}
 \end{equation}
 
-\begin{ตัวอย่าง} ประสิทธิภาพของเซลล์เชื้อเพลิงไฮโดรเจน
-
-  เซลล์เชื้อเพลิงไฮโดรเจนได้รับไฮโดรเจนจากถังอัดความดันที่ 5 atm ในขณะที่ออกซิเจนได้มาจากอากาศที่ 1 atm ผลิตภัณฑ์ที่ได้ออกมาเป็นไอน้ำที่ 1 atm อุณหภูมิขณะที่เซลล์ทำงานอยู่ที่ 200$^{\circ}$C คำนวณศักย์ไฟฟ้าที่เซลล์ผลิตได้และประสิทธิภาพของเซลล์เชื้อเพลิงนี้
-  
-\end{ตัวอย่าง}
-\begin{เฉลย}
- จากสมการ \ref{eq:nernst equation} เราสามารถแทนค่าเพื่อหาศักย์ไฟฟ้าได้ดังนี้
-
- $$  E_g = \frac{W_e}{-nF} = -\frac{\Delta G_0}{nF} + \frac{R_u T}{nF} \ln \frac{P_A^a P_B^b}{P_C^c P_D^d} $$
-
- จากสมการการสันดาปไฮโดเจนในเซลล์เชื้อเพลิง
-
- $$ H_2 + \frac{1}{2} O_2 \rightarrow H_2O $$
-
- จะสามารถแทนค่าได้โดยอ้างอิงปริมาณต่อ 1 mol $H_2O$ ว่า
-
- \begin{itemize}
- \item อุณหภูมิที่เซลล์ทำงาน = 200$^{\circ}$ C = 200 + 273 = 473 K
- \item เนื่องจากอากาศมีออกซิเจนอยู่ประมาณ 21\% ความดันของออกซิเจนเข้าสู่เซลล์มีค่าเป็น $0.21 \times 1$ = 0.21 atm
- \item มีการปล่อยและรับอิเลกตรอน 2 ตัวต่อ 1 โมเลกุลของน้ำ ($n = 2$)
- \end{itemize}
-
- \begin{align*}
- E_g &= - \frac{-241(10^3) - 0 - (0.5)0}{2 \times 9.65 \times 10^4} + \frac{8.314(473)}{2 \times 9.65 \times 10^4} \ln \frac{5^1 0.21^{0.5}}{1^1} \\
-     &= \frac{231 \times 10^3}{2 \times 9.65 \times 10^4} \\
-     &= 1.197 \text{ V}
- \end{align*}
-
- ประสิทธิภาพของเซลล์เชื้อเพลิงสามารถหาได้จากสมการ \ref{eq:fc max eff} ว่า
-
- \begin{align*}
-   \eta &= \frac{\Delta G}{\Delta H} \\
-        &= \frac{-231 \times 10^3}{-286 \times 10^3} \\
-        &= 80.8\%
- \end{align*}
-\end{เฉลย}
 \section{ชนิดของเซลล์เชื้อเพลิง}
 
 \subsection{Proton Exchange Membrane (PEM)}
@@ -1382,17 +1281,17 @@ $$ E = \frac{1}{2} mv^2 $$
   D = C_D \frac{1}{2} \rho A v^2
 \end{align}
 
-โดยที่ $C_L$ และ $C_D$ คือสัมประสิทธิ์แรงยกและสัมประสิทธิ์แรงต้าน ดังนั้น ในการสร้างกังหันลมจึงสามารถใช้แรงหนึ่งหรือทั้งสองในการขับดันและสร้างกำลัง โดยกำลังที่กังหันสามารถดึงออกมาได้ $P_{turbine}$ เท่ากับผลคูณภายในของแรง $\mathbf{F}$ และความเร็วของใบพัด $\mathbf{u}$ 
+โดยที่ $C_L$ และ $C_D$ คือสัมประสิทธิ์แรงยกและสัมประสิทธิ์แรงต้าน ดังนั้น ในการสร้างกังหันลมจึงสามารถใช้แรงหนึ่งหรือทั้งสองในการขับดันและสร้างกำลัง โดยกำลังที่กังหันสามารถดึงออกมาได้ $P_{turbine}$ เท่ากับผลคูณภายในของแรง $\bar{F}$ และความเร็วของใบพัด $\bar{u}$ 
 
 \begin{equation}
   \label{eq:basic turbine power}
-  P_{turbine} = \mathbf{F} \cdot \mathbf{u}
+  P_{turbine} = \bar{F} \cdot \bar{u}
 \end{equation}
 
 ในกรณีของกังหันแบบแรงต้าน ทิศทางการไหลของลมจะไปในทิศทางเดียวกับแรงต้านเสมอ ดังนั้นสมการกำลังที่ผลิตได้จะมาจาก
 
 \begin{gather}
-  P = \mathbf{D} \cdot \mathbf{u} = \frac{1}{2} \rho A (v - u)^2 u \nonumber \\
+  P = \bar{D} \cdot \bar{u} = \frac{1}{2} \rho A (v - u)^2 u \nonumber \\
   P = \frac{1}{2} \rho A C_D (uv^2 - 2vu^2 + u^3) \nonumber \\
   C_P = C_D \left( \lambda - 2\lambda^2 + \lambda^3 \right)
 \end{gather}
@@ -1412,11 +1311,11 @@ $$ E = \frac{1}{2} mv^2 $$
   \centering
   \begin{tikzpicture}[>=latex]
     \draw [fill=White] (0,0) arc (280:90:0.15) node(A){}  arc (90:60:3) arc (71:100:2.9) -- cycle;
-    \draw [->, thick] (A.north) --++ (90:2) node[midway, right]{$\mathbf{u}$};
-    \draw [<-, thick] (A.south west) ++ (180:0.1) --++ (180:2.5) node[midway, above]{$\mathbf{v}$};
-    \draw [<-, thick] (A.north west) --++ (142:3.1) node[midway, above right]{$\mathbf{w}$} node[at start, above, xshift=-1mm, yshift=2mm]{$\theta$};
-    \draw [->, thick] (A.south east) ++ (-38:0.4)--++ (-38:1.8) node[midway, above right]{$\mathbf{D} = \frac{1}{2} C_D \rho A w^2$};
-    \draw [->, thick] (A.north east) ++ (52:0.1)--++ (52:2.2) node[midway, below right]{$\mathbf{L} = \frac{1}{2} C_L \rho A w^2$};
+    \draw [->, thick] (A.north) --++ (90:2) node[midway, right]{$u$};
+    \draw [<-, thick] (A.south west) ++ (180:0.1) --++ (180:2.5) node[midway, above]{$v$};
+    \draw [<-, thick] (A.north west) --++ (142:3.1) node[midway, above right]{$w$} node[at start, above, xshift=-1mm, yshift=2mm]{$\theta$};
+    \draw [->, thick] (A.south east) ++ (-38:0.4)--++ (-38:1.8) node[midway, above right]{$D = \frac{1}{2} C_D \rho A w^2$};
+    \draw [->, thick] (A.north east) ++ (52:0.1)--++ (52:2.2) node[midway, below right]{$L = \frac{1}{2} C_L \rho A w^2$};
   \end{tikzpicture}
   \caption{ทิศทางของความเร็วและแรงที่เกิดขึ้นบนกังหันลมแรงยก จะสังเกตได้ว่าในกรณีนี้ ความเร็วสัมพัทธ์ของลมเมื่อเทียบกับกังหันมีค่าเท่ากับ $w = \sqrt{ u^2 + v^2}$}
   \label{fig:lift-based turbine}
@@ -1425,7 +1324,7 @@ $$ E = \frac{1}{2} mv^2 $$
   ถ้าเรากำหนดให้ $\gamma = \dfrac{C_D}{C_L}$ เป็นอัตราส่วนของแรงต้านต่อแรงยกที่เกิดขึ้น เราจะสามารถเขียนสมการแสดงกำลังที่กังหันลมแรงยกสร้างขึ้นได้ว่า
 
   \begin{gather}
-    P = (\mathbf{L} + \mathbf{D}) \cdot \mathbf{u} \nonumber \\
+    P = (\bar{L} + \bar{D}) \cdot \bar{u} \nonumber \\
     P = \frac{1}{2}\rho A w^2 (C_L \frac{v}{w} u - C_D \frac{u}{w}u) \nonumber \\
     P = \frac{1}{2}\rho A \sqrt{u^2 + v^2} \left( C_L u v - C_D u^2 \right) \nonumber \\
      C_P = C_L \sqrt{1+\lambda^2} \left( \lambda - \gamma \lambda^2 \right) 
@@ -1641,3 +1540,5 @@ $$ E = \frac{1}{2} mv^2 $$
 %%% TeX-engine: xetex
 %%% TeX-master: t
 %%% End: 
+
+\message{ !name(solar.tex) !offset(-1544) }
