@@ -19,47 +19,47 @@
 \contentsline {section}{\numberline {2.2}ปรากฏการณ์เพลเทียร์ (Peltier Effect)}{16}{section.2.2}
 \contentsline {section}{\numberline {2.3}ปรากฏการณ์ทอมสัน (Thomson Effect)}{17}{section.2.3}
 \contentsline {section}{\numberline {2.4}หลักการทำงานของเทอร์โมอิเลกทริก}{18}{section.2.4}
-\contentsline {section}{\numberline {2.5}ต้นทุนของพลังงานจากเทอร์โมอิเลกทริก}{19}{section.2.5}
-\contentsline {chapter}{\numberline {3}เซลล์เชื้อเพลิง (Fuel Cells)}{22}{chapter.3}
-\contentsline {section}{\numberline {3.1}ส่วนประกอบของเซลล์เชื้อเพลิง}{22}{section.3.1}
-\contentsline {section}{\numberline {3.2}ปฏิกิริยาในเซลล์เชื้อเพลิง}{22}{section.3.2}
-\contentsline {paragraph}{ปฏิกิริยารีดักชัน}{22}{paragraph*.2}
-\contentsline {paragraph}{ปฏิกิริยาออกซิเดชัน}{23}{paragraph*.3}
-\contentsline {section}{\numberline {3.3}พลังงานที่ได้จากเซลล์เชื้อเพลิง}{23}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}พลังงานอิสระของกิบส์ (Gibbs Free Energy)}{24}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}พลังงานอิสระของกิบส์ที่เปลี่ยนแปลงในปฏิกิริยาเคมี}{25}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}ศักย์ไฟฟ้าจากเซลล์เชื้อเพลิง}{26}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}ประสิทธิภาพของเซลล์เชื้อเพลิง}{27}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}ชนิดของเซลล์เชื้อเพลิง}{28}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Proton Exchange Membrane (PEM)}{28}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Direct Methanol}{28}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Solid Oxide}{28}{subsection.3.4.3}
-\contentsline {section}{\numberline {3.5}การวิเคราะห์ต้นทุนของเซลล์เชื้อเพลิง}{28}{section.3.5}
-\contentsline {chapter}{\numberline {4}พลังงานลม}{30}{chapter.4}
-\contentsline {section}{\numberline {4.1}หลักการแปลงพลังงานลม}{30}{section.4.1}
-\contentsline {section}{\numberline {4.2}อากาศพลศาสตร์ของกังหันลม}{32}{section.4.2}
-\contentsline {section}{\numberline {4.3}การออกแบบกังหันลมผลิตไฟฟ้า}{34}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}แนวแกนกังหัน}{34}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}วัสดุผลิตกังหัน}{34}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}ต้นทุนการผลิตไฟฟ้าพลังงานลม}{34}{section.4.4}
-\contentsline {chapter}{\numberline {5}พลังงานชีวภาพ}{36}{chapter.5}
-\contentsline {section}{\numberline {5.1}วัตถุดิบ (Feedstock)}{36}{section.5.1}
-\contentsline {section}{\numberline {5.2}เอทานอล}{36}{section.5.2}
-\contentsline {section}{\numberline {5.3}โบโอดีเซล}{36}{section.5.3}
-\contentsline {section}{\numberline {5.4}แก็สชีวภาพ}{36}{section.5.4}
-\contentsline {chapter}{\numberline {6}การกักเก็บพลังงาน (Energy Storage)}{37}{chapter.6}
-\contentsline {section}{\numberline {6.1}บ่อกักเก็บพลังงานแสงอาทิตย์ (Solar Ponds)}{37}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}บ่อกักเก็บแบบประดิษฐ์}{38}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}บ่อกักเก็บแบบเกิดเอง}{38}{subsection.6.1.2}
-\contentsline {section}{\numberline {6.2}แบตเตอรี่}{38}{section.6.2}
-\contentsline {section}{\numberline {6.3}ล้อตุนกำลัง (Flywheel)}{38}{section.6.3}
-\contentsline {part}{II\hspace {1em}เศรษฐศาสตร์พลังงาน}{39}{part.2}
-\contentsline {chapter}{\numberline {7}การวิเคราะห์ต้นทุน}{40}{chapter.7}
-\contentsline {section}{\numberline {7.1}โครงสร้างต้นทุน}{40}{section.7.1}
-\contentsline {section}{\numberline {7.2}มูลค่าเงินตามเวลา (Time Value of Money)}{41}{section.7.2}
-\contentsline {section}{\numberline {7.3}ต้นทุนเฉลี่ยตลอดอายุโครงการ (Levelized Cost of Energy - LCOE)}{41}{section.7.3}
-\contentsline {section}{\numberline {7.4}อัตราผลตอบแทนภายใน (Internal Rate of Return - IRR)}{42}{section.7.4}
-\contentsline {section}{\numberline {7.5}มูลค่าปัจจุบันสุทธิ (Net Present Value - NPV)}{42}{section.7.5}
-\contentsline {part}{III\hspace {1em}ศักยภาพของพลังงานทดแทนในประเทศไทย}{43}{part.3}
-\contentsline {chapter}{\numberline {8}การพัฒนาอย่างยั่งยืน}{44}{chapter.8}
+\contentsline {section}{\numberline {2.5}ต้นทุนของพลังงานจากเทอร์โมอิเลกทริก}{20}{section.2.5}
+\contentsline {chapter}{\numberline {3}เซลล์เชื้อเพลิง (Fuel Cells)}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}ส่วนประกอบของเซลล์เชื้อเพลิง}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}ปฏิกิริยาในเซลล์เชื้อเพลิง}{23}{section.3.2}
+\contentsline {paragraph}{ปฏิกิริยารีดักชัน}{23}{paragraph*.2}
+\contentsline {paragraph}{ปฏิกิริยาออกซิเดชัน}{24}{paragraph*.3}
+\contentsline {section}{\numberline {3.3}พลังงานที่ได้จากเซลล์เชื้อเพลิง}{24}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}พลังงานอิสระของกิบส์ (Gibbs Free Energy)}{25}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}พลังงานอิสระของกิบส์ที่เปลี่ยนแปลงในปฏิกิริยาเคมี}{26}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}ศักย์ไฟฟ้าจากเซลล์เชื้อเพลิง}{27}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}ประสิทธิภาพของเซลล์เชื้อเพลิง}{28}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}ชนิดของเซลล์เชื้อเพลิง}{29}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Proton Exchange Membrane (PEM)}{29}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Direct Methanol}{29}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Solid Oxide}{29}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}การวิเคราะห์ต้นทุนของเซลล์เชื้อเพลิง}{29}{section.3.5}
+\contentsline {chapter}{\numberline {4}พลังงานลม}{31}{chapter.4}
+\contentsline {section}{\numberline {4.1}หลักการแปลงพลังงานลม}{31}{section.4.1}
+\contentsline {section}{\numberline {4.2}อากาศพลศาสตร์ของกังหันลม}{33}{section.4.2}
+\contentsline {section}{\numberline {4.3}การออกแบบกังหันลมผลิตไฟฟ้า}{35}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}แนวแกนกังหัน}{35}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}วัสดุผลิตกังหัน}{35}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}ต้นทุนการผลิตไฟฟ้าพลังงานลม}{35}{section.4.4}
+\contentsline {chapter}{\numberline {5}พลังงานชีวภาพ}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}วัตถุดิบ (Feedstock)}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}เอทานอล}{37}{section.5.2}
+\contentsline {section}{\numberline {5.3}โบโอดีเซล}{37}{section.5.3}
+\contentsline {section}{\numberline {5.4}แก็สชีวภาพ}{37}{section.5.4}
+\contentsline {chapter}{\numberline {6}การกักเก็บพลังงาน (Energy Storage)}{38}{chapter.6}
+\contentsline {section}{\numberline {6.1}บ่อกักเก็บพลังงานแสงอาทิตย์ (Solar Ponds)}{38}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}บ่อกักเก็บแบบประดิษฐ์}{39}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}บ่อกักเก็บแบบเกิดเอง}{39}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}แบตเตอรี่}{39}{section.6.2}
+\contentsline {section}{\numberline {6.3}ล้อตุนกำลัง (Flywheel)}{39}{section.6.3}
+\contentsline {part}{II\hspace {1em}เศรษฐศาสตร์พลังงาน}{40}{part.2}
+\contentsline {chapter}{\numberline {7}การวิเคราะห์ต้นทุน}{41}{chapter.7}
+\contentsline {section}{\numberline {7.1}โครงสร้างต้นทุน}{41}{section.7.1}
+\contentsline {section}{\numberline {7.2}มูลค่าเงินตามเวลา (Time Value of Money)}{42}{section.7.2}
+\contentsline {section}{\numberline {7.3}ต้นทุนเฉลี่ยตลอดอายุโครงการ (Levelized Cost of Energy - LCOE)}{42}{section.7.3}
+\contentsline {section}{\numberline {7.4}อัตราผลตอบแทนภายใน (Internal Rate of Return - IRR)}{43}{section.7.4}
+\contentsline {section}{\numberline {7.5}มูลค่าปัจจุบันสุทธิ (Net Present Value - NPV)}{43}{section.7.5}
+\contentsline {part}{III\hspace {1em}ศักยภาพของพลังงานทดแทนในประเทศไทย}{44}{part.3}
+\contentsline {chapter}{\numberline {8}การพัฒนาอย่างยั่งยืน}{45}{chapter.8}
 \contentsfinish 

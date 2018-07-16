@@ -74,9 +74,6 @@
     "fig:lift-based turbine"
     "fig:power coeff lift-based turbine"
     "eq:LCOE")
-   (LaTeX-add-environments
-    '("gathered" LaTeX-env-args ["argument"] 0)
-    '("proof" LaTeX-env-args ["argument"] 0))
    (LaTeX-add-polyglossia-langs
     '("thai" "defaultlanguage" "")))
  :latex)

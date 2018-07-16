@@ -1,230 +1,96 @@
-\documentclass[
-% 12pt,
-a4paper,
-svgnames,
-openany,
-justified,
-]{tufte-book}
-
+% Created 2018-07-16 Mon 23:51
+% Intended LaTeX compiler: xelatex
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
 \usepackage{fontspec}
 \usepackage{polyglossia}
 \setdefaultlanguage{thai}
-\setcounter{secnumdepth}{2}
-\setcounter{tocdepth}{1}
-
+\usepackage{xltxtra}
+\usepackage[svgnames]{xcolor}
 \XeTeXlinebreaklocale "th_TH"
 \XeTeXlinebreakskip = 0pt plus 1pt
-
-% \setmainfont{TeX Gyre Pagella}
 \newfontfamily{\thaifont}[Scale=1.23]{TH Sarabun New}
-% \newfontfamily{\thaifontsf}{TH Sarabun New}
-% \newfontfamily{\thaifonttt}{TH Sarabun New}
-
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper} % or letterpaper (US) or a5paper or....
-
-\usepackage{graphicx} % support the \includegraphics command and options
-
-\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
-
-\usepackage{booktabs} % for much better looking tables
-\usepackage{array} % for better arrays (eg matrices) in maths
-\usepackage{enumitem}
-
-\usepackage{ifxetex}
-\ifxetex
-  \newcommand{\textls}[2][5]{%
-    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
-  }
-  \renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
-  \renewcommand{\smallcapsspacing}[1]{\textls[0]{#1}}
-  \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
-  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
-  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
-\fi
-
-\makeatletter
-% Paragraph indentation and separation for normal text
-\renewcommand{\@tufte@reset@par}{%
-  \setlength{\RaggedRightParindent}{0pt}%
-  \setlength{\JustifyingParindent}{0pt}%
-  \setlength{\parindent}{0pt}%
-  \setlength{\parskip}{10pt}%
-}
-\@tufte@reset@par
-
-% Paragraph indentation and separation for marginal text
-\renewcommand{\@tufte@margin@par}{%
-  \setlength{\RaggedRightParindent}{0.5pc}%
-  \setlength{\JustifyingParindent}{0.5pc}%
-  \setlength{\parindent}{0.5pc}%
-  \setlength{\parskip}{0pt}%
-}
-\makeatother
-%% Chapter Heading %%%%%
-\usepackage{titlesec} %% tufte-book already loads titlesec
-%% Drawing pics with tikz %%%
+\usepackage[parfill]{parskip}
 \usepackage{tikz}
 \usetikzlibrary{arrows,calc,decorations,shapes,shapes.misc,positioning,decorations.pathmorphing,patterns}
+\usepackage{circuitikz}
 \usepackage{pgfplots}
-\usepgfplotslibrary{colorbrewer}
-\usepackage[american]{circuitikz}
-
-\definecolor{lightblue}{RGB}{180,220,255}
-\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
-\definecolor{namecolor}{cmyk}{1,.50,0,.10}
-
-\titleformat{\chapter}
-{\huge\bfseries}
-{\thechapter}{20pt}{\huge}
-
-%% Section Heading %%%%%
-
-\titleformat{\section}
-{\Large\bfseries}
-{\thesection}{20pt}{}
-
-% Table of contents font setting
-\usepackage{tocloft}
-\renewcommand{\cftpartfont}{\Large\bfseries}
-\renewcommand{\cftchapfont}{\large\bfseries}
-\renewcommand{\cftsecfont}{\bfseries}
-
-\usepackage{float}
-\usepackage{amsmath}
-% \usepackage{newpxtext}
-% \usepackage{newpxmath}
-\usepackage{mathpazo}
-\let\openbox\relax
-
-%Example environment
-\usepackage{amsthm}
-\usepackage{thmtools}
-\usepackage{mdframed}
-
-\definecolor{example}{RGB}{204,255,204}
-\definecolor{titlepagecolor}{cmyk}{0.3,.50,0.50,.40}
-\definecolor{namecolor}{cmyk}{0.3,.50,0.5,.10}
-
-\declaretheoremstyle[
-spaceabove=6pt, spacebelow=0pt,
-headfont=\normalfont\bfseries,
-notefont=\mdseries, notebraces={(}{)},
-bodyfont=\normalfont,
-postheadspace=1em,
-numberwithin=chapter,
-preheadhook={\begin{mdframed}[backgroundcolor=LightSkyBlue,
-    innertopmargin=6pt, splittopskip=\topskip, % 
-    skipbelow=0pt, skipabove=6pt, %
-    topline=false,bottomline=false,leftline=false,rightline=false]},
-  postfoothook=\end{mdframed},
-headpunct={}
-]{exstyle}
-
-\declaretheoremstyle[
-spaceabove=12pt, spacebelow=6pt,
-headfont=\normalfont\bfseries,
-notefont=\mdseries, notebraces={(}{)},
-bodyfont=\normalfont,
-postheadspace=1em,
-numberwithin=chapter,
-preheadhook={\begin{mdframed}[backgroundcolor=LightSkyBlue,
-    innertopmargin=6pt, splittopskip=\topskip, % 
-    skipbelow=6pt, skipabove=0pt, %
-    topline=false,bottomline=false,leftline=false,rightline=false]},
-  postfoothook=\end{mdframed},
-headpunct={},
-]{solstyle}
-
-\declaretheorem[style=exstyle]{ตัวอย่าง}
-\declaretheorem[style=solstyle]{เฉลย}
-
-
+\pgfplotsset{compat=1.16}
+\usepackage{newtxmath}
+\author{สัปปินันทน์ เอกอำพน}
+\date{2018-07-16}
+\title{พลังงานทดแทนในประเทศไทย}
+\hypersetup{
+ pdfauthor={สัปปินันทน์ เอกอำพน},
+ pdftitle={พลังงานทดแทนในประเทศไทย},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.0.50 (Org mode 9.1.13)}, 
+ pdflang={English}}
 \begin{document}
 
-\frontmatter
+\maketitle
+\tableofcontents
 
-\begin{titlepage}
-  \newgeometry{top=1cm,left=1cm} %defines the geometry for the titlepage
-  \pagecolor{SkyBlue}
-  \raggedright \includegraphics[scale=0.2]{pictures/logo-tu} \\
-  \noindent
-  \color{white}
-  \makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
-  \par
-  \noindent
-  \textbf{มหาวิทยาลัยธรรมศาสตร์} \textcolor{DarkBlue}{คณะวิศวกรรมศาสตร์}
-  \vfill
-  \hspace{1cm}
-  \vfill
-  \noindent
-  \color{black}
-  \raggedleft{\Huge\textbf{พลังงานงานทดแทนในประเทศไทย}}
-  \vskip\baselineskip
-  \noindent
-  {\huge\color{Black}{สัปปินันทน์ เอกอำพน}}
-\end{titlepage}
+\maketitle
 
-\restoregeometry % restores the geometry
-\pagecolor{White}% Use this to restore the color pages to white
-
-
-\chapter*{คำนำ}
+\section{คำนำ}
+\label{sec:orgab46bd3}
 
 ตำราเล่มนี้ถูกเขียนขึ้นเพื่อใช้ประกอบการเรียนการสอนเกี่ยวกับการใช้พลังงานแสงอาทิตย์สำหรับนักศึกษาปี ๓ - ๔ และสำหรับบุคคลทั่วไปที่มีความสนใจทางด้านดังกล่าว โดยที่แม้เนื้อหาบางส่วนจะมีคณิตศาสตร์ชั้นสูงเพื่อช่วยในการแสดงความสัมพันธ์ระหว่างตัวแปร แต่ความตั้งใจหลักของผู้เขียนต้องการจะให้ผู้ที่มีความสนใจและมีพื้นฐานคณิตศาสตร์ระดับมัธยมปลายควรจะสามารถอ่านแล้วเข้าใจได้ ทั้งนี้เนื่องจากผู้เขียนเล็งเห็นความสำคัญของการสร้างความเข้าใจพื้นฐานเรื่องของพลังงานแสงอาทิตย์ รวมถึงเทคโนโลยีต่างๆที่จะนำไประยุกต์ใช้เพื่อกักเก็บ แปลง หรือนำพลังงานนี้ไปใช้ เพื่อให้ผู้อ่านจะได้มีความเข้าใจที่ถูกต้อง มีพื้นฐานความรู้ที่เหมาะสมในการทำงานในเทคโนโลยีพลังงานสะอาดในอนาคต หรือแม้แต่สามารถทำความเข้าใจและคำนึงถึงความเหมาะสมของนโยบายหรือโครงการที่เกี่ยวกับพลังงานแสงอาทิตย์ได้โดยไม่เชื่อเพียงคำโฆษณาหรืออวดอ้างที่อาจจะเกินความเป็นจริงในหลายครั้ง
 
 ผู้เขียนหวังว่าข้อมูลที่ได้รับการรวบรวมไว้ในตำราเล่มนี้จะเป็นประโยชน์ต่อผู้อ่านในวงกว้าง มิใช่เฉพาะระดับนักศึกษาหรือนักวิชาการเท่านั้น อย่างไรก็ดี ถ้าหากผู้อ่านมีความรู้พื้นฐานทางด้านฟิสิกส์พื้นฐาน จะทำให้สามารถเข้าใจเนื้อหาและบทวิเคราะห์ได้ดียิ่งขึ้น รวมถึงสามารถนำความรู้ที่ได้รับนำไปวิเคราะห์ข้อมูลอื่นๆได้ด้วยตนเอง
 
-\vspace{2cm}\hspace{5cm}สัปปินันทน์ เอกอำพน
-
-\clearpage
-\tableofcontents
-
-\clearpage
-\listoffigures
-
-\clearpage
-\listoftables
-
-\mainmatter
-
-\part{พลังงานทดแทนเบื้องต้น}
-
-\chapter{พลังงานแสงอาทิตย์}
+\section{พลังงานแสงอาทิตย์}
+\label{sec:org89dd86a}
 
 เวลาพูดถึงพลังงานแสงอาทิตย์นั้น หลายๆคนอาจจะนึกถึงแดดร้อนๆในช่วงเดือนมีนาคมหรือเมษายน แต่จริงๆแล้วจะรู้ไหมว่าพลังงานที่มีอยู่ในแสงอาทิตย์นั้นประกอบด้วยหลายส่วน การจะตักตวงพลังงานแสงอาทิตย์มาใช้ให้ได้เต็มที่นั้น จำเป็นที่เราจะต้องมีความเข้าใจถึงส่วนประกอบเหล่านี้
 
 เนื่องจากพลังงานแสงอาทิตย์นั้นเป็นพลังงานที่เกิดขึ้นมาจากการแผ่รังสีของดวงอาทิตย์ออกมาในรูปของคลื่นแม่เหล็กไฟฟ้าในช่วงคลื่นต่างๆ ดังนั้นเราควรจะเริ่มทำความเข้าใจกับการแผ่รังสีของวัตถุดำก่อน
 
-\section{การแผ่รังสีของวัตถุดำ (Blackbody Radiation)}
+\subsection{การแผ่รังสีของวัตถุดำ (Blackbody Radiation)}
+\label{sec:org9574d41}
 
 การแผ่รังสีของวัตถุดำเกิดจากการแผ่รังสีคลื่นแม่เหล็กไฟฟ้าจากความร้อนของวัตถุซึ่งอยู่ในสภาวะสมดุลทางอุณหพลศาสตร์กับสิ่งแวดล้อม ซึ่งช่วงความถี่และความเข้มข้นของคลื่นต่างๆนั้นขึ้นอยู่กับอุณหภูมิของวัตถุดังกล่าว อย่างไรก็ดี ในความเป็นจริงแล้วไม่มีวัตถุได้ที่มีการแผ่รังสีเหมือนวัตถุดำแท้จริง โดนเฉพาะอย่างยิ่งดาวฤกษ์อย่างพระอาทิตย์นั้นก็ไม่ได้อยู่ในสภาวะสมดุลกับสิ่งแวดล้อม แต่ความเข้าใจเรื่องของการแผ่รังสีนี้ก็สามารถนำมาใช้ทำความเข้าใจส่วนประกอบของแสงอาทิตย์ได้
 
-ยกตัวอย่างเช่น ในวัตถุที่มีอุณหภูมิต่ำนั้น ในห้องมืดจะมองเห็นเป็นสีดำเนื่องจากช่วงคลื่นที่แผ่ออกมาเป็นช่วงอินฟราเรดซึ่งมองด้วยตาเปล่าไม่เห็น เมื่ออุณหภูมิสูงขึ้นถึงราว 500$^{\circ}$ C การแผ่รังสีเริ่มเข้าอยู่ในช่วงความถี่ที่ตามองเห็น (visible spectrum) และจะเริ่มมีสีแดง เมื่ออุณหภูมิสูงมากจะออกเป็นสีฟ้าขาว เมื่อวัตถุมีการแผ่รังสีเป็นสีขาว แสดงว่ามีการแผ่รังสีบางส่วนออกมาเป็นรังสีอัลตราไวโอเลต
+ยกตัวอย่างเช่น ในวัตถุที่มีอุณหภูมิต่ำนั้น ในห้องมืดจะมองเห็นเป็นสีดำเนื่องจากช่วงคลื่นที่แผ่ออกมาเป็นช่วงอินฟราเรดซึ่งมองด้วยตาเปล่าไม่เห็น เมื่ออุณหภูมิสูงขึ้นถึงราว 500\(^{\circ}\) C การแผ่รังสีเริ่มเข้าอยู่ในช่วงความถี่ที่ตามองเห็น (visible spectrum) และจะเริ่มมีสีแดง เมื่ออุณหภูมิสูงมากจะออกเป็นสีฟ้าขาว เมื่อวัตถุมีการแผ่รังสีเป็นสีขาว แสดงว่ามีการแผ่รังสีบางส่วนออกมาเป็นรังสีอัลตราไวโอเลต
 
 ดวงอาทิตย์ซึ่งมีอุณหภูมิที่ผิวประมาณ 5800 K นั้น มีการแผ่รังสีออกมามากที่สุดในช่วงคลื่นแสงและอินฟราเรด และมีจำนวนอีกเล็กน้อยในช่วงอัลตราไวโอเลต
 
-\section{ทิศทางของแสงอาทิตย์}
+\subsection{ทิศทางของแสงอาทิตย์}
+\label{sec:orgcf41d51}
 
 เนื่องจากดวงอาทิตย์เคลื่อนที่อยู่ตลอดเวลา และพลังงานของแสงอาทิตย์ที่ตกกระทบลงบนพื้นที่หนึ่งๆขึ้นอยู่กับความเข้มข้นของแสงและมุมตกกระทบ เพื่อจะเพิ่มพลังงานแสงอาทิตย์ที่ได้รับ เราสามารถออกแบบอุปกรณ์ให้มีความสามารถในการติดตามดวงอาทิตย์ (solar tracking) ซึ่งในปัจจุบันมีเทคโนโลยีหลายวิธีที่ใช้ในการติดตาม ซึ่งแบ่งได้เป็น 2 ประเภทใหญ่
 
-\subsection{การติดตามแบบใช้พลังงาน}
+\subsubsection{การติดตามแบบใช้พลังงาน}
+\label{sec:org79d6725}
 
 การติดตามดวงอาทิตย์แบบใช้พลังงานหรือที่เรียกว่า Active Tracking นั้นเป็นการใช้ระบบ Feedback Loop โดยใช้ตัวรับแสงเพื่อช่วยในการบอกตำแหน่งของดวงอาทิตย์ที่ประเมินผล แล้วส่งสัญญาณให้กับระบบควบคุมให้เคลื่อนที่ไปยังตำแหน่งที่ต้องการ
 
-\subsection{การติดตามแบบไม่ใช้พลังงาน}
+\subsubsection{การติดตามแบบไม่ใช้พลังงาน}
+\label{sec:org7c249ef}
 
 \section{เซลล์แสงอาทิตย์}
+\label{sec:org53927b1}
 
 เซลล์แสงอาทิตย์ (Solar cell หรือ Photovoltaic cell) เป็นอุปกรณ์ที่สามารถแปลงพลังงานจากคลื่นแม่เหล็กไฟฟ้าในแสงอาทิตย์ให้เป็นพลังงานไฟฟ้าได้โดยตรงโดยใช้ปรากฏการณ์โฟโตโวลตาอิก (Photovoltaic effect) ปรากฏการณ์นี้เกิดขึ้นจากการเคลื่อนไหวของอิเลกตรอนในเซลล์แสงอาทิตย์เมื่อได้ดูดซับพลังงานแสงอาทิตย์ ซึ่งทำให้เกิดกระแสไฟฟ้าซึ่งสามารถนำไปใช้ให้เกิดประโยชน์ได้
 
 จริงๆแล้วปรากฏการณ์โฟโตโวลตาอิกนั้นสามารถเกิดขึ้นได้ในวัสดุอื่นๆนอกจากเซลล์สุริยะด้วย แต่เนื่องจากการเคลื่อนที่ของอิเลกตรอนจากปรากฏการณ์ดังกล่าวนั้นไม่มีทิศทางหรือแนวโน้มใดๆ จึงทำให้ไม่มีกระแสลัพธ์เกิดขึ้น จำเป็นจะต้องมีวิธีบังคับการไหลของอิเลกตรอนเพื่อให้เกิดกระแสได้ นั่นเป็นสาเหตุที่เซลล์สุริยะจำเป็นจะต้องมีการออกแบบวงจรพิเศษ
 
+\subsection{หลักการทำงานของเซลล์แสงอาทิตย์}
+\label{sec:org67c9a44}
 
-
-\section{หลักการทำงานของเซลล์แสงอาทิตย์}
-
-ในเซลล์สุริยะนั้น ระบบวงจรที่จะบังคับทิศทางการไหลของอิเลกตรอนที่เกิดจากปรากฏการณ์โฟโตโวทาอิกคือ P-N junction ซึ่งเป็นการเชื่อมต่อระหว่างสารกึ่งตัวนำประเภทบวก (P-type) กับประเภทลบ (N-type) โดยที่สาร P-type นั้นมีหลุมอิเลกตรอนเนื่องมาจากการ dope สารที่ขาดอิเลกตรอนลงไปในซิลิกอน ส่วนสาร N-type นั้นมีอิเลกตรอนอิสระเนื่องจากการ dope สารที่มีอิเลกตรอนอิสระลงไป เมื่อนำสารทั้งสองแบบมาเชื่อมต่อกัน หลุมอิเลกตรอนและอิเลกตรอนอิสระเคลื่อนที่เข้าหากันทำให้เกิด \emph{Depletion Zone} ซึ่งป้องกันการไหลของอิเลกตรอนอีก เมื่อแสงอาทิตย์ตกกระทบ อิเลกตรอนอิสระและหลุมอิเลกตรอนที่เกิดขึ้นจึงถูกบังคับให้ไหลผ่านความต้านทานภายนอกซึ่งทำให้เกิดกระแสไฟฟ้าขึ้น
+ในเซลล์สุริยะนั้น ระบบวงจรที่จะบังคับทิศทางการไหลของอิเลกตรอนที่เกิดจากปรากฏการณ์โฟโตโวทาอิกคือ P-N junction ซึ่งเป็นการเชื่อมต่อระหว่างสารกึ่งตัวนำประเภทบวก (P-type) กับประเภทลบ (N-type) โดยที่สาร P-type นั้นมีหลุมอิเลกตรอนเนื่องมาจากการ dope สารที่ขาดอิเลกตรอนลงไปในซิลิกอน ส่วนสาร N-type นั้นมีอิเลกตรอนอิสระเนื่องจากการ dope สารที่มีอิเลกตรอนอิสระลงไป เมื่อนำสารทั้งสองแบบมาเชื่อมต่อกัน หลุมอิเลกตรอนและอิเลกตรอนอิสระเคลื่อนที่เข้าหากันทำให้เกิด \textbf{Depletion Zone} ซึ่งป้องกันการไหลของอิเลกตรอนอีก เมื่อแสงอาทิตย์ตกกระทบ อิเลกตรอนอิสระและหลุมอิเลกตรอนที่เกิดขึ้นจึงถูกบังคับให้ไหลผ่านความต้านทานภายนอกซึ่งทำให้เกิดกระแสไฟฟ้าขึ้น
 
 ปริมาณกระแสที่เซลล์แสงอาทิตย์สร้างขึ้นได้นั้นขึ้นอยู่กับปัจจัยหลายประการ เช่น ประสิทธิภาพของ P-N junction ในการป้องกันกระแสย้อนกลับ และประสิทธิภาพของวัสดุเซลล์ในการสร้างอิเลกตรอนเมื่อมีแสงอาทิตย์ตกกระทบ ซึ่งระบบเซลล์แสงอาทิตย์สามารถเขียนแทนได้ด้วยวงจรเทียบเท่าได้โดยไดโอดและความต้านทานภายในดังรูป \ref{fig: equiv circuit solar cell}
 
@@ -244,12 +110,9 @@ headpunct={},
 
 จากวงจรเทียบเท่าดังกล่าว สามารถเขียนสมการแสดงปริมาณกระแสที่เซลล์สุริยะได้ว่า กระแสที่ไหลผ่านไปที่โหลดภายนอกเท่ากับกระแสที่เซลล์สุริยะสร้างได้ลบด้วยกระแสที่ไหลย้อนผ่าน P-N junction
 
-\begin{equation}
-  \label{eq: solar cell current density}
-  i = i_{PV} - i_D  
-\end{equation}
+$$ i = i_{PV} - i_D $$
 
-ปริมาณกระแสที่ไหลผ่าน P-N junction ขึ้นอยู่กับอุณหภูมิ ($T$) และความต่างศักย์ของโหลดภายนอก ($V$) โดยสามารถเขียนเป็นสมการได้ดังนี้
+ปริมาณกระแสที่ไหลผ่าน P-N junction ขึ้นอยู่กับอุณหภูมิ (\(T\)) และความต่างศักย์ของโหลดภายนอก (\(V\)) โดยสามารถเขียนเป็นสมการได้ดังนี้
 
 \begin{equation}
   \label{eq: pn current}
@@ -263,7 +126,7 @@ headpunct={},
     i = i_{PV} - i_0\left[exp \left( \frac{eV}{kT} \right) - 1 \right]
 \end{equation}
 
-โดยที่ $i_0$ คือกระแสย้อนกลับอิ่มตัวของ P-N junction, $i_{PV}$ คือกระแสจากปรากฏการณ์โฟโตโวลทาอิก และ $i$ คือกระแสที่ผ่านตัวต้านทานภายนอก 
+โดยที่ \(i_0\) คือกระแสย้อนกลับอิ่มตัวของ P-N junction, \(i_{PV}\) คือกระแสจากปรากฏการณ์โฟโตโวลทาอิก และ \(i\) คือกระแสที่ผ่านตัวต้านทานภายนอก 
 
 เซลล์สุริยะสามารถผลิตกำลังได้สูงสุดเมื่อ
 
@@ -274,7 +137,7 @@ headpunct={},
    	exp \left(\frac{e V_{\max P}}{kT} \right) = \dfrac{1+\dfrac{i_{PV}}{i_0}}{1+ \dfrac{e V_{\max P}}{kT}}
 \end{gather}
 
-สังเกตว่าสมการนี้มีค่า $V_{\max P}$ อยู่ทั้งสองด้าน ไม่สามารถแก้สมการเชิงวิเคราะห์ได้ จำเป็นต้องแก้สมการเชิงตัวเลข
+สังเกตว่าสมการนี้มีค่า \(V_{\max P}\) อยู่ทั้งสองด้าน ไม่สามารถแก้สมการเชิงวิเคราะห์ได้ จำเป็นต้องแก้สมการเชิงตัวเลข
 
 ประสิทธิภาพสูงสุดของแผงเซลล์สุริยะเกิดในตอนที่แผงผลิตกำลังไฟฟ้าสูงสุด ซึ่งเขียนเป็นสมการได้ว่า
 
@@ -334,253 +197,29 @@ headpunct={},
   \caption{กราฟแสดงความสัมพันธ์ระหว่างกระแส แรงดันไฟฟ้า และกำลังไฟฟ้าที่ผลิตได้จากในเซลล์แสงอาทิตย์ที่อุณหภูมิ 25$^{\circ}$C}
 \end{figure}
 
-\begin{ตัวอย่าง} คำนวณประสิทธิภาพสูงสุดของเซลล์แสงอาทิตย์นี้
+\subsection{พลังงานความร้อนแสงอาทิตย์\}}
+\label{sec:org0b0e23d}
 
-  เซลล์สุริยะมีค่าความหนาแน่นกระแสลัดวงจร 300 A/m$^2$ และความหนาแน่นกระแสย้อนกลับอิ่มตัว 5 $\times$ 10$^{-7}$ A/m$^2$ ระหว่างการทำงาน แผงมีอุณหภูมิ 50$^{\circ}$C
-\end{ตัวอย่าง}
-\begin{เฉลย}
-\end{เฉลย}
-
-\section{ต้นทุนของการผลิตไฟฟ้าจากเซลล์แสงอาทิตย์}
-
-\begin{figure}[h]
-\pgfplotstableread[row sep=\\,col sep=&]{
-  Materials & Price \\
-    Mono-Si  & 0.75  \\
-    Poly-Si  & 0.55  \\
-    Thin film (Amor-Si)  & 0.69  \\
-    Thin film (CdTe)  & 0.59  \\
-  }\mydata
-  
-  \begin{tikzpicture}
-    \begin{axis}[
-      ybar,
-      bar width=1cm,
-      width=0.95\textwidth,
-      height=.6\textwidth,
-      legend style={at={(0.5,1)},
-        anchor=north,
-        fill=none},
-      symbolic x coords={Mono-Si,Poly-Si, Thin film (Amor-Si),Thin film (CdTe)},
-      xtick=data,
-      % xlabel={},
-      ymax=1,ymin=0,
-      nodes near coords,
-      nodes near coords align={vertical},
-      ylabel={\$/Watt},
-      ]
-      \addplot table[x=Materials,y=Price]{\mydata};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{เปรียบเทียบต้นทุนการผลิตกระแสไฟฟ้าจากเซลล์แสงอาทิตย์แต่ละประเภท}
-\end{figure} 
-
-\begin{figure}[h]
-\pgfplotstableread[row sep=\\,col sep=&]{
-  Year & Price \\
-  1977 & 76   \\
-  1978 & 58   \\
-  1979 & 40   \\
-  1980 & 30   \\
-  1981 & 24   \\
-  1982 & 18   \\
-  1983 & 16   \\
-  1984 & 14   \\
-  1985 & 12   \\
-  1986 & 11   \\
-  1987 & 10   \\
-  1988 & 8    \\
-  1989 & 7    \\
-  1990 & 8    \\
-  1991 & 8    \\
-  1992 & 7    \\
-  1993 & 7    \\
-  1994 & 6.5  \\
-  1995 & 5    \\
-  1996 & 5.5  \\
-  1997 & 6    \\
-  1998 & 6    \\
-  1999 & 5    \\
-  2000 & 4.5  \\
-  2001 & 4.7  \\
-  2002 & 4.6  \\
-  2003 & 4    \\
-  2004 & 3    \\
-  2005 & 3.7  \\
-  2006 & 3.5  \\
-  2007 & 3.5  \\
-  2008 & 1.3  \\
-  2009 & 1.3  \\
-  2010 & 1.1  \\
-  2011 & 0.7  \\
-  2012 & 0.5  \\
-  2013 & 0.4  \\
-  2014 & 0.35 \\
-  2015 & 0.3  \\
-}\mydata
-
-  \begin{tikzpicture}
-    \begin{axis}[
-      ybar,
-      bar width=1mm,
-      width=0.95\textwidth,
-      height=.6\textwidth,
-      legend style={at={(0.5,1)},
-        anchor=north,
-        fill=none},
-      % xlabel={},
-      ylabel={\$/Watt},
-      xlabel={Year},
-      xtick distance=5,
-      /pgf/number format/.cd,
-      use comma,
-      1000 sep=,
-      ]
-      \addplot table[x=Year,y=Price]{\mydata};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{ประวัติต้นทุนของแผงเซลล์แสงอาทิตย์ต่อวัตต์จากปี 1975 - 2015}
-\end{figure} 
-
-\begin{figure}[h]
-\pgfplotstableread[row sep=\\,col sep=&]{
-  Type          & PV Module & Inverter & Elec BOS & Struct BOS & Direct Labor &  Engineering and Insurance & Supply Chain OH and Margin \\
-  Residential   & 0.4 & 0.2 & 0.2  & 0.05  & 0.17 & 0.15 & 1.25 \\
-  Commercial    & 0.4 & 0.1 & 0.1  & 0.1   & 0.2  & 0.1  & 0.6  \\
-  Utility-Scale & 0.4 & 0.1 & 0.05 & 0.075 & 0.09 & 0.02 & 0.3  \\
-}\mydata
-
-  \begin{tikzpicture}
-    \begin{axis}[
-      ybar stacked,
-      bar width=1cm,
-      width=0.95\textwidth,
-      height=.6\textwidth,
-      legend style={at={(1,1)},
-        anchor=north east,
-        fill=none,
-        legend columns=3},
-      % xlabel={},
-      symbolic x coords={Residential, Commercial, Utility-Scale},
-      xtick=data,
-      ylabel={\$/Watt-DC},
-      ytick distance=0.5,
-      enlarge x limits=0.30,
-      cycle list/Set2,
-      every axis plot/.append style={fill} 
-      ]
-      \addplot table[x=Type,y=PV Module]{\mydata};
-      \addplot table[x=Type,y=Inverter]{\mydata};
-      \addplot table[x=Type,y=Elec BOS]{\mydata};
-      \addplot table[x=Type,y=Struct BOS]{\mydata};
-      \addplot table[x=Type,y=Direct Labor]{\mydata};
-      \addplot table[x=Type,y=Engineering and Insurance]{\mydata};
-      \addplot table[x=Type,y=Supply Chain OH and Margin]{\mydata};
-      \legend{PV, Inv, Elec, Struct, Labor, Eng and Ins, SC};
-    \end{axis}
-  \end{tikzpicture}
-  \caption{แผนภูมิแจกแจงต้นทุนของการผลิตไฟฟ้าด้วยเซลล์แสงอาทิตย์ในปี 2559}
-\end{figure} 
-
-\section{สภาพการทำงานของเซลล์แสงอาทิตย์}
-
- \pgfplotstableread[row sep=\\,col sep=&]{
-    Time   & Temperature & Radiation \\
-    5.972  & 27.714      & 79.696  \\
-    6.477  & 32.857      & 162.960 \\
-    7.011  & 37.048      & 269.163 \\
-    7.488  & 42.381      & 389.696 \\
-    7.994  & 47.143      & 501.640 \\
-    8.527  & 51.714      & 619.307 \\
-    9.004  & 58.000      & 711.172 \\
-    9.510  & 62.952      & 797.303 \\
-    10.015 & 65.810      & 874.832 \\
-    10.492 & 69.429      & 932.283 \\
-    11.026 & 70.190      & 966.801 \\
-    11.503 & 72.286      & 992.717 \\
-    12.037 & 69.429      & 1001.422 \\
-    12.486 & 69.429      & 990.067 \\
-    13.019 & 65.810      & 970.098 \\
-    13.497 & 62.000      & 918.600 \\
-    14.058 & 60.095      & 869.950 \\
-    14.479 & 56.857      & 801.242 \\
-    14.985 & 53.810      & 718.202 \\
-    15.462 & 50.762      & 615.078 \\
-    15.996 & 48.667      & 500.491 \\
-    16.501 & 44.667      & 388.771 \\
-    17.006 & 40.857      & 291.388 \\
-    17.540 & 38.381      & 185.397 \\
-    17.989 & 36.095      & 88.020 \\
-    18.495 & 36.286      & 42.244 \\
-    19.000 & 34.000      & 36.232 \\
-  }\mydata
-  
-  \begin{tikzpicture}
-    \begin{axis}[
-      width=0.9\textwidth,
-      height=.8\textwidth,
-      xlabel={เวลาของวัน},
-      axis y line*=left,
-      ylabel={อุณหภูมิแวดล้อม [$^{\circ}$C]},
-      ymin=0,ymax=100,
-      ]
-      \addplot table[x=Time,y=Temperature]{\mydata};
-      \label{plot1}
-    \end{axis}
-    \begin{axis}[
-      width=0.9\textwidth,
-      height=.8\textwidth,
-      axis y line*=right,
-      ylabel={ความเข้มแสง [W/m$^2$]},
-      axis x line=none,
-      compat=1.16,
-      legend style={
-        legend columns=1,
-        legend cell align=left,
-      },
-      ]
-      \addlegendimage{/pgfplots/refstyle=plot1}\addlegendentry{อุณหภูมิ};
-      \addplot[Red, mark=*] table[x=Time,y=Radiation]{\mydata};
-      \addlegendentry{ความเข้มแสง};
-    \end{axis}
-  \end{tikzpicture}
+\subsubsection{การรับความร้อนโดยตรง\}}
+\label{sec:org1580a46}
 
 
-\begin{ตัวอย่าง} การคำนวณต้นทุนไฟฟ้าเฉลี่ยตลอดอายุโครงการของการติดตั้งเซลล์แสงอาทิตย์แบบคงที่ แบบติดตาม 1 แกน และแบบติดตาม 2 แกน
+\subsubsection{การรับความร้อนแบบรวมแสง\}}
+\label{sec:org2e64dc3}
 
-  พิจารณาค่า LCOE โดยมีข้อมูลดังนี้
+\subsection{คุณสมบัติของตัวรับแสง\}}
+\label{sec:org2c79b56}
 
-  \begin{itemize}
-  \item ต้องการกำลังการผลิต 1 เมกะวัตต์ และทำงานได้ 11 ชม.ต่อวัน
-  \item Fixed: 1/0.4 = 2.5 MW, 1-axis: 1/0.65 = 1.54 MW, 2-axis: 1.25 MW
-  \item ค่าเซลล์แสงอาทิตย์ 20 บาทต่อวัตต์ (อ้างอิงกำลังการผลิต)
-  \item ค่าอินเวอร์เตอร์แปลงไฟ 22 บาทต่อวัตต์
-  \item ค่าโครงสร้าง 10\% ของค่าเซลล์ + อินเวอร์เตอร์
-  \item ค่าแรงงานติดตั้ง 10\% ของอุปกรณ์ทั้งหมด (ครั้งเดียว)
-  \item ค่าดำเนินงานและซ่อมบำรุง (O \& M): 5\% ของอุปกรณ์ทั้งหมดต่อปี
-  \item การใช้ที่ดิน $\approx$ 10 m$^2$ ต่อกิโลวัตต์ (ราคาที่ดิน 1 ล้านบาทต่อไร่) ติดตั้งบนหลังคา = ไม่มีค่าใช้จ่าย
-  \end{itemize}
-\end{ตัวอย่าง}
-\begin{เฉลย}
-  
-\end{เฉลย}
+\subsection{เทคโนโลยีนำความร้อนไปใช้ต่อ\}}
+\label{sec:orgad0d10a}
 
-\section{พลังงานความร้อนแสงอาทิตย์}
-
-\subsection{การรับความร้อนโดยตรง}
-
-
-\subsection{การรับความร้อนแบบรวมแสง}
-
-\section{คุณสมบัติของตัวรับแสง}
-
-\section{เทคโนโลยีนำความร้อนไปใช้ต่อ}
-
-\chapter{เทอร์โมอิเล็กทริก (Thermoelectricity)}
+\section{เทอร์โมอิเล็กทริก (Thermoelectricity)}
+\label{sec:org8718e16}
 
 เทอร์โมอิเล็กทริกซิตี้เป็นการแปลงพลังงานโดยตรงจากความร้อนไปเป็นพลังงานไฟฟ้า ซึ่งสารที่สามารถแปลงพลังงานด้วยวิธีนี้ได้เรียกว่าวัสดุเทอร์โมอิเล็กทริก (Thermoelectric materials) ซึ่งเทคโนโลยีนี้มีความน่าสนใจเนื่องจากในปัจจุบันในโลกของเรายังมีแหล่งพลังงานความร้อนราคาถูกอยู่มาก ไม่ว่าจะเป็นแหล่งพลังงานพลังงานแสงอาทิตย์ หรือพลังงานความร้อนเหลือใช้ (Waste heat) จากกระบวนการทางอุตสาหกรรมต่างๆ โดยในการแปลงพลังงานที่เกิดขึ้นนั้นเกิดขึ้นจากปรากฏการณ์เทอร์โมอิเล็กทริก (thermoelectric effect) ซึ่งสามารถแบ่งย่อยออกเป็นปรากฏการณ์ซึ่งเกิดขึ้นพร้อมกัน 3 อย่างดังต่อไปนี้
 
-\section{ปรากฏการณ์ซีเบ็ก (Seebeck Effect)}
+\subsection{ปรากฏการณ์ซีเบ็ก (Seebeck Effect)}
+\label{sec:org5b25314}
 
 เทอร์โมอิเล็กทริกซิตี้เป็นปรากฏการณ์การเกิดศักย์ไฟฟ้าขึ้นบนตัวนำหรือสารกึ่งตัวนำที่มีอุณหภูมิเปลี่ยนไป โดยมีหลักการมาจากการแพร่ (diffusion) ของพาหะของประจุ (charge carrier) ในสารเมื่อได้รับความร้อน โดยในสารตัวนำและกึ่งตัวนำทั่วไปจะมีทั้งอิเลกตรอนอิสระ (free electrons) ซึ่งมีประจุลบ และหลุม (holes) ซึ่งมีประจุบวก เมื่อวัสดุได้รับความร้อน พาหะในสารจะแพร่ตัวออกไปยังบริเวณที่มีอุณหภูมิต่ำกว่า การสะสมของพาหะเหล่านี้ทำให้เกินศักย์ไฟฟ้าขึ้น
 
@@ -602,7 +241,7 @@ headpunct={},
   \caption{หลักการของปรากฏการณ์เทอร์โมอิเล็กทริก}
 \end{figure}
 
- เมื่อนำไปต่อกับภาระภายนอกจะทำให้มีการไหลของกระแสไฟฟ้าเกินขึ้นได้
+เมื่อนำไปต่อกับภาระภายนอกจะทำให้มีการไหลของกระแสไฟฟ้าเกินขึ้นได้
 
 \begin{figure}[h]
   \centering
@@ -639,24 +278,24 @@ headpunct={},
 
 โดยค่าสัมประสิทธิ์สำหรับวัสดุทั่วไปที่มีสมบัติเป็นวัสดุเทอร์โมอิเล็กทริกได้มีดังนี้
 
-\begin{table}[h]
-  \centering
-  \caption{ค่าสัมประสิทธิ์ซีเบ็กของวัสดุต่างๆที่ 25 C}
-  \label{tab:seebeck of materials}
-  \begin{tabular}{l c}
-    \toprule
-    Material & $S$, V / K $\times 10^{-6}$ \\
-    \midrule
-    Aluminum & -0.2 \\
-    Constantan & -47 \\
-    Copper & 3.5 \\
-    Iron & 13.6 \\
-    Platinum & -5.2 \\
-    Germanium & 375 \\
-    Silicon & -455 \\
-    Bismuth Telluride & 200 \\
-    \bottomrule
-  \end{tabular}
+\begin{table}[htbp]
+\caption{\label{tab:org8ebcf41}
+ค่าสัมประสิทธิ์ซีเบ็กของวัสดุต่างๆที่ 25 C}
+\centering
+\begin{tabular}{lr}
+\hline
+Material & \(S\), V / K \(\times 10^{-6}\)\\
+\hline
+Aluminum & -0.2\\
+Constantan & -47\\
+Copper & 3.5\\
+Iron & 13.6\\
+Platinum & -5.2\\
+Germanium & 375\\
+Silicon & -455\\
+Bismuth Telluride & 200\\
+\hline
+\end{tabular}
 \end{table}
 
 อย่างไรก็ดี ประสิทธิภาพของเทอร์โมอิเล็กทริกจากวัสดุหนึ่งๆนั้นไม่ได้ขึ้นอยู่กับค่าสัมประสิทธิ์ซีเบ็กเพียงอย่างเดียว เนื่องจากลักษณะการทำงานและการต่อเชื่อมของเทอร์โมอิเล็กทริกกับวงจรไฟฟ้านั้นเป็นเหมือนแบตเตอรี่ชนิดหนึ่ง ซึ่งสามารถเขียนอธิบายเป็นวงจรได้ดังนี้
@@ -672,14 +311,14 @@ headpunct={},
   \label{fig:thermoelectric circuit}
 \end{figure}
 
-จากภาพ \ref{fig:thermoelectric circuit} จะเห็นว่าเทอร์โมอิเล็กทริกเป็นเหมือนแหล่งศักย์ไฟฟ้า ($V$) และมีความต้านทานภายใน ($R_{TEG}$) 
+จากรูปที่ \ref{fig:thermoelectric circuit} จะเห็นว่าเทอร์โมอิเล็กทริกเป็นเหมือนแหล่งศักย์ไฟฟ้า (\(V\)) และมีความต้านทานภายใน (\(R_{TEG}\)) 
 
 \begin{gather}
   V_L = S_{pn}\Delta T - iR_{int} \\
   R_{int} = R_p + R_n
 \end{gather}
 
-นอกจากนี้ อีกวิธีที่จะเพิ่มปริมาณไฟฟ้าก็คือการต่อคู่เทอร์โมอิเล็กตริกแบบอนุกรมเพื่อเพิ่มแรงดันไฟฟ้า เหมือนอย่างเวลาต่อแบตเตอรี่ AA หรือ AAA หลายก้อนในอุปกรณ์ไฟฟ้าแบบพกพาทั้งหลาย ถ้าสมมุติว่าต่อเทอร์โมอิเล็กทริกทั้งหมด $m$ คู่ จะได้สมการไฟฟ้าว่า
+นอกจากนี้ อีกวิธีที่จะเพิ่มปริมาณไฟฟ้าก็คือการต่อคู่เทอร์โมอิเล็กตริกแบบอนุกรมเพื่อเพิ่มแรงดันไฟฟ้า เหมือนอย่างเวลาต่อแบตเตอรี่ AA หรือ AAA หลายก้อนในอุปกรณ์ไฟฟ้าแบบพกพาทั้งหลาย ถ้าสมมุติว่าต่อเทอร์โมอิเล็กทริกทั้งหมด \(m\) คู่ จะได้สมการไฟฟ้าว่า
 
 \begin{gather}
   V = m S_{pn} \Delta T \\
@@ -687,21 +326,22 @@ headpunct={},
   V_L = m S_{pn} \Delta T - i mR_{int}
 \end{gather}
 
-การที่จะสามารถดึงกำลังไฟฟ้าจากเทอร์โมอิเล็กทริกมาใช้ให้ได้มากที่สุดจึงจำเป็นจะต้องมีการปรับความต้านทานภาระ (Load resistance, $R_L$) ให้เหมาะสม เพื่อให้มีการสูญเสียไปกับความต้านทานภายในของเทอร์โมอิเล็กทริกให้น้อยที่สุด ซึ่งความต้านทานภาระที่เหมาะสมนี้สามารถหาได้จากสมการดังนี้
+การที่จะสามารถดึงกำลังไฟฟ้าจากเทอร์โมอิเล็กทริกมาใช้ให้ได้มากที่สุดจึงจำเป็นจะต้องมีการปรับความต้านทานภาระ (Load resistance, \(R_L\)) ให้เหมาะสม เพื่อให้มีการสูญเสียไปกับความต้านทานภายในของเทอร์โมอิเล็กทริกให้น้อยที่สุด ซึ่งความต้านทานภาระที่เหมาะสมนี้สามารถหาได้จากสมการดังนี้
 
-\begin{gather}
+\begin{gather*}
   P_L = iV_L = i m S_{pn} \Delta T - i^2 m R_{int} \\
   \frac{d P_L}{d i } = 0 = m(S_{pn} \Delta T - 2 i R_{int}) \\
   i_{max P} = \dfrac{S_{pn} \Delta T}{2 R_{int}} \\
   i = \dfrac{V}{R} = \dfrac{ m S_{pn} \Delta T }{ m R_{int} + R_L } \\
   R_L = m R_{int}
-\end{gather}
+\end{gather*}
 
 หมายความว่า ความต้านทานภาระควรจะเท่ากับความต้านทานภายใน ซึ่งนี่เรียกว่า load matching ซึ่งเป็นวิธีการที่ใช้ได้กับการผลิตไฟฟ้าด้วยกระบวนการอื่นๆได้เช่นกัน
 
-\section{ปรากฏการณ์เพลเทียร์ (Peltier Effect)}
+\subsection{ปรากฏการณ์เพลเทียร์ (Peltier Effect)}
+\label{sec:org9c9337e}
 
-เป็นปรากฏการณ์ที่`ตรงกันข้าม'กับปรากฏการณ์ซีเบ็ก ในกรณีของปรากฏการณ์ซีเบ็ก ความต่างของอุณหภูมิสร้างให้เกิดความต่างศักย์และกระแสไฟฟ้า ส่วนปรากฏการณ์เพลเทียร์เป็นการสร้างความแตกต่างของอุณหภูมิเมื่อมีกระแสไฟฟ้าไหลผ่าน เปรียบเทียบได้กับกรณีของปรากฏการณ์แม่เหล็กไฟฟ้าในมอเตอร์ ซึ่งเมื่อใส่กระแสไฟฟ้าเข้าไปในตัวนำซึ่งอยู่ในสนามแม่เหล็กจะทำให้เกิดการหมุน ในทางตรงกันข้าม ถ้านำตัวนำไปหมุนภายในสนามแม่เหล็กก็จะทำให้เกิดกระแสไฟฟ้าเหนี่ยวนำขึ้นเช่นกัน
+เป็นปรากฏการณ์ที่ "ตรงกันข้าม" กับปรากฏการณ์ซีเบ็ก ในกรณีของปรากฏการณ์ซีเบ็กนั้น ผลต่างของอุณหภูมิสร้างให้เกิดความต่างศักย์และกระแสไฟฟ้า ส่วนปรากฏการณ์เพลเทียร์เป็นการสร้างผลต่างของอุณหภูมิเมื่อมีกระแสไฟฟ้าไหลผ่าน เปรียบเทียบได้กับกรณีของปรากฏการณ์แม่เหล็กไฟฟ้าในมอเตอร์ ซึ่งเมื่อใส่กระแสไฟฟ้าเข้าไปในตัวนำซึ่งอยู่ในสนามแม่เหล็กจะทำให้เกิดการหมุน ในทางตรงกันข้าม ถ้านำตัวนำไปหมุนภายในสนามแม่เหล็กก็จะทำให้เกิดกระแสไฟฟ้าเหนี่ยวนำขึ้นเช่นกัน
 
 \begin{figure}[h]
   \centering
@@ -728,17 +368,19 @@ $$ Q_{peltier} = m S_{pn} T_H i $$
 
 ซึ่งตัวทำความเย็นนี้มีจุดเด่นเช่นเดียวกับตัวผลิตไฟฟ้าเทอร์โมอิเลกตริก นั่นคือไม่มีชิ้นส่วนที่เคลื่อนไหว จึงทำให้มีอัตราการสึกหรอน้อยกว่าระบบทำความเย็นแบบใช้สารทำความเย็นทั่วไป ลดความซับซ้อนของระบบทำความเย็น รวมถึงลดค่าซ่อมแซมและดูแลรักษาได้ แม้ปัจจุบันประสิทธิภาพจะยังไม่ดีเท่ากับระบบทำความเย็นแบบทั่วไป และมีราคาสูงเมื่อเทียบกับอัตราการกำจัดความร้อน แต่ก็ได้มีการนำมาใช้ในกรณีที่มีพื้นที่การติดตั้งจำกัด เช่นระบบทำความเย็นในหน่วยประมวลผล (processor) ของคอมพิวเตอร์
 
-\section{ปรากฏการณ์ทอมสัน (Thomson Effect)}
+\subsection{ปรากฏการณ์ทอมสัน (Thomson Effect)}
+\label{sec:orgb13f282}
 
 ดังที่ได้กล่าวมาแล้วในส่วนของปรากฏการณ์เทอร์โมอิเลกทริก ค่าสัมประสิทธิ์ซีเบ็กของแต่ละวัสดุนั้นมักจะแปรผันกับอุณหภูมิ ดังนั้นในกรณีที่วัสดุมีอุณหภูมิที่ไม่สม่ำเสมอ ค่าสัมประสิทธิ์ซีเบ็กก็อาจจะไม่สม่ำเสมอได้เช่นกัน และเมื่อมีกระแสไฟฟ้าไหลผ่านวัสดุนี้ก็จะทำให้มีการเกิดปรากฏการณ์เพลเทียร์เกิดขึ้นได้ ปรากฏการณ์นี้เรียกว่า`ปรากฏการณ์ทอมสัน' ตั้งตามชื่อของลอร์ดเคลวิน (ชื่อจริง William Thomson) ซึ่งได้ทำนายการเกิดปรากฏการณ์นี้ในตัวนำที่มีอุณหภูมิไม่สม่ำเสมอดังที่ได้กล่าวมาแล้วในส่วนของปรากฏการณ์เทอร์โมอิเลกทริก ค่าสัมประสิทธิ์ซีเบ็กของแต่ละวัสดุนั้นมักจะแปรผันกับอุณหภูมิ ดังนั้นในกรณีที่วัสดุมีอุณหภูมิที่ไม่สม่ำเสมอ ค่าสัมประสิทธิ์ซีเบ็กก็อาจจะไม่สม่ำเสมอได้เช่นกัน และเมื่อมีกระแสไฟฟ้าไหลผ่านวัสดุนี้ก็จะทำให้มีการเกิดปรากฏการณ์เพลเทียร์เกิดขึ้นได้ ปรากฏการณ์นี้เรียกว่า`ปรากฏการณ์ทอมสัน' ตั้งตามชื่อของลอร์ดเคลวิน (ชื่อจริง William Thomson) ซึ่งได้ทำนายการเกิดปรากฏการณ์นี้ในตัวนำที่มีอุณหภูมิไม่สม่ำเสมอและทำการทดลองจนสามารถพิสูจน์ได้จริง 
 
-ในกรณีที่มีความหนาแน่นกระแสไฟฟ้า $J$ ไหลผ่านตัวนำที่มีค่าสัมประสิทธิ์ทอมสัน $\mathcal{K}$ อัตราการเกิดความร้อนจะมีค่าเท่ากับ
+ในกรณีที่มีความหนาแน่นกระแสไฟฟ้า \(J\) ไหลผ่านตัวนำที่มีค่าสัมประสิทธิ์ทอมสัน \(\mathcal{K}\) อัตราการเกิดความร้อนจะมีค่าเท่ากับ
 
 $$ q_{thomson} = - \mathcal{K} J \cdot \nabla T $$
 
-สังเกตว่าในสมการนี้ กำลังความร้อนที่เกิดขึ้นมืหน่วยเป็น W/m$^3$ เนื่องจากคุณสมบัติของตัวนำไม่สม่ำเสมอ กำลังความร้อนจึงไม่คงที่และต้องอาศัยการอินทิเกรตเพื่อหาค่าบนพื้นที่หรือปริมาตร
+สังเกตว่าในสมการนี้ กำลังความร้อนที่เกิดขึ้นมืหน่วยเป็น W/m\(^3\) เนื่องจากคุณสมบัติของตัวนำไม่สม่ำเสมอ กำลังความร้อนจึงไม่คงที่และต้องอาศัยการอินทิเกรตเพื่อหาค่าบนพื้นที่หรือปริมาตร
 
-\section{หลักการทำงานของเทอร์โมอิเลกทริก}
+\subsection{หลักการทำงานของเทอร์โมอิเลกทริก}
+\label{sec:orgb5d7181}
 
 ในระหว่างการทำงานจริงมักมีปรากฏการณ์เทอร์โมอิเลกทริกสองอย่างขึ้นไปเกิดขึ้นพร้อมๆกัน ดังนั้นจึงมีความจำเป็นที่จะต้องทำความเข้าใจความสัมพันธ์ของปรากฏการณ์ต่างๆและผลที่เกิดขึ้นกับเทอร์โมอิเลกทริก อย่างไรก็ดี สำหรับในตำราเล่มนี้ จะขอกล่าวถึงความสัมพันธ์เมื่อเทอร์โมอิเลกทริกทำงานที่สถานะคงที่ (steady state) ซึ่งหมายถึงอุณหภูมิที่จุดต่างๆคงที่ ในที่นี้เราจะพิจารณาที่ด้านร้อนของเทอร์โมอิเลกทริกซึ่งมีการถ่ายเทความร้อนเกิดขึ้นดังต่อไปนี้
 
@@ -757,7 +399,7 @@ $$ q_{thomson} = - \mathcal{K} J \cdot \nabla T $$
   $$ Q_{peltier} = S_{pn} T_H i $$
 \end{enumerate}
 
-ที่สถานะคงที่ อัตราการได้รับความร้อนและสูญเสียความร้อนเท่ากัน ซึ่งอัตราการได้รับความร้อน ($Q_{in}$) มาจาก
+ที่สถานะคงที่ อัตราการได้รับความร้อนและสูญเสียความร้อนเท่ากัน ซึ่งอัตราการได้รับความร้อน (\(Q_{in}\)) มาจาก
 
 $$ Q_{in} + Q_{joule} = Q_{cold} + Q_{peltier}$$
 
@@ -784,14 +426,14 @@ $$ Q_{in} + Q_{joule} = Q_{cold} + Q_{peltier}$$
   \end{aligned} 
 \end{equation}
 
-เมื่อแทนค่า $Z = \dfrac{m^2 S_{pn}^2}{K_{teg} R_{teg}}$ เข้าในสมการ \ref{eq: TEG thermal
-eff}
+เมื่อแทนค่า \(Z = \dfrac{m^2 S_{pn}^2}{K_{teg} R_{teg}}\) เข้าในสมการ \ref\{eq: TEG thermal
+eff\}
 
 \begin{equation}
   \eta = \dfrac{ \Delta T }{ 2 T_H + \dfrac{2}{Z} - \dfrac{ \Delta T }{ 2 } }
 \end{equation}
 
-จากสมการข้างต้น ที่อุณหภูมิ $T_H$ และ $T_L$ ใดๆ ประสิทธิภาพของ TEG จะสูงสุดเมื่อมีค่า $Z$ สูง ซึ่งแปลว่าวัสดุจะต้องมีค่าสัมประสิทธ์ซีเบ็กสูง นำความร้อนได้ไม่ดี และมีความต้านทานไฟฟ้าต่ำ ซึ่งคุณสมบัติสองอย่างหลังนี้หาได้ยาก เพราะวัสดุที่เป็นตัวนำไฟฟ้าที่ดี ก็มักจะนำความร้อนได้ดีเช่นกัน ส่วนวัสดุที่เป็นฉนวนไฟฟ้า ก็มักจะเป็นฉนวนความร้อนด้วย
+จากสมการข้างต้น ที่อุณหภูมิ \(T_H\) และ \(T_L\) ใดๆ ประสิทธิภาพของ TEG จะสูงสุดเมื่อมีค่า \(Z\) สูง ซึ่งแปลว่าวัสดุจะต้องมีค่าสัมประสิทธ์ซีเบ็กสูง นำความร้อนได้ไม่ดี และมีความต้านทานไฟฟ้าต่ำ ซึ่งคุณสมบัติสองอย่างหลังนี้หาได้ยาก เพราะวัสดุที่เป็นตัวนำไฟฟ้าที่ดี ก็มักจะนำความร้อนได้ดีเช่นกัน ส่วนวัสดุที่เป็นฉนวนไฟฟ้า ก็มักจะเป็นฉนวนความร้อนด้วย
 
 ประสิทธิภาพของเครื่องยนต์ความร้อนส่วนใหญ่ (นอกจากเครื่องยนต์สันดาปภายใน) มักจะเปรียบเทียบประสิทธิภาพเป็นสัดส่วนเทียบกับประสิทธิภาพคาร์โนต์ซึ่งเป็นประสิทธิภาพสูงสุดในทางทฤษฎีของเครื่องยนต์ความร้อนใดๆ
 
@@ -825,152 +467,158 @@ eff}
   \label{fig:teg vs carnot efficiency}
 \end{figure}
 
-\begin{ตัวอย่าง}
-  เทอร์โมอิเลกทริกทำมาจาก $PbTe-Bi_2Te_3$ ซึ่งมีคุณสมบัติดังต่อไปนี้
+\subsection{ตัวอย่าง}
+\label{sec:orgfd6cf17}
+เทอร์โมอิเลกทริกทำมาจาก PbTe-Bi\(_{\text{2}}\)Te\(_{\text{3}}\) ซึ่งมีคุณสมบัติดังต่อไปนี้
 
-  \begin{tabular}[H]{lll}
-    \toprule
-    Properties & P-type & N-type \\
-    \midrule
-    Seebeck Coeficient ($\times 10^{-6}$) & $300$ & $-100$ \\
-    Electrical resistivity ($\times 10^{-6}$) & $9$ & $10$ \\
-    Thermal conductivity & $1.2$ & $1.4$ \\
-    \bottomrule 
-  \end{tabular}
+\begin{center}
+\begin{tabular}{lrr}
+\hline
+Properties & P-type & N-type\\
+\hline
+Seebeck coefficient \texttimes{} 10\(^{\text{-6}}\) & 300 & -100\\
+Electrical resistivity \texttimes{} 10\(^{\text{-6}}\) & 9 & 10\\
+Thermal conductiviity & 1.2 & 1.4\\
+\hline
+\end{tabular}
+\end{center}
 
-  ขาจากวัสดุทั้งสองชนิดมีพิ้นที่หน้าตัด (16 mm$^2$)และความยาว (4 mm) เท่ากัน ที่สภาวะคงที่อุณหภูมิด้านร้อนเท่ากับ 200$^{\circ}$C และด้านเย็นเท่ากับ 50$^{\circ}$C จงคำนวณหา
+ขาจากวัสดุทั้งสองชนิดมีพิ้นที่หน้าตัด (16 mm\(^2\))และความยาว (4 mm) เท่ากัน ที่สภาวะคงที่อุณหภูมิด้านร้อนเท่ากับ 200 C และด้านเย็นเท่ากับ 50 C จงคำนวณหา
 
-  \begin{enumerate}
-  \item ค่า $Z$ ของเทอร์โมอิเลกทริกนี้
-  \item กำลังสูงสุดที่เทอร์โมอิเลกทริกนี้ผลิตได้
-  \item ประสิทธิภาพของเทอร์โมอิเลกทริกนี้
-  \end{enumerate}
-\end{ตัวอย่าง}
+\begin{enumerate}
+\item ค่า \(Z\) ของเทอร์โมอิเลกทริกนี้
+\item กำลังสูงสุดที่เทอร์โมอิเลกทริกนี้ผลิตได้
+\item ประสิทธิภาพของเทอร์โมอิเลกทริกนี้
+\end{enumerate}
 
-\section{ต้นทุนของพลังงานจากเทอร์โมอิเลกทริก}
+\subsection{ต้นทุนของพลังงานจากเทอร์โมอิเลกทริก}
+\label{sec:org66672ad}
 
 ต้นทุนวัสดุที่ใช้ทำเทอร์โมอิเลกทริกในปัจจุบัน
 
-\begin{table}
-  \centering
-  \caption{ค่าวัสดุเทอร์โมอิเลกทริก (2017)}
-  \begin{tabular}{l l c c p{2.5cm}}
-    \toprule
-    Material Family & Max ZT & Temp (°C) & Efficiency & Average Material Cost (\$/kg) \\
-    \midrule
-    Cobalt Oxide    & 1.4    & 727       & 12\%       & \$345 \\
-    Clathrate       & 1.4    & 727       & 12\%       & \$5,310 \\
-    SiGe            & 0.86   & 727       & 9\%        & \$6,033 \\
-    Chalcogenide    & 2.27   & 727       & 16\%       & \$730 \\
-    Half-Heusler    & 1.42   & 427       & 17\%       & \$1,988 \\
-    Skutterudite    & 1.5    & 427       & 18\%       & \$562 \\
-    Silicide        & 0.93   & 727       & 9\%        & \$151 \\
-    \bottomrule
-  \end{tabular}
-  \label{fig:teg mat cost}
+\begin{table}[htbp]
+\caption{\label{tab:orgf38be2f}
+ค่าวัสดุเทอร์โมอิเลกทริก}
+\centering
+\begin{tabular}{lrrll}
+\hline
+Material Family & Max ZT & Temp (°C) & Efficiency & Average Material Cost (\$/kg)\\
+\hline
+Cobal Oxide & 1.4 & 727 & 12\% & \$345\\
+Cobalt Oxide & 1.4 & 727 & 12\% & \$345\\
+Clathrate & 1.4 & 727 & 12\% & \$5,310\\
+SiGe & 0.86 & 727 & 9\% & \$6,033\\
+Chalcogenide & 2.27 & 727 & 16\% & \$730\\
+Half-Heusler & 1.42 & 427 & 17\% & \$1,988\\
+Skutterudite & 1.5 & 427 & 18\% & \$562\\
+Silicide & 0.93 & 727 & 9\% & \$151\\
+\hline
+\end{tabular}
 \end{table}
 
-\vspace{5mm}
+\subsection{ตัวอย่าง}
+\label{sec:orgb51cf83}
+การเปรียบเทียบต้นทุนการผลิตไฟฟ้าจากเทอร์โมอิเกลกทริกด้วยอุณหภูมิขนาดกลาง
 
-\begin{ตัวอย่าง} การเปรียบเทียบต้นทุนการผลิตไฟฟ้าจากเทอร์โมอิเกลกทริกด้วยอุณหภูมิขนาดกลาง
-  
-  กรณีเปรียบเทียบ 3 แบบ: น้ำมันเตาเป็นเชื้อเพลิง ความร้อนเหลือทิ้งจากอุตสาหกรรม หรือซื้อไฟฟ้าจากการไฟฟ้าฯ
-  
-  สมมติฐานที่ใช้ในการวิเคราะห์ 
-  
-  \begin{enumerate}
-  \item การผลิตไฟฟ้าขนาด 1 MW โดยสิ่งก่อสร้างและอุปกรณ์ทั้งหมดมีอายุการใช้งาน 10 ปี
-  \item ต้นทุนคงที่จากอุปกรณ์เทอร์โมอิเลกทริก อินเวอร์เตอร์ ค่าที่ดิน และค่าติดตั้ง
-  \item ต้นทุนแปรผันนับจากค่าซ่อมแซมและค่าเชื้อเพลิง(ถ้ามี)
-  \item ค่าอินเวอร์เตอร์ 22 บาทต่อวัตต์ ค่าเทอร์โทอิเลกทริกอุณหภูมิสูง 175 บาทต่อวัตต์ ค่าเทอร์โมอิเลกทริกอุณหภูมิกลาง 525 บาทต่อวัตต์
-  \item ค่าติดตั้ง 10\% ของค่าอุปกรณ์ (TEG + Inverter)
-  \item ค่าซ่อมแซม 1\% ของค่าอุปกรณ์ต่อปี
-  \end{enumerate}
-\end{ตัวอย่าง}
+กรณีเปรียบเทียบ 3 แบบ: น้ำมันเตาเป็นเชื้อเพลิง ความร้อนเหลือทิ้งจากอุตสาหกรรม หรือซื้อไฟฟ้าจากการไฟฟ้าฯ
 
-\begin{เฉลย}
-  ก่อนอื่น เราสามารถคำนวณค่าอุปกรณ์ที่ต้องใช้ในการแปลงไฟฟ้า ซึ่งประกอบด้วยค่า TEG และ inverter 
-  
-  เปรียบเทียบต้นทุนระหว่างกรณีที่ 1, 2, และ 3 ได้เป็นตารางดังนี้
-  
-  \begin{tabular}{lll}
-    \toprule
-    Costs (million THB)    & Fuel & Waste \\
-    \midrule
-    TEGs                   & 175  & 525   \\
-    Inverters              & 22   & 22    \\
-    Land                   & 1    & 1     \\
-    Installation           & 20   & 55    \\
-    Maintenance (per year) & 2    & 5.5   \\
-    Fuel (per year)        & 191  & None  \\
-    \bottomrule
-  \end{tabular}
+สมมติฐานที่ใช้ในการวิเคราะห์ 
 
-  และยังสามารถแสดงกระแสเงินสดเปรียบเทียบระหว่างกรณีได้ดังนี้
+\begin{enumerate}
+\item การผลิตไฟฟ้าขนาด 1 MW โดยสิ่งก่อสร้างและอุปกรณ์ทั้งหมดมีอายุการใช้งาน 10 ปี
+\item ต้นทุนคงที่จากอุปกรณ์เทอร์โมอิเลกทริก อินเวอร์เตอร์ ค่าที่ดิน และค่าติดตั้ง
+\item ต้นทุนแปรผันนับจากค่าซ่อมแซมและค่าเชื้อเพลิง(ถ้ามี)
+\item ค่าอินเวอร์เตอร์ 22 บาทต่อวัตต์ ค่าเทอร์โทอิเลกทริกอุณหภูมิสูง 175 บาทต่อวัตต์ ค่าเทอร์โมอิเลกทริกอุณหภูมิกลาง 525 บาทต่อวัตต์
+\item ค่าติดตั้ง 10\% ของค่าอุปกรณ์ (TEG + Inverter)
+\item ค่าซ่อมแซม 1\% ของค่าอุปกรณ์ต่อปี
+\end{enumerate}
 
-  \pgfplotstableread[row sep=\\,col sep=&]{
-    year     &  Fuel   & Waste \\
-    0        & -218    & -603  \\
-    1        & -191    & -5.5  \\
-    2        & -191    & -5.5  \\
-    3        & -191    & -5.5  \\
-    4        & -191    & -5.5  \\
-    5        & -191    & -5.5  \\
-    6        & -191    & -5.5  \\
-    7        & -191    & -5.5  \\
-    8        & -191    & -5.5  \\
-    9        & -191    & -5.5  \\
-    10       & -191    & -5.5  \\
-  }\mydata
-  
-  \begin{tikzpicture}
-    \begin{axis}[
-      ybar,
-      bar width=.2cm,
-      width=\textwidth,
-      height=.5\textwidth,
-      legend style={at={(0.75,0.25)},
-        anchor=south east,legend columns=-1,
-        fill=none},
-      xtick=data,
-      xlabel={Year},
-      nodes near coords,
-      nodes near coords align={vertical},
-      ymin=-650,ymax=0,
-      ylabel={Million THB},
-      ]
-      \addplot table[x=year,y=Fuel]{\mydata};
-      \addplot table[x=year,y=Waste]{\mydata};
-      \legend{Fuel, Waste};
-    \end{axis}
-  \end{tikzpicture}
-  
-  ในขณะเดียวกัน ค่าไฟฟ้าที่ซื้อจากการไฟฟ้าฯสามารถสมมติว่าเป็นค่าคงที่ในแต่ละปี ซึ่งหากเปรียบเทียบกับการลงทุนในระบบ TEG ทั้งสองแบบแล้ว จะสามารถหาผลต่างของกระแสเงินสดเพื่อจะนำไปใช้หาโครงการที่มีมูลค่าปัจจุบันสุทธิ (NPV) สูงสุดได้ดังนี้
-  
-  \begin{tabular}{clllcc}
-    \toprule
-    Year & Base  & Fuel & Waste & Fuel - Base & Waste - Base \\
-    \midrule
-    0    & 0     & -218 & -603  & -218        & -603         \\
-    1    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    2    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    3    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    4    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    5    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    6    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    7    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    8    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    9    & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    10   & -39.4 & -191 & -5.5  & -151.6      & 33.9         \\
-    \midrule
-         &       &      & NPV   & -\$1,390    & -\$340       \\
-    \bottomrule
-  \end{tabular}
+ก่อนอื่น เราสามารถคำนวณค่าอุปกรณ์ที่ต้องใช้ในการแปลงไฟฟ้า ซึ่งประกอบด้วยค่า TEG และ inverter 
 
-  จากผลการวิเคราะห์กระแสเงินสดจะเห็นได้ว่าโครงการสร้างโรงไฟฟ้า TEG ทั้งสองแบบยังมีมูลค่าปัจจุบันสุทธิเป็นลบ หมายความว่าโครงการทั้งสองยังมีผลตอบแทนที่ยังไม่น่าพอใจเมื่อเปรียบเทียบกับใช้กระแสไฟฟ้าจากการไฟฟ้าฯ
-\end{เฉลย}
+เปรียบเทียบต้นทุนระหว่างกรณีที่ 1, 2, และ 3 ได้เป็นตารางดังนี้
 
-\chapter{เซลล์เชื้อเพลิง (Fuel Cells)}
+\begin{center}
+\begin{tabular}{lrr}
+\hline
+Costs (million THB) & Fuel & Waste\\
+\hline
+TEGs & 175 & 525\\
+Inverters & 22 & 22\\
+Land & 1 & 1\\
+Installation & 20 & 55\\
+Maintenance (per year) & 2 & 5.5\\
+Fuel (per year) & 191 & 0\\
+\hline
+\end{tabular}
+\end{center}
+
+และยังสามารถแสดงกระแสเงินสดเปรียบเทียบระหว่างกรณีได้ดังนี้
+
+\pgfplotstableread[row sep=\\,col sep=&]{
+  year     &  Fuel   & Waste \\
+  0        & -218    & -603  \\
+  1        & -191    & -5.5  \\
+  2        & -191    & -5.5  \\
+  3        & -191    & -5.5  \\
+  4        & -191    & -5.5  \\
+  5        & -191    & -5.5  \\
+  6        & -191    & -5.5  \\
+  7        & -191    & -5.5  \\
+  8        & -191    & -5.5  \\
+  9        & -191    & -5.5  \\
+  10       & -191    & -5.5  \\
+}\mydata
+
+\begin{tikzpicture}
+  \begin{axis}[
+    ybar,
+    bar width=.2cm,
+    width=\textwidth,
+    height=.5\textwidth,
+    legend style={at={(0.75,0.25)},
+      anchor=south east,legend columns=-1,
+      fill=none},
+    xtick=data,
+    xlabel={Year},
+    nodes near coords,
+    nodes near coords align={vertical},
+    ymin=-650,ymax=0,
+    ylabel={Million THB},
+    ]
+    \addplot table[x=year,y=Fuel]{\mydata};
+    \addplot table[x=year,y=Waste]{\mydata};
+    \legend{Fuel, Waste};
+  \end{axis}
+\end{tikzpicture}
+
+ในขณะเดียวกัน ค่าไฟฟ้าที่ซื้อจากการไฟฟ้าฯสามารถสมมติว่าเป็นค่าคงที่ในแต่ละปี ซึ่งหากเปรียบเทียบกับการลงทุนในระบบ TEG ทั้งสองแบบแล้ว จะสามารถหาผลต่างของกระแสเงินสดเพื่อจะนำไปใช้หาโครงการที่มีมูลค่าปัจจุบันสุทธิ (NPV) สูงสุดได้ดังนี้
+
+\begin{center}
+\begin{tabular}{rrrrrr}
+\hline
+Year & Base & Fuel & Waste & Fuel - Base & Waste - Base\\
+\hline
+0 & 0 & -218 & -603 & -218 & -603\\
+1 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+2 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+3 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+4 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+5 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+6 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+7 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+8 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+9 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+10 & -39.4 & -191 & -5.5 & -151.6 & 33.9\\
+\hline
+ &  &  & NPV & -\$1,390 & -\$340\\
+\hline
+\end{tabular}
+\end{center}
+
+จากผลการวิเคราะห์กระแสเงินสดจะเห็นได้ว่าโครงการสร้างโรงไฟฟ้า TEG ทั้งสองแบบยังมีมูลค่าปัจจุบันสุทธิเป็นลบ หมายความว่าโครงการทั้งสองยังมีผลตอบแทนที่ยังไม่น่าพอใจเมื่อเปรียบเทียบกับใช้กระแสไฟฟ้าจากการไฟฟ้าฯ
+
+\section{เซลล์เชื้อเพลิง (Fuel Cells)}
+\label{sec:org51996ac}
 
 เซลล์เชื้อเพลิงเป็นอุปกรณ์ที่อาศัยกระบวนการเปลี่ยนแปลงพลังงานจากพลังงงานเคมีไปเป็นพลังงานไฟฟ้าโดยตรง ซึ่งแตกต่างจากการใช้เครื่องยนต์ในการปั่นไฟซึ่งเปลี่ยนพลังงานเคมีไปเป็นพลังงานความร้อนไปเป็นพลังงานกลแล้วจึงเป็นพลังงานไฟฟ้าในที่สุด เนื่องจากเซลล์เชื้อเพลิงมีการเปลี่ยนแปลงพลังงานเพียงขั้นตอนเดียว และยังไม่มีขั้นตอนการเปลี่ยนแปลงพลังงานความร้อน จึงทำให้สามารถทำให้กระบวนการมีประสิทธิภาพสูงกว่าวิธีเปลี่ยนแปลงพลังงานเคมีในรูปแบบอื่น
 
@@ -978,9 +626,11 @@ eff}
 
 จุดเด่นของเซลล์เชื้อเพลิงคือสามารถนำการแลกเปลี่ยนอิเลกตรอนที่เกิดขึ้นในปฏิกิริยาการสันดาปมาใช้ได้โดยตรง ซึ่งปฏิกิริยาที่เกิดขึ้นในเซลล์เชื้อเพลิงนี้เรียกว่า \textbf{ปฏิกิริยาไฟฟ้าเคมี (electrochemical reactions)} ซึ่งเป็นหลักการเดียวกันกับแบตเตอรี่ ข้อแตกต่างของแบตเตอรี่คือสารเคมีหรือเชื้อเพลิงทั้งหมดจะถูกบรรจุอยู่ในภายในตัวแบตเตอรี่ ในขณะที่เชื้อเพลิงของเซลล์เชื้อเพลิงถูกเก็บไว้แยกกัน และถูกดึงเข้ามาใช้เมื่อเกิดปฏิกิริยาขึ้นเท่านั้น
 
-\section{ส่วนประกอบของเซลล์เชื้อเพลิง}
+\subsection{ส่วนประกอบของเซลล์เชื้อเพลิง}
+\label{sec:org982b3ba}
 
-\section{ปฏิกิริยาในเซลล์เชื้อเพลิง}
+\subsection{ปฏิกิริยาในเซลล์เชื้อเพลิง}
+\label{sec:orgf46d7fa}
 
 อันที่จริงแล้ว ปฎิกิริยาที่เกิดขึ้นในเซลล์เชื้อเพลิงก็คือปฏิกิริยาการสันดาป แต่เนื่องจากเซลล์เชื้อเพลิงเป็นอุปกรณ์เคมีไฟฟ้า เราจึงควรทำความเข้าใจกับปริมาณของอิเลกตรอนที่มีการแลกเปลี่ยนระหว่างการเกิดปฏิกิริยาขึ้น ยกตัวอย่างเช่น
 
@@ -996,11 +646,12 @@ $$ 2H^+ + 2e^- + O_2 \rightarrow H_2O $$
 
 $$ H_2 \rightarrow 2H^+ + 2e^- $$
 
-ในปฏิกิริยารีดักชัน สารจะมีการรับอิเลกตรอน (จาก $H^+$ ซึ่งมีเลขประจุเป็น +1 ไปเป็น $H_2O$ ซึ่งไฮโดรเจนมีประจุเป็น 0) ส่วนในปฏิกิริยาออกซิเดชัน สารจะมีการปล่อยอิเลกตรอน (จาก $H_2$ ซึ่งมีประจุเป็น 0 เป็น $H^+$ ซึ่งมีประจุเป็น +1)
+ในปฏิกิริยารีดักชัน สารจะมีการรับอิเลกตรอน (จาก \(H^+\) ซึ่งมีเลขประจุเป็น +1 ไปเป็น \(H_2O\) ซึ่งไฮโดรเจนมีประจุเป็น 0) ส่วนในปฏิกิริยาออกซิเดชัน สารจะมีการปล่อยอิเลกตรอน (จาก \(H_2\) ซึ่งมีประจุเป็น 0 เป็น \(H^+\) ซึ่งมีประจุเป็น +1)
 
-\section{พลังงานที่ได้จากเซลล์เชื้อเพลิง}
+\subsection{พลังงานที่ได้จากเซลล์เชื้อเพลิง}
+\label{sec:orgf9bc12a}
 
-พลังงานตั้งต้นของเซลล์เชื้อเพลิงมาจากพลังงานเคมีของสารตั้งต้น แล้วพลังงานเคมีคืออะไร พลังงานเคมีคือพลังงานที่ถูกเก็บไว้ในพันธะระหว่างอะตอมในโมเลกุลใดๆ และจะมีการเปลี่ยนแปลงเมื่อเกิดปฏิกิริยาสร้างผลิตภัณฑ์ใหม่ขึ้น ซึ่งพลังงานในพันธะเคมีเหล่านี้สามารถวัดได้โดยใช้ enthalpy of formation ($\Delta H_f$) ซึ่งพลังงานงานที่จะสามารถแปลงเป็นพลังงานไฟฟ้าได้มาจากพลังงานเคมีที่ได้รับการปลดปล่อยจากปฏิกิริยารีด็อกซ์ ($\Delta H$)
+พลังงานตั้งต้นของเซลล์เชื้อเพลิงมาจากพลังงานเคมีของสารตั้งต้น แล้วพลังงานเคมีคืออะไร พลังงานเคมีคือพลังงานที่ถูกเก็บไว้ในพันธะระหว่างอะตอมในโมเลกุลใดๆ และจะมีการเปลี่ยนแปลงเมื่อเกิดปฏิกิริยาสร้างผลิตภัณฑ์ใหม่ขึ้น ซึ่งพลังงานในพันธะเคมีเหล่านี้สามารถวัดได้โดยใช้ enthalpy of formation (\(\Delta H_f\)) ซึ่งพลังงานงานที่จะสามารถแปลงเป็นพลังงานไฟฟ้าได้มาจากพลังงานเคมีที่ได้รับการปลดปล่อยจากปฏิกิริยารีด็อกซ์ (\(\Delta H\))
 
 $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
 
@@ -1040,7 +691,8 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
 
 แต่หากปฏิกิริยาไม่ได้เกิดแบบย้อนกลับได้ พลังงานไฟฟ้าที่ได้จะน้อยกว่านี้
 
-\subsection{พลังงานอิสระของกิบส์ (Gibbs Free Energy)}
+\subsubsection{พลังงานอิสระของกิบส์ (Gibbs Free Energy)}
+\label{sec:orgc4a6bfc}
 
 พลังงานอิสระของกิบส์ (GFE) เป็นฟังก์ชันสภาวะ (state function) ค่าสัมบูรณ์ของพลังงานอิสระของกิบศ์หาได้ยากและไม่ได้มีประโยชน์นัก ส่วนที่มีประโยชน์จริงๆคือผลต่างหรือพลังงานที่เปลี่ยนไประหว่างสารตั้งต้นกับผลิตภัณฑ์ ซึ่งใช้อธิบายว่าปฏิกิริยาหนึ่งๆสามารถเกิดขึ้นเองได้หรือไม่ หาได้จาก
 
@@ -1077,7 +729,7 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
   H = U + PV
 \end{gather}
 
-หาค่าอนุพันธ์ของ $H$ ได้
+หาค่าอนุพันธ์ของ \(H\) ได้
 
 \begin{align}
   dH &= dU + PdV + VdP \nonumber \\
@@ -1099,7 +751,7 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
   V = \dfrac{R_u T}{P}
 \end{gather*}
 
-พิจารณาเซลล์เชื้อเพลิงที่สภาวะคงที่ จะได้ว่า $T$ เป็นค่าคงที่
+พิจารณาเซลล์เชื้อเพลิงที่สภาวะคงที่ จะได้ว่า \(T\) เป็นค่าคงที่
 
 \begin{gather}
   \label{eq:gfe integral equation}
@@ -1107,16 +759,17 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
   G - G_0 = R_u T \ln \dfrac{P}{P_0}
 \end{gather}
 
-โดยกำหนดให้ $G_0$ คือพลังงานอิสระของกิบส์อ้างอิงที่อุณหภูมิ 25 C และความดัน 1 บรรยากาศ ดังนั้น เราสามารถเขียนสมการพลังงานอิสระของกิบส์เป็นฟังก์ชันของอุณหภูมิและความดันได้โดย
+โดยกำหนดให้ \(G_0\) คือพลังงานอิสระของกิบส์อ้างอิงที่อุณหภูมิ 25 C และความดัน 1 บรรยากาศ ดังนั้น เราสามารถเขียนสมการพลังงานอิสระของกิบส์เป็นฟังก์ชันของอุณหภูมิและความดันได้โดย
 
 \begin{equation}
   \label{eq:gfe ideal gas}
   G = G_0 + R_u T \ln P
 \end{equation}
 
-ซึ่งพลังงานอิสระของกิบส์ที่เปลี่ยนไปในเซลล์เชื้อเพลิงสามารถอ้างอิงค่า $H_0$ และ $G_0$ ได้จากตาราง \ref{tab:h0 and g0} 
+ซึ่งพลังงานอิสระของกิบส์ที่เปลี่ยนไปในเซลล์เชื้อเพลิงสามารถอ้างอิงค่า \(H_0\) และ \(G_0\) ได้จากตาราง \ref{tab:h0 and g0} 
 
-\subsection{พลังงานอิสระของกิบส์ที่เปลี่ยนแปลงในปฏิกิริยาเคมี}
+\subsubsection{พลังงานอิสระของกิบส์ที่เปลี่ยนแปลงในปฏิกิริยาเคมี}
+\label{sec:org7a46ff4}
 
 ในปฏิกิริยาเคมี พลังงานอิสระของกิบส์ที่เปลี่ยนไปเท่ากับส่วนต่างระหว่างพลังงานของผลิตภัณฑ์กับสารตั้งต้น ยกตัวอย่างเช่นในกรณีของปฏิกิริยา
 
@@ -1131,52 +784,53 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
   \Delta G = \Delta G_0 + R_u T \ln \dfrac{P_C^c P_D^d}{P_A^a P_B^b} 
 \end{gather}
 
+\begin{table}[htbp]
+\caption{\label{tab:org39b51e7}
+ตารางแสดงค่าเอนทาลปีและพลังงานอิสระของกิบส์ที่สถานะอ้างอิง (1 บรรยากาศ 298 K)}
+\centering
+\begin{tabular}{lrr}
+\hline
+Compound or ion & H\(_{\text{0}}\) (\texttimes{}10\(^{\text{3}}\) J/mol) & G\(_{\text{0}}\) (\texttimes{}10\(^{\text{3}}\) J/mol)\\
+\hline
+CO & -110 & -137.5\\
+CO\(_2\) & -394 & -395\\
+CH\(_4\) & -74.9 & -50.8\\
+Water & -286 & -237\\
+Steam & -241 & -228\\
+LiH & +128 & +105\\
+NaCO\(_2\) & -1122 & -1042\\
+CO\(_3^{-2}\) & -675 & -529\\
+H\(^+\) & 0 & 0\\
+Li\(^+\) & -277 & -293\\
+OH\(^-\) & -230 & -157\\
+CH\$\(_{\text{3}}\)\$OH (gas) & -201 & -162.6\\
+\hline
+\end{tabular}
+\end{table}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{lrr}
-    \toprule
-    Compound or ion  & $H_0$ ($\times 10^3$ J/mol) & $G_0$ ($\times 10^3$ J/mol) \\
-    \midrule
-    CO             & -110  & -137.5           \\
-    CO$_2$         & -394  & -395             \\
-    CH$_4$         & -74.9 & -50.8            \\
-    Water          & -286  & -237             \\
-    Steam          & -241  & -228             \\
-    LiH            & +128  & +105             \\
-    NaCO$_2$       & -1122 & -1042            \\
-    CO$_3^{-2}$    & -675  & -529             \\
-    H$^+$          & 0     & 0                \\
-    Li$^+$         & -277  & -293             \\
-    OH$^-$         & -230  & -157             \\
-    CH$_3$OH (gas) & -201  & -162.6           \\
-    \bottomrule
-  \end{tabular}
-  \caption{ตารางแสดงค่าเอนทาลปีและพลังงานอิสระของกิบส์ที่สถานะอ้างอิง (1 บรรยากาศ 298 K) }
-  \label{tab:h0 and g0}
-\end{table} 
-
-ถ้าหากพลังงานเคมีทั้งหมดสามารถแปลงเป็นพลังงานไฟฟ้าได้ และมีอิเลกตรอน $n$ ตัวถูกปล่อยออกมาต่อ 1 โมเลกุลของสารตั้งต้น เราจะสามารถเขียนสมการได้ว่า
+ถ้าหากพลังงานเคมีทั้งหมดสามารถแปลงเป็นพลังงานไฟฟ้าได้ และมีอิเลกตรอน \(n\) ตัวถูกปล่อยออกมาต่อ 1 โมเลกุลของสารตั้งต้น เราจะสามารถเขียนสมการได้ว่า
 
 \begin{equation}
   \label{eq:gfe to elec work}
   W_e= \Delta G = q E_g 
 \end{equation}
 
-โดยที่ $W_e$ คือพลังงานไฟฟ้า $q$ คือประจุไฟฟ้าที่มีการแลกเปลี่ยน และ $E_g$ คือศักย์ไฟฟ้าที่เกิดขึ้น
+โดยที่ \(W_e\) คือพลังงานไฟฟ้า \(q\) คือประจุไฟฟ้าที่มีการแลกเปลี่ยน และ \(E_g\) คือศักย์ไฟฟ้าที่เกิดขึ้น
 
-\subsection{ศักย์ไฟฟ้าจากเซลล์เชื้อเพลิง}
+\subsubsection{ศักย์ไฟฟ้าจากเซลล์เชื้อเพลิง}
+\label{sec:org67981d6}
 
-จากสมการ \ref{eq:gfe to elec work} ศักย์ไฟฟ้าที่เซลล์เชื้อเพลิงสามารถสร้างได้เท่ากับพลังานอิสระที่เปลี่ยนไปหารด้วยประจุที่มีการแลกเปลี่ยน ดังนั้นหากทุกๆโมเลกุลของสารตั้งต้นมีการแลกอิเลกตรอน $n$ ตัว สมการแสดงศักย์ไฟฟ้าต่อ 1 molของสารตั้งต้นจะเป็น
+จากสมการ \ref{eq:gfe to elec work} ศักย์ไฟฟ้าที่เซลล์เชื้อเพลิงสามารถสร้างได้เท่ากับพลังานอิสระที่เปลี่ยนไปหารด้วยประจุที่มีการแลกเปลี่ยน ดังนั้นหากทุกๆโมเลกุลของสารตั้งต้นมีการแลกอิเลกตรอน \(n\) ตัว สมการแสดงศักย์ไฟฟ้าต่อ 1 molของสารตั้งต้นจะเป็น
 
 \begin{equation}
   \label{eq:nernst equation}
   E_g = \frac{W_e}{-nF} = E_g^0 + \frac{R_u T}{nF} \ln \frac{P_A^a P_B^b}{P_C^c P_D^d}
 \end{equation}
 
-โดยที่ $F$ คือค่าคงที่ของฟาราเดย์ซึ่งมีค่าเท่ากับประจุของอิเลกตรอนจำนวน 1 mol $= 6.02 \times 10^{23} \times 1.6 \times 19^{-19} = 9.65 \times 10^4 \text{ C}$ สมการ \ref{eq:nernst equation} นี้ถูกตั้งชื่อตามผู้ค้นพบว่า\emph{สมการของเนิร์นสท์} (Nernst Equation)
+โดยที่ \(F\) คือค่าคงที่ของฟาราเดย์ซึ่งมีค่าเท่ากับประจุของอิเลกตรอนจำนวน 1 mol \(= 6.02 \times 10^{23} \times 1.6 \times 19^{-19} = 9.65 \times 10^4 \text{ C}\) สมการ \ref{eq:nernst equation} นี้ถูกตั้งชื่อตามผู้ค้นพบว่า \textbf{สมการของเนิร์นสท์ (Nernst Equation)}
 
-\subsection{ประสิทธิภาพของเซลล์เชื้อเพลิง}
+\subsubsection{ประสิทธิภาพของเซลล์เชื้อเพลิง}
+\label{sec:org96f667f}
 
 ในทางทฤษฎี หากพลังงานอิสระของกิบส์จากปฏิกิริยาทั้งหมดถูกแปลงเป็นพลังงานไฟฟ้า ประสิทธิภาพของเซลล์เชื้อเพลิงจะมีค่าสูงที่สุด
 
@@ -1185,58 +839,62 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
   \eta_{\max} = \frac{W_{e,\max}}{\Delta H} = \frac{\Delta G}{\Delta H} = 1 - \frac{T \Delta S}{\Delta H}
 \end{equation}
 
-ในทางปฏิบัติแล้ว ปฏิกิริยาเคมีที่เกิดในเซลล์เชื้อเพลิงมักจะมีการสูญเสียความร้อนและพลังงานอื่นๆ ทำให้ศักย์ไฟฟ้าไม่สูงถึง $E_g$ ที่คำนวณได้ด้วยสมการของเนิร์นสท์ ประสิทธิภาพของเซลล์เชื้อเพลิงจะเหลือ
+ในทางปฏิบัติแล้ว ปฏิกิริยาเคมีที่เกิดในเซลล์เชื้อเพลิงมักจะมีการสูญเสียความร้อนและพลังงานอื่นๆ ทำให้ศักย์ไฟฟ้าไม่สูงถึง \(E_g\) ที่คำนวณได้ด้วยสมการของเนิร์นสท์ ประสิทธิภาพของเซลล์เชื้อเพลิงจะเหลือ
 
 \begin{equation}
   \label{eq:fc act eff}
   \eta = \frac{W_e}{\Delta H} = \frac{nFV_L}{\Delta H}
 \end{equation}
 
-\begin{ตัวอย่าง} ประสิทธิภาพของเซลล์เชื้อเพลิงไฮโดรเจน
+\subsection{ตัวอย่าง: ประสิทธิภาพของเซลล์เชื้อเพลิงไฮโดรเจน}
+\label{sec:org5e0489f}
 
-  เซลล์เชื้อเพลิงไฮโดรเจนได้รับไฮโดรเจนจากถังอัดความดันที่ 5 atm ในขณะที่ออกซิเจนได้มาจากอากาศที่ 1 atm ผลิตภัณฑ์ที่ได้ออกมาเป็นไอน้ำที่ 1 atm อุณหภูมิขณะที่เซลล์ทำงานอยู่ที่ 200$^{\circ}$C คำนวณศักย์ไฟฟ้าที่เซลล์ผลิตได้และประสิทธิภาพของเซลล์เชื้อเพลิงนี้
-  
-\end{ตัวอย่าง}
-\begin{เฉลย}
- จากสมการการสันดาปไฮโดเจนในเซลล์เชื้อเพลิง
+เซลล์เชื้อเพลิงไฮโดรเจนได้รับไฮโดรเจนจากถังอัดความดันที่ 5 atm ในขณะที่ออกซิเจนได้มาจากอากาศที่ 1 atm ผลิตภัณฑ์ที่ได้ออกมาเป็นไอน้ำที่ 1 atm อุณหภูมิขณะที่เซลล์ทำงานอยู่ที่ 200\$\(^{\^{}}\)\$C คำนวณศักย์ไฟฟ้าที่เซลล์ผลิตได้และประสิทธิภาพของเซลล์เชื้อเพลิงนี้
 
- $$ H_2 + \frac{1}{2} O_2 \rightarrow H_2O $$
+จากสมการการสันดาปไฮโดเจนในเซลล์เชื้อเพลิง
 
- \begin{itemize}
- \item อุณหภูมิที่เซลล์ทำงาน = 200$^{\circ}$ C = 200 + 273 = 473 K
- \item เนื่องจากอากาศมีออกซิเจนอยู่ประมาณ 21\% ความดันของออกซิเจนเข้าสู่เซลล์มีค่าเป็น $0.21 \times 1$ = 0.21 atm
- \item มีการปล่อยและรับอิเลกตรอน 2 ตัวต่อ 1 โมเลกุลของน้ำ ($n = 2$)
- \end{itemize}
+$$ H_2 + \frac{1}{2} O_2 \rightarrow H_2O $$
 
- จากสมการ \ref{eq:nernst equation} เราสามารถแทนค่าเพื่อหาศักย์ไฟฟ้าได้ดังนี้
+\begin{itemize}
+\item อุณหภูมิที่เซลล์ทำงาน = 200\(^{\circ}\) C = 200 + 273 = 473 K
+\item เนื่องจากอากาศมีออกซิเจนอยู่ประมาณ 21$\backslash$% ความดันของออกซิเจนเข้าสู่เซลล์มีค่าเป็น 0.21 \texttimes{} 1 = 0.21 atm
+\item มีการปล่อยและรับอิเลกตรอน 2 ตัวต่อ 1 โมเลกุลของน้ำ (\(n = 2\))
+\end{itemize}
 
- $$  E_g = \frac{W_e}{-nF} = -\frac{\Delta G_0}{nF} + \frac{R_u T}{nF} \ln \frac{P_{H_2} P_{O_2}^{1/2}}{P_{H_2O}} $$
+จากสมการที่ \ref{eq:nernst equation} เราสามารถแทนค่าเพื่อหาศักย์ไฟฟ้าได้ดังนี้
 
- จะสามารถแทนค่าได้โดยอ้างอิงปริมาณต่อ 1 mol $H_2O$ ว่า
+$$  E_g = \frac{W_e}{-nF} = -\frac{\Delta G_0}{nF} + \frac{R_u T}{nF} \ln \frac{P_{H_2} P_{O_2}^{1/2}}{P_{H_2O}} $$
 
- \begin{align*}
- E_g &= - \frac{-241(10^3) - 0 - (0.5)0}{2 \times 9.65 \times 10^4} + \frac{8.314(473)}{2 \times 9.65 \times 10^4} \ln \frac{5^1 0.21^{0.5}}{1^1} \\
-     &= \frac{231 \times 10^3}{2 \times 9.65 \times 10^4} \\
-     &= 1.197 \text{ V}
- \end{align*}
+จะสามารถแทนค่าได้โดยอ้างอิงปริมาณต่อ 1 mol \(H_2O\)
 
- ประสิทธิภาพของเซลล์เชื้อเพลิงสามารถหาได้จากสมการ \ref{eq:fc max eff} ว่า
+\begin{align*}
+E_g &= - \frac{-241(10^3) - 0 - (0.5)0}{2 \times 9.65 \times 10^4} + \frac{8.314(473)}{2 \times 9.65 \times 10^4} \ln \frac{5^1 0.21^{0.5}}{1^1} \\
+    &= \frac{231 \times 10^3}{2 \times 9.65 \times 10^4} \\
+    &= 1.197 \text{ V}
+\end{align*}
 
- \begin{align*}
-   \eta &= \frac{\Delta G}{\Delta H} \\
-        &= \frac{-231 \times 10^3}{-286 \times 10^3} \\
-        &= 80.8\%
- \end{align*}
+ประสิทธิภาพของเซลล์เชื้อเพลิงสามารถหาได้จากสมการ \ref{eq:fc max eff} 
+
+\begin{align*}
+  \eta &= \frac{\Delta G}{\Delta H} \\
+       &= \frac{-231 \times 10^3}{-286 \times 10^3} \\
+       &= 80.8\%
+\end{align*}
 \end{เฉลย}
-\section{ชนิดของเซลล์เชื้อเพลิง}
+\subsection{ชนิดของเซลล์เชื้อเพลิง}
+\label{sec:orga876e27}
 
-\subsection{Proton Exchange Membrane (PEM)}
+\subsubsection{Proton Exchange Membrane (PEM)}
+\label{sec:org6d54feb}
 
-\subsection{Direct Methanol}
+\subsubsection{Direct Methanol}
+\label{sec:org170c14b}
 
-\subsection{Solid Oxide}
+\subsubsection{Solid Oxide}
+\label{sec:org629f7b3}
 
-\section{การวิเคราะห์ต้นทุนของเซลล์เชื้อเพลิง}
+\subsection{การวิเคราะห์ต้นทุนของเซลล์เชื้อเพลิง}
+\label{sec:org4e46498}
 
 % historical fuel cell power cost
 
@@ -1319,15 +977,13 @@ $$ \Delta H = \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} $$
   \label{fig:projected fc cost}
 \end{figure}
 
-
-
-
-
-\chapter{พลังงานลม}
+\section{พลังงานลม (Wind Power)}
+\label{sec:org842f398}
 
 พลังงานลมนับเป็นอีกพลังงานหนึ่งที่เกิดจากการไหลของอากาศ ดังนั้นการแปลงพลังงานลมเป็นพลังงานไฟฟ้าจึงเป็นการแปลงพลังงานกลไปเป็นพลังงานไฟฟ้า ซึ่งในบทนี้เราจะมากล่าวถึงหลักการ วิธี และประสิทธิภาพของการแปลงพลังงานลมด้วยเทคโนโลยีปัจจุบัน รวมถึงการประยุกต์ใช้เทคโนโลยีเหล่านี้ในการผลิตไฟฟ้าจากระดับเล็กไปจนถึงระดับใหญ่
 
-\section{หลักการแปลงพลังงานลม}
+\subsection{หลักการแปลงพลังงานลม}
+\label{sec:orgf30a7a6}
 
 พลังงานลมเป็นพลังงานจลน์ที่มีส่วนประกอบมาจากมวลของอากาศและความเร็วลม ซึ่งโดยทั่วไปแล้ว คำจำกัดความของพลังงานจลน์คือ
 
@@ -1347,14 +1003,14 @@ $$ E = \frac{1}{2} mv^2 $$
   \dot{m} = \rho A v
 \end{equation}
 
-เมื่อแทนสมการ \ref{eq:wind mass flowrate} ลงในสมการ \ref{eq:wind power} จะได้สมการแสดงกำลังของลมที่ความเร็ว $v$ 
+เมื่อแทนสมการ \ref{eq:wind mass flowrate} ลงในสมการ \ref{eq:wind power} จะได้สมการแสดงกำลังของลมที่ความเร็ว \(v\) 
 
 \begin{equation}
  \label{eq:wind power v}
  P_w = {1 \over 2} \dot{m} v^2 = {1 \over 2} \rho A v^3
 \end{equation}
 
-ถ้ามีการติดตั้งอุปกรณ์เพื่อดักและแปลงกำลังลมนี้เป็นกำลังไฟฟ้า ความเร็วลมขาออก $v_o$ ต้องน้อยกว่าความเร็วลมขาเข้า $v_i$ ดังนั้นความเร็วลมและอัตราการไหลของมวลผ่านอุปกรณ์เฉลี่ยคือ
+ถ้ามีการติดตั้งอุปกรณ์เพื่อดักและแปลงกำลังลมนี้เป็นกำลังไฟฟ้า ความเร็วลมขาออก \(v_o\) ต้องน้อยกว่าความเร็วลมขาเข้า \(v_i\) ดังนั้นความเร็วลมและอัตราการไหลของมวลผ่านอุปกรณ์เฉลี่ยคือ
 
 \begin{gather}
   v_{avg} = \frac{v_i + v_o}{2} \\
@@ -1379,7 +1035,7 @@ $$ E = \frac{1}{2} mv^2 $$
     k = \frac{1}{3}, -1
 \end{gather}
 
-เนื่องจากลมขาออกไม่สามารถไหลย้อนกลับได้ ($v_o$ เท่ากับ $-v_i$ ไม่ได้) ดังนั้นคำตอบสมการเดียวที่เป็นไปได้คือ $v_o = v_i /3$ ซึ่งทำให้อุปกรณ์ในอุดมคติสามารถเก็บกำลังลมได้
+เนื่องจากลมขาออกไม่สามารถไหลย้อนกลับได้ (\(v_o\) เท่ากับ \(-v_i\) ไม่ได้) ดังนั้นคำตอบสมการเดียวที่เป็นไปได้คือ \(v_o = v_i /3\) ซึ่งทำให้อุปกรณ์ในอุดมคติสามารถเก็บกำลังลมได้
 
 \begin{gather*}
     v_o = \frac{v_i}{3} \\
@@ -1387,9 +1043,10 @@ $$ E = \frac{1}{2} mv^2 $$
     \eta_{\max} = \frac{16}{27} = 59.3\%
   \end{gather*}
 
-  ซึ่งค่าสูงสุดนี้เรียกว่า จำกัดของเบ็ทซ์ (Betz limit) อย่างไรก็ดี การวิเคราะห์แบบนี้มิได้มีการคำนึงถึงลักษณะทางอากาศพลศาสตร์ของอุปกรณ์ว่ามีผลต่อการไหลของอากาศอย่างไร
+ซึ่งค่าสูงสุดนี้เรียกว่า จำกัดของเบ็ทซ์ (Betz limit) อย่างไรก็ดี การวิเคราะห์แบบนี้มิได้มีการคำนึงถึงลักษณะทางอากาศพลศาสตร์ของอุปกรณ์ว่ามีผลต่อการไหลของอากาศอย่างไร
 
-\section{อากาศพลศาสตร์ของกังหันลม}
+\subsection{อากาศพลศาสตร์ของกังหันลม}
+\label{sec:org6ff954a}
 
 อันที่จริงแล้ว การจะวิเคราะห์ประสิทธิภาพในการแปลงพลังงานของกังหันนั้นจำเป็นจะต้องพิจารณาการไหลของอากาศในขณะที่กังหันหมุนเพื่อพิจารณาแรงที่อากาศกระทำและกำลังที่เกิดขึ้น ซึ่งเราจะใช้หลักการอากาศพลศาสตร์เพื่อวิเคราะห์ประสิทธิภาพของกังหันลม
 
@@ -1408,7 +1065,7 @@ $$ E = \frac{1}{2} mv^2 $$
   D = C_D \frac{1}{2} \rho A v^2
 \end{align}
 
-โดยที่ $C_L$ และ $C_D$ คือสัมประสิทธิ์แรงยกและสัมประสิทธิ์แรงต้าน ดังนั้น ในการสร้างกังหันลมจึงสามารถใช้แรงหนึ่งหรือทั้งสองในการขับดันและสร้างกำลัง โดยกำลังที่กังหันสามารถดึงออกมาได้ $P_{turbine}$ เท่ากับผลคูณภายในของแรง $\mathbf{F}$ และความเร็วของใบพัด $\mathbf{u}$ 
+โดยที่ \(C_L\) และ \(C_D\) คือสัมประสิทธิ์แรงยกและสัมประสิทธิ์แรงต้าน ดังนั้น ในการสร้างกังหันลมจึงสามารถใช้แรงหนึ่งหรือทั้งสองในการขับดันและสร้างกำลัง โดยกำลังที่กังหันสามารถดึงออกมาได้ \(P_{turbine}\) เท่ากับผลคูณภายในของแรง \(\mathbf{F}\) และความเร็วของใบพัด \(\mathbf{u}\) 
 
 \begin{equation}
   \label{eq:basic turbine power}
@@ -1423,14 +1080,14 @@ $$ E = \frac{1}{2} mv^2 $$
   C_P = C_D \left( \lambda - 2\lambda^2 + \lambda^3 \right)
 \end{gather}
 
-โดยที่ $\lambda = v / u$ เป็นอัตราส่วนของความเร็วลมต่อความเร็วกังหัน จะเห็นได้ว่าสัมประสิทธิ์กำลังที่ผลิตได้ $C_p$ มีค่ามากที่สุดเมื่อ $\lambda = 1/3$ เมื่อแทนค่าลงในสมการจะได้ว่า
+โดยที่ \(\lambda = v / u\) เป็นอัตราส่วนของความเร็วลมต่อความเร็วกังหัน จะเห็นได้ว่าสัมประสิทธิ์กำลังที่ผลิตได้ \(C_p\) มีค่ามากที่สุดเมื่อ \(\lambda = 1/3\) เมื่อแทนค่าลงในสมการจะได้ว่า
 
 \begin{equation}
   C_{P \max} = \dfrac{4}{27}C_D
   \label{eq:max power drag based}
 \end{equation}
 
-ซึ่งสำหรับกังหันที่มีสัมประสิทธิ์แรงต้านสูงอย่างเช่น $C_D = 1.2$ จะได้ว่า $C_P = 0.1778$
+ซึ่งสำหรับกังหันที่มีสัมประสิทธิ์แรงต้านสูงอย่างเช่น \(C_D = 1.2\) จะได้ว่า \(C_P = 0.1778\)
 
 ในกรณีของกังหันลมแรงยก ทิศทางการไหลของลมนั้นจะตั้งฉากกับความเร็วของใบพัดเสมอ ซึ่งทำให้ไม่มีข้อจำกัดเรื่องของความเร็วกังหันที่เร็วกว่าลม โดยที่รูปแสดงทิศทางของความเร็วและแรงที่เกิดขึ้นบนกังหันลมแรงยกสามารถแสดงได้ดังรูป
 
@@ -1448,19 +1105,19 @@ $$ E = \frac{1}{2} mv^2 $$
   \label{fig:lift-based turbine}
 \end{figure}
 
-  ถ้าเรากำหนดให้ $\gamma = \dfrac{C_D}{C_L}$ เป็นอัตราส่วนของแรงต้านต่อแรงยกที่เกิดขึ้น เราจะสามารถเขียนสมการแสดงกำลังที่กังหันลมแรงยกสร้างขึ้นได้ว่า
+ถ้าเรากำหนดให้ \(\gamma = \dfrac{C_D}{C_L}\) เป็นอัตราส่วนของแรงต้านต่อแรงยกที่เกิดขึ้น เราจะสามารถเขียนสมการแสดงกำลังที่กังหันลมแรงยกสร้างขึ้นได้ว่า
 
-  \begin{gather}
-    P = (\mathbf{L} + \mathbf{D}) \cdot \mathbf{u} \nonumber \\
-    P = \frac{1}{2}\rho A w^2 (C_L \frac{v}{w} u - C_D \frac{u}{w}u) \nonumber \\
-    P = \frac{1}{2}\rho A \sqrt{u^2 + v^2} \left( C_L u v - C_D u^2 \right) \nonumber \\
-     C_P = C_L \sqrt{1+\lambda^2} \left( \lambda - \gamma \lambda^2 \right) 
-  \end{gather}
+\begin{gather}
+  P = (\mathbf{L} + \mathbf{D}) \cdot \mathbf{u} \nonumber \\
+  P = \frac{1}{2}\rho A w^2 (C_L \frac{v}{w} u - C_D \frac{u}{w}u) \nonumber \\
+  P = \frac{1}{2}\rho A \sqrt{u^2 + v^2} \left( C_L u v - C_D u^2 \right) \nonumber \\
+   C_P = C_L \sqrt{1+\lambda^2} \left( \lambda - \gamma \lambda^2 \right) 
+\end{gather}
 
-  สำหรับชิ้นส่วนภาคตัดขวางปีกอากาศยานทั่วไป $\gamma =  0.01$ ที่ $C_L = 0.6$
+สำหรับชิ้นส่วนภาคตัดขวางปีกอากาศยานทั่วไป \(\gamma =  0.01\) ที่ \(C_L = 0.6\)
 
-  \begin{figure}[h]
-   \begin{tikzpicture}
+\begin{figure}[h]
+  \begin{tikzpicture}
     \begin{axis}[
       width=\textwidth,
       height=0.75\textwidth,
@@ -1475,17 +1132,17 @@ $$ E = \frac{1}{2} mv^2 $$
       \addplot[domain=0:100, blue]{0.6*(1+\x^2)^0.5*(\x-0.01*\x^2)};
     \end{axis}
   \end{tikzpicture}
-  \label{fig:power coeff lift-based turbine}
-  \caption{ประสิทธิภาพของกังหันลมแรงยกที่อัตราส่วนความเร็วต่างๆ จะเห็นได้ว่าค่า $\lambda$ ที่เหมาะสมที่สุดอยู่ที่ราว 67 ซึ่งให้ค่าสัมประสิทธิ์กำลังที่สูงถึง 889!}
 \end{figure}
 
 จะเห็นได้ว่ากังหันลมแบบแรงยกนั้นมีประสิทธิภาพต่อพื้นที่ใบพัดสูงกว่ากังหันแบบแรงต้านหลายเท่าตัว จึงทำให้เป็นที่นิยมใช้ในอุตสาหกรรมผลิตไฟฟ้าพลังงานลมอย่างแพร่หลาย
 
-\section{การออกแบบกังหันลมผลิตไฟฟ้า}
+\subsection{การออกแบบกังหันลมผลิตไฟฟ้า}
+\label{sec:orga979388}
 
 นอกจากเรื่องของการเลือกกังหันตามหลักการทำงานแล้ว ยังมีคุณลักษณะอื่นๆที่ผู้ใช้สามารถเลือกออกแบบกังหันลมได้ เช่น
 
-\subsection{แนวแกนกังหัน}
+\subsubsection{แนวแกนกังหัน\}}
+\label{sec:org7efd506}
 
 กังหันลมผลิตไฟฟ้ามีทั้งแบบที่มีแกนหมุนตามแนวนอนและแนวตั้ง ซึ่งแต่ละแบบมีข้อได้เปรียบเสียเแรียบอยู่ดังนี้
 
@@ -1494,11 +1151,13 @@ $$ E = \frac{1}{2} mv^2 $$
 \item ประสิทธิภาพ เมื่อติดตั้งที่ความสูงที่สมควรและหันหน้าเข้าหาทิศทางลมแล้ว กังหันแบบแนวนอนจะมีประสิทธิภาพสูงกว่า
 \end{enumerate}
 
-\subsection{วัสดุผลิตกังหัน}
+\subsubsection{วัสดุผลิตกังหัน\}}
+\label{sec:orgb51e0f1}
 
 เนื่องจากกังหันต้องได้มีการหมุนอยู่ตลอดเวลา ภาระที่สำคัญที่ใบพัดจะได้รับคือแรงสู่ศูนย์กลางซึ่งขึ้นอยู่กับมวล ดังนั้นคุณสมบัติที่สำคัญสำหรับวัสดุที่จะนำมาใช้ออกแบบกังหันคือจะต้องมีอัตราส่วนความแข็งแรงต่อมวลสูง (high strength-to-mass ratio) ในอดีตวัสดุที่ใช้ในการผลิตกังหันลมได้แก่ ไม้เนื้อแข็ง (แข็งแรง น้ำหนักเบา แต่ไม่ทนทานต่อความชื้น)และโลหะเบาอย่างอลูมิเนียม (แข็งแรง เบา ขึ้นรูปง่าย แต่ไม่ทนทานต่อการล้า) ในปัจจุบันวัสดุที่ตอบโจทย์นี้ได้อย่างดีคือคาร์บอนไฟเบอร์เคลือบโพลีเมอร์ (CFRP) ซึ่งมีน้ำหนักเบาและความแข็งแรงสูง นอกจากนี้ยังสามารถขึ้นรูปเป็นรูปทรงที่ซับซ้อนได้ง่ายและมีความทนทานต่อการล้าได้ดี
 
-\section{ต้นทุนการผลิตไฟฟ้าพลังงานลม}
+\subsection{ต้นทุนการผลิตไฟฟ้าพลังงานลม}
+\label{sec:org3764f43}
 
 \begin{figure}[h]
   \centering
@@ -1530,8 +1189,8 @@ $$ E = \frac{1}{2} mv^2 $$
       \legend{Turbine,BOS,Financial};
     \end{axis}
   \end{tikzpicture}
-  \caption{Historical and projected transportation fuel cell system cost}
-  \label{fig:projected fc cost}
+  \caption{แผนภูมิเปรียบเทียบต้นทุนไฟฟ้าพลังงานลมจากกังหันบนบกและกังหันกลางทะเล}
+  \label{fig:land vs short wind power}
 \end{figure}
 
 \begin{figure}[h]
@@ -1565,17 +1224,22 @@ $$ E = \frac{1}{2} mv^2 $$
   \end{tikzpicture}
   \caption{แผนภูมิเปรียบเทียบต้นทุนตลอดการใช้งานของโรงงานผลิตไฟฟ้าพลังงานลมแบบบนพิ้นดินกับแบบนอกชายฝั่ง}
 \end{figure}
+\section{พลังงานชีวภาพ (Biofuel)}
+\label{sec:orgd9ed104}
 
-\chapter{พลังงานชีวภาพ}
+\subsection{วัตถุดิบ (Feedstock)}
+\label{sec:orgbaec029}
+\subsection{เอทานอล}
+\label{sec:org35e1ec2}
 
-\section{วัตถุดิบ (Feedstock)}
-\section{เอทานอล}
+\subsection{โบโอดีเซล}
+\label{sec:org5e9602b}
 
-\section{โบโอดีเซล}
+\subsection{แก็สชีวภาพ}
+\label{sec:orgbf04eef}
 
-\section{แก็สชีวภาพ}
-
-\chapter{การกักเก็บพลังงาน (Energy Storage)}
+\section{การกักเก็บพลังงาน (Energy Storage)}
+\label{sec:org5223ae8}
 
 ปัญหาหนึ่งของพลังงานแสงอาทิตย์และพลังงานทดแทนเช่นพลังงานลมหรือพลังงานคลื่นคือความไม่แน่นอนและไม่สามารถควบคุมได้ ซึ่งเป็นเกณฑ์วัดสำคัญของการสามารถพึ่งพาแหล่งพลังงานชนิดหนึ่งๆได้ ยกตัวอย่างเช่น ในกรณีของโรงไฟฟ้าพลังงานแก็สธรรมชาติ สามารถเปิดต่อเนื่องตลอดเวลาได้และสามารถเพิ่มหรือลดกำลังการผลิดได้ตามอุปสงค์อย่างไม่ยากเย็นนัก ในทางตรงกันข้าม พลังงานแสงอาทิตย์ไม่สามารถผลิตต่อเนื่องตลอดเวลาได้เนื่องจากช่วงเลากลางวันและกลางคืน นอกจากนี้ยังมีเรื่องของเมฆ ความชื้นในอากาศ ดังนั้น หากต้องการจะสร้างโรงไฟฟ้าพลังงานแสงอาทิตย์ (ไม่ว่าจะเป็นแบบ photovoltaics หรือ solar thermal หรือ แบบอื่นๆ) จำเป็นจะต้องสร้างเผื่อความไม่แน่นอนเหล่านี้ เช่นถ้ามีความต้องการพลังงานไฟฟ้า 10 MW อาจจะต้องสร้างโรงไฟฟ้าที่สามารถผลิตได้ 20 MW แล้วมีการกักเก็บส่วนที่เกินความต้องการไว้ใช้ในยามที่ไม่มีแสงอาทิตย์หรือพลังงานไม่เพียงพอต่อความต้องการผลิตต่อความต้องการผลิตต่อความต้องการผลิตต่อความต้องการผลิตต่อความต้องการผลิตต่อความต้องการผลิตต่อความต้องการผลิตต่อความต้องการผลิตต่อความต้องการผลิต 
 
@@ -1583,27 +1247,30 @@ $$ E = \frac{1}{2} mv^2 $$
 
 วิธีการกับเก็บพลังงานจากแสงอาทิตย์สามารถแบ่งได้เป็นหลายประเภท ซึ่งแต่ละประเภทก็มีจุดเด่นและจุดด้อยต่างกันไป พึงคำนึงไว้เสมอว่าไม่มีเทคโนโลยีใดที่จะเหมาะสมและดีกว่าเทคโนโลยีอื่นในทุกสถานการณ์ เราจึงควรทำความเข้าใจประเด็นต่างๆที่สำคัญเหล่านี้ไว้ เพื่อจะได้นำเทคโนโลยีเหล่านี้ไปประยุกต์ใช้ในสถานการณ์ต่างๆได้อย่างเหมาะสม
 
-\section{บ่อกักเก็บพลังงานแสงอาทิตย์ (Solar Ponds)}
+\subsection{บ่อกักเก็บพลังงานแสงอาทิตย์ (Solar Ponds)}
+\label{sec:org441f245}
 
 บ่อกักเก็บพลังงานแสงอาทิตย์ในที่นี้หมายถึงบ่อกับเก็บของเหลวซึ่งสามารถกับเก็บความร้อนจากพลังงานแสงอาทิตย์เพื่อนำไปใช้ประโยชน์ต่อไปได้ ในปัจจุบันบ่อกักเก็บพลังงานแสงอาทิตย์ส่วนมากใช้สารละลายเกลือคลอไรด์หรือซัลเฟตในน้ำ หลักการทำงานของบ่อดังกล่าวคือการแบ่งชั้นของสารละลายตามความความเข้มข้น โดยสารละลายที่มีความเข้มข้นมากจะตกอยู่ที่ชั้นล่างเนื่องจากมีความหนาแน่นสูง และสารละลายที่มีความเข้มข้นน้อยจะลอยอยู่ด้านบนเนื่องจากมีความหนาแน่นน้อย ซึ่งการแบ่งชั้นนี้จะป้องกันการหมุนเวียนของสารละลายเมื่อได้รับความร้อน ซึ่งในบ่อน้ำปกติเมื่อได้รับความร้อน จะมีการหมุนเวียนขึ้นเนื่องจากน้ำที่ร้อนกว่าจะมีการขยายตัว ทำให้ความหนาแน่นลดลงและลอยขึ้นสู่ด้านบน แต่ในบ่อน้ำที่มีการแบ่งชั้นของสานละลายนี้จะไม่มีการหมุนเวียนของสารละลาย ทำให้สามารถกักเก็บความร้อนไว้ได้
 
 กระบวนการสร้างบ่อกักเก็บพลังงานแสงอาทิตย์มีอยู่ 2 วิธี
 
-\subsection{บ่อกักเก็บแบบประดิษฐ์}
+\subsubsection{บ่อกักเก็บแบบประดิษฐ์}
+\label{sec:orgd31316a}
 
 บ่อกักเก็บพลังงานแบบนี้สร้างโดยการเติมสารละลายที่มีความเข้มข้นจากสูงลงไปสู่ชั้นล่างแล้วลดลงต่ำลงเมื่อเพิ่มระดับน้ำขึ้นเรื่อยๆ จนเมื่อเติมเสร็จ บ่อก็จะสามารถกับเก็บพลังงานแสงอาทิตย์ไว้ได้
 
-\subsection{บ่อกักเก็บแบบเกิดเอง}
+\subsubsection{บ่อกักเก็บแบบเกิดเอง}
+\label{sec:org0fd23f5}
 
 บ่อประเภทนี้อาศัยหลักการของการละลายอิ่มตัวของเกลือในน้ำที่อุณหภูมิต่างๆกัน โดยที่ความสามารถในการละลายแปรผันตรงกับอุณหภูมิของตัวทำละลาย ซึ่งเกลือที่จะนำมาใช้ในบ่อประเภทนี้ จำเป็นจะต้องมีอัตราการเปลี่่ยนแปลงความสามารถในการละลายต่ออุณหภูมิสูง เพื่อที่จะได้สามารถสร้าง gradient ของความเค็มต่อความลึกได้สูง และมีความสามารถในการเก็บความร้อนได้ดี
-\section{แบตเตอรี่}
+\subsection{แบตเตอรี่}
+\label{sec:orgbcac65f}
 
-\section{ล้อตุนกำลัง (Flywheel)}
+\subsection{ล้อตุนกำลัง (Flywheel)}
+\label{sec:org313ba94}
 
-
-\part{เศรษฐศาสตร์พลังงาน}
-
-\chapter{การวิเคราะห์ต้นทุน}
+\section{การวิเคราะห์ต้นทุน}
+\label{sec:orgebfffaf}
 
 เคยสงสัยกันบ้างไหมว่า เวลาที่การไฟฟ้าเก็บค่าไฟเราหน่วยละ 3 บาทกว่าๆนั้น เขาคิดคำนวณกันมาอย่างไร มีหลักฐานอ้างอิงหรือข้อมูลอะไรมาช่วยสนับสนุนนี้ไหม หรือว่าแค่นั่งเทียนกำหนดเลขกลมๆขึ้นมา จริงๆแล้วก็คงไม่ใช่อย่างนั้น และแน่นอนว่าค่าไฟที่เก็บนั้นก็คงไม่ได้เท่าทุนพอดี คงจะต้องมีส่วนบวกเพื่อให้เป็นกำไรไว้ไม่มากก็น้อยเป็นแน่
 
@@ -1613,9 +1280,10 @@ $$ E = \frac{1}{2} mv^2 $$
 
 ดังนั้น เพื่อจะแน่ใจว่าเทคโนโลยีพลังงานทดแทนของเรานั้นถูกกว่าไฟฟ้าที่ผลิตอยู่ปัจจุบัน เราจำเป็นจะต้องทำความเข้าใจก่อนว่าโครงสร้างต้นทุนการผลิตไฟฟ้า หรือพลังงานอื่นๆที่ใช้ในครัวเรือนปัจจุบันนั้นเป็นอย่างไร
 
-\section{โครงสร้างต้นทุน}
+\subsection{โครงสร้างต้นทุน\}}
+\label{sec:org156caa2}
 
-ศาสตร์เรื่องการวิเคราะห์โครงสร้างต้นทุนนั้นมีมานานโขอยู่ เริ่มจากปี ... ซึ่งพลังงานก็นับเป็นผลิตภัณฑ์อย่างหนึ่งซึ่งใช้สามารถจะวิเคราะห์ต้นทุนได้ การแบ่งประเภทต้นทุนนั้นสามารถทำได้อยู่หลายวิธี แล้วแต่จุดประสงค์และการนำไปใช้ประโยชน์ อย่างไรก็ดี ในหนังสือเล่มนี้เราต้องการศึกษาประเภทของต้นทุนเพื่อทำความเข้าใจแนวโน้มการเปลี่ยนแปลงเมื่อมีการพัฒนาเทคโนโลยีต่างๆที่เปลี่ยนไป จึงได้เลือกใช้วิธีการจำแนกต้นทุนตามความสัมพันธ์กับระดับของกิจกรรม ซึ่งสามารถสะท้อนความเปลี่ยนแปลงอันขึ้นอยู่กับระดับการผลิต โดยโครงสร้างต้นทุนแบบนี้สามารถแบ่งออกเป็นประเภทดังนี้
+ศาสตร์เรื่องการวิเคราะห์โครงสร้างต้นทุนนั้นมีมานานโขอยู่ เริ่มจากปี \ldots{} ซึ่งพลังงานก็นับเป็นผลิตภัณฑ์อย่างหนึ่งซึ่งใช้สามารถจะวิเคราะห์ต้นทุนได้ การแบ่งประเภทต้นทุนนั้นสามารถทำได้อยู่หลายวิธี แล้วแต่จุดประสงค์และการนำไปใช้ประโยชน์ อย่างไรก็ดี ในหนังสือเล่มนี้เราต้องการศึกษาประเภทของต้นทุนเพื่อทำความเข้าใจแนวโน้มการเปลี่ยนแปลงเมื่อมีการพัฒนาเทคโนโลยีต่างๆที่เปลี่ยนไป จึงได้เลือกใช้วิธีการจำแนกต้นทุนตามความสัมพันธ์กับระดับของกิจกรรม ซึ่งสามารถสะท้อนความเปลี่ยนแปลงอันขึ้นอยู่กับระดับการผลิต โดยโครงสร้างต้นทุนแบบนี้สามารถแบ่งออกเป็นประเภทดังนี้
 
 \begin{enumerate}
 \item ต้นทุนคงที่ (Fixed Costs)
@@ -1631,15 +1299,17 @@ $$ E = \frac{1}{2} mv^2 $$
 
   \begin{enumerate}
   \item ต้นทุนกึ่งผันแปร (semi variable cost) เป็นต้นทุนที่จะมีส่วนหนึ่งคงที่ทุกระดับกิจกรรม และมีส่วนที่ผันแปรไปกับระดับกิจกรรม เช่น ค่าโทรศัพท์ เป็นต้น บางครั้งก็เป็นการยากที่จะประเมินส่วนที่คงที่หรือแปรผันของส่วนนี้
-  \item ต้นทุนเชิงขั้น (step cost) หรือต้นทุนกึ่งคงที่ (semi fixed cost) หมายถึงต้นทุนที่คงที่ในช่วงระดับกิจกรรมหนึ่ง และเปลี่ยนไปคงที่ในอีกระดับกิจกรรมหนึ่ง เช่น ค่าผู้ควบคุมงาน เงินเดือน
-  \end{enumerate}
+        \item ต้นทุนเชิงขั้น (step cost) หรือต้นทุนกึ่งคงที่ (semi fixed cost) หมายถึงต้นทุนที่คงที่ในช่วงระดับกิจกรรมหนึ่ง และเปลี่ยนไปคงที่ในอีกระดับกิจกรรมหนึ่ง เช่น ค่าผู้ควบคุมงาน เงินเดือน
+    \end{enumerate}
 \end{enumerate}
 
-\section{มูลค่าเงินตามเวลา (Time Value of Money)}
+\subsection{มูลค่าเงินตามเวลา (Time Value of Money)\}}
+\label{sec:org04636dc}
 
 แนวคิดเรื่องของมูลค่าเงินตามเวลานั้นว่าด้วยมูลค่าของเงินที่เปลี่ยนแปลงไป ขึ้นอยู่กับเวลาที่เราได้รับหรือจ่ายเงินนั้นออกไป ฟังดูอาจจะแปลกๆอยู่สักหน่อย 100 บาทวันนี้ พรุ่งนี้ก็ยัง 100 บาทอยู่มิใช่หรือ แต่หากเริ่มเพิ่มเวลาเข้าไปเป็น 1 เดือน 1 ปี 10 ปี เงินนี้ก็อาจจะไม่เหมือนเดิมแล้ว พิจารณาได้อย่างง่ายด้วยคำถามนี้ หากมีคนสัญญาว่าจะให้เงินเรา 100 บาทตอนนี้เลยหรือ 100 บาทในอีก 10 ปีข้างหน้า ทุกคนคงตอบพร้อมเป็นเสียงเดียวกันว่า ขอเงิน 100 บาทตอนนี้เลยก็แล้วกัน นั่นเป็นเพราะว่าเงิน 100 บาทตอนนี้มี\textbf{มูลค่า}มากกว่าเงิน 100 บาทในอีก 10 ปีข้างหน้า
 
-\section{ต้นทุนเฉลี่ยตลอดอายุโครงการ (Levelized Cost of Energy - LCOE)}
+\subsection{ต้นทุนเฉลี่ยตลอดอายุโครงการ (Levelized Cost of Energy - LCOE)\}}
+\label{sec:orgba134d4}
 
 ในมุมมองของหน่วยงานควบคุมราคาหรือคุ้มครองผู้บริโภค ความสามารถในการทำกำไรหรืออัตราผลตอบแทนของโครงการโรงงานผลิตไฟฟ้าหนึ่งมักจะไม่ใช่สิ่งแรกที่น่าสนใจ ราคาต่อหน่วยพลังงานที่ผู้บริโภคจะต้องจ่ายเป็นตัววัดที่สามารถนำมาช่วยพิจารณาความเหมาะสมของการเลือกใช้พลังงานทางเลือกเพื่อผลิตไฟฟ้า
 
@@ -1650,20 +1320,12 @@ $$ E = \frac{1}{2} mv^2 $$
               &= \frac{\text{มูลค่าปัจจุบันสุทธิของต้นทุน}}{\text{พลังงานไฟฟ้าที่ผลิตได้ทั้งหมด}}
 \end{align}
 
-\section{อัตราผลตอบแทนภายใน (Internal Rate of Return - IRR)}
+\subsection{อัตราผลตอบแทนภายใน (Internal Rate of Return - IRR)\}}
+\label{sec:orgc05e71c}
 
-\section{มูลค่าปัจจุบันสุทธิ (Net Present Value - NPV)}
+\subsection{มูลค่าปัจจุบันสุทธิ (Net Present Value - NPV)}
+\label{sec:org7c5ce8b}
 
-\part{ศักยภาพของพลังงานทดแทนในประเทศไทย}
-
-\chapter{การพัฒนาอย่างยั่งยืน}
-
-\backmatter
-
+\section{การพัฒนาอย่างยั่งยืน}
+\label{sec:org41675d1}
 \end{document}
-%%% Local Variables: 
-%%% coding: utf-8
-%%% mode: latex
-%%% TeX-engine: xetex
-%%% TeX-master: t
-%%% End: 
