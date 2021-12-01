@@ -1530,6 +1530,43 @@ ethanol) ซึ่งกระบวนการทั้งหมดสาม�
 โดยที่เอทานอลที่ได้จะเรียกว่าเอทานอลรุ่นที่ 2 (2nd-generation ethanol)
 หรือเอทานอลชั้นสูง (advanced ethanol)
 
+#+NAME: fig: 2nd generation ethanol process
+#+CAPTION: กระบวนการผลิตไบโอเอทานอลจากเซลลูโลส
+\begin{figure*}
+  \centering
+  \begin{tikzpicture}[>=latex]
+    \node [draw, ultra thick, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](fee){Feedstock};
+    \node at (fee) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](han){Biomass\\Handling};
+    \node at (han) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](enz){Enzyme\\Production};
+    \node at (han) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](pre){Biomass\\Pretreatment};
+    \node at (pre.south west) [below right, text width=4.5cm] {\footnotesize{Mix with dilute sulfuric acid Hemicellulose hydrolyze to simple sugars}};
+    \node at (pre) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](cel){Cellulose\\Hydrolysis};
+    \node at (cel.south west) [below right, text width=5cm] {\footnotesize{With enzyme, cellulose\\hydrolyze to glucose}};
+    \node at (cel) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](glu){Glucose\\Fermentation};
+    \node at (glu.south west) [below right, text width=5cm] {\footnotesize{Ferment glucose with yeast}};
+    \node at (glu) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](eth){Ethanol\\Recovery};
+    \node at (eth.south west) [below right, text width=5cm] {\footnotesize{Distill and dehydrate ethanol}};
+    \node at (cel) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](pen){Pentose\\Fermentation};
+    \node at (pen.south west) [below right, text width=5cm] {\footnotesize{Ferment pentose with \\genetically engineered bacteria}};
+    \node at (eth) [yshift=3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](lig){Lignin\\Utilization};
+    \node at (eth) [draw, ultra thick, yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](2nd){Bioethanol};
+
+    %% Arrows
+    \draw [->, thick] (fee) -- (han);
+    \draw [->, thick] (han) -- (pre);
+    \draw [->, thick] (pre) -- (cel);
+    \draw [->, thick] (enz) -- (cel);
+    \draw [->, thick] (pre) --++ (0:2) --++ (90:3) -- (enz);
+    \draw [->, thick] (pre) --++ (0:2) --++ (-90:3) -- (pen);
+    \draw [->, thick] (cel) -- (glu);
+    \draw [->, thick] (cel) -- (glu);
+    \draw [->, thick] (glu) -- (eth);
+    \draw [->, thick] (pen) --++ (0:6) --++ (90:3) -- (eth);
+    \draw [->, thick] (eth) -- (lig);
+    \draw [->, thick] (eth) -- (2nd);
+  \end{tikzpicture}
+\end{figure*}
+
 *** ความแตกต่างระหว่างเอทานอลรุ่นที่ 1 และรุ่นที่ 2
 เอทานอลรุ่นที่ 1
 ใช้วัตถุดิบซึ่งประกอบด้วยน้ำตาลและแป้งที่สามารถนำมาใช้เป็นอาหารได้
