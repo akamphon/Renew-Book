@@ -99,6 +99,7 @@
 
 \mainmatter
 
+
 * พลังงานทดแทน
 ** พลังงานแสงอาทิตย์
 
@@ -569,7 +570,9 @@ load matching
 โดยตัวทำความเย็นที่อาศัยหลักการนี้เรียกว่าตัวทำความเย็นเพลเทียร์
 (Peltier cooler) โดยอัตราการกำจัดความร้อนสามารถคำนวณได้จาก
 
-\[Q_{peltier} = m S_{pn} T_H i\]
+\begin{equation}
+  Q_{peltier} = m S_{pn} T_H i
+\end{equation}
 
 ซึ่งตัวทำความเย็นนี้มีจุดเด่นเช่นเดียวกับตัวผลิตไฟฟ้าเทอร์โมอิเลกตริก
 นั่นคือไม่มีชิ้นส่วนที่เคลื่อนไหว
@@ -1473,6 +1476,45 @@ $C_L = 0.6$
 เอทานอลที่ผลิตจากกระบวนการนี้เรียกว่าเอทานอลรุ่นที่ 1 (1st-generation
 ethanol) ซึ่งกระบวนการทั้งหมดสามารถสรุปเป็นแผนภาพได้ดังรูปที่
 [[fig: ethanol production from starch/sugar]]
+
+#+NAME: fig: ethanol production from starch/sugar
+#+CAPTION: กระบวนการผลิตไบโอเอทานอลจากน้ำตาลและแป้ง
+\begin{figure*}
+  \centering
+  \begin{tikzpicture}[>=latex]
+    \node [draw, ultra thick, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](fee){Feedstock};
+    \node at (fee) [yshift=-3cm, minimum height=1.5cm, fill=LightSkyBlue, minimum width=2.5cm, ](mill){Milling};
+    \node at (mill.south west) [below right] {\footnotesize{Turn into powder}};
+    \node at (mill.east) [below right, text width=1.5cm] {\footnotesize{fine powder}};
+    \node at (mill) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](liq){Liquefaction};
+    \node at (liq.south west) [below right, text width=5cm] {\footnotesize{Mix with water & $\alpha$-amylase\\Heat to 120-150 $^{\circ}$C}};
+    \node at (liq) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](sac){Saccharification\\(Hydrolysis)};
+    \node at (sac.south west) [below right] {\footnotesize{Cool the mash\\Add glucoamylase}};
+    \node at (sac.east) [below right] {\footnotesize{dextrose}};
+    \node at (mill) [yshift=-3cm, minimum height=1.5cm, fill=LightSkyBlue, minimum width=2.5cm, ](fer){Fermentation};
+    \node at (fer.south west) [below right] {\footnotesize{Add yeast to ferment sugars}};
+    \node at (fer) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](dis){Distillation};
+    \node at (dis.south west) [below right] {\footnotesize{Separate solids}};
+    \node at (dis.east) [below right, text width=1.5cm] {\footnotesize{96\% alcohol}};
+    \node at (dis) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](deh){Dehydration};
+    \node at (deh.south west) [below right] {\footnotesize{Remove water}};
+    \node at (deh) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](den){Denaturing};
+    \node at (den.south west) [below right] {\footnotesize{Add small amount of gasoline}};
+    \node at (den) [draw, ultra thick, yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](bio){Bioethanol};
+
+    %% arrows
+    \draw [->, thick] (fee) -- (mill);
+    \draw [->, thick] (mill) -- (liq);
+    \draw [->, thick] (liq) -- (sac);
+    \draw [->, thick] (sac) --++ (0:3) --++ (-90:2) --++ (180:11) -- (fer);
+    \draw [->, thick] (fer) -- (dis) node[midway](mid){};
+    \draw [->, thick] (mid) --++ (-90:2) node[below, text width=3cm, align=center]{\footnotesize{10\% alcohol\\90\% non-fermentable solids}};
+    \draw [->, thick] (fer.east) ++ (90:0.5) --++ (0:0.5) node[right]{\footnotesize{CO$_2$}};
+    \draw [->, thick] (dis) -- (deh);
+    \draw [->, thick] (deh) -- (den);
+    \draw [->, thick] (den) -- (bio);
+  \end{tikzpicture}
+\end{figure*}
 
 ในกรณีที่วัตถุดิบตั้งต้นเป็นพวกเซลลูโลส
 การผลิตเอทานอลจะมีความแตกต่างกับวัตถุดิบจำพวกแป้ง
