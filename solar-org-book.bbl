@@ -50,6 +50,27 @@
       \verb 10.1080/00045608.2015.1064511
       \endverb
     \endentry
+    \entry{sukkasibiofuels}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=3a86569fa1f65b1e7454165aa112a9dc}{%
+           family={Sukkasi},
+           familyi={S\bibinitperiod},
+           given={Sittha},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{3a86569fa1f65b1e7454165aa112a9dc}
+      \strng{fullhash}{3a86569fa1f65b1e7454165aa112a9dc}
+      \strng{bibnamehash}{3a86569fa1f65b1e7454165aa112a9dc}
+      \strng{authorbibnamehash}{3a86569fa1f65b1e7454165aa112a9dc}
+      \strng{authornamehash}{3a86569fa1f65b1e7454165aa112a9dc}
+      \strng{authorfullhash}{3a86569fa1f65b1e7454165aa112a9dc}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy Sources and Conversion}
+      \field{title}{Biofuels}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
