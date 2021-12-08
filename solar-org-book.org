@@ -17,19 +17,19 @@
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{setspace}
-#+LATEX_HEADER: \onehalfspacing
+# #+LATEX_HEADER: \onehalfspacing
 #+LATEX_HEADER: \usepackage[svgnames]{xcolor}
 # #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \XeTeXlinebreaklocale "th_TH"
 # #+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 1pt
-#+LATEX_HEADER: \newfontfamily{\thaifont}[Scale=1,Script=Thai]{Laksaman}
-#+LATEX_HEADER: \newfontfamily{\thaifontsf}[Scale=1,Script=Thai]{Laksaman}
-#+LATEX_HEADER: \newfontfamily{\englishfont}[Scale=1]{Laksaman}
-#+LATEX_HEADER: \usepackage[parfill]{parskip}
-#+LATEX_HEADER: \titleformat{\chapter}[display]{\huge\bfseries}{\thechapter}{0pt}{\huge\bfseries}
-#+LATEX_HEADER: \titlespacing{\chapter}{0pt}{0pt}{0pt}
-#+LATEX_HEADER: \titleformat{\section}{\Large\bfseries}{\thesection}{5pt}{\Large\bfseries}
-#+LATEX_HEADER: \titleformat{\subsection}{\large\bfseries}{}{0pt}{\large\bfseries}
+#+LATEX_HEADER: \newfontfamily{\thaifont}[Scale=MatchUppercase,Script=Thai]{Umpush Light}
+#+LATEX_HEADER: \newfontfamily{\thaifontsf}[Scale=MatchUppercase,Script=Thai]{Umpush Light}
+#+LATEX_HEADER: \newfontfamily{\englishfont}[Scale=MatchUppercase]{Umpush}
+# #+LATEX_HEADER: \usepackage[parfill]{parskip}
+#+LATEX_HEADER: \titleformat{\chapter}{\huge\textit}{\thechapter}{10pt}{\huge\textit}
+# #+LATEX_HEADER: \titlespacing{\chapter}{0pt}{0pt}{\baselineskip}
+#+LATEX_HEADER: \titleformat{\section}{\Large\textit}{}{5pt}{\Large\textit}
+# #+LATEX_HEADER: \titleformat{\subsection}{\large\bfseries}{}{0pt}{\large\bfseries}
 #+LATEX_HEADER: \renewcommand{\smallcaps}[1]{\thaifont #1}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage{tikz}
@@ -264,9 +264,9 @@ P-N junction
 
 #+NAME: eq:orgb7bf346
 \begin{align}
-  P_{out} = i V \\
-  \frac{dP_{out}}{dV} = 0 \\
-  exp \left(\frac{e V_{\max P}}{kT} \right) = \dfrac{1+\dfrac{i_{PV}}{i_0}}{1+ \dfrac{e V_{\max P}}{kT}}
+  P_{out} &= i V \nonumber \\
+  \frac{dP_{out}}{dV} &= 0 \nonumber \\
+  exp \left(\frac{e V_{\max P}}{kT} \right) &= \dfrac{1+\dfrac{i_{PV}}{i_0}}{1+ \dfrac{e V_{\max P}}{kT}}
 \end{align}
 
 สังเกตว่าสมการนี้มีค่า $V_{\max P}$ อยู่ทั้งสองด้าน
@@ -471,7 +471,7 @@ print('&= {0:.3f}'.format(eff))
 ซึ่งสามารถแบ่งย่อยออกเป็นปรากฏการณ์ซึ่งเกิดขึ้นพร้อมกัน 3
 อย่างดังต่อไปนี้
 
-*** ปรากฏการณ์ซีเบ็ก (Seebeck Effect)
+*** ปรากฏการณ์ซีเบ็ก
 เทอร์โมอิเล็กทริกซิตี้เป็นปรากฏการณ์การเกิดศักย์ไฟฟ้าขึ้นบนตัวนำหรือสารกึ่งตัวนำที่มีอุณหภูมิเปลี่ยนไป
 โดยมีหลักการมาจากการแพร่ (diffusion) ของพาหะของประจุ (charge carrier)
 ในสารเมื่อได้รับความร้อน
@@ -560,7 +560,7 @@ print('&= {0:.3f}'.format(eff))
 load matching
 ซึ่งเป็นวิธีการที่ใช้ได้กับการผลิตไฟฟ้าด้วยกระบวนการอื่นๆได้เช่นกัน
 
-*** ปรากฏการณ์เพลเทียร์ (Peltier Effect)
+*** ปรากฏการณ์เพลเทียร์
 ปรากฏการณ์เพลเทียร์เป็นปรากฏการณ์ที่ "ตรงกันข้าม" กับปรากฏการณ์ซีเบ็ก
 ในกรณีของปรากฏการณ์ซีเบ็กนั้น
 ผลต่างของอุณหภูมิสร้างให้เกิดความต่างศักย์และกระแสไฟฟ้า
@@ -587,7 +587,7 @@ load matching
 แต่ก็ได้มีการนำมาใช้ในกรณีที่มีพื้นที่การติดตั้งจำกัด
 เช่นระบบทำความเย็นในหน่วยประมวลผล (processor) ของคอมพิวเตอร์
 
-*** ปรากฏการณ์ทอมสัน (Thomson Effect)
+*** ปรากฏการณ์ทอมสัน
 ดังที่ได้กล่าวมาแล้วในส่วนของปรากฏการณ์เทอร์โมอิเลกทริก
 ค่าสัมประสิทธิ์ซีเบ็กของแต่ละวัสดุนั้นมักจะแปรผันกับอุณหภูมิ
 ดังนั้นในกรณีที่วัสดุมีอุณหภูมิที่ไม่สม่ำเสมอ
@@ -1210,9 +1210,9 @@ print('\\end{align*}')
 \end{align*}
 
 *** ชนิดของเซลล์เชื้อเพลิง
-*** Proton Exchange Membrane (PEM)
-*** Direct Methanol
-*** Solid Oxide
+*** เซลล์เชื้อเพลิงแบบเยื่อแลกเปลี่ยนโปรตอน
+*** เซลล์เชื้อเพลิงแบบใช้เมทานอลโดยตรง
+*** เซลล์เชื้อเพลิงแบบออกไซด์แข็ง
 ** พลังงานลม
 พลังงานลมนับเป็นอีกพลังงานหนึ่งที่เกิดจากการไหลของอากาศ
 ดังนั้นการแปลงพลังงานลมเป็นพลังงานไฟฟ้าจึงเป็นการแปลงพลังงานกลไปเป็นพลังงานไฟฟ้า
