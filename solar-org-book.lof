@@ -12,6 +12,30 @@
 \defcounter {refsection}{0}\relax 
 \selectlanguage *{thai}
 \defcounter {refsection}{0}\relax 
+\bgroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{english}
+\defcounter {refsection}{0}\relax 
+\egroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{thai}
+\defcounter {refsection}{0}\relax 
+\bgroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{english}
+\defcounter {refsection}{0}\relax 
+\egroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{thai}
+\defcounter {refsection}{0}\relax 
+\bgroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{english}
+\defcounter {refsection}{0}\relax 
+\egroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{thai}
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
@@ -38,9 +62,7 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.1}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากน้ำตาลและแป้ง}}{38}{figure.caption.52}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.2}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากเซลลูโลส}}{38}{figure.caption.53}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากน้ำตาลและแป้ง (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})}}{38}{figure.caption.52}%
 \defcounter {refsection}{0}\relax 
 \bgroup 
 \defcounter {refsection}{0}\relax 
@@ -50,7 +72,25 @@
 \defcounter {refsection}{0}\relax 
 \selectlanguage *{thai}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {7.3}{\ignorespaces กระบวนการผลิตไบโอดีเซล}}{39}{figure.caption.56}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากเซลลูโลส (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})}}{38}{figure.caption.53}%
+\defcounter {refsection}{0}\relax 
+\bgroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{english}
+\defcounter {refsection}{0}\relax 
+\egroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{thai}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.3}{\ignorespaces กระบวนการผลิตไบโอดีเซล (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})}}{39}{figure.caption.56}%
+\defcounter {refsection}{0}\relax 
+\bgroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{english}
+\defcounter {refsection}{0}\relax 
+\egroup 
+\defcounter {refsection}{0}\relax 
+\selectlanguage *{thai}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -66,17 +106,19 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {8.2}{\ignorespaces ระบบล้อตุนกำลังแบบใช้แบร์ริงแม่เหล็ก}}{45}{figure.caption.70}%
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Historical and projected transportation fuel cell system cost}}{53}{figure.caption.89}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Historical and projected transportation fuel cell system cost}}{54}{figure.caption.90}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {9.3}{\ignorespaces แผนภูมิเปรียบเทียบต้นทุนตลอดการใช้งานของโรงงานผลิตไฟฟ้าพลังงานลมแบบบนพิ้นดินกับแบบนอกชายฝั่ง}}{54}{figure.caption.93}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces ค่า shape factor ของภาคตัดรูปทรงต่างๆที่ใช้ทำล้อตุนกำลัง}}{46}{figure.caption.73}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Earthship Brighton, UK}}{58}{figure.caption.101}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Historical and projected transportation fuel cell system cost}}{53}{figure.caption.90}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Historical and projected transportation fuel cell system cost}}{54}{figure.caption.91}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {9.3}{\ignorespaces แผนภูมิเปรียบเทียบต้นทุนตลอดการใช้งานของโรงงานผลิตไฟฟ้าพลังงานลมแบบบนพิ้นดินกับแบบนอกชายฝั่ง}}{54}{figure.caption.94}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Earthship Brighton, UK}}{58}{figure.caption.102}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

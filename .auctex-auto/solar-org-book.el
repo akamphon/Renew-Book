@@ -8,6 +8,8 @@
     "pei2011convergence"
     "biswas2012high"
     "baird2015thaidemand"
-    "sukkasibiofuels"))
+    "sukkasibiofuels"
+    "sukkasisustaindev"
+    "sukkasisustainind"))
  :bibtex)
 
