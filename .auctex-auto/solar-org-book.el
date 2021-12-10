@@ -10,6 +10,7 @@
     "baird2015thaidemand"
     "sukkasibiofuels"
     "sukkasisustaindev"
-    "sukkasisustainind"))
+    "sukkasisustainind"
+    "kobsiriliion"))
  :bibtex)
 
