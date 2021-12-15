@@ -50,6 +50,178 @@
       \verb 10.1080/00045608.2015.1064511
       \endverb
     \endentry
+    \entry{biswas2012high}{article}{}
+      \name{author}{8}{}{%
+        {{hash=dbb91e7d2fdff78b66c1aa290b93ceaa}{%
+           family={Biswas},
+           familyi={B\bibinitperiod},
+           given={Kanishka},
+           giveni={K\bibinitperiod}}}%
+        {{hash=4b7cdba2357a5320a48ebf176ec1d381}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Jiaqing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e95d7df0125d36039d2577b740cea9be}{%
+           family={Blum},
+           familyi={B\bibinitperiod},
+           given={Ivan\bibnamedelima D},
+           giveni={I\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=27c8dfafc6ffb4a8a0d9145cfeb81ca5}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Chun-I},
+           giveni={C\bibinithyphendelim I\bibinitperiod}}}%
+        {{hash=32baadd4c8db95f4f728a4c877973152}{%
+           family={Hogan},
+           familyi={H\bibinitperiod},
+           given={Timothy\bibnamedelima P},
+           giveni={T\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=5a6c56c6f3a12faecfcfe17b4349398d}{%
+           family={Seidman},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima N},
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=4d8a92de45a408344f4818dc61ae5693}{%
+           family={Dravid},
+           familyi={D\bibinitperiod},
+           given={Vinayak\bibnamedelima P},
+           giveni={V\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=16823159ff6101c7729a2382912649a9}{%
+           family={Kanatzidis},
+           familyi={K\bibinitperiod},
+           given={Mercouri\bibnamedelima G},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{53a1c2eb9b561edec4ed090fab407c93}
+      \strng{fullhash}{e13e79bac42f2fa809883d0f4f77146d}
+      \strng{bibnamehash}{53a1c2eb9b561edec4ed090fab407c93}
+      \strng{authorbibnamehash}{53a1c2eb9b561edec4ed090fab407c93}
+      \strng{authornamehash}{53a1c2eb9b561edec4ed090fab407c93}
+      \strng{authorfullhash}{e13e79bac42f2fa809883d0f4f77146d}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7416}
+      \field{title}{High-performance bulk thermoelectrics with all-scale hierarchical architectures}
+      \field{volume}{489}
+      \field{year}{2012}
+      \field{pages}{414}
+      \range{pages}{1}
+    \endentry
+    \entry{heremans2008enhancement}{article}{}
+      \name{author}{8}{}{%
+        {{hash=c4408b0fc73ec155d49fda446c0a201f}{%
+           family={Heremans},
+           familyi={H\bibinitperiod},
+           given={Joseph\bibnamedelima P},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=acf08eeff5568d1582444e892f1dca19}{%
+           family={Jovovic},
+           familyi={J\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=1420b925e5758fbe63d615cf4d0b06ed}{%
+           family={Toberer},
+           familyi={T\bibinitperiod},
+           given={Eric\bibnamedelima S},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=6e810dc255f3ce20b5fd23ce70fdc940}{%
+           family={Saramat},
+           familyi={S\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9d3f402294022005b8d2a061eb072759}{%
+           family={Kurosaki},
+           familyi={K\bibinitperiod},
+           given={Ken},
+           giveni={K\bibinitperiod}}}%
+        {{hash=757ac45cfa03bf7ae2dc914dc3f0f954}{%
+           family={Charoenphakdee},
+           familyi={C\bibinitperiod},
+           given={Anek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a3d59748ae90d68d183f0524c57c5c2f}{%
+           family={Yamanaka},
+           familyi={Y\bibinitperiod},
+           given={Shinsuke},
+           giveni={S\bibinitperiod}}}%
+        {{hash=15adebbab8733817b9397a2bd8eab956}{%
+           family={Snyder},
+           familyi={S\bibinitperiod},
+           given={G\bibnamedelima Jeffrey},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{e3c76283940a3644f05b40c15cccb08d}
+      \strng{fullhash}{a085705ab7f2e10d0bc05fcd5cddf57e}
+      \strng{bibnamehash}{e3c76283940a3644f05b40c15cccb08d}
+      \strng{authorbibnamehash}{e3c76283940a3644f05b40c15cccb08d}
+      \strng{authornamehash}{e3c76283940a3644f05b40c15cccb08d}
+      \strng{authorfullhash}{a085705ab7f2e10d0bc05fcd5cddf57e}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{5888}
+      \field{title}{Enhancement of thermoelectric efficiency in PbTe by distortion of the electronic density of states}
+      \field{volume}{321}
+      \field{year}{2008}
+      \field{pages}{554\bibrangedash 557}
+      \range{pages}{4}
+    \endentry
+    \entry{pei2011high}{article}{}
+      \name{author}{4}{}{%
+        {{hash=5863649e19e951d788f613c27d2355ce}{%
+           family={Pei},
+           familyi={P\bibinitperiod},
+           given={Yanzhong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=264bfac24c47daea7edfaeba705c415e}{%
+           family={LaLonde},
+           familyi={L\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=68d6f751e63fb5b7c8a8d2252233c942}{%
+           family={Iwanaga},
+           familyi={I\bibinitperiod},
+           given={Shiho},
+           giveni={S\bibinitperiod}}}%
+        {{hash=15adebbab8733817b9397a2bd8eab956}{%
+           family={Snyder},
+           familyi={S\bibinitperiod},
+           given={G\bibnamedelima Jeffrey},
+           giveni={G\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Royal Society of Chemistry}%
+      }
+      \strng{namehash}{82e08311748ffb309d7efe454556f340}
+      \strng{fullhash}{ceec2b7d589901db8645c5b36b7592f3}
+      \strng{bibnamehash}{82e08311748ffb309d7efe454556f340}
+      \strng{authorbibnamehash}{82e08311748ffb309d7efe454556f340}
+      \strng{authornamehash}{82e08311748ffb309d7efe454556f340}
+      \strng{authorfullhash}{ceec2b7d589901db8645c5b36b7592f3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energy \& Environmental Science}
+      \field{number}{6}
+      \field{title}{High thermoelectric figure of merit in heavy hole dominated PbTe}
+      \field{volume}{4}
+      \field{year}{2011}
+      \field{pages}{2085\bibrangedash 2089}
+      \range{pages}{5}
+    \endentry
     \entry{sukkasibiofuels}{misc}{}
       \name{author}{1}{}{%
         {{hash=3a86569fa1f65b1e7454165aa112a9dc}{%
