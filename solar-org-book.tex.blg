@@ -1,5 +1,0 @@
-[0] Config.pm:312> INFO - This is Biber 2.15
-[0] Config.pm:315> INFO - Logfile is 'solar-org-book.tex.blg'
-[58] biber:330> INFO - === Tue Nov 23, 2021, 12:36:18
-[116] Utils.pm:411> ERROR - Cannot find 'solar-org-book.tex.bcf'!
-[116] Biber.pm:132> INFO - ERRORS: 1
