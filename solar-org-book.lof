@@ -40,17 +40,17 @@
 \defcounter {refsection}{0}\relax
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {2.1}{\ignorespaces วงจรเทียบเท่าของเซลล์แสงอาทิตย์\relax }}{5}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces วงจรเทียบเท่าของเซลล์แสงอาทิตย์\relax }}{3}{figure.caption.5}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {2.2}{\ignorespaces กราฟแสดงความสัมพันธ์ระหว่างกระแส แรงดันไฟฟ้า และกำลังไฟฟ้าที่ผลิตได้จากในเซลล์แสงอาทิตย์ที่อุณหภูมิ 25$^{\circ }$C\relax }}{7}{figure.caption.6}%
-\defcounter {refsection}{0}\relax
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.2}{\ignorespaces กราฟแสดงความสัมพันธ์ระหว่างกระแส แรงดันไฟฟ้า และกำลังไฟฟ้าที่ผลิตได้จากในเซลล์แสงอาทิตย์ที่อุณหภูมิ 25$^{\circ }$C\relax }}{5}{figure.caption.6}%
 \defcounter {refsection}{0}\relax
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {4.1}{\ignorespaces ภาพวงจรแสดงคุณสมบัติของเครื่องผลิตไฟฟ้าเทอร์โมอิเล็กทริก\relax }}{11}{figure.caption.7}%
+\addvspace {10\p@ }
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {4.2}{\ignorespaces ประสิทธิภาพความร้อนของ TEG เทียบกับประสิทธิภาพคาร์โนต์\relax }}{15}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces ภาพวงจรแสดงคุณสมบัติของเครื่องผลิตไฟฟ้าเทอร์โมอิเล็กทริก\relax }}{9}{figure.caption.7}%
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {4.2}{\ignorespaces ประสิทธิภาพความร้อนของ TEG เทียบกับประสิทธิภาพคาร์โนต์\relax }}{13}{figure.caption.8}%
 \defcounter {refsection}{0}\relax
 \bgroup
 \defcounter {refsection}{0}\relax
@@ -80,13 +80,13 @@
 \defcounter {refsection}{0}\relax
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {6.1}{\ignorespaces ทิศทางของความเร็วและแรงของลมที่กระทำบนใบกังหันลม\relax }}{28}{figure.caption.11}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces ทิศทางของความเร็วและแรงของลมที่กระทำบนใบกังหันลม\relax }}{26}{figure.caption.15}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {6.2}{\ignorespaces ประสิทธิภาพของกังหันลมแรงยกที่อัตราส่วนความเร็วต่างๆ จะเห็นได้ว่าค่า \(\mitlambda \) ที่เหมาะสมที่สุดอยู่ที่ราว 67 ซึ่งให้ค่าสัมประสิทธิ์กำลังที่สูงถึง 889!\relax }}{28}{figure.caption.12}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces ประสิทธิภาพของกังหันลมแรงยกที่อัตราส่วนความเร็วต่างๆ จะเห็นได้ว่าค่า \(\mitlambda \) ที่เหมาะสมที่สุดอยู่ที่ราว 67 ซึ่งให้ค่าสัมประสิทธิ์กำลังที่สูงถึง 889!\relax }}{26}{figure.caption.16}%
 \defcounter {refsection}{0}\relax
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {7.1}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากน้ำตาลและแป้ง (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})\relax }}{32}{figure.caption.13}%
+\contentsline {figure}{\numberline {7.1}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากน้ำตาลและแป้ง (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})\relax }}{30}{figure.caption.17}%
 \defcounter {refsection}{0}\relax
 \bgroup
 \defcounter {refsection}{0}\relax
@@ -96,7 +96,7 @@
 \defcounter {refsection}{0}\relax
 \selectlanguage *{thai}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {7.2}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากเซลลูโลส (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})\relax }}{32}{figure.caption.14}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces กระบวนการผลิตไบโอเอทานอลจากเซลลูโลส (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})\relax }}{30}{figure.caption.18}%
 \defcounter {refsection}{0}\relax
 \bgroup
 \defcounter {refsection}{0}\relax
@@ -106,7 +106,7 @@
 \defcounter {refsection}{0}\relax
 \selectlanguage *{thai}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {7.3}{\ignorespaces กระบวนการผลิตไบโอดีเซล (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})\relax }}{34}{figure.caption.15}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces กระบวนการผลิตไบโอดีเซล (วาดใหม่โดยได้รับอนุญาตจาก \autocite {sukkasibiofuels})\relax }}{32}{figure.caption.19}%
 \defcounter {refsection}{0}\relax
 \bgroup
 \defcounter {refsection}{0}\relax
@@ -118,7 +118,7 @@
 \defcounter {refsection}{0}\relax
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.1}{\ignorespaces ความผันแปรของอุปสงค์กำลังไฟฟ้าเฉลี่ยใน 1 วันในฤดูร้อน ฤดูฝนและฤดูหนาว \autocite {baird2015thaidemand}\relax }}{35}{figure.caption.16}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces ความผันแปรของอุปสงค์กำลังไฟฟ้าเฉลี่ยใน 1 วันในฤดูร้อน ฤดูฝนและฤดูหนาว \autocite {baird2015thaidemand}\relax }}{33}{figure.caption.20}%
 \defcounter {refsection}{0}\relax
 \bgroup
 \defcounter {refsection}{0}\relax
@@ -128,31 +128,31 @@
 \defcounter {refsection}{0}\relax
 \selectlanguage *{thai}
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.2}{\ignorespaces แบตเตอรี่ตะกั่ว-กรด\relax }}{37}{figure.caption.17}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces แบตเตอรี่ตะกั่ว-กรด\relax }}{35}{figure.caption.21}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.3}{\ignorespaces แบตเตอรี่นิเกิล-แคดเมียม\relax }}{38}{figure.caption.18}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces แบตเตอรี่นิเกิล-แคดเมียม\relax }}{36}{figure.caption.22}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.4}{\ignorespaces แบตเตอรี่นิเกิลเมตทัลไฮไดรด์\relax }}{38}{figure.caption.19}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces แบตเตอรี่นิเกิลเมตทัลไฮไดรด์\relax }}{36}{figure.caption.23}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.5}{\ignorespaces แบตเตอรี่ลิเทียมไออน\relax }}{38}{figure.caption.20}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces แบตเตอรี่ลิเทียมไออน\relax }}{36}{figure.caption.24}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.6}{\ignorespaces แผนภูมิเปรียบเทียบพลังงานจำเพาะและความหนาแน่นพลังงานของแบตเตอรี่ทุติยภูมิ\relax }}{39}{figure.caption.21}%
+\contentsline {figure}{\numberline {8.6}{\ignorespaces แผนภูมิเปรียบเทียบพลังงานจำเพาะและความหนาแน่นพลังงานของแบตเตอรี่ทุติยภูมิ\relax }}{37}{figure.caption.25}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.7}{\ignorespaces ระบบล้อตุนกำลังแบบใช้แบร์ริงแม่เหล็ก\relax }}{40}{figure.caption.22}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces ระบบล้อตุนกำลังแบบใช้แบร์ริงแม่เหล็ก\relax }}{38}{figure.caption.26}%
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {8.8}{\ignorespaces ค่า shape factor ของภาคตัดรูปทรงต่างๆที่ใช้ทำล้อตุนกำลัง\relax }}{41}{figure.caption.23}%
-\defcounter {refsection}{0}\relax
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {9.1}{\ignorespaces Historical and projected transportation fuel cell system cost\relax }}{49}{figure.caption.27}%
-\defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {9.2}{\ignorespaces Historical and projected transportation fuel cell system cost\relax }}{49}{figure.caption.28}%
-\defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {9.3}{\ignorespaces แผนภูมิเปรียบเทียบต้นทุนตลอดการใช้งานของโรงงานผลิตไฟฟ้าพลังงานลมแบบบนพิ้นดินกับแบบนอกชายฝั่ง\relax }}{50}{figure.caption.30}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces ค่า shape factor ของภาคตัดรูปทรงต่างๆที่ใช้ทำล้อตุนกำลัง\relax }}{39}{figure.caption.27}%
 \defcounter {refsection}{0}\relax
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax
-\contentsline {figure}{\numberline {10.1}{\ignorespaces Earthship Brighton, UK\relax }}{54}{figure.caption.31}%
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Historical and projected transportation fuel cell system cost\relax }}{46}{figure.caption.31}%
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Historical and projected transportation fuel cell system cost\relax }}{46}{figure.caption.32}%
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {9.3}{\ignorespaces แผนภูมิเปรียบเทียบต้นทุนตลอดการใช้งานของโรงงานผลิตไฟฟ้าพลังงานลมแบบบนพิ้นดินกับแบบนอกชายฝั่ง\relax }}{47}{figure.caption.34}%
+\defcounter {refsection}{0}\relax
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Earthship Brighton, UK\relax }}{50}{figure.caption.35}%
 \defcounter {refsection}{0}\relax
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax

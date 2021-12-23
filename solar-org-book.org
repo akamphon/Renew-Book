@@ -7,7 +7,7 @@
 
 #+LATEX_COMPILER: xelatex
 #+LATEX_CLASS: kaobook
-#+LATEX_CLASS_OPTIONS: [a4paper,openany,10pt]
+#+LATEX_CLASS_OPTIONS: [a4paper,open=any,10pt]
 #+LATEX_HEADER: \setcounter{tocdepth}{1}
 # #+LATEX_HEADER: \setcounter{secnumdepth}{0}
 #+LATEX_HEADER: \usepackage{fontspec}
@@ -27,18 +27,12 @@
 #+LATEX_HEADER: \newfontfamily{\thaifont}[Script=Thai]{Laksaman}
 #+LATEX_HEADER: \newfontfamily{\thaifontsf}[Script=Thai]{Laksaman}
 #+LATEX_HEADER: \newfontfamily{\englishfont}{Laksaman}
-# #+LATEX_HEADER: \usepackage[parfill]{parskip}
-# #+LATEX_HEADER: \titleformat{\chapter}{\huge\itshape}{\thechapter}{10pt}{\huge\itshape}
-# #+LATEX_HEADER: \titlespacing{\chapter}{0pt}{0pt}{\baselineskip}
-# #+LATEX_HEADER: \titleformat{\section}{\Large\itshape}{}{5pt}{\Large\itshape}
-# #+LATEX_HEADER: \titleformat{\subsection}{\large\bfseries}{}{0pt}{\large\bfseries}
-# #+LATEX_HEADER: \renewcommand{\smallcaps}[1]{\thaifont #1}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{arrows,calc,decorations,shapes,shapes.arrows,shapes.misc,positioning,decorations.pathmorphing,patterns}
 #+LATEX_HEADER: \usepackage[american]{circuitikz}
 #+LATEX_HEADER: \usepackage{pgfplots}
-#+LATEX_HEADER: \pgfplotsset{compat=1.16}
+# #+LATEX_HEADER: \pgfplotsset{compat=1.16}
 #+LATEX_HEADER: \usepackage{amsmath}
 #+LATEX_HEADER: \usepackage{siunitx}
 #+LATEX_HEADER: \usepackage{epigraph}
@@ -101,7 +95,6 @@
 
 \mainmatter
 
-* พลังงานทดแทน
 ** พลังงานแสงอาทิตย์
 
 \epigraph{I'd put my money on the sun and solar energy. What a source of power! I hope we don't have to wait until oil and coal run out before we tackle that.}{Thomas A. Edison}
@@ -1791,9 +1784,6 @@ print('| Cast Iron | {0:.3f} | {1:.3f} |'.format(r_iron, m_iron))
 มาเป็นพลังงานศักย์ในรูปของน้ำเหนือเขื่อน
 
 
-
-* การวิเคราะห์ต้นทุนการผลิตพลังงาน
-
 \epigraph{การจะปฏิรูปเศรษฐกิจ ปกป้องความมั่นคง และรักษาโลกของเราจากเงื้อมมือของการเปลี่ยนแปลงสภาพภูมิอากาศนั้น สิ่งที่จำเป็นที่สุดคือเราจะต้องทำให้พลังงานทดแทนที่สะอาดกลายเป็นพลังงานที่สร้างกำไรได้}{บารัค โอบามา}
 
 เคยสงสัยกันบ้างไหมว่า เวลาที่การไฟฟ้าเก็บค่าไฟเราหน่วยละ 3 บาทกว่าๆนั้น
@@ -2110,8 +2100,6 @@ print('| Cast Iron | {0:.3f} | {1:.3f} |'.format(r_iron, m_iron))
 *** การจำลองแบบต้นทุนการผลิตพลังงาน
 ความเข้าใจในเรื่องของต้นทุนการผลิตพลังงานในปัจจุบันอันจะส่งผลถึงการยอมรับใช้เทคโนโลยีมีความสำคัญเป็นอย่างมาก เราควรจะทำความเข้าใจถึงแนวโน้มของต้นทุนของการผลิตพลังงานในอนาคต เพื่อจะสามารถคาดการณ์ถึงเทคโนโลยีใหม่ที่จะเข้ามาแทนที่เทคโนโลยีเดิม รวมถึงสามรถเตรียมพร้อมในการพิจารณาผลกระทบที่จะเกิดขึ้นจากการเปลี่ยนแปลง ความผันผวน และแม้แต่เหตุการณ์ที่ไม่คาดคิดที่อาจจะส่งผลถึงต้นทุนเหล่านี้ได้
 
-
-* ความยั่งยืนในด้านพลังงานของไทย
 ** การพัฒนาที่ยั่งยืน
 
 \epigraph{การพัฒนาที่ยั่งยืนคือการพัฒนาที่ตอบโจทย์ความต้องการในปัจจุบันโดยไม่บั่นทอนศักยภาพของคนรุ่นหลังที่จะตอบโจทย์ความต้องการของตัวเอง}{World Commission on Enviroment and Development, Our Common Future, the Brundtland Report, 1987}
