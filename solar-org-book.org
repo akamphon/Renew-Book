@@ -6,33 +6,33 @@
 #+OPTIONS: broken-links:t
 
 #+LATEX_COMPILER: xelatex
-#+LATEX_CLASS: tufte-book
-#+LATEX_CLASS_OPTIONS: [a4paper,nobib,openany,10pt]
+#+LATEX_CLASS: kaobook
+#+LATEX_CLASS_OPTIONS: [a4paper,openany,10pt]
 #+LATEX_HEADER: \setcounter{tocdepth}{1}
-#+LATEX_HEADER: \setcounter{secnumdepth}{0}
+# #+LATEX_HEADER: \setcounter{secnumdepth}{0}
 #+LATEX_HEADER: \usepackage{fontspec}
 #+LATEX_HEADER: \usepackage{polyglossia}
 #+LATEX_HEADER: \setdefaultlanguage{thai}
 #+LATEX_HEADER: \setotherlanguage{english}
-#+LATEX_HEADER: \usepackage{newpxtext}
+# #+LATEX_HEADER: \usepackage{newpxtext}
 #+LATEX_HEADER: \usepackage{newpxmath}
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \usepackage{setspace}
 #+LATEX_HEADER: \onehalfspacing
-#+LATEX_HEADER: \usepackage[svgnames]{xcolor}
+#+LATEX_HEADER: \usepackage[svgnames,usenames]{xcolor}
 # #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \XeTeXlinebreaklocale "th_TH"
 # #+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 1pt
-#+LATEX_HEADER: \newfontfamily{\thaifont}[Scale=MatchUppercase,Script=Thai]{Umpush Light}
-#+LATEX_HEADER: \newfontfamily{\thaifontsf}[Scale=MatchUppercase,Script=Thai]{Umpush Light}
-#+LATEX_HEADER: \newfontfamily{\englishfont}[Scale=MatchUppercase]{Umpush Light}
+#+LATEX_HEADER: \newfontfamily{\thaifont}[Script=Thai]{Laksaman}
+#+LATEX_HEADER: \newfontfamily{\thaifontsf}[Script=Thai]{Laksaman}
+#+LATEX_HEADER: \newfontfamily{\englishfont}{Laksaman}
 # #+LATEX_HEADER: \usepackage[parfill]{parskip}
-#+LATEX_HEADER: \titleformat{\chapter}{\huge\itshape}{\thechapter}{10pt}{\huge\itshape}
+# #+LATEX_HEADER: \titleformat{\chapter}{\huge\itshape}{\thechapter}{10pt}{\huge\itshape}
 # #+LATEX_HEADER: \titlespacing{\chapter}{0pt}{0pt}{\baselineskip}
 # #+LATEX_HEADER: \titleformat{\section}{\Large\itshape}{}{5pt}{\Large\itshape}
 # #+LATEX_HEADER: \titleformat{\subsection}{\large\bfseries}{}{0pt}{\large\bfseries}
-#+LATEX_HEADER: \renewcommand{\smallcaps}[1]{\thaifont #1}
+# #+LATEX_HEADER: \renewcommand{\smallcaps}[1]{\thaifont #1}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{arrows,calc,decorations,shapes,shapes.arrows,shapes.misc,positioning,decorations.pathmorphing,patterns}
@@ -46,13 +46,6 @@
 #+LATEX_HEADER: \hypersetup{colorlinks=true, linkcolor=blue}
 #+LATEX_HEADER: \usepackage{caption}
 #+LATEX_HEADER: \captionsetup{justification=raggedright,singlelinecheck=false}
-#+LATEX_HEADER: \makeatletter
-#+LATEX_HEADER: % Paragraph indentation and separation for normal text
-#+LATEX_HEADER: \renewcommand{\@tufte@reset@par}{\setlength{\RaggedRightParindent}{0pt}  \setlength{\JustifyingParindent}{0pt}  \setlength{\parindent}{0pt} \setlength{\parskip}{\baselineskip}}
-#+LATEX_HEADER: \@tufte@reset@par
-#+LATEX_HEADER: % Paragraph indentation and separation for marginal text
-#+LATEX_HEADER: \renewcommand{\@tufte@margin@par}{\setlength{\RaggedRightParindent}{0pt} \setlength{\JustifyingParindent}{0pt} \setlength{\parindent}{0pt} \setlength{\parskip}{\baselineskip}}
-#+LATEX_HEADER: \makeatother
 
 #+BIBLIOGRAPHY: solar-org-book.bib
 #+LATEX_HEADER: \usepackage[style=numeric,backend=biber,language=english,autolang=other]{biblatex}
@@ -67,7 +60,7 @@
 \begin{titlepage}
   \newgeometry{top=1cm,left=1cm} %defines the geometry for the titlepage
   \pagecolor{ForestGreen}
-  \raggedright \includegraphics[scale=0.2]{pictures/logo-tu} \\
+  \raggedright \includegraphics[height=0.15\textheight]{pictures/logo-tu} \\
   \noindent
   \color{white}
   \makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
@@ -1391,25 +1384,25 @@ $C_L = 0.6$
 \begin{figure*}
   \centering
   \begin{tikzpicture}[>=latex]
-    \node [draw, ultra thick, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](fee){Feedstock};
-    \node at (fee) [yshift=-3cm, minimum height=1.5cm, fill=LightSkyBlue, minimum width=2.5cm, ](mill){Milling};
+    \node [draw, ultra thick, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, ](fee){Feedstock};
+    \node at (fee) [yshift=-3cm, minimum height=1.5cm, fill=Blue, minimum width=2.5cm, ](mill){Milling};
     \node at (mill.south west) [below right] {\footnotesize{Turn into powder}};
     \node at (mill.east) [below right, text width=1.5cm] {\footnotesize{fine powder}};
-    \node at (mill) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](liq){Liquefaction};
+    \node at (mill) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, ](liq){Liquefaction};
     \node at (liq.south west) [below right, text width=5cm] {\footnotesize{Mix with water \& $\alpha$-amylase\\Heat to 120-150 $^{\circ}$C}};
-    \node at (liq) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](sac){Saccharification\\(Hydrolysis)};
+    \node at (liq) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](sac){Saccharification\\(Hydrolysis)};
     \node at (sac.south west) [below right, text width=3cm] {\footnotesize{Cool the mash\\Add glucoamylase}};
     \node at (sac.east) [below right] {\footnotesize{dextrose}};
-    \node at (mill) [yshift=-3cm, minimum height=1.5cm, fill=LightSkyBlue, minimum width=2.5cm, ](fer){Fermentation};
+    \node at (mill) [yshift=-3cm, minimum height=1.5cm, fill=Blue, minimum width=2.5cm, ](fer){Fermentation};
     \node at (fer.south west) [below right] {\footnotesize{Add yeast to ferment sugars}};
-    \node at (fer) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](dis){Distillation};
+    \node at (fer) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, ](dis){Distillation};
     \node at (dis.south west) [below right] {\footnotesize{Separate solids}};
     \node at (dis.east) [below right, text width=1.5cm] {\footnotesize{96\% alcohol}};
-    \node at (dis) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](deh){Dehydration};
+    \node at (dis) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](deh){Dehydration};
     \node at (deh.south west) [below right] {\footnotesize{Remove water}};
-    \node at (deh) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](den){Denaturing};
+    \node at (deh) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](den){Denaturing};
     \node at (den.south west) [below right] {\footnotesize{Add small amount of gasoline}};
-    \node at (den) [draw, ultra thick, yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](bio){Bioethanol};
+    \node at (den) [draw, ultra thick, yshift=-3cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](bio){Bioethanol};
 
     %% arrows
     \draw [->, thick] (fee) -- (mill);
@@ -1432,21 +1425,21 @@ $C_L = 0.6$
 \begin{figure*}
   \centering
   \begin{tikzpicture}[>=latex]
-    \node [draw, ultra thick, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, ](fee){Feedstock};
-    \node at (fee) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](han){Biomass\\Handling};
-    \node at (han) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](enz){Enzyme\\Production};
-    \node at (han) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](pre){Biomass\\Pretreatment};
+    \node [draw, ultra thick, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, ](fee){Feedstock};
+    \node at (fee) [yshift=-3cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](han){Biomass\\Handling};
+    \node at (han) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](enz){Enzyme\\Production};
+    \node at (han) [yshift=-3cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](pre){Biomass\\Pretreatment};
     \node at (pre.south west) [below right, text width=4.5cm] {\footnotesize{Mix with dilute sulfuric acid Hemicellulose hydrolyze to simple sugars}};
-    \node at (pre) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](cel){Cellulose\\Hydrolysis};
+    \node at (pre) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](cel){Cellulose\\Hydrolysis};
     \node at (cel.south west) [below right, text width=5cm] {\footnotesize{With enzyme, cellulose\\hydrolyze to glucose}};
-    \node at (cel) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](glu){Glucose\\Fermentation};
+    \node at (cel) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](glu){Glucose\\Fermentation};
     \node at (glu.south west) [below right, text width=5cm] {\footnotesize{Ferment glucose with yeast}};
-    \node at (glu) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](eth){Ethanol\\Recovery};
+    \node at (glu) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](eth){Ethanol\\Recovery};
     \node at (eth.south west) [below right, text width=5cm] {\footnotesize{Distill and dehydrate ethanol}};
-    \node at (cel) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](pen){Pentose\\Fermentation};
+    \node at (cel) [yshift=-3cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](pen){Pentose\\Fermentation};
     \node at (pen.south west) [below right, text width=5cm] {\footnotesize{Ferment pentose with \\genetically engineered bacteria}};
-    \node at (eth) [yshift=3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](lig){Lignin\\Utilization};
-    \node at (eth) [draw, ultra thick, yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](2nd){Bioethanol};
+    \node at (eth) [yshift=3cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](lig){Lignin\\Utilization};
+    \node at (eth) [draw, ultra thick, yshift=-3cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](2nd){Bioethanol};
 
     %% Arrows
     \draw [->, thick] (fee) -- (han);
@@ -1484,14 +1477,14 @@ $C_L = 0.6$
   \centering
   \begin{tikzpicture}[>=latex]
     \node(oil){Vegetable oils};
-    \node at (oil) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=3cm, text width=3cm, align=center ](tra){Transesterification};
+    \node at (oil) [yshift=-3cm, fill=Blue, minimum height=1.5cm, minimum width=3cm, text width=3cm, align=center ](tra){Transesterification};
     \node at (tra.east) [below right, text width=1.5cm, align=center] {\footnotesize{Crude Biodiesel}};
-    \node at (tra) [xshift=4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](ref){Refining};
+    \node at (tra) [xshift=4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](ref){Refining};
     \node at (ref.south west) [below right] {\footnotesize{Washing with water}};
-    \node at (ref) [xshift=4cm, draw, ultra thick, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](bio){Biodiesel};
+    \node at (ref) [xshift=4cm, draw, ultra thick, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](bio){Biodiesel};
     \node at (tra) [xshift=-4cm, text width=3cm, align=center ](me+ko){Methanol + KOH};
-    \node at (tra) [yshift=-3cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](gly){Glycerol Refining};
-    \node at (gly) [xshift=-4cm, fill=LightSkyBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](met){Methanol Recovery};
+    \node at (tra) [yshift=-3cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](gly){Glycerol Refining};
+    \node at (gly) [xshift=-4cm, fill=Blue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center ](met){Methanol Recovery};
     \node at (gly) [yshift=-2cm, text width=2.5cm, align=center ](glyc){Glycerol};
 
     %% Arrows
