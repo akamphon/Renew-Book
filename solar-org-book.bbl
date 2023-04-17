@@ -222,7 +222,7 @@
       \field{pages}{2085\bibrangedash 2089}
       \range{pages}{5}
     \endentry
-    \entry{sukkasibiofuels}{misc}{}
+    \entry{sukkasibiofuels}{article}{}
       \name{author}{1}{}{%
         {{hash=3a86569fa1f65b1e7454165aa112a9dc}{%
            family={Sukkasi},
@@ -242,6 +242,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Energy Sources and Conversion}
       \field{title}{Biofuels}
+      \field{year}{2015}
     \endentry
   \enddatalist
 \endrefsection

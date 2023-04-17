@@ -7,7 +7,7 @@
 
 #+LATEX_COMPILER: xelatex
 #+LATEX_CLASS: kaobook
-#+LATEX_CLASS_OPTIONS: [a4paper,fontsize=10pt,twoside=true,open=any]
+#+LATEX_CLASS_OPTIONS: [a4paper,fontsize=10pt,twoside=true,fontmethod=modern,svgnames,open=any]
 # #+LATEX_HEADER: \setcounter{tocdepth}{1}
 # #+LATEX_HEADER: \setcounter{secnumdepth}{0}
 #+LATEX_HEADER: \usepackage{fontspec}
@@ -17,7 +17,6 @@
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \usepackage{setspace}
 #+LATEX_HEADER: \onehalfspacing
-#+LATEX_HEADER: \usepackage[svgnames,usenames]{xcolor}
 # #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \XeTeXlinebreaklocale "th_TH"
 # #+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 1pt
@@ -29,15 +28,13 @@
 #+LATEX_HEADER: \usetikzlibrary{arrows,calc,decorations,shapes,shapes.arrows,shapes.misc,positioning,decorations.pathmorphing,patterns}
 #+LATEX_HEADER: \usepackage[american]{circuitikz}
 #+LATEX_HEADER: \usepackage{pgfplots}
-# #+LATEX_HEADER: \pgfplotsset{compat=1.16}
+#+LATEX_HEADER: \pgfplotsset{compat=1.18}
 #+LATEX_HEADER: \usepackage{amsmath}
 #+LATEX_HEADER: \usepackage{siunitx}
 #+LATEX_HEADER: \usepackage{epigraph}
 #+LATEX_HEADER: \usepackage{mhchem}
 #+LATEX_HEADER: \hypersetup{colorlinks=true, linkcolor=blue}
-#+LATEX_HEADER: \usepackage{caption}
-#+LATEX_HEADER: \captionsetup{justification=raggedright,singlelinecheck=false}
-#+LATEX_HEADER: \usepackage{mparhack} % to put margin figures on the correct side
+# #+LATEX_HEADER: \usepackage{mparhack} % to put margin figures on the correct side
 
 #+BIBLIOGRAPHY: solar-org-book.bib
 #+LATEX_HEADER: \usepackage[style=numeric,backend=biber,language=english,autolang=other]{biblatex}
@@ -883,14 +880,14 @@ reaction) และออกซิเดชัน (oxidation reaction)
 
 ค่า enthalpy of formation ของสารทั่วไปสามารถหาได้จากตาราง
 
-# $$\ce{C + O2 -> CO_2}$$
+$$\ce{C + O2 -> CO_2}$$
 
-# \begin{align*}
-#   \Delta H &= \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} \\
-#            &= \Delta H_{\ce{CO2}} - \Delta H_{\ce{C}} - \Delta H_{\ce{O2}} \\
-#            &= -394 \times 10^3 - 0 - 0 \\
-#            &= -394 \times 10^3 \text{ J/mol } \ce{CO2}
-# \end{align*}
+\begin{align*}
+  \Delta H &= \sum (\Delta H)_{products} - \sum (\Delta H)_{reactants} \\
+           &= \Delta H_{\ce{CO2}} - \Delta H_{\ce{C}} - \Delta H_{\ce{O2}} \\
+           &= -394 \times 10^3 - 0 - 0 \\
+           &= -394 \times 10^3 \text{ J/mol } \ce{CO2}
+\end{align*}
 
 ในตัวอย่างนี้ พลังงานที่เปลี่ยนแปลงเป็นลบ
 แสดงว่าพลังงานของผลิตภัณฑ์น้อยกว่าของสารตั้งต้น
@@ -952,19 +949,20 @@ process)
 
 \begin{gather*}
   dU = TdS - PdV \\
-  H = U + PV\end{gather*}
+  H = U + PV
+\end{gather*}
 
-# หาค่าอนุพันธ์ของ $H$ ได้
+หาค่าอนุพันธ์ของ $H$ ได้
 
-# \begin{align*}
-#   dH &= dU + PdV + VdP \\
-#      &= TdS - PdV + PdV + VdP \\
-#      &= TdS + VdP
-# \end{align*}
+\begin{align*}
+  dH &= dU + PdV + VdP \\
+     &= TdS - PdV + PdV + VdP \\
+     &= TdS + VdP
+\end{align*}
 
 จัดรูปสมการใหม่จะได้ว่า
 
-# \[VdP = dH - Tds = dG\]
+\[VdP = dH - Tds = dG\]
 
 หากพิจารณาสารตั้งต้น 1 mol จะได้ว่า
 
@@ -997,14 +995,14 @@ $H_0$ และ $G_0$ ได้จากตารางที่ [[tab: enthalpy
 พลังงานอิสระของกิบส์ที่เปลี่ยนไปเท่ากับส่วนต่างระหว่างพลังงานของผลิตภัณฑ์กับสารตั้งต้น
 ยกตัวอย่างเช่นในกรณีของปฏิกิริยา
 
-# \[\ce{aA + bB \rightarrow cC + dD}\]
+\[\ce{aA + bB -> cC + dD}\]
 
 พลังงานอิสระของกิบส์ที่เปลี่ยนไปเท่ากับ
 
-# \begin{gather*}
-#   \Delta G = G_{0C} + G_{0D} - G_{0A} - G_{0B} - R_u T \left( \ln P_C^c + \ln P_D^d - \ln P_A^a - \ln P_B^b \right) \nonumber \\
-#   \Delta G = \Delta G_0 + R_u T \ln \dfrac{P_C^c P_D^d}{P_A^a P_B^b}
-# \end{gather*}
+\begin{gather*}
+  \Delta G = G_{0C} + G_{0D} - G_{0A} - G_{0B} - R_u T \left( \ln P_C^c + \ln P_D^d - \ln P_A^a - \ln P_B^b \right) \nonumber \\
+  \Delta G = \Delta G_0 + R_u T \ln \dfrac{P_C^c P_D^d}{P_A^a P_B^b}
+\end{gather*}
 
 #+NAME: tab: enthalpy and gibbs free energy
 #+CAPTION: เอนทาลปีของการก่อเกิด ($H_0$) และพลังงานอิสระของกิบส์ ($G_0$) ของสารต่างๆ
