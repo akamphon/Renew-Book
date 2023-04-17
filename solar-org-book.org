@@ -37,6 +37,7 @@
 # #+LATEX_HEADER: \usepackage{mparhack} % to put margin figures on the correct side
 
 #+BIBLIOGRAPHY: solar-org-book.bib
+#+CITE_EXPORT: csl ieee.csl
 #+LATEX_HEADER: \usepackage[style=numeric,backend=biber,language=english,autolang=other]{biblatex}
 # #+LATEX_HEADER: \addbibresource{solar-org-book.bib}
 # #+LATEX_HEADER: \NewBibliographyString{august}
