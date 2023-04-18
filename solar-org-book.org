@@ -7,7 +7,7 @@
 
 #+LATEX_COMPILER: xelatex
 #+LATEX_CLASS: kaobook
-#+LATEX_CLASS_OPTIONS: [a4paper,fontsize=10pt,twoside=true,fontmethod=modern,svgnames,open=any]
+#+LATEX_CLASS_OPTIONS: [a4paper,fontsize=11pt,twoside=true,fontmethod=modern,svgnames,open=any]
 # #+LATEX_HEADER: \setcounter{tocdepth}{1}
 # #+LATEX_HEADER: \setcounter{secnumdepth}{0}
 #+LATEX_HEADER: \usepackage{fontspec}
@@ -22,7 +22,7 @@
 # #+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 1pt
 #+LATEX_HEADER: \newfontfamily{\thaifont}[Script=Thai]{Laksaman}
 #+LATEX_HEADER: \newfontfamily{\thaifontsf}[Script=Thai]{Laksaman}
-#+LATEX_HEADER: \newfontfamily{\englishfont}{Laksaman}
+#+LATEX_HEADER: \newfontfamily{\englishfont}{Libertinus Serif}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usetikzlibrary{arrows,calc,decorations,shapes,shapes.arrows,shapes.misc,positioning,decorations.pathmorphing,patterns}
@@ -915,7 +915,7 @@ $$\ce{C + O2 -> CO_2}$$
 
 *** พลังงานอิสระของกิบส์
 พลังงานอิสระของกิบส์ (Gibbs Free Energy, GFE) เป็นฟังก์ชันสภาวะ (state function)
-ค่าสัมบูรณ์ของพลังงานอิสระของกิบศ์หาได้ยากและไม่ได้มีประโยชน์นัก
+ค่าสัมบูรณ์ของพลังงานอิสระของกิบส์หาได้ยากและไม่ได้มีประโยชน์นัก
 ส่วนที่มีประโยชน์จริงๆคือผลต่างหรือพลังงานที่เปลี่ยนไประหว่างสารตั้งต้นกับผลิตภัณฑ์
 ซึ่งใช้อธิบายว่าปฏิกิริยาหนึ่งๆสามารถเกิดขึ้นเองได้หรือไม่ หาได้จาก
 
@@ -1116,11 +1116,6 @@ print('\\end{align*}')
 #+END_SRC
 
 #+RESULTS:
-\begin{align*}
-E_g &= - \frac{-228000.0-0- 0.5(0)}{-296500.0} + \frac{8.314473}{296500.0} \ln \frac{(5)(0.21)^{0.5}}{1^1} \\
-&= \frac{-231261}{-296500.0} \\
-&= 1.198\text{ V}
-\end{align*}
 
 ประสิทธิภาพของเซลล์เชื้อเพลิงสามารถหาได้จากสมการ
 [[#eq:fc max eff][eq:fc max eff]]
@@ -1128,10 +1123,12 @@ E_g &= - \frac{-228000.0-0- 0.5(0)}{-296500.0} + \frac{8.314473}{296500.0} \ln \
 #+BEGIN_SRC python :session fuelcell-ex-1 :results output raw :exports results
 print('\\begin{align*}')
 print('\\eta &= \\frac{\\Delta G_0 - RT \\ln (P_{\\ce{H_2}} P_{\\ce{O2}}^{0.5}/ P_{\\ce{H2O}})}{\\Delta H_{water}} \\\\')
-print('&= \\frac{' + str(round(del_G0_final)) + '}{' + str(delta_H_water) + '} \\\\ ')
-print('&=' + str(round(eff,3)) + '\\\\')
+print('&= \\frac{' + str(round(del_G0_final)) + '}{' + str(delta_H_water) + '} \\\\')
+print('&=' + str(round(eff,3)))
 print('\\end{align*}')
 #+END_SRC
+
+#+RESULTS:
 
 *** ชนิดของเซลล์เชื้อเพลิง
 *** เซลล์เชื้อเพลิงแบบเยื่อแลกเปลี่ยนโปรตอน
@@ -1364,7 +1361,7 @@ $C_L = 0.6$
    #+NAME: eq: fermentation polysac
    \begin{gather*}
      \text{sugar} \xrightarrow{\text{yeast/bacteria}} \text{ethanol} \\
-     \ce{C6H12O6 -> C2H5OH + 2 CO2}
+     \ce{C6H12O6 -> 2 C2H5OH + 2 CO2}
    \end{gather*}
 
 ขั้นตอนการผลิตจริงเริ่มจากการนำวัตถุดิบตั้งต้นเช่น ข้าวโพด มาโม่จนเป็นผงละเอียดแล้วผสมกับน้ำเพื่อเตรียมเข้ากระบวนการเปลี่ยนเป็นน้ำตาล สารละลายน้ำตาลที่ได้จะถูกนำไปผสมกับยีสต์เพื่อหมักเป็นแอลกอฮอล์ (เอทานอล) ยีสต์เปลี่ยนน้ำตาลเป็นแอลกอฮอล์ซึ่งผสมกับน้ำเพื่อที่จะได้เอทานอลที่มีความบริสุทธิ์มากขึ้น จำเป็นจะต้องนำสารละลายเอทานอลที่ได้จากการหมักไปกลั่นเอาน้ำออก เมื่อได้ความบริสุทธิ์ที่ต้องการแล้ว จำเป็นจะต้องมีทำให้เอทานอลแปรสภาพด้วยการเติมน้ำมันเบนซินลงไปเพื่อป้องกันการนำไปใช้บริโภค เอทานอลที่ผลิตจากกระบวนการนี้เรียกว่า *เอทานอลรุ่นที่ 1* (1st-generation ethanol) ซึ่งกระบวนการทั้งหมดสามารถสรุปเป็นแผนภาพได้ดังรูปที่ [[fig: ethanol production from starch/sugar]]
