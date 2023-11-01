@@ -7,7 +7,7 @@
 
 #+LATEX_COMPILER: xelatex
 #+LATEX_CLASS: kaobook
-#+LATEX_CLASS_OPTIONS: [a4paper,fontsize=10pt,twoside=true,fontmethod=modern,svgnames]
+#+LATEX_CLASS_OPTIONS: [a4paper,fontsize=10pt,twoside=true,fontmethod=modern,svgnames,openany]
 # #+LATEX_HEADER: \setcounter{tocdepth}{1}
 # #+LATEX_HEADER: \setcounter{secnumdepth}{0}
 #+LATEX_HEADER: \usepackage{fontspec}
@@ -528,56 +528,55 @@ From $q_{loss} = U\Delta T$
 
 การสูญเสียความร้อนไปที่ด้านบนของเครื่องมีเกิดจากกระบวนการนำและพาความร้อน ซึ่งสามารถเขียนเป็นสมการได้ว่า
 
-  \begin{align*}
+  \begin{align}
     q_{loss} &= h_{c,p-c1}(T_{p} - T_{c1}) + \frac{\sigma(T_{p}^{4} - T_{c1}^{4})}{\dfrac{1}{\varepsilon_{p}} + \dfrac{1}{\varepsilon_{c1}} - 1} \\
 	     &= (h_{c,p_{c1}} + h_{r,p-c1})(T_{p}- T_{c1})
-  \end{align*}
+  \end{align}
 
   โดยที่
-  \begin{align*}
+  \begin{align}
     h_{r,p-c} &= \frac{\sigma(T_{p}+T_{c})(T_{p}^{2} + T_{c}^{2})}{\frac{1}{\varepsilon_{p}} + \frac{1}{\varepsilon_{c}} - 1}
-  \end{align*}
+  \end{align}
 
   ความต้านทานต่อการสูญเสียความร้อน \(R_1\) เท่ากับ
-  \begin{align*}
+  \begin{align}
     R_{1} &= \frac{1}{h_{c,p-c} + h_{r,p-c}}
-  \end{align*}
+  \end{align}
 
 การสูญเสียความร้อนจากแผ่นครอบ (cover) ไปถึงสภาพแวดล้อมเกิดได้จากการพาความร้อนของลม และการแผ่รังสีไปสูสภาพแวดล้อม
-  \begin{align*}
+  \begin{align}
     q_{loss} &= h_w(T_{c} - T_{a}) + \sigma\varepsilon_c(T_{c}^{4} - T_{s}^{4}) \\
   	   &= (h_{w} + h_{r,c-a})(T_{c}- T_{a})
-  \end{align*}
+  \end{align}
 
   โดยที่ค่าสัมประสิทธิ์การแผ่รังสีไปสู่สภาพแวดล้อมคือ
-  \begin{align*}
+  \begin{align}
     h_{r,c-a} &= \frac{\sigma\varepsilon_c(T_c^4 - T_s^4)}{T_c - T_a}
-  \end{align*}
+  \end{align}
 
 ดังนั้น ความต้านทานต่อการสูญเสียความร้อนจากแผ่นครอบไปจนถึงสภาพแวดล้อมสามารถคำนวณได้จาก
-  \begin{align*}
+  \begin{align}
     R_{2} &= \frac{1}{h_{w} + h_{r,c-a}}
-  \end{align*}
+  \end{align}
 
 เมื่อพิจารณาจากวงจรความร้อน จะเห็นได้ว่าความต้านทานทั้งสองต่อกันแบบอนุกรม เราจึงสามารถคำนวณความต้านทานรวมได้ว่า
-  \begin{align*}
+  \begin{align}
     R_{t} &= R_{1} + R_{2}
-  \end{align*}
+  \end{align}
 
 และสามารถคำนวณสัมประสิทธิ์การสูญเสียความร้อนได้ดังนี้
-  \begin{align*}
+  \begin{align}
     U_{t} &= \frac{1}{R_{t}} = \left( \frac{1}{h_{c,p-c} + h_{r,p-c}} + \frac{1}{h_{w} + h_{r,c-a}} \right)^{-1}
-  \end{align*}
+  \end{align}
 
 การแก้สมการในกรณีนี้อาจมีความซับซ้อนเนื่องจากคุณสมบัติส่วนมากขึ้นกับอุณหภูมิ $T_c$ ดังนั้น วิธีการหาคำตอบจะต้องใช้การหาคำตอบเชิงตัวเลขโดยการสมมติค่า \(T_c\) เบื้องต้น แก้สมการเพื่อหาค่า \(T_c\) จริงจนกว่าค่าจะลู่เข้าหาคำตอบจริงเพียงพอ (แก้โดยใช้เครื่องคิดเลขอาจจะยาก แต่แก้โดยใช้ spreadsheet หรือโปรแกรมทางคณิตศาสตร์ทำได้สะดวกกว่ามาก)
 
+***** ตัวอย่าง: การวิเคราะห์หาค่าสัมประสิทธิ์การสูญเสียความร้อนในแผนรับแสงอาทิตย์แบบเรียบ
 
-***** Example: Loss Coefficient of a Flat-plate Collector
+คำนวณสัมประสิทธิ์การสูญเสียความร้อนของตัวรับแสงอาทิตย์ที่มีกระจกครอบชั้นเดียว ซึ่งมีคุณสมบัติดังนี้
 
-Calculate loss coefficient for an absorber with a single glass cover having the following specs
-
-#+ATTR_LATEX: :align lrl
-| Plate-to-cover spacing   |   25 | mm       |
+#+ATTR_LATEX: :align lrl :booktabs t
+| ระยะระหว่างแผงรับถึงกระจกครอบ |   25 | mm       |
 | Plate emissivity         | 0.95 |          |
 | Ambient and sky temp     |   10 | C        |
 | Wind heat transfer coeff |   10 | W/m^{2}K |
@@ -585,71 +584,53 @@ Calculate loss coefficient for an absorber with a single glass cover having the 
 | Collector tilt           |   45 |          |
 | Glass emissivity         | 0.88 |          |
 
-***** Solution:
+***** เฉลย:
 
-Estimate cover temperature so we can calculate $h_{c,p-c}, h_{r,p-c}, h_{r,c-a}$
-
-Assume cover temperature of 35 C
-The radiative coefficients can be calculated as
-
-\begin{align*}
-  h_{r,p-c} &= \frac{\sigma (T_{p}^{2} + T_{c}^{2})(T_{p} + T_{c})}{\frac{1}{\varepsilon_{p}} + \frac{1}{\varepsilon_{c}} - 1} \\
+เนื่องจากเรายังไม่ทราบอุณหถูมิของแผ่นครอบ ซึ่งจะใช้ในการคำนวณหา $h_{c,p-c}, h_{r,p-c}, h_{r,c-a}$ เราจึงต้องสมมติค่าขึ้น โดยให้ว่าอุณหภูมิของแผ่นครอบที่ steady state เป็น 35 C เราจะหาค่าสัมประสิทธิ์การแผ่รังสีได้โดย
+\begin{align}
+  h_{r,p-c} &= \frac{\sigma (T_{p}^{2} + T_{c}^{2})(T_{p} + T_{c})}{\dfrac{1}{\varepsilon_{p}} + \dfrac{1}{\varepsilon_{c}} - 1} \\
             &= \frac{5.67 \times 10^{-8}(373^{2} + 308^{2})(373 + 308)}{\frac{1}{0.95} + \frac{1}{0.88} - 1} \\
             &= 7.6 \text{ W/m}^2\text{K} \\
   h_{r,c-a} &= \varepsilon_{c}\sigma (T_{c}^{2} + T_{s}^{2})(T_{c} + T_{s}) \\
             &= 0.88(5.67 \times 10^{-8})(308^{2} + 283^{2})(308 + 283) \\
             &= 5.16 \text{ W/m}^2\text{K}
-\end{align*}
-
-For convective coefficient, assume average air temp between plate and cover is (100 + 35)/2 = 67.5 C = 340.5 K, at that temp, $\nu$ = 1.96 $\times 10^{-5}$ m$^2\text{/K}$, $k$ = 0.0293 W/mK, Pr = 0.7
-\begin{align*}
+\end{align}
+สำหรับสัมประสิทธิ์การพาความร้อน เราสามารถวิเคราะห์โดยให้อุณหภูมิของไหนระหว่างแผ่นรับและแผ่นครอบเป็น (100 + 35)/2 = 67.5 C = 340.5 K. โดยอากาศที่อุณหภูมินั้นมีคุณสมบัติดังนี้ $\nu$ = 1.96 $\times 10^{-5}$ m$^2\text{/K}$, $k$ = 0.0293 W/mK, Pr = 0.7
+\begin{align}
   \text{Ra} &= \frac{g\beta\Delta T L^{3}Pr}{\nu^{2}} \\
             &= \frac{9.8(1/340.5)(100 - 35)(0.025^{3})(0.7)}{(1.96 \times 10^{-5})^{2}} \\
             &= 5.33 \times 10^{4} \\
-  \text{Nu} &= 1 + 1.44\left[1-\frac{1708 (\sin 1.8(45))^{1.6}}{53300\cos 45}\right]\left[ 1 - \frac{1708}{53300\cos 45}\right]^{+} \\
-            & \hspace{5mm} + \left[ \left(\frac{53300 \cos 45}{5830} \right)^{1/3} - 1 \right]^{+} \\
+  \text{Nu} &= 1 + 1.44\left[1-\frac{1708 (\sin 1.8(45))^{1.6}}{53300\cos 45}\right]\left[ 1 - \frac{1708}{53300\cos 45}\right]^{+} + \left[ \left(\frac{53300 \cos 45}{5830} \right)^{1/3} - 1 \right]^{+} \\
             &= 3.19 \\
-\end{align*}
-
-Finally, calculate the convective coefficient by
-\begin{align*}
+\end{align}
+เมื่อได้ Nusselt number แล้ว สามารถนำมาคำนวณเป็น $h_{c,p-c}$ ได้ว่า
+\begin{align}
   h_{c,p-c} &= \text{Nu}\frac{k}{L} = 3.19\frac{0.0293}{0.025} \\
             &= 3.73 \text{ W/m}^{2}\text{K}
-\end{align*}
-
-Top loss coefficient is
-
-\begin{align*}
+\end{align}
+และสามารถคำนวณสัมประสิทธิ์การสูญเสียความร้อนจากด้านบนของแผงรับได้ว่า
+\begin{align}
   U_{t} &= \left( \frac{1}{3.73 + 7.6} + \frac{1}{5.16 + 10.0} \right)^{-1} \\
         &= 6.46 \text{ W/m}^{2}\text{K}
-\end{align*}
-
-Heat flow from plate to cover must be the same as from plate to air
-
-The cover temperature, based on $U_t$, is
-\begin{align*}
+\end{align}
+เมื่อแผงรับทำงานในสถานะ steady state อัตราการถ่ายเทความร้อนจากแผ่นรับไปสู่แผ่นครอบต้องเท่ากันกับอัตราการถ่ายเทความร้อนจากแผ่นรับไปสู่อากาศภายนอก ดังนั้น อุณหภูมิของแผ่นครอบสามารถคำนวณได้จาก
+\begin{align}
   \left( h_{c,p-c} + h_{r,p-c} \right)(T_{p} - T_{c}) &= U_{t}(T_{p} - T_{a}) \\
   T_c &= T_p - \frac{U_t(T_p - T_a)}{h_{c,p-c} + h_{r,p-c}} \\
       &= 100 - \frac{6.46 (100 - 10)}{3.73 + 7.6} \\
       &= 48.5 \text{ C}
-\end{align*}
-
-Note that this is not very close to original guess of 35 C --> Repeat the loop with $T_c = 48.5$ C
-
-Recalculating $h_{c,p-c}, h_{r,p-c}, h_{r,c-a}$
- 
-$T_c$ = 48.5 C = 321.5 K
-\begin{align*}
+\end{align}
+จะเห็นได้ว่าอุณหภูมิที่คำนวณออกมาไม่ใกล้เคียงกับค่าที่สมมติไว้เบื้องต้นที่ 35 C เพราะฉะนั้น เราจะลองสมมติค่าแผ่นครอบเป็นอุณหภูมิใหม่ที่ $T_c = 48.5$ C แล้วคำนวณซ้ำจนกว่าผลคำนวณจะออกมาใกล้เคียงกับค่าที่สมมติ ให้ $T_c$ = 48.5 C = 321.5 K
+\begin{align}
   h_{r,p-c} &= \frac{\sigma (T_{p}^{2} + T_{c}^{2})(T_{p} + T_{c})}{\dfrac{1}{\varepsilon_{p}} + \dfrac{1}{\varepsilon_{c}} - 1} \\
             &= \frac{5.67 \times 10^{-8}(373^{2} + 321.5^{2})(373 + 321.5)}{\frac{1}{0.95} + \frac{1}{0.88} - 1} \\
             &= 8.03 \text{ W/m}^2\text{K} \\
   h_{r,c-a} &= \varepsilon_{c}\sigma (T_{c}^{2} + T_{s}^{2})(T_{c} + T_{s}) \\
             &= 0.88(5.67 \times 10^{-8})(321.5^{2} + 283^{2})(321.5 + 283) \\
             &= 5.53 \text{ W/m}^2\text{K}
-\end{align*}
-
-Now for convective coefficient, average air temp between plate and cover is now (100 + 48.5)/2 = 74.25 C = 347.25 K, at that temp, $\nu$ = 2.05 $\times 10^{-5}$ m$^2\text{/K}$, $k$ = 0.0293 W/mK, Pr = 0.7
-\begin{align*}
+\end{align}
+สำหรับสัมประสิทธิ์การพาความร้อน อุณหภูมิของอากาศระหว่างแผ่นรับและแผ่นครอบเป็น (100 + 48.5)/2 = 74.25 C = 347.25 K ซึ่งอากาศมีคุณสมบัติดังนี้ $\nu$ = 2.05 $\times 10^{-5}$ m$^2\text{/K}$, $k$ = 0.0293 W/mK, Pr = 0.7
+\begin{align}
   \text{Ra} &= \frac{g\beta\Delta T L^{3}\text{Pr}}{\nu^{2}} \\
             &= \frac{9.8(1/347.25)(100 - 48.5)(0.025^{3})(0.7)}{(2.05 \times 10^{-5})^{2}} \\
             &= 3.78 \times 10^{4} \\
@@ -657,46 +638,39 @@ Now for convective coefficient, average air temp between plate and cover is now 
             & \hspace{5mm} + \left[ \left(\frac{37800 \cos 45}{5830} \right)^{1/3} - 1 \right]^{+} \\
             &= 1 + 1.44(0.937)(0.936) + 0.66 \\
             &= 2.92 \\
-\end{align*}
-
-Finally, calculate the convective coefficient by
-\begin{align*}
+\end{align}
+เราจะสามารถนำมาคำนวณเป็นค่าสัมประสิทธิ์การพาความร้อนและสัมประสิทธิ์การสูญเสียความร้อนได้ว่า
+\begin{align}
   h_{c,p-c} &= \text{Nu}\frac{k}{L} = 2.92\frac{0.0293}{0.025} \\
-            &= 3.43 \text{ W/m}^{2}\text{K}
-\end{align*}
-
-Top loss coefficient is
-\begin{align*}
+            &= 3.43 \text{ W/m}^{2}\text{K} \\
   U_{t} &= \left( \frac{1}{3.43 + 8.03} + \frac{1}{5.53 + 10.0} \right)^{-1} \\
         &= 6.59 \text{ W/m}^{2}\text{K}
-\end{align*}
-
-The cover temperature, based on the recalculated $U_t$, is
-\begin{align*}
+\end{align}
+และอุณหภูมิของแผ่นครอบที่คำนวณได้จากสัมประสิทธิ์ใหม่ที่เพิ่งคำนวณได้จะเป็น
+\begin{align}
   T_c &= T_p - \frac{U_t(T_p - T_a)}{h_{c,p-c} + h_{r,p-c}} \\
       &= 100 - \frac{6.59 (100 - 10)}{3.43 + 8.03} \\
       &= 48.2 \text{ C}
-\end{align*}
-
-This is quite close to 48.5 C that was predicted. So we will take this as our final solution.
+\end{align}
+ซึ่งใกล้เคียงกับค่าเดิมที่สมมติไว้ เราจึงสามารถใช้ผลนี้เป็นคำตอบจริงได้
 
 **** Heat Loss to Bottom and Edge
 
 - Assumed to be just insulation --> conductive loss only
 
-  \begin{align*} 
+  \begin{align} 
     q_{b} &= \frac{k}{L}(T_{b} - T_{a}) \\
     q_{e} &= \frac{(UA)_{edge}}{A_{c}}(T_p - T_a)
-  \end{align*}
+  \end{align}
 
   - $(UA)_{e}$ :: product of heat loss coeff and area of insulation
   - $A_c$ :: area of collector
  
 **** Total Heat Loss Coefficient $U_L$
 
-\begin{align*}
+\begin{align}
   U_L &= U_t + U_e + U_b
-\end{align*}
+\end{align}
 
 ***** Example: Overall Loss Coefficient
 
@@ -730,17 +704,14 @@ $$ U_L = U_t + U_b + U_e = 6.59 + 0.9 + 0.12 = 7.61 \text{ W/m}^2\text{K} $$
 
 - Consider half distance ($W/2$) between tubes
 
-#+CAPTION: ภาพภาคตัดขวางของแผงรับแสงอาทิตย์และท่อเพื่อใช้ในการพิจารณาการถ่ายเทความร้อน
+#+CAPTION: ภาคตัดขวางแลพมุมมองด้านข้างของแผงรับแสงอาทิตย์และท่อเพื่อใช้ในการพิจารณาการถ่ายเทความร้อน
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{pictures/collector-tube-dimension}
+  \includegraphics[width=0.7\textwidth]{pictures/collector-tube-dimension} \\
+  \includegraphics{pictures/collector-tube-dimension-2}
 \end{figure}
 
-
 สมการการอนุรักษ์พลังงานสามารถเขียนอธิบายสมดุลของการถ่ายเทความร้อนได้ดังนี้
-\begin{marginfigure}
-  \includegraphics{pictures/collector-tube-dimension-2}
-\end{marginfigure}
   \begin{gather*}
     S \Delta x - U_{L} \Delta x (T - T_{a}) + \left. \left( -k \delta \frac{dT}{dx} \right) \right|_{x} - \left. \left( -k\delta \frac{dT}{dx} \right)\right|_{x + \Delta x} = 0 \\
     \frac{d^{2}T}{dx^{2}} = \frac{U_{L}}{k\delta}\left(T - T_{a} - \frac{S}{U_{L}}\right)
@@ -754,68 +725,73 @@ $$ U_L = U_t + U_b + U_e = 6.59 + 0.9 + 0.12 = 7.61 \text{ W/m}^2\text{K} $$
   2. อุณหภูมิที่ฐานของแผงรับ: $T \bigr|_{x=(W-D)/2} = T_b$
 
 ถ้าเรากำหนดค่า $m = \sqrt{\dfrac{U_L}{k\delta}}$ สมการนี้สมการอนุพันธ์อันดับสองในรูปนี้จะได้คำตอบในรูป
-  \begin{align*}
+  \begin{align}
     T(x) = C_{1} \sinh mx + C_{2} \cosh mx + T_{a} + \frac{S}{U_{L}}
-  \end{align*}
+  \end{align}
 เมื่อแทนค่า boundary conditions ลงในคำตอบจะได้ว่า
-  \begin{align*}
+  \begin{align}
     C_1 &= 0 \\
     T_{b} &= C_{2} \cosh m(W-D)/2 + T_{a} + \frac{S}{U_{L}} \\
     C_{2} &= \frac{T_{b} - T_{a} - S/U_{L}}{\cosh m(W-D)/2}
-  \end{align*}
+  \end{align}
 
 เราจะได้ฟังก์ชันอุณหภูมิตามความยาวของแผงรับแสงอาทิตย์
-\begin{align*}
+\begin{align}
   T &= \frac{T_{b} - T_{a} - S/U_{L}}{\cosh m(W-D)/2}\cosh mx + T_{a} + S/U_{L} \\
   \frac{T - T_{a} - S/U_{L}}{T_{b} - T_{a} - S/U_{L}} &= \frac{\cosh mx}{\cosh m(W-D)/2}
-\end{align*}
+\end{align}
 
 จากฟังก์ชันข้างต้น เราสามารถหาพลังงานความร้อนที่ท่อนำจากแผ่นเข้าสูด้านในท่อต่อหน่วยความยาวแผ่นว่า
-\begin{align*}
+\begin{align}
   q_{fin}^{\prime} &= -k\delta\frac{dT}{dx} \Bigr|_{x=(W-D)/2} \\
                    &= \left( \frac{k\delta m}{U_{L}} \right)[S - U_{L}(T_{b}- T_{a})]\tanh \frac{m(W-D)}{2}
-\end{align*}
+\end{align}
 
 แทนค่า $m = \sqrt{\dfrac{U_L}{k\delta}}$ เพื่อประเมินหาพลังงานที่แผงเก็บได้
-  \begin{align*}
+  \begin{align}
     q_{fin}^{\prime} &= (W - D)[S - U_{L}(T_{b} - T_{a})] \frac{\tanh m(W-D)/2}{m(W-D)/2} \\
                    &= (W - D)[S - U_{L}(T_{b}-T_{a})]\eta_f
-  \end{align*}
+  \end{align}
 
   โดยที่ $\eta_{f} = \dfrac{\tanh m(W-D)/2}{m(W-D)/2}$ คือประสิทธิภาพของครีบ
 
   พลังงานทั้งหมดที่รับไว้ได้เหนือท่อคือ
-  \begin{align*}
+  \begin{align}
     q_{tube}^{\prime} &= D[S - U_{L}(T_{b} - T_{a})]
-  \end{align*}
+  \end{align}
 
   พลังงานทั้งหมดที่รับไว้ได้เท่ากับพลังงานบนแผ่นเหนือท่อรวมกับพลังงานที่ครีบรับได้
-  \begin{align*}
+  #+NAME: total useful heat gain from base
+  \begin{align}
     q_{u}^{\prime} &= [(W-D)\eta_f + D][S - U_{L}(T_{b}-T_{a})]
-  \end{align*}
+  \end{align}
 
  จะเห็นได้ว่า $q_u^{\prime}$ หรือพลังงานทั้งหมดที่แผงรับไว้ได้เท่ากับพลังงานแสงอาทิตย์ที่ตกกระทบลบด้วยความร้อนที่สูญเสียไป
 
-*** Useful Heat Gain Transfer to Fluid
-- Solar energy collected = energy transferred to working fluid
-  \begin{align*}
+เนื่องจากแผงรับทำงานที่ steady state พลังงานที่ได้รับจะถูกถ่ายเทไปที่ของไหลใช้งาน
+  #+NAME: total useful heat gain to fluid
+  \begin{align}
     q_{u}^{\prime} &= h_{fi}\pi D_{i}(T_{b} - T_{f})
+  \end{align}
+เมื่อ $h_{fi}$ คือสัมประสิทธิ์การถ่ายพาความร้อนระหว่างของไหลและท่อ และ $D_i$ คือเส้นรอบวงภายในของท่อ จับสมการ [[total useful heat gain from base]] เท่ากับสมการ [[total useful heat gain to fluid]] เราจะสามารถหาค่า $T_b$ ได้ว่า
+  \begin{align*}
+    [(W - D)\eta_{f} + D][S - U_{L}(T_{b} - T_{a})] &= h_{fi}\pi D_{i}(T_{b} - T_{f}) \\
+   [U_{L}((W - D)\eta_{f} + D) + h_{fi}\pi D_{i}]T_{b} &= [(W - D)\eta_{f} + D](S + U_L T_a) + h_{fi}\pi D_{i} T_{f} \\
+    T_{b} &= \frac{[(W - D)\eta_{f} + D](S + U_L T_a) + h_{fi}\pi D_{i} T_{f}}{U_{L}((W - D)\eta_{f} + D) + h_{fi}\pi D_{i}}
   \end{align*}
 
-  - $h_{fi}$ :: heat transfer coefficient between fluid and tube
-  - $D_i$ :: internal tube diameter
+# Show how it goes from 3.66 to below equation
 
-- Substitute other parameters for $T_b$, we have
-  \begin{align*}
-    q_{u}^{\prime} &= WF^{\prime}[S - U_{L}(T_{f} - T_{a})]
-  \end{align*}
+แทนค่า $T_b$ กลับเข้าไปในสมการ [[total useful heat gain from base]] จะได้ว่า
+  \begin{align}
+     q_{u}^{\prime} &= \frac{[S - U_L(T_f - T_a)]/U_{L}}{\left[ \dfrac{1}{U_{L}[D + (W-D)\eta_f]} + \dfrac{1}{\pi D_{i} h_{fi}} \right]} \\
+    &= WF^{\prime}[S - U_{L}(T_{f} - T_{a})]
+  \end{align}
 
-  where the collector efficiency factor $F^{\prime}$ is
-  \begin{align*}
+โดยที่ $F^{\prime}$ คือค่าแฟกเตอร์ประสิทธิภาพตัวเก็บรังสี ซึ่งเป็นอัตราส่วนระหว่างกำลังที่แผงรับรังสีเก็บได้จริงกับกำลังที่แผงจะเก็บได้ถ้ามีอุณหภูมิ $T_f$
+  \begin{align}
     F^{\prime} &= \frac{1/U_{L}}{W\left[ \dfrac{1}{U_{L}[D + (W-D)\eta_f]} + \dfrac{1}{\pi D_{i} h_{fi}} \right]}
-  \end{align*}
-
-  - $F^{\prime}$ :: ratio between actual collector's power to power of ideal collector whose temp is $T_f$
+  \end{align}
 
 ***** Example: Calculate Collector Efficiency Factor
 
@@ -832,112 +808,109 @@ Given the following data
 ***** Solution: Calculate Collector Efficiency Factor
 
 First, we need to calculate fin efficiency $\eta_f$
-\begin{align*}
+\begin{align}
   m &= \left( \frac{8}{385(0.0005)} \right)^{1/2} = 6.45 \\
   \eta_f &= \frac{\tanh[6.45(0.15 - 0.01)/2]}{6.45(0.15 - 0.01)/2} \\
     &= 0.937
-\end{align*}
+\end{align}
 
 We can now calculate the collector efficiency factor $F^{\prime}$
-\begin{align*}
+\begin{align}
   F^{\prime} &= \frac{1/8}{0.15\left[ \dfrac{1}{8[0.01 + (0.15 - 0.01)0.937]} + \dfrac{1}{\pi(0.01)(300)} \right]} \\
              &= 0.841
-\end{align*}
+\end{align}
 
+*** การถ่ายเทความร้อนจากท่อไปสู่ของไหลทำงาน
 
-*** Heat Transfer in Internal Flow
+ในกรณีนี้เราสามารถพิจารณาการถ่ายเทความร้อนที่เกิดขึ้นว่าเป็นการพาความร้อนแบบ internal forced convection ดังนั้นเราจะสามารถใช้สมการและทฤษฎีต่างๆจากเรื่อง internal forced convection มาใช้ได้โดยตรง
 
-- Useful gain per flow length is transferred to working fluid
+พิจารณาการถ่ายเทความร้อนใน control volume ในรูปที่ [[internal forced convection heat balance]]
 
+#+CAPTION: การถ่ายเทความร้อนที่เกิดในของไหลในท่อ
+#+NAME: internal forced convection heat balance
 #+ATTR_LATEX: :width \textwidth
 [[./pictures/energy-balance-fluid-element.png]]
 
-- Consider energy balance on the fluid element
-\begin{align*}
-  \left( \frac{\dot{m}}{n} \right) C_{p}T_{f} \Biggr|_{y} - \left(\frac{\dot{m}}{n}\right) C_{p}T_{f}\Biggr|_{y+\Delta y}  + \Delta y q_{u}^{\prime} &= 0
-\end{align*}
+เราสามารถเขียนสมการสมดุลการถ่ายเทความร้อนได้ว่า
+  \begin{align}
+    \left( \frac{\dot{m}}{n} \right) C_{p}T_{f} \Biggr|_{y} - \left(\frac{\dot{m}}{n}\right) C_{p}T_{f}\Biggr|_{y+\Delta y}  + \Delta y q_{u}^{\prime} &= 0
+  \end{align}
 
-- As $\Delta y \rightarrow 0$, we have
+โดยเมื่อพิจารณาที่ระยะ $\Delta y \rightarrow 0$ เราจะได้รูปสมการว่า
+  \begin{align}
+    \dot{m}C_{p}\frac{dT_{f}}{dy} - nWF^{\prime}[S - U_{L}(T_{f}- T_{a})] &= 0
+  \end{align}
 
-\begin{align*}
-  \dot{m}C_{p}\frac{dT_{f}}{dy} - nWF^{\prime}[S - U_{L}(T_{f}- T_{a})] &= 0
-\end{align*}
+แทนค่าอุณหภูมิของไหลขาเข้าเป็น $T_{fi}$
+  \begin{align}
+    \frac{T_{f} - T_{a} - S/U_{L}}{T_{fi} - T_{a} - S/U_{L}} = \exp\left( -\frac{U_{L}nWF^{\prime}y}{\dot{m}C_{p}} \right)
+  \end{align}
 
-- Take inlet fluid temperature = $T_{fi}$
-\begin{align*}
-  \frac{T_{f} - T_{a} - S/U_{L}}{T_{fi} - T_{a} - S/U_{L}} = \exp\left( -\frac{U_{L}nWF^{\prime}y}{\dot{m}C_{p}} \right)
-\end{align*}
+Collector heat removal factor ($F_R$) คืออัตราส่วนระหว่างพลังงานความร้อนที่ใช้ได้กับพลังงารความร้อนที่จะได้ในทางทฤษฎีหากแผ่นรับมีอุณหภูมิเท่ากับอุณหภูมิของของไหลขาเข้า $T_{fi}$
+  \begin{align}
+    F_R &= \frac{\dot{m}C_p(T_{fo} - T_{fi})}{A_c [S - U_L(T_{fi} - T_a)]} \\
+	&= \frac{\dot{m}C_p}{A_{c}U_{L}}\left[\frac{(T_{fo} - T_{fi})}{S/U_{L} - (T_{fi} - T_a)}\right] \\
+	&= \frac{\dot{m}C_p}{A_{c}U_{L}}\left[\frac{(S/U_{L} - (T_{fo} - T_{a})) - (S/U_{L} - (T_{fo} - T_{a}))}{S/U_{L} - (T_{fi} - T_a)}\right] \\
+	&= \frac{\dot{m}C_p}{A_{c}U_{L}}\left[1 - \frac{S/U_{L} - (T_{fo} - T_{a})}{S/U_{L} - (T_{fi} - T_a)}\right] \\
+	&= \frac{\dot{m}C_{p}}{A_{c}U_{L}} \left[1 - \exp\left( - \frac{A_{c}U_{L}F^{\prime}}{\dot{m}C_{p}} \right)\right]
+  \end{align}
 
-- Collector heat removal factor ($F_R$) = ratio of actual useful energy gain to ideal useful energy gain if the collector were at fluid inlet temperature $T_{fi}$
-
-  $$ F_R = \frac{\dot{m}C_p(T_{fo} - T_{fi})}{A_c [S - U_L(T_{fi} - T_a)]} $$
-
-- The equation can be rearranged so that
-\begin{align*}
-  F_R &= \frac{\dot{m}C_p}{A_{c}U_{L}}\left[\frac{(T_{fo} - T_{fi})}{S/U_{L} - (T_{fi} - T_a)}\right] \\
-      &= \frac{\dot{m}C_p}{A_{c}U_{L}}\left[\frac{(S/U_{L} - (T_{fo} - T_{a})) - (S/U_{L} - (T_{fo} - T_{a}))}{S/U_{L} - (T_{fi} - T_a)}\right] \\
-      &= \frac{\dot{m}C_p}{A_{c}U_{L}}\left[1 - \frac{S/U_{L} - (T_{fo} - T_{a})}{S/U_{L} - (T_{fi} - T_a)}\right] \\
-      &= \frac{\dot{m}C_{p}}{A_{c}U_{L}} \left[1 - \exp\left( - \frac{A_{c}U_{L}F^{\prime}}{\dot{m}C_{p}} \right)\right]
-\end{align*}
-
-- Collector flow factor, $F^{\prime\prime}$ is defined as
-\begin{align*}
-  F^{\prime\prime} = \frac{F_{R}}{F^{\prime}} &= \frac{\dfrac{\text{actual fluid heat gain}}{\text{ideal fluid heat gain at }T_f}}{\dfrac{\text{actual absorbed energy}}{\text{ideal fluid heat gain at }T_f}} \\
-                   &= \frac{\text{actual fluid heat gain}}{\text{actual absorbed energy}} \\
-                   &= \frac{\dot{m}C_{p}}{A_{c}U_{L}F^{\prime}} \left[1 - \exp\left( - \frac{A_{c}U_{L}F^{\prime}}{\dot{m}C_{p}} \right)\right]
-\end{align*}
-  
-- $F^{\prime\prime}$ only depends on dimensionless collector mass flow rate $\dfrac{\dot{m}C_{p}}{A_{c}U_{L}F^{\prime}}$.
+Collector flow factor, $F^{\prime\prime}$ สามารถคำนวณได้จาก
+  \begin{align}
+    F^{\prime\prime} = \frac{F_{R}}{F^{\prime}} &= \frac{\dfrac{\text{actual fluid heat gain}}{\text{ideal fluid heat gain at }T_f}}{\dfrac{\text{actual absorbed energy}}{\text{ideal fluid heat gain at }T_f}} \\
+                     &= \frac{\text{actual fluid heat gain}}{\text{actual absorbed energy}} \\
+                     &= \frac{\dot{m}C_{p}}{A_{c}U_{L}F^{\prime}} \left[1 - \exp\left( - \frac{A_{c}U_{L}F^{\prime}}{\dot{m}C_{p}} \right)\right]
+  \end{align}
+  จะเห็นได้ว่า $F^{\prime\prime}$ ขึ้นอยู่กับอัตราการไหลแบบไร้มิติ $\dfrac{\dot{m}C_{p}}{A_{c}U_{L}F^{\prime}}$ เท่านั้น
 
 
-- Collector Efficiency, $\eta$
-
-- Actual fluid useful heat gain compared to incident solar radiation
-  \begin{align*}
+ประสิทธิภาพของแผงรับแสงอาทิตย์ $\eta$ คำนวณได้จากอัตราส่วนพลังงานความร้อนเพิ่มทีได้จริงส่วนด้วยพลังงานแสงอาทิตย์ที่ตกกระทบ
+  \begin{align}
     \eta &= \frac{q_{u}}{I_{T}} = \frac{Q_{u}}{I_{T}A_{c}}
-  \end{align*}
-***** Example: Solar Collectors in KK, Thailand
+  \end{align}
+
+***** ตัวอย่าง: แผงรับแสงอาทิตย์ที่ตั้งที่จ.ขอนแก่น
 
 คำนวณพลังงานเพิ่มที่ได้รับและประสิทธิภาพของแผงรับพลังงานแสงอาทิตย์ 10 แผ่นซึ่งตั้งอยู่ใกล้ จ.ขอนแก่น แผ่นถูงตั้งที่มุม tilt 16.4° ไปทางทิศใต้ สมมุติว่าสัมประสิทธิ์การสูญเสียความร้อนเป็น 0.841 น้ำไหลผ่านแผ่นรับแสงอาทิตย์ขนาด 1 \times 2-m ด้วยอัตรา 0.03 kg/s ด้วยอุณหภูมิขาเข้า 40°C ค่า absorptivity เป็น 0.8
 
 # Work out in spreadsheet hourly solar radiation on tilted surfaces
 
-***** Solution: Solar Collectors in KK, Thailand
+***** วิธีทำ: แผงรับแสงอาทิตย์ที่ตั้งที่จ.ขอนแก่น
 
-First, calculate dimensionless collector mass flow rate
-\begin{align*}
+เริ่มจากการคำนวณอัตราการไหลแบบไร้มิติ
+\begin{align}
   \frac{\dot{m}C_{p}}{A_{c}U_{L}F^{\prime}} &= \frac{0.03(4190)}{2(8)(0.841)} = 9.35
-\end{align*}
+\end{align}
 
 Collector flow factor can then be calculated
-\begin{align*}
+\begin{align}
   F^{\prime\prime} &= 9.35 \left[ 1 - \exp \left( - \frac{1}{9.35} \right) \right] \\
                    &= 0.948
-\end{align*}
+\end{align}
 
 
 The heat removal factor is
-\begin{align*}
+\begin{align}
   F_{R} &= F^{\prime}F^{\prime\prime} = 0.841(0.948) = 0.797
-\end{align*}
+\end{align}
 
 Average loss rate for the hour of 10 - 11, based on inlet temperature of 40 C, is
-\begin{align*}
+\begin{align}
   q_{loss} = U_{L}(T_{fi} - T_{a}) = 8(40 - 37)(3600) = 8.64 \times 10^{4} \text{ J/m}^{2}\text{h}
-\end{align*}
+\end{align}
 
 From spreadsheet calculation, radiation from 10 - 11 on surface $\beta = 16.4^{\circ}$ to the south is 3.95 MJ/m$^2$. Average useful energy gain per collector area is
-\begin{align*}
+\begin{align}
   q_{u} &= F_R(S - q_{loss}) = 0.797(0.8(395) - 8.64) \times 10^{4} = 245  \times 10^4 \text{ J/m}^{2}\text{h}
-\end{align*}
+\end{align}
 
 ***** Solution: Solar Collectors in KK, Thailand
 
 The collector efficiency for 10 - 11 is
-\begin{align*}
+\begin{align}
   \eta &= \frac{Q_{u}}{I_{T}A_{C}} = \frac{q_{u}}{I_{T}} = \frac{2.45}{3.95} \\
        &= 0.62
-\end{align*}
+\end{align}
 
 ***** Solution: Table of by-the-hour Results
 
