@@ -25,6 +25,7 @@
 #+LATEX_HEADER: \newfontfamily{\englishfont}{Libertinus Serif}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usepackage[american]{circuitikz}
 #+LATEX_HEADER: \usetikzlibrary{arrows,calc,decorations,shapes,shapes.arrows,shapes.misc,positioning,decorations.pathmorphing,patterns}
 #+LATEX_HEADER: \usepackage[american]{circuitikz}
 #+LATEX_HEADER: \usepackage{pgfplots}
@@ -509,78 +510,67 @@ From $q_{loss} = U\Delta T$
 
 - Assume steady-state operation
 
-**** Thermal Network for Flat-plate Collectors
+การถ่ายเทความร้อนทั้งหมดที่เกิดขึ้นในระบบสามารถอธิบายโดยใช้วงจรความร้อนได้ดังนี้
 
 \begin{figure}[h]
   \centering
   \begin{tikzpicture}
-    % from collector plate (p) to cover (c)
-    \draw [color=white] (0,0) node[above right]{$T_p$} --++ (135:1) to [/tikz/circuitikz/bipoles/length=0.75cm,R=$1/h_{c,p-c}$] ++ (90:1) --++ (45:1);
-    \draw [color=white] (0,0) --++ (45:1) to [/tikz/circuitikz/bipoles/length=0.75cm,resistor,l_=$1/h_{r,p-c}$] ++ (90:1) --++ (135:1) node(Tc){} node[right]{$T_c$};
-    % from cover (c) to ambient (a)
-    \draw [color=white] (Tc.center) --++ (135:1) to [/tikz/circuitikz/bipoles/length=0.75cm,R=$1/h_{c,c-a}$] ++ (90:1) --++ (45:1);
-    \draw [color=white] (Tc.center) --++ (45:1) to [/tikz/circuitikz/bipoles/length=0.75cm,resistor,l_=$1/h_{r,c-a}$] ++ (90:1) --++ (135:1) node[right]{$T_a$};
-    % from plate (p) to ambient through bottom (a)
-    \draw [color=white] (0,0) --++ (-135:1) to [/tikz/circuitikz/bipoles/length=0.75cm,resistor,l_=$1/h_{c,b-a}$] ++ (-90:1) --++ (-45:1);
-    \draw [color=white] (0,0) --++ (-45:1) to [/tikz/circuitikz/bipoles/length=0.75cm,R=$1/h_{r,b-a}$] ++ (-90:1) --++ (-135:1) node[right]{$T_a$};
-    % Solar radiation absorbed (S) in, useful heat (Q_u) out
+    \draw (0,0) node[above right]{$T_p$} --++ (135:1) to [/tikz/circuitikz/bipoles/length=0.75cm,R=$1/h_{c,p-c}$] ++ (90:1) --++ (45:1);
+    \draw (0,0) --++ (45:1) to [/tikz/circuitikz/bipoles/length=0.75cm,resistor,l_=$1/h_{r,p-c}$] ++ (90:1) --++ (135:1) node(Tc){} node[right]{$T_c$};
+    \draw (Tc.center) --++ (135:1) to [/tikz/circuitikz/bipoles/length=0.75cm,R=$1/h_{c,c-a}$] ++ (90:1) --++ (45:1);
+    \draw (Tc.center) --++ (45:1) to [/tikz/circuitikz/bipoles/length=0.75cm,resistor,l_=$1/h_{r,c-a}$] ++ (90:1) --++ (135:1) node[right]{$T_a$};
+    \draw (0,0) --++ (-135:1) to [/tikz/circuitikz/bipoles/length=0.75cm,resistor,l_=$1/h_{c,b-a}$] ++ (-90:1) --++ (-45:1);
+    \draw (0,0) --++ (-45:1) to [/tikz/circuitikz/bipoles/length=0.75cm,R=$1/h_{r,b-a}$] ++ (-90:1) --++ (-135:1) node[right]{$T_a$};
     \draw [stealth-, thick] (0,0) ++ (180:0.1) --++ (180:2) node[left]{$S$};
     \draw [-stealth, thick] (0,0) ++ (0:0.1) --++ (0:2) node[right]{$Q_{u}$};
   \end{tikzpicture}
 \end{figure}
 
-**** Heat Loss from Plate to Top Cover
-
-- convection + radiation
+การสูญเสียความร้อนไปที่ด้านบนของเครื่องมีเกิดจากกระบวนการนำและพาความร้อน ซึ่งสามารถเขียนเป็นสมการได้ว่า
 
   \begin{align*}
     q_{loss} &= h_{c,p-c1}(T_{p} - T_{c1}) + \frac{\sigma(T_{p}^{4} - T_{c1}^{4})}{\dfrac{1}{\varepsilon_{p}} + \dfrac{1}{\varepsilon_{c1}} - 1} \\
 	     &= (h_{c,p_{c1}} + h_{r,p-c1})(T_{p}- T_{c1})
   \end{align*}
 
-  where
+  โดยที่
   \begin{align*}
     h_{r,p-c} &= \frac{\sigma(T_{p}+T_{c})(T_{p}^{2} + T_{c}^{2})}{\frac{1}{\varepsilon_{p}} + \frac{1}{\varepsilon_{c}} - 1}
   \end{align*}
 
-- 'Resistance' to heat loss is
+  ความต้านทานต่อการสูญเสียความร้อน \(R_1\) เท่ากับ
   \begin{align*}
     R_{1} &= \frac{1}{h_{c,p-c} + h_{r,p-c}}
   \end{align*}
 
-**** Heat Loss from Cover to Ambient
-
-- Convection loss to wind + radiation loss to sky
+การสูญเสียความร้อนจากแผ่นครอบ (cover) ไปถึงสภาพแวดล้อมเกิดได้จากการพาความร้อนของลม และการแผ่รังสีไปสูสภาพแวดล้อม
   \begin{align*}
     q_{loss} &= h_w(T_{c} - T_{a}) + \sigma\varepsilon_c(T_{c}^{4} - T_{s}^{4}) \\
   	   &= (h_{w} + h_{r,c-a})(T_{c}- T_{a})
   \end{align*}
 
-  where
+  โดยที่ค่าสัมประสิทธิ์การแผ่รังสีไปสู่สภาพแวดล้อมคือ
   \begin{align*}
     h_{r,c-a} &= \frac{\sigma\varepsilon_c(T_c^4 - T_s^4)}{T_c - T_a}
   \end{align*}
 
-- 'Resistance' to heat loss is
+ดังนั้น ความต้านทานต่อการสูญเสียความร้อนจากแผ่นครอบไปจนถึงสภาพแวดล้อมสามารถคำนวณได้จาก
   \begin{align*}
     R_{2} &= \frac{1}{h_{w} + h_{r,c-a}}
   \end{align*}
 
-**** Calculating Heat Loss Coefficient
-
-- Combined 'resistance' to heat loss through the top is
+เมื่อพิจารณาจากวงจรความร้อน จะเห็นได้ว่าความต้านทานทั้งสองต่อกันแบบอนุกรม เราจึงสามารถคำนวณความต้านทานรวมได้ว่า
   \begin{align*}
     R_{t} &= R_{1} + R_{2}
   \end{align*}
 
-- Top loss coefficient, $U_t$, is simply
+และสามารถคำนวณสัมประสิทธิ์การสูญเสียความร้อนได้ดังนี้
   \begin{align*}
     U_{t} &= \frac{1}{R_{t}} = \left( \frac{1}{h_{c,p-c} + h_{r,p-c}} + \frac{1}{h_{w} + h_{r,c-a}} \right)^{-1}
   \end{align*}
 
-- Since most coeffs depend on $T_c$ takes an initial guess to start calculation and repeat until $T_c$ converges
+การแก้สมการในกรณีนี้อาจมีความซับซ้อนเนื่องจากคุณสมบัติส่วนมากขึ้นกับอุณหภูมิ $T_c$ ดังนั้น วิธีการหาคำตอบจะต้องใช้การหาคำตอบเชิงตัวเลขโดยการสมมติค่า \(T_c\) เบื้องต้น แก้สมการเพื่อหาค่า \(T_c\) จริงจนกว่าค่าจะลู่เข้าหาคำตอบจริงเพียงพอ (แก้โดยใช้เครื่องคิดเลขอาจจะยาก แต่แก้โดยใช้ spreadsheet หรือโปรแกรมทางคณิตศาสตร์ทำได้สะดวกกว่ามาก)
 
-- Cumbersome with a calculator, easy with a spreadsheet (excel)
 
 ***** Example: Loss Coefficient of a Flat-plate Collector
 
@@ -2941,7 +2931,7 @@ Kaikoura ในประเทศนิวซีแลนด์
 จำเป็นที่เราจะต้องมีเกณฑ์ที่เป็นรูปธรรม เป็นตัวเลข
 มีวิธีวัดที่ชัดเจนเพื่อที่จะสามารถประเมินความยั่งยืนได้อย่างมีประสิทธิภาพและคงเส้นคงวา
 
-ดังนั้น เราจะนำ*ตัวบ่งชี้*มาใช้ในการวัดความยั่งยืน
+ดังนั้น เราจะนำ\textbf{ตัวบ่งชี้}มาใช้ในการวัดความยั่งยืน
 ตัวบ่งชี้มักจะเป็นค่าหรือจำนวนที่ใช้ในการวัดระดับหรือสถานะของสิ่งสิ่งหนึ่ง
 
 ยกตัวอย่างเช่น หากเราจะหาตัวบ่งชี้ที่จะบอกสถานะความเปรี้ยวของมะนาว
