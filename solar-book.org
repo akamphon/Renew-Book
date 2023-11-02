@@ -152,6 +152,766 @@
 2. Pseudo-azimuthal ควบคุมโดยใช้มุมอซิมุทและมุมเงย
 
 
+
+*** คุณสมบัติทางกายภาพของดวงอาทิตย์
+
+[[./pictures/sun-earth-geometry.png]]
+
+- Sun is small enough in the sky, its ray can be assumed parallel
+
+
+- Total power output: $3.8 \times 10^{26}$ W
+- Effective blackbody temp: 5760 K
+- Power reaching earth: $1.7 \times 10^{17}$ W
+
+  - 84 min of this power = 1 year of world demand (\approx 900 EJ)
+
+
+[[./pictures/earth-energy-budget.jpg]]
+
+
+- With proper techs and widespread usage, we don't need much else
+- But how much can we actually make use of?
+
+ลำดับต่อมาที่เราต้องรู้คือพลังงานจากดวงอาทิตย์มาถึงโลกมากน้อยเพียงใด
+
+[[./pictures/sun-through-cloudy-sky.jpg]]
+
+- This depends
+  - Sun's position in the sky
+  - Weather condition
+- Well, how do I know that?
+- We need to calculate *solar position*
+
+*** Calculating Solar Position
+
+*** Solar Time --> Solar Position
+
+[[./pictures/local-time.jpg]]
+[[./pictures/solar-time.jpg]]
+
+- To calculate position, we need to know solar time
+- Wait... I already know the time. Just check my watch/phone \rightarrow standard time
+- local standard time \neq solar time
+  
+*** เวลาสุริยคติ (Solar Time)
+
+[[./pictures/solar-day-vs-sidereal-day.png]]
+
+- At noon (on your watch), when you look up, is the sun directly overhead?
+
+  - Sometimes, depending on day and month of year.
+
+- At /solar noon/, the sun is *always* directly overhead
+
+- Solar time is corrected for earth's orbit and rotation
+
+ดังนั้น เพื่อจะรู้ตำแหน่งของดวงอาทิตย์ จำเป็นที่เราจะต้องสามารถคำนวณเวลาสุริยคติปรากฏ (apparent solar time, AST)
+
+\begin{align*}
+  AST = LST + ET \pm 4|SL - LL| - DS
+\end{align*}
+
+- $AST$ :: Apparent solar time (used to calculated solar position)
+- $LST$ :: local standard time (time on your watch/clock/phone)
+- $ET$ :: equation of time (variations of angles over the year)
+- $SL$ :: standard longitude (where your timezone is based)
+- $LL$ :: local longitude (where you actually are)
+- $DS$ :: daylight saving (60 if yes, 0 if no) (Thailand = 0)
+
+*** Equation of time (ET)
+
+- Equation of time tracks difference between average solar path and actual solar path
+- As earth is tilted, actual solar path is not straight
+\begin{gather*}
+  ET = 9.87 \sin(2B) - 7.53 \cos(B) - 1.5 \sin(B) \text{ [min]} \\
+  B = (N - 81) \frac{360}{364} \text{ [degrees]}
+\end{gather*}
+
+  - $N$ :: day of year
+
+*** Longitude Correction: 4|SL - LL|
+
+- Correct time difference between you and standard longitude
+- The sun takes 4 min/degree \rightarrow 4|standard longitude [SL] - local longitude [LL]|
+- Sign convention based on where you are compared to standard longitude
+
+  - East :: correction is added
+  - West :: correction is subtracted
+    
+*** Daylight Saving Time: DS
+
+- Seasonal clock adjustment so they can enjoy more sun
+
+[[./pictures/ds-countries.png]]
+
+- We don't use DS in Thailand (DS = 0)
+
+*** Example: Find Apparent solar time for Khon Kaen
+
+- Currently the time is Feb 12 at 13:30 PM, standard longitude in Thailand is in Ubon Ratchathani at 105E, find AST for Khon Kaen (102.8E)
+
+*** Solution: Find Apparent solar time for Khon Kaen
+
+- First, we need $ET$, the equation of time
+
+  $N$ = 12 + 31 = 43
+
+  \begin{align*}
+    ET &= 9.87\sin(2B) - 7.53\cos(B) - 1.5\sin(B) \\
+    B &= (N-81)\frac{360}{364} \\
+       &= (43 - 81)\frac{360}{364} \\
+       &= -37.58 \\
+    ET &= 9.87 \sin(2(-37.58)) - 7.53\cos(-37.58) - 1.5 \sin(-37.58) \\
+       &= -14.59 \text{ min}
+  \end{align*}
+
+*** Solution: Find Apparent solar time for KK (cont)
+
+- KK is west of Ubon Ratchathani, longitude correstion must be subtracted
+
+  $LST$ of 13:30 = 13.5
+\begin{align*}
+  AST &= LST + ET - 4|LL - SL| - DS \\
+      &= LST \text{ hr} + (-14.59) \text{ min} - 4|102.8 - 105| \text{ min} - 0 \\
+      &= LST - 0.24 - 0.15 = LST - 0.39 \\
+      &= 13.5 - 0.39 \\
+      &= 13.11
+\end{align*}
+
+- Times are usually converted to decimals 
+- 13.11 \neq 13:11
+
+*** Determining Solar Angles
+
+*** Position of Sun in the Sky
+
+- Solar time --> Solar position
+- Exact solar position is defined by the /solar altitude/ angle $\alpha$ and /solar azimuth/ angle $A$
+
+#+ATTR_LATEX: :width 0.7\textwidth
+[[./pictures/solar-angles.png]]
+
+- Problem: where you are on earth matters
+- 2 coord systems: sun-observer vs sun-earth
+
+*** Sun-Observer Angles
+
+[[./pictures/sun-observer-angles.png]]
+
+
+  - $\alpha$ :: elevation angle
+  - $z$ :: zenith angle
+  - $A$ :: azimuth angle
+
+- Consider unit vector $\mathbf{S}$ pointing at the sun from observer $\mathbf{Q}$
+  \begin{align*}
+    S_z &= \sin \alpha = \cos z \\
+    S_e &= \cos \alpha \sin A \\
+    S_n &= \cos \alpha \cos A
+  \end{align*}
+  
+*** Sun-Earth Angles
+
+[[./pictures/sun-earth-angles.png]]
+
+  - $\delta$ :: declination angle
+  - $h$ :: hour angle
+
+- Consider unit vector $\mathbf{S}$ pointing at the sun from center of earth $\mathbf{C}$
+  \begin{align*}
+    S_p^{\prime} &= \sin \delta \\
+    S_e^{\prime} &= -\cos \delta \sin h \\
+    S_m^{\prime} &= \cos \delta \cos h
+  \end{align*}
+
+- Note that $S_e^{\prime}$ is pointing in a negative direction
+
+*** Transforming between Two Coord Systems
+
+- The two coordinate systems are related by the rotation of *latitude angle* $L$ about the east (e) axis
+
+ [[./pictures/coord-rotation.png]]
+
+*** Relationship Sun-Observer and Sun-Earth coords
+
+ - Rotation of $L$ about $e$ axis can be written as
+ 
+   \begin{align*}
+     \begin{bmatrix}
+       S_z \\
+       S_e \\
+       S_n
+     \end{bmatrix}
+     =
+     \begin{bmatrix}
+       \cos L & 0 & \sin L \\
+       0 & 1 & 0 \\
+       -\sin L & 0 & \cos L 
+     \end{bmatrix}
+     \begin{bmatrix}
+       S_m^{\prime} \\
+       S_e^{\prime} \\
+       S_p^{\prime}
+     \end{bmatrix}
+   \end{align*}
+ 
+   \begin{align*}
+     S_z &= S_m^{\prime} \cos L + S_p^{\prime} \sin L \\
+     S_e &= S_e^{\prime} \\
+     S_n &= -S_m^{\prime} \sin L + S_p^{\prime} \cos L
+   \end{align*}
+
+*** Relationship between the Angles
+ 
+ - Substitute the trig functions to establish the relationship
+ 
+   \begin{align*}
+     \sin \alpha &= \sin \delta \sin L + \cos \delta \cos L cos h \\
+     \cos \alpha \sin A &= -\cos \delta \sin h \\
+     \cos \alpha \cos A &= -\cos \delta \cos h \sin L + \sin \delta \cos L
+   \end{align*}
+
+*** Solar Altitude Angle
+
+$\alpha$
+
+ [[./pictures/sun-observer-angles.png]]
+
+   \begin{align*}
+     \alpha + z &= \frac{\pi}{2} \\
+     \sin \alpha &= \cos z = \sin L \sin \delta + \cos L \cos \delta \cos h
+   \end{align*}
+
+ - $L$ :: latitude angle
+ - $\delta$ :: solar declination angle (seasonal angle of sun)
+ - $h$ :: hour angle (angle between your and sun's longitudes)
+
+*** Solar Declination angle 
+
+$\delta$
+ 
+ - Angle the sun is shining on earth compared to equator
+
+ [[./pictures/solar-dec-angle.png]]
+ 
+ \begin{align*}
+   \delta = 23.45 \sin \left[ \frac{360}{365}(284+N) \right]
+ \end{align*}
+ 
+ - Note: $\delta$ is independent of your location
+
+*** Declination angles over the Year
+\begin{figure}[htbp]
+ \centering
+ \begin{tikzpicture}
+   \begin{axis}[
+     %nodes near coords,
+      width=0.9\textwidth,
+      height=0.5\textwidth,
+      xmin=0,xmax=365,
+      ytick={-23.45,0,23.45},
+      ylabel={$\delta$ (degrees)},
+      xlabel={day of year, $N$},
+      ]
+      \addplot [domain=1:365] {23.45*sin(360/365*(284+x))};
+      \addplot [domain=1:365] {0};
+    \end{axis}
+  \end{tikzpicture}
+\end{figure}
+
+- Note: $\delta > 0$ is north, $\delta < 0$ is south
+
+*** Useful Table for Calculating Averages
+
+[[./pictures/day-of-year-table.png]]
+
+*** Hour Angle
+
+- Angle between observer's meridian and sun's meridian
+
+[[./pictures/hour-angle.jpg]] 
+
+*** Calculating Hour Angle
+
+- Hour angle is simply the difference between the apparent solar (AST) time from local solar noon (12).
+
+  \begin{align*}
+    h = (AST - 12) \text{ [hr]} = 15(AST - 12) \text{ [degrees]}
+  \end{align*}
+
+# *** Example: Solar Hour Angle of Khon Kaen
+# 
+# - Determine the solar hour angle for KK where the local time (on the clock) is 6 AM on Feb 12. KK is at 102.8E.
+# 
+# *** Solution: Solar Hour Angle of Khon Kaen
+# 
+# - Feb 12 -> N = 43, Local latitude = 102.8E, Standard latitude = 105E
+# 
+# - First, find $ET$
+# 
+#   \begin{align*}
+#     h &= AST - 12 = LST + ET + 4(LL - SL) - 12 \\
+#     B &= (N-81)\frac{360}{364} \\
+#        &= (43 - 81)\frac{360}{364} \\
+#        &= -37.6 \\
+#     ET &= 9.87\sin(2B) - 7.53\cos(B) - 1.5\sin(B) \\
+#        &= 9.87 \sin(2(-37.6)) - 7.53\cos(-37.6) - 1.5 \sin(-37.6) \\
+#        &= -14.6 \text{ min}
+#   \end{align*}
+# 
+# *** Solution: Solar Hour Angle of Khon Kaen
+# 
+#   \begin{align*}
+#     h &= 6 + (-14.6 \text{ min}) + 4(102.8 - 105) \text{ min} - 12 \\
+#       &= -6 - \frac{14.6 + 8.8}{60} \\
+#       &= -6.39 \text{ hr}
+#   \end{align*}
+
+*** Solar Azimuth Angle
+
+#+ATTR_LATEX: :width 0.6\textwidth
+[[./pictures/solar-angles.png]]
+
+- angle beetween sun's ray projection to horizontal plane from *true north* in a *clockwise* direction
+
+\begin{align*}
+  \sin A = -\frac{\cos \delta \sin h}{\cos \alpha}
+\end{align*}
+
+- Note: $\sin^{-1}$ has multiple solutions. Always double check your solution.
+
+*** Example: Solar Altitude and Azimuth Angles in KK
+
+- Continuing from previous example. Calculate solar altitude and zimuth angles on Feb 12 at 6 AM.
+  
+*** Solution: Solar Altitude and Azimuth Angle in KK 
+
+- Given: day of year $N$ = 43, latitude angle $L$ = 16.4 (KK is at 16.4N)
+- Need: solar altitude $\alpha$ and azimuth angle $z$
+\begin{align*}
+  \sin \alpha &= \sin L \sin \delta + \cos L \cos \delta \cos h \\
+  \sin A &= -\frac{\cos \delta \sin h}{\cos \alpha}
+\end{align*}
+
+- Let's find declination angle $\delta$ first
+\begin{align*}
+  \delta &= 23.45^{\circ} \sin \left[ \frac{360}{365}(284+N) \right] \\
+         &= 23.45^{\circ} \sin \left[ \frac{360}{365}(284+43) \right] \\
+         &= -14.3^{\circ}
+\end{align*}
+
+- Winter time, the sun is south (ok)
+
+*** Solution: Solar Altitude and Azimuth Angles in KK
+
+- Hour angle $h$ can be calculated from apparent solar time ($AST$), which has been calculated for Feb 12 already
+  \begin{align*}
+    h &= AST - 12 = LST - 0.39 - 12 \\
+      &= 6 - 0.39 - 12 \\
+      &= -6.39 \text{ hr} = -6.39 \times 15 = -95.85^{\circ}
+  \end{align*}
+
+- Next, solar altitude angle $\alpha$
+  \begin{align*}
+    \sin \alpha &= \sin L \sin \delta + \cos L \cos \delta \cos h \\
+		&= \sin 16.4^{\circ} \sin -14.3^{\circ} + \cos 16.4^{\circ} \cos -14.3^{\circ} \cos (-95.85) \\
+		&= -0.164 \\
+    \alpha &= -9.44
+  \end{align*}
+
+- The sun hasn't risen yet at 6 AM, in winter. (OK)
+
+*** Solution: Solar Altitude and Azimuth Angles in KK
+
+- Finally, the azimuth
+\begin{align*}
+  \sin A &= -\frac{\cos \delta \sin h}{\cos \alpha} \\
+         &= -\frac{\cos -14.3^{\circ} \sin(-95.85)}{\cos -9.44^{\circ}} \\
+         &= 0.977 \\
+  A &= 77.7^{\circ}
+\end{align*}
+
+- $A = 77.7^{\circ}$ means the sun is to the east, and a little to the north...
+
+- In winter? Sun to the north?
+
+- $-90 < \sin^{-1} < 90$, but $0 < A < 360$
+
+- Another $A$ that gives equal $\sin A$ is $180-77.7 = 102.3$ (east with a bit of south)
+
+# *** Sunrise, sunset, and day length
+
+*** Incident angle 
+# GET This into equation for R_b
+$\theta$
+
+#+ATTR_LATEX: :height 0.4\textheight
+[[./pictures/incident-angle-on-tilted-surface.png]]
+\begin{align*}
+  \cos \theta =& \sin L \sin \delta \cos \beta + \cos L \sin \delta \sin \beta \cos A_s \\
+               &+ \cos L \cos \delta \cos h \cos \beta \\
+               &- \sin L \cos \delta \cos h \sin \beta \cos A_s \\
+               &- \cos \delta \sin h \sin \beta \sin A_s
+\end{align*}
+
+- $\beta$ :: tilt angle
+- $A_s$ :: surface azimuth angle
+
+*** Simplified Equation of Incident Angle
+
+- Usually, best $A_s$ is 180 in northern hemisphere and 0 in southern hemisphere
+
+- Equation reduces to 
+  \begin{align*}
+    \cos \theta &= \sin L \sin \delta \cos \beta \mp \cos L \sin \delta \sin \beta \\
+                & \hspace{5mm} + \cos L \cos \delta \cos h \cos \beta \\
+                & \hspace{5mm} \pm \sin L \cos \delta \cos h \sin \beta \\
+                &= \sin \delta \sin (L \mp \beta) + \cos \delta \cos h \cos (L \mp \beta)
+  \end{align*}
+
+- Top sign for $A_s$ = 180, bottom for $A_s$ = 0. $L, \delta > 0$ = north
+  
+*** Example: Solar Incident Angle on Solar Panel
+
+Determine solar incident angle on solar panel with a tilt angle of 15$^{\circ}$ and azimuth angle of 180$^{\circ}$ in KK on Feb 12, Thailand.
+
+*** Solution: Solar Incident Angle on Solar Panel
+
+From
+\begin{align*}
+  \cos \theta =& \sin L \sin \delta \cos \beta + \cos L \sin \delta \sin \beta \cos A_s \\
+               &+ \cos L \cos \delta \cos h \cos \beta \\
+               &- \sin L \cos \delta \cos h \sin \beta \cos A_s \\
+               &- \cos \delta \sin h \sin \beta \sin A_s
+\end{align*}
+
+$L$ = 16.4, $\delta$ = -14.3, $\beta$ = 15, $A_s$ = 180 ...
+
+Still need $h$
+
+\begin{align*}
+  h &= 15(AST - 12) = 15(LST + ET \pm 4|SL - LL| - DS - 12)
+\end{align*}
+
+*** Solution: Solar Incident Angle of Solar Panel
+
+$AST$ as a function of $LST$ on Feb 12 is
+
+\begin{align*}
+  AST &= LST - 0.39
+\end{align*}
+
+Hour angle can then be easily calculated as
+
+\begin{align*}
+  h &= 15(LST - 0.39 - 12) = 15(LST - 12.39)
+\end{align*}
+
+*** Solution: Solar Incident Angle of Solar Panel
+
+Finally, the incident angle on Solar Panel is
+
+\begin{align*}
+  \cos \theta &= \sin 16.4 \sin (-14.3) \cos 15 + \cos 16.4 \sin (-14.3) \sin 15 \cos 180 \\
+      & \hspace{5mm} + \cos 16.4 \cos (-14.3) \cos 15(LST - 12.39) \cos 15 \\
+      & \hspace{5mm} - \sin 16.4 \cos (-14.3) \cos 15(LST - 12.39) \sin 15 \cos 180 \\
+      & \hspace{5mm} - \cos (-14.3) \sin 15(LST - 12.39) \sin 15 \sin 180 \\
+      &= -0.067 + 0.237 - 0.898\cos 15(LST - 12.39) \\
+      & \hspace{5mm} +0.071\cos 15(LST - 12.39) + 0 \\
+      &= 0.17 - 0.827\cos 15(LST - 12.39)
+\end{align*}
+
+Angle can be solved numerically
+
+*** Evaluating Solar Radiation
+
+*** How Much of the Sun is Reaching Ground?
+
+- Typically calculated as a fraction of extraterrestrial radiation on horizontal surface
+  - following cosine rule
+  - Need to adjust for small variations over the year as distance varies
+
+\begin{align*}
+  G_o &= G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] \cos z \\
+      &= G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] (\cos L \cos \delta \cos h + \sin L \sin \delta) \\
+\end{align*}
+
+- $G_{o}$ :: extraterrestrial radiation [W/m$^2$]
+- $G_{sc}$ :: solar constant = 1366 W/m$^2$
+- $N$ :: day in the year (1...365)
+- $z$ :: zenith angle
+
+*** Hourly and Daily Extraterrestrial Radiation
+
+- Hourly and daily values can be evaluated by integrating from $h_1$ to $h_2$ (or from sunrise till sunset)
+
+\begin{align*}
+  I_o &= \int_{h_1}^{h_2} G_o dt = \int_{h_1}^{h_2} G_o dh \\
+      &= \frac{12(3600)}{\pi}G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] \\
+      & \hspace{5mm} \times \left[\cos L \cos \delta (\sin h_2 - \sin h_1) + \frac{\pi(h_2 - h_1)}{180} \sin L \sin \delta \right] \\
+\end{align*}
+
+- Note that $h_1,h_2$ are in degrees
+
+# *** Monthly Average Daily Extraterrestrial Radiation, MJ/m^2
+# 
+# [[./pictures/monthly-average-daily-extraterrestrial-radiation-90-0.png]]
+# 
+# *** Monthly Average Daily Extraterrestrial Radiation, MJ/m^2
+# 
+# [[./pictures/monthly-average-daily-extraterrestrial-radiation-0--90.png]]
+
+*** Atmospheric Effect on Solar Radiation
+
+#+ATTR_LATEX: :height 0.9\textheight
+[[./pictures/solar-radiation.jpg]] 
+
+*** Factors Affecting Solar radiation
+
+- Radiation at any point depends on
+
+  1. Ozone layer thickness
+  2. distance traveled through atmosphere
+  3. amount of haze (dust, water vapor, etc)
+  4. cloud cover
+
+- We don't care why. We only care how much the sun is coming through.
+
+*** Air Mass (AM)
+
+
+#+ATTR_LATEX: :height 0.6\textheight
+[[./pictures/air-mass.jpg]]
+
+- Thickness of air layer the sun needs to go through before reaching earth
+
+$$ m = \sec z $$
+
+# A more accurate value of air mass is
+#  \begin{align*}
+#    m &= \frac{1}{\sin \alpha + 0.50572(6.07995 + \alpha)^{-1.6364}}
+#  \end{align*}
+# 
+#  where $\alpha$ is the altitude angle in degrees
+
+*** Terrestrial Solar Radiation
+
+- According to ASHRAE model, the beam and diffuse components are
+  \begin{align*}
+    I_{bn} &= I_oe^{-\tau_{b}m^{b}} \\
+    I_{dh} &= I_oe^{-\tau_{d}m^{d}}
+  \end{align*}
+
+  - $I_{bn}$ :: beam radiation per unit area normal to sun ray
+  - $I_{dh}$ :: diffuse radiation per unit area on horizontal surface
+  - $I_o$ :: extraterrestrial normal radiation
+  - $m$ :: air mass
+  - $\tau_b,\tau_d$ :: beam and diffuse optical depth (can be looked up from table)
+  - $b,d$ :: beam and diffuse air mass exponents
+
+*** Air Mass Exponent
+
+- $b,d$ are determined empirically as
+  \begin{align*}
+    b = 1.219 - 0.043\tau_{b} - 0.151\tau_{d} - 0.204\tau_{b}\tau_{d} \\
+    d = 0.202 + 0.852\tau_{b} - 0.007\tau_{d} - 0.357\tau_{b}\tau_{d}
+  \end{align*}
+
+*** Total Radiation on Horizontal Surface
+
+- Total radiation on a horizontal surface is
+  \begin{align*}
+    I &= I_{bn} + I_{dn}
+  \end{align*}
+
+  - $I_{bn}$ :: beam radiation on horizontal surface
+  - $I_{dn}$ :: diffuse radiation on horizontal surface
+
+*** Clearness Index
+
+- Ratio between radiation on horizontal surface vs extraterrestrial radiation
+  $$ k_T = \frac{I}{I_o} $$
+
+- $k_T$ can be calculated hourly or daily (or even monthly)
+
+- $k_T$ also affects how much solar radiation is scattered and become diffuse radiation
+\begin{align*}
+  \small
+  \frac{I_{dn}}{I} = \left\{
+  \begin{array}{ll}
+    1.0 - 0.09k_T & k_T \leqslant 0.22 \\
+    0.9511 - 0.1604k_T + 4.388k_T^2 - 16.638k_T^3 + 12.336k_T^4 & 0.22 < k_T \leqslant 0.8 \\
+    0.165 & k_T > 0.8
+  \end{array} 
+  \right.
+\end{align*}
+ 
+*** Total Radiation on Tilted Surfaces
+# CHECK How azimuth angle of tilt comes into play.
+
+- Total radiation on a tilted surface ($I_t$) is
+  \begin{align*}
+    I_t &= I_{bt} + I_{dt} + I_{gt}
+  \end{align*}
+
+  - $I_{bt}$ :: beam radiation on tilted surface
+  - $I_{dt}$ :: diffuse radiation on tilted surface
+  - $I_{gt}$ :: ground-reflected radiation on tilted surface
+  
+*** Beam Radiation on a Tilted Surface
+
+- Beam radiation on a surface follows a cosine rule. For a horizontal surface under beam radiation intensity $I_b$
+  $$ I_{bn} = I_{b} \cos z $$
+
+- Beam radiation on a tilted surface $I_{bt}$ is
+\begin{align*}
+  I_{bt} &= I_{b} \cos \theta \\
+  I_{bt} &= I_{bn} \frac{\cos \theta}{\cos z}
+\end{align*}
+
+- Substitute formulae for $\cos \theta$ and $\cos z$
+\begin{align*}
+  \frac{I_{bt}}{I_{bn}} &= \frac{\cos \theta}{\cos z} = \frac{\sin(L-\beta)\sin \delta + \cos(L-\beta)\cos \delta \cos h}{\sin L \sin \delta + \cos L \cos \delta \cos h} \\
+                        &= R_b
+\end{align*}
+
+- $R_b$ :: beam radiation tilt factor
+
+*** Diffuse Radiation on a Tilted Surface
+
+- Assume constant diffuse radiation in any direction: Isotropic Sky
+- Diffuse radiation on a horizontal surface under diffuse radiation intensity $I_d$
+\begin{align*}
+  I_{dn} = 2 \int_0^{\pi/2} I_d \cos \theta d\theta = 2I_d
+\end{align*}
+
+- Diffuse radiation on a tilted surface
+\begin{align*}
+  I_{dt} &= \int_0^{\pi/2} I_d \cos \theta d\theta + \int_0^{\pi/2 - \beta} I_d \cos \theta d\theta \\
+         &= I_d \left[1 + \sin \left(\frac{\pi}{2} - \beta \right) \right] \\ 
+         &= I_{dn} \left[ \frac{1 + \cos \beta}{2} \right]
+\end{align*}
+
+*** Ground-Reflected Radiance
+
+- Assume the ground has albedo of $\rho_g$, the ground-reflected radiation is
+\begin{align*}
+  \rho_g I = \rho_g (I_{bn} + I_{dn}) = 2\int_0^{\pi/2} I_{g} \cos \theta d\theta = 2I_g
+\end{align*}
+
+- Albedo $\rho_g$ express how much of incident sunlight (both beam and diffuse) is reflected
+
+- Ground-reflected radiation on tilted surfaces is
+\begin{align*}
+  I_{gt} &= \int_{\pi/2-\beta}^{\pi/2} I_g \cos \theta d\theta \\
+         &= \rho_g (I_{bn} + I_{dn})\left[ \frac{1 - \cos \beta}{2} \right]
+\end{align*}
+
+*** Total Radiation on Tilted Surfaces
+
+\begin{align*}
+  I_t = R_bI_{bn} + I_{dn}\left[\frac{1 + \cos \beta}{2} \right] + (I_{bn} + I_{dn}) \rho_g \left[\frac{1 - \cos \beta}{2}\right]
+\end{align*}
+
+- The total radiation tilt factor, $R$ is
+
+\begin{align*}
+  R = \frac{I_t}{I} = \frac{I_{bn}}{I}R_b + \frac{I_{dn}}{I}\left[\frac{1 + \cos \beta}{2} \right] + \rho_g\left[ \frac{1 - \cos \beta}{2} \right]
+\end{align*}
+
+*** Example: Solar Irradiation on PV in KK
+
+Estimate beam, diffuse, and reflected components of solar radiation on PV tilted 30 degree to the south at KK (16.4N, 102.8E) from 10:00-11:00 on Feb 12. Here $I$ = 1.2 MJ/m^2 and $\rho_g$ = 0.6.
+
+*** Solution: Solar Irradiation on PV in KK
+
+- First, evaluate extraterrestrial solar radiation $I_o$
+- Evaluate all required angles (a lot!)
+
+\begin{align*}
+  \delta &= 23.45 \sin \left[ \frac{360}{365}(284 + 43) \right] \\
+         &= -14.27
+\end{align*}
+
+$L$ = 16.4, $h$ for Feb 12 = 15(LST - 12.39), $h_1$ = -35.85, $h_2$ = -20.85
+
+*** Solution: Solar Irradiation on PV in KK
+
+- Substitute to find $I_o$, we have
+
+\begin{align*}
+     I_o &= \frac{12(3600)}{\pi}G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] \\
+         & \hspace{5mm} \times \left[\cos L \cos \delta (\sin h_2 - \sin h_1) + \frac{\pi(h_2 - h_1)}{180} \sin L \sin \delta \right] \\
+         &= \frac{12(3600)}{\pi}(1366)\left[ 1 + 0.033\cos \left(\frac{360(43)}{365} \right) \right] \\
+         & \hspace{5mm} \times \bigg[ \cos 16.4 \cos (-14.27) (\sin (-20.85) - \sin (-35.85)) \\
+         & \hspace{1cm} + \left. \frac{\pi (-20.85 - (-35.85))}{180} \sin 16.4 \sin (-14.27) \right] \\
+         &= 3.76 \text{ MJ/m}^2
+\end{align*}
+
+*** Solution: Solar Irradiation on PV in KK
+
+- We can calculate the clearness index $k_T$, which can then be used to determine the fractions of diffusion and beam radiations. 
+
+\begin{align*}
+  k_T &= \frac{I}{I_o} = \frac{1.2}{3.76} = 0.32 \\
+  \frac{I_{dn}}{I} &= 0.9511 - 0.1604k_T + 4.388k_T^2 - 16.638k_T^3 + 12.336k_T^4 \\
+      &= 0.93
+\end{align*}
+
+*** Solution: Solar Irradiation on PV in KK
+
+- To calculate $R_b$, we need midpoint of hour angle between 10:00-11:00. $h$ = (-20.85-35.85)/2 = -28.35
+
+\begin{align*}
+  R_b &= \frac{\sin(L-\beta)\sin \delta + \cos(L-\beta)\cos \delta \cos h}{\sin L \sin \delta + \cos L \cos \delta \cos h} \\
+      &= \frac{\sin(16.4-30)\sin(-14.27) + \cos(16.4-30)\cos(-14.27)\cos(-28.35)}{\sin 16.4 \sin(-14.27) + \cos 16.4 \cos(-14.27) \cos(-28.35)} \\
+      &= 1.18
+\end{align*}
+
+*** Solution: Solar Irradiation on PV in KK
+
+- Finally, we can calculate the components
+
+\begin{align*}
+  I_{dn} &= 0.93 I = 0.93(1.2) = 1.12 \text{ MJ/m}^2 \\
+  I_{dt} &= I_{dn} \left(\frac{1 + \cos \beta}{2} \right) = 1.12 \left( \frac{1 + \cos 30}{2} \right) \\
+        &= 1.04 \text{ MJ/m}^2 \\
+  I_{bn} &= 0.07 I = .084 \text{ MJ/m}^2 \\
+  I_{bt} &= R_bI_b = 1.18(0.084) = 0.1 \text{ MJ/m}^2 \\
+  I_{gt} &= I \rho_g \left(\frac{1 - \cos \beta}{2} \right) = 1.2(0.6) \left( \frac{1 - \cos 30}{2} \right) \\
+        &= 0.048 \text{ MJ/m}^2
+\end{align*}
+
+*** Measuring Solar Radiation
+
+*** How much sun do we get?
+
+#+ATTR_LATEX: :height 0.9\textheight
+[[./pictures/thailand-horizontal-radiation.png]]
+
+*** Compared to the rest of the world?
+
+#+ATTR_LATEX: :width \textwidth
+[[./pictures/world-horizontal-radiation.png]]
+
+*** Measuring Solar Radiation
+
+
+Pyranometer
+
+#+ATTR_LATEX: :height 0.36\textheight
+[[./pictures/pyranometer.png]]
+
+- Measures global radiation = direct + diffuse + reflected
+
+Pyrheliometer
+
+[[./pictures/pyrheliometer.jpg]]
+
+- Measures only direct radiation
+
+- Can be used together to distinguish direct and diffuse/reflected
 ** เซลล์แสงอาทิตย์
 
 เซลล์แสงอาทิตย์ (Solar cell หรือ Photovoltaic cell)
