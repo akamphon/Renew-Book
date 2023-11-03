@@ -18,8 +18,8 @@
 #+LATEX_HEADER: \usepackage{setspace}
 #+LATEX_HEADER: \onehalfspacing
 # #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
-#+LATEX_HEADER: \XeTeXlinebreaklocale "th_TH"
-# #+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 1pt
+#+LATEX_HEADER: \XeTeXlinebreaklocale "th"
+#+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 2.5pt
 #+LATEX_HEADER: \newfontfamily{\thaifont}[Script=Thai]{Laksaman}
 #+LATEX_HEADER: \newfontfamily{\thaifontsf}[Script=Thai]{Laksaman}
 #+LATEX_HEADER: \newfontfamily{\englishfont}{Libertinus Serif}
@@ -27,7 +27,6 @@
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usepackage[american]{circuitikz}
 #+LATEX_HEADER: \usetikzlibrary{arrows,calc,decorations,shapes,shapes.arrows,shapes.misc,positioning,decorations.pathmorphing,patterns}
-#+LATEX_HEADER: \usepackage[american]{circuitikz}
 #+LATEX_HEADER: \usepackage{pgfplots}
 #+LATEX_HEADER: \pgfplotsset{compat=1.18}
 #+LATEX_HEADER: \usepackage{amsmath}
@@ -157,42 +156,30 @@
 
 [[./pictures/sun-earth-geometry.png]]
 
-- Sun is small enough in the sky, its ray can be assumed parallel
-
-
-- Total power output: $3.8 \times 10^{26}$ W
-- Effective blackbody temp: 5760 K
-- Power reaching earth: $1.7 \times 10^{17}$ W
-
-  - 84 min of this power = 1 year of world demand (\approx 900 EJ)
-
+เนื่องจากดวงอาทิตย์อยู่ห่างไกลจากโลกมาก (มุมในท้องฟ้า 32') ดังนั้นแสงที่มาถึงโลกจึงสามารถจึงสามารถสมมติว่าเป็นเส้นขนานได้ กำลังของแสงอาทิตย์ที่แผ่ออกมามีขนาด: $3.8 \times 10^{26}$ W และส่วนประกอบของรังสีเปรียบเทียบได้กับการแผ่รังสีของวัตถุดำที่อุณหภูมิ 5760 K เนื่องจากระบะทางที่ไกลมาก พลังงานของแสงอาทิตย์ที่มาถึงโลกมีขนาด $1.7 \times 10^{17}$ W ซึ่งพลังงานเพียงอัตราส่วนเล็กน้อยเท่านี้จากดวงอาทิตย์เพียง 1 นาที ยังสามารถใช้งานในโลกได้ 1 ปี
 
 [[./pictures/earth-energy-budget.jpg]]
 
+ดังนั้น เมื่อมีดวงอาทิตย์มีกำลังมากขนาดนี้ หากเรามีเทคโนโลยีที่เหมาะสมและนำไปประยุกต์ใช้อย่างแพร่หลาย เราจะแทบไม่ต้องพึ่งพาแหล่งพลังงานชนิดอื่นเลย
 
-- With proper techs and widespread usage, we don't need much else
-- But how much can we actually make use of?
+#+CAPTION: สภาพอากาศส่งผลต่อกำลังของแสงอาทิตย์ที่ตกลงถึงพื้นโลก
+\begin{marginfigure}
+  \includegraphics{./pictures/sun-through-cloudy-sky.jpg}
+\end{marginfigure}
+ลำดับต่อมาที่เราต้องรู้คือปริมาณของพลังงานจากดวงอาทิตย์มาถึงโลก ซึ่งขึ้นอยู่กับปัจจัยหลายประการ เช่น ตำแหน่งของดวงอาทิตย์ สภาพอากาศ 
 
-ลำดับต่อมาที่เราต้องรู้คือพลังงานจากดวงอาทิตย์มาถึงโลกมากน้อยเพียงใด
+*** ตำแหน่งของดวงอาทิตย์ (Solar Position)
 
-[[./pictures/sun-through-cloudy-sky.jpg]]
+ตำแหน่งของดวงอาทิตย์ขึ้นอยู่กับเวลาและตำแหน่งทางภูมิศาตร์ของผู้สังเกตการณ์ เนื่องจากวงโคจรของโลกและการหมุนรอบตัวเองทำให้ดวงอาทิตย์เคลื่อนที่ไปตามทิศทางซึ่งขึ้นอยู่กับตำแหน่งเส้นรุ้ง (latitude) ของผู้สังเกตการณ์ ส่วนเวลาที่ดวงอาทิตย์ข้ามเส้นเมอริเดียนของผู้สังเกตการณ์ขึ้นอยู่กับตำแหน่งเส้นแวง (longitude) ของผู้สังเกตุการณ์ การจะคำนวณตำแหน่งของดวงอาทิตย์ที่เวลาใดๆประกอบด้วย 3 ขั้นตอน
+  1. คำนวณตำแหน่งในระบบพิกัดสุริยวิถี (elliptic coordinate system)
+  2. แปลงคำตอบเป็นระบบพิกัดศูนย์สูตร (equatorial coordinate system)
+  3. แปลงคำตอบเป็นระบบพิกัดขอบฟ้า (horizontal coordinate system)
 
-- This depends
-  - Sun's position in the sky
-  - Weather condition
-- Well, how do I know that?
-- We need to calculate *solar position*
+#+CAPTION: นาฬิกาแดดใช้หลักการของการคำนวณตำแหน่งของดวงอาทิตย์เพื่อบอกเวลา
+\begin{marginfigure}
+  \includegraphics{./pictures/solar-time.jpg}
+\end{marginfigure}
 
-*** Calculating Solar Position
-
-*** Solar Time --> Solar Position
-
-[[./pictures/local-time.jpg]]
-[[./pictures/solar-time.jpg]]
-
-- To calculate position, we need to know solar time
-- Wait... I already know the time. Just check my watch/phone \rightarrow standard time
-- local standard time \neq solar time
   
 *** เวลาสุริยคติ (Solar Time)
 
@@ -461,7 +448,7 @@ $\delta$
 #   \end{align*}
 # 
 # *** Solution: Solar Hour Angle of Khon Kaen
-# 
+#
 #   \begin{align*}
 #     h &= 6 + (-14.6 \text{ min}) + 4(102.8 - 105) \text{ min} - 12 \\
 #       &= -6 - \frac{14.6 + 8.8}{60} \\
@@ -927,22 +914,11 @@ Pyrheliometer
 นั่นเป็นสาเหตุที่เซลล์สุริยะจำเป็นจะต้องมีการออกแบบวงจรพิเศษ
 
 *** หลักการทำงานของเซลล์แสงอาทิตย์
-ในเซลล์สุริยะนั้น
-ระบบวงจรที่จะบังคับทิศทางการไหลของอิเลกตรอนที่เกิดจากปรากฏการณ์โฟโตโวทาอิกคือ
-P-N junction ซึ่งเป็นการเชื่อมต่อระหว่างสารกึ่งตัวนำประเภทบวก (P-type)
-กับประเภทลบ (N-type) โดยที่สาร P-type นั้นมีหลุมอิเลกตรอนเนื่องมาจากการ
-dope สารที่ขาดอิเลกตรอนลงไปในซิลิกอน ส่วนสาร N-type
-นั้นมีอิเลกตรอนอิสระเนื่องจากการ dope สารที่มีอิเลกตรอนอิสระลงไป
-เมื่อนำสารทั้งสองแบบมาเชื่อมต่อกัน
-หลุมอิเลกตรอนและอิเลกตรอนอิสระเคลื่อนที่เข้าหากันทำให้เกิด *Depletion
-Zone* ซึ่งป้องกันการไหลของอิเลกตรอนอีก เมื่อแสงอาทิตย์ตกกระทบ
-อิเลกตรอนอิสระและหลุมอิเลกตรอนที่เกิดขึ้นจึงถูกบังคับให้ไหลผ่านความต้านทานภายนอกซึ่งทำให้เกิดกระแสไฟฟ้าขึ้น
+ในเซลล์สุริยะนั้น ระบบวงจรที่จะบังคับทิศทางการไหลของอิเลกตรอนที่เกิดจากปรากฏการณ์โฟโตโวทาอิกคือ P-N junction ซึ่งเป็นการเชื่อมต่อระหว่างสารกึ่งตัวนำประเภทบวก (P-type) กับประเภทลบ (N-type) โดยที่สาร P-type นั้นมีหลุมอิเลกตรอนเนื่องมาจากการ
+dope สารที่ขาดอิเลกตรอนลงไปในซิลิกอน ส่วนสาร N-type นั้นมีอิเลกตรอนอิสระเนื่องจากการ dope สารที่มีอิเลกตรอนอิสระลงไป เมื่อนำสารทั้งสองแบบมาเชื่อมต่อกัน หลุมอิเลกตรอนและอิเลกตรอนอิสระเคลื่อนที่เข้าหากันทำให้เกิด *Depletion Zone* ซึ่งป้องกันการไหลของอิเลกตรอนอีก เมื่อแสงอาทิตย์ตกกระทบ อิเลกตรอนอิสระและหลุมอิเลกตรอนที่เกิดขึ้นจึงถูกบังคับให้ไหลผ่านความต้านทานภายนอกซึ่งทำให้เกิดกระแสไฟฟ้าขึ้น
 
-ปริมาณกระแสที่เซลล์แสงอาทิตย์สร้างขึ้นได้นั้นขึ้นอยู่กับปัจจัยหลายประการ
-เช่น ประสิทธิภาพของ P-N junction ในการป้องกันกระแสย้อนกลับ
-และประสิทธิภาพของวัสดุเซลล์ในการสร้างอิเลกตรอนเมื่อมีแสงอาทิตย์ตกกระทบ
-ซึ่งระบบเซลล์แสงอาทิตย์สามารถเขียนแทนได้ด้วยวงจรเทียบเท่าได้โดยไดโอดและความต้านทานภายในดังรูปที่ [[fig: equiv circuit solar cell]]
-
+ปริมาณกระแสที่เซลล์แสงอาทิตย์สร้างขึ้นได้นั้นขึ้นอยู่กับปัจจัยหลายประการ เช่น ประสิทธิภาพของ P-N junction ในการป้องกันกระแสย้อนกลับ
+และประสิทธิภาพของวัสดุเซลล์ในการสร้างอิเลกตรอนเมื่อมีแสงอาทิตย์ตกกระทบ ซึ่งระบบเซลล์แสงอาทิตย์สามารถเขียนแทนได้ด้วยวงจรเทียบเท่าได้โดยไดโอดและความต้านทานภายในดังรูปที่ [[fig: equiv circuit solar cell]]
 
 #+CAPTION: วงจรเทียบเท่าของเซลล์แสงอาทิตย์
 #+NAME: fig: equiv circuit solar cell
@@ -1190,49 +1166,43 @@ print('&= {0:.3f}'.format(eff))
 การตากแห้ง หรือเพื่อกับเก็บไว้ใช้ในภายหลัง ในบทนี้
 เราจะมาพิจารณาการเพิ่มประสิทธิภาพการสร้างพลังงานความร้อนและการนำพลังงานนั้นมาใช้
 
-*** Solar Collectors
+*** แผงรับพลังงานแสงอาทิตย์
 
-- Heat exchangers collecting solar radiation \rightarrow heat transported by fluid
+จริงๆแล้วแผงรับพลังงานแสงอาทิตย์คือเป็นเครื่องแลกเปลี่ยนความร้อนที่ได้รับพลังงานความร้อนจากแสงอาทิตย์แล้วส่งต่อไปยังของไหลทำงาน
 
-#+ATTR_LATEX: :center :height 0.45\textheight
-[[./pictures/parabolic-collector.png]] 
-#+ATTR_LATEX: :center :height 0.45\textheight
-[[./pictures/flat-plate-collector.jpg]] 
+\begin{marginfigure}
+  \includegraphics[width=\textwidth]{./pictures/parabolic-collector.png}
+\end{marginfigure}
+\begin{marginfigure}
+  \includegraphics[width=\textwidth]{./pictures/flat-plate-collector.jpg}
+\end{marginfigure}
 
-*** วัสดุรับแสงอาทิตย์
+แผงรับพลังงานแสงอาทิตย์สามารถแบ่งออกตามหลักการทำงานได้เป็นสองกลุ่มดังนี้
 
-- Use to allow solar radiation through (short-wave radiation)
-- Prevent heat loss through convection and long-wave radiation
-- Glasses (low long-wave transmission) is best, plastics are ok (medium long-wave transmission)
+1. แผ่นรับแสงอาทิตย์แบบแบน (flat-plate solar collector)
+2. แผ่นรับแสงอาทิตย์แบบรวมแสง (concentrating solar collector)
 
+**** ส่วนประกอบของแผงรับพลังงานแสงอาทิตย์
 
-**** วัสดุที่เหมาะสม
+ส่วนประกอบของแผงรับพลังงานแสงอาทิตย์มีดังนี้
 
-  - absorb solar radiation (high absorbance $\alpha$)
-  - convert to heat
-  - transfer to working fluid with min loss (low emittance $\varepsilon$)
-  - "selective surface"
+[[./pictures/flat-collector-components.png]]
 
-****  Selective Surfaces
+1. แผ่นครอบ (cover หรือ glazing)
 
-- Thin high $\alpha$ with high transmission to shortwave
-- bottom layer is highly reflective and low $\varepsilon$ to longwave
-- Crucial for collector whose $T \gg T_{a}$
+   มีหน้าที่ในการปล่อยให้แสงอาทิตย์ผ่านเข้ามาได้ แต่กักความร้อนที่เกิดขึ้นในแผงไม่ให้สูญเสียออกไปสู่สภาพแวดล้อม ดังนั้นคุณสมบัติของชั้นแผ่นครอบควรจะเป็นวัสดุใสที่ปล่อยให้รังสีคลื่นสั้นผ่านได้ แต่ป้องกันการแผ่รังสีความร้อนในช่วงคลื่นยาว ชั้นของแผ่นครอบนี้ยังรวมถึงกรณีของตัวรับพลังงานแสงอาทิตย์ที่เป็นแบบท่อหรือแผ่นโค้งอีกด้วย
+   กระจกมักจะเป็นวัสดุอันดับแรกที่ใช้ในการทำแผ่นครอบ เนื่องจากใส ปล่อยให้รังสีคลื่นสั้นผ่านได้ดี แต่ไม่ปล่อยให้คลื่นอินฟราเรดผ่านได้ นอกจากนี้ พลาสติกใสก็สามารถใช้ได้ แต่พลาสติกจะปล่อยให้อินฟราเรดผ่านได้มากกว่า
 
-    - Black chrome
+2. ตัวรับพลังงานแสงอาทิตย์ (absorber หรือ receiver)
 
-    #+ATTR_LATEX: :height 0.4\textheight
-    [[./pictures/black-chrome.jpg]]
+   มีหน้าที่ดูดกลืนรังสีและนำความร้อนที่เกิดขึ้นไปยังท่อเพื่อแลกเปลี่ยนกับของไหลทำงาน คุณสมบัติของวัสดุที่จะใช้เป็นตัวรับพลังงานแสงอาทิตย์ควรจะมีค่าการดูดกลืนรังสี ($\alpha$) สูง และมีค่าสภาพเปล่งรังสี ($\varepsilon$) ที่ต่ำเพื่อลดอัตราการสูญเสียความร้อนด้วยการแผ่รังสี ซึ่งวัสดุหรือพื้นผิวที่มีคุณสมบัติดังกล่าวเรียกว่า \textbf{ผิวเลือกรังสี} (selective surfaces)
 
+   #+CAPTION: เหล็กโครมดำและอลูมอเนียมชุบดำ
+   \begin{marginfigure}
+    \includegraphics{./pictures/black-chrome.jpg} \\
+    \includegraphics{./pictures/black-anodized-alum.jpg}
+   \end{marginfigure}
 
-    #+ATTR_LATEX: :height 0.4\textheight
-    [[./pictures/black-anodized-alum.jpg]]
-
-
-*** ชนิดของ Solar Collector
-
-- แผ่นรับแสงอาทิตย์แบบแบน (flat-plate solar collector)
-- แผ่นรับแสงอาทิตย์แบบรวมแสง (concentrating solar collector)
 
 *** แผ่นรับแสงอาทิตย์แบบแบน
 
@@ -1254,10 +1224,10 @@ print('&= {0:.3f}'.format(eff))
 
   [[./pictures/air-system.png]]
 
-**** คำถามคิดสนุก
+***** คำถามคิดสนุก
 
-- What are the main design difference(s) between air and water systems?
-- Why?
+1. ความแตกต่างของแผงรับพลังงานแสงอาทิตย์ที่ใช้น้ำกับอากาศเป็นของไหลทำงาน
+2. เหตุผลที่มีลักษณะแตกต่างกัน
 
 *** การวิเคราะห์ความร้อน
 From $q_{loss} = U\Delta T$
