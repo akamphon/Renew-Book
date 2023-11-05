@@ -48,9 +48,10 @@
 #+LATEX_HEADER: \hypersetup{colorlinks=true, linkcolor=blue}
 # #+LATEX_HEADER: \usepackage{mparhack} % to put margin figures on the correct side
 
+# #+LATEX_HEADER: \usepackage[style=numeric,backend=biber,language=english,autolang=other]{biblatex}
+# #+LATEX_HEADER: \addbibresource{solar-book.bib}
+#+CITE_EXPORT: csl ieee.csl
 #+BIBLIOGRAPHY: solar-book.bib
-# #+CITE_EXPORT: csl ieee.csl
-#+LATEX_HEADER: \usepackage[bibstyle=numeric,citestyle=numeric,backend=biber,language=english,autolang=other]{biblatex}
 # #+LATEX_HEADER: \NewBibliographyString{august}
 # #+LATEX_HEADER: \NewBibliographyString{in}
 # #+LATEX_HEADER: \NewBibliographyString{and}
@@ -2799,7 +2800,7 @@ $C_L = 0.6$
 
 **** TODO การชาร์จและการคายประจุ
 
-ในระหว่างการเติมประจุ วัสดุที่เป็นขั้วบวกจะถูกออกซิไดซ์และให้อิเลกตรอน ส่วนวัสดุที่เป็นขั้วลบจะถูกรีดิวซ์และรับอิเลกตรอน [cite:@kobsiriliion] อิเลกตรอนที่เกิดจากปฏิกิริยานี้ทำให้เกิดการไหลของกระแสเมื่อต่อให้ครบวงจร สำหรับอิเลกโทรไลต์ที่อยู่ในแบตเตอรี่อาจเป็นได้ทั้งตัวนำกระแสระหว่างขั้ว (อย่างเช่นในกรณีของแบตเตอรี่ลิเทียม-ไออน) หรืออาจะเป็นหนึ่งในสารตั้งต้นที่ทำให้เกิดปฏิกิริยารีดอกซ์ขึ้น (เช่นกรณีของแบตเตอรี่ตะกั่ว-กรด)
+ในระหว่างการเติมประจุ วัสดุที่เป็นขั้วบวกจะถูกออกซิไดซ์และให้อิเลกตรอน ส่วนวัสดุที่เป็นขั้วลบจะถูกรีดิวซ์และรับอิเลกตรอน อิเลกตรอนที่เกิดจากปฏิกิริยานี้ทำให้เกิดการไหลของกระแสเมื่อต่อให้ครบวงจร สำหรับอิเลกโทรไลต์ที่อยู่ในแบตเตอรี่อาจเป็นได้ทั้งตัวนำกระแสระหว่างขั้ว (อย่างเช่นในกรณีของแบตเตอรี่ลิเทียม-ไออน) หรืออาจะเป็นหนึ่งในสารตั้งต้นที่ทำให้เกิดปฏิกิริยารีดอกซ์ขึ้น (เช่นกรณีของแบตเตอรี่ตะกั่ว-กรด)
 
 **** TODO แบตเตอรี่ตะกั่ว-กรด
 
