@@ -8,21 +8,33 @@
 #+LATEX_COMPILER: xelatex
 #+LATEX_CLASS: kaobook
 #+LATEX_CLASS_OPTIONS: [a4paper,fontsize=10pt,twoside=true,fontmethod=modern,svgnames,openany]
-# #+LATEX_HEADER: \setcounter{tocdepth}{1}
-# #+LATEX_HEADER: \setcounter{secnumdepth}{0}
+#+LATEX_HEADER: \setcounter{tocdepth}{1}
+#+LATEX_HEADER: \setcounter{secnumdepth}{0}
 #+LATEX_HEADER: \usepackage{fontspec}
-#+LATEX_HEADER: \usepackage{polyglossia}
-#+LATEX_HEADER: \setdefaultlanguage{thai}
-#+LATEX_HEADER: \setotherlanguage{english}
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \usepackage{setspace}
 #+LATEX_HEADER: \onehalfspacing
-# #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+LATEX_HEADER: \XeTeXlinebreaklocale "th"
-#+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 2.5pt
-#+LATEX_HEADER: \newfontfamily{\thaifont}[Script=Thai]{Laksaman}
+#+LATEX_HEADER: \XeTeXlinebreakskip = 0pt plus 2pt minus 1pt
+#+LATEX_HEADER: \setmainfont{TeX Gyre Termes}
+#+LATEX_HEADER: \setsansfont{TeX Gyre Heros}
+#+LATEX_HEADER: \setmonofont{TeX Gyre Cursor}
+#+LATEX_HEADER: \newfontfamily{\thaifont}[Scale=MatchUppercase,Mapping=tex-text]{Laksaman}\newenvironment{thailang}{\thaifont}{}
+#+LATEX_HEADER: \usepackage[Latin,Thai]{ucharclasses}
+#+LATEX_HEADER: \setTransitionTo{Thai}{\begin{thailang}}
+#+LATEX_HEADER: \setTransitionFrom{Thai}{\end{thailang}}
+#+LATEX_HEADER: \usepackage{polyglossia}
+#+LATEX_HEADER: \setdefaultlanguage{english}
+#+LATEX_HEADER: \setotherlanguage{thai}
+#+LATEX_HEADER: \sloppy
+#+LATEX_HEADER: \def\thaialph#1{\expandafter\thalph\csname c@#1\endcsname}
+#+LATEX_HEADER: \def\thalph#1{\ifcase#1\or ก\or ข\or ค\or ง\or จ\or ฉ\or ช\or ซ\or ฌ\or ญ\or ฎ\or ฏ\or ฐ\or ฑ\or ฒ\or ณ\or ด\or ต\or ถ\or ท\or ธ\or น\or บ\or ป\or ผ\or ฝ\or พ\or ฟ\or ภ\or ม\or ย\or ร\or ฤ\or ล\or ฦ\or ว\or ศ\or ษ\or ส\or ห\or ฬ\or อ\else ฮ\else \xpg@ill@value{#1}{thalph}\fi}
+#+LATEX_HEADER: \def\thainum#1{\expandafter\thainumber\csname c@#1\endcsname}
+#+LATEX_HEADER: \def\thainumber#1{\thaidigits{\number#1}}
+#+LATEX_HEADER: \def\thaidigits#1{\expandafter\thdigits #1@}
+#+LATEX_HEADER: \def\thdigits#1{\ifx @#1 \else \ifx0#1๐\else\ifx1#1๑\else\ifx2#1๒\else\ifx3#1๓\else\ifx4#1๔\else\ifx5#1๕\else\ifx6#1๖\else\ifx7#1๗\else\ifx8#1๘\else\ifx9#1๙\else#1\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi \expandafter\thdigits \fi}
 #+LATEX_HEADER: \newfontfamily{\thaifontsf}[Script=Thai]{Laksaman}
-#+LATEX_HEADER: \newfontfamily{\englishfont}{Libertinus Serif}
+# #+LATEX_HEADER: \newfontfamily{\englishfont}{Libertinus Serif}
 #+LATEX_HEADER: \usepackage{booktabs}
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usepackage[american]{circuitikz}
@@ -37,9 +49,8 @@
 # #+LATEX_HEADER: \usepackage{mparhack} % to put margin figures on the correct side
 
 #+BIBLIOGRAPHY: solar-book.bib
-#+CITE_EXPORT: csl ieee.csl
-#+LATEX_HEADER: \usepackage[style=numeric,backend=biber,language=english,autolang=other]{biblatex}
-# #+LATEX_HEADER: \addbibresource{solar-org-book.bib}
+# #+CITE_EXPORT: csl ieee.csl
+#+LATEX_HEADER: \usepackage[bibstyle=numeric,citestyle=numeric,backend=biber,language=english,autolang=other]{biblatex}
 # #+LATEX_HEADER: \NewBibliographyString{august}
 # #+LATEX_HEADER: \NewBibliographyString{in}
 # #+LATEX_HEADER: \NewBibliographyString{and}
@@ -72,6 +83,7 @@
 
 \restoregeometry
 \pagecolor{White}
+\captionsthai
 
 \frontmatter
 
@@ -150,8 +162,6 @@
 
 2. Pseudo-azimuthal ควบคุมโดยใช้มุมอซิมุทและมุมเงย
 
-
-
 *** คุณสมบัติทางกายภาพของดวงอาทิตย์
 
 [[./pictures/sun-earth-geometry.png]]
@@ -180,33 +190,30 @@
   \includegraphics{./pictures/solar-time.jpg}
 \end{marginfigure}
 
-  
+สิ่งแรกที่จะต้องใช้ในการคำนวนตำแหน่งดวงอาทิตย์คือเวลา 
+
 *** เวลาสุริยคติ (Solar Time)
 
-[[./pictures/solar-day-vs-sidereal-day.png]]
+หากพิจารณาจากรูป [[solar vs sidereal day]] จะเห็นได้ว่าการพิจารณาเวลา 1 วันโดยอ้างอิงจากการหมุนรอบตัวของโลกเปรียบเทียบให้ดวงอาทิตย์ขึ้นมาที่ตำแหน่งสูงสุดจะได้องศาการหมุนที่มากกว่า 360° เล็กน้อยเนื่องจากโลกโคจรรอบดวงอาทิตย์ไปด้วย เวลา 1 วันนี้เรียกว่า *วันสุริยคติ* (solar day) ส่วนระยะเวลาที่ใช้ในการหมุนรอบตัวเอง 360° จริง ซึ่งสามารถอ้างอิงได้จากตำแหน่งของดาวฤกษ์อื่นที่ไม่ใช่ดวงอาทิตย์ เรียกว่า *วันดาราคติ* (sidereal day)
 
-- At noon (on your watch), when you look up, is the sun directly overhead?
+  #+CAPTION: ความแตกต่างระหว่างวันสุริยคติ (solar day) และวันดาราคติ (sidereal day)
+  #+NAME: solar vs sidereal day
+  \begin{marginfigure}
+    \includegraphics{./pictures/solar-day-vs-sidereal-day.png}
+  \end{marginfigure}
 
-  - Sometimes, depending on day and month of year.
-
-- At /solar noon/, the sun is *always* directly overhead
-
-- Solar time is corrected for earth's orbit and rotation
-
-ดังนั้น เพื่อจะรู้ตำแหน่งของดวงอาทิตย์ จำเป็นที่เราจะต้องสามารถคำนวณเวลาสุริยคติปรากฏ (apparent solar time, AST)
-
+ดังนั้น เพื่อจะรู้ตำแหน่งของดวงอาทิตย์ จำเป็นที่เราจะต้องสามารถคำนวณเวลาสุริยคติปรากฏ (apparent solar time, AST) ซึ่งอ้างอิงจากวันสุริยคติ สมการท
 \begin{align*}
-  AST = LST + ET \pm 4|SL - LL| - DS
+  AST = LT + ET \pm 4|SL - LL| - DS
 \end{align*}
 
-- $AST$ :: Apparent solar time (used to calculated solar position)
-- $LST$ :: local standard time (time on your watch/clock/phone)
-- $ET$ :: equation of time (variations of angles over the year)
-- $SL$ :: standard longitude (where your timezone is based)
-- $LL$ :: local longitude (where you actually are)
+- $AST$ :: เวลาสุริยคติปรากฏ (ใช้คำนวณตำแหน่งดวงอาทิตย์)
+- $LT$ :: เวลาท้องถิ่น (local time) (เวลาในนาฬิกา)
+- $ET$ :: สมการเวลา (ความแตกต่างระหว่างเวลาสุริยคติฉลี่ยกับเวลาสุริยคติปรากฏ)
+- $SL$ :: เส้นแวงมาตรฐาน (where your timezone is based)
+- $LL$ :: เส้นแวงท้องถิ่น (where you actually are)
 - $DS$ :: daylight saving (60 if yes, 0 if no) (Thailand = 0)
 
-*** Equation of time (ET)
 
 - Equation of time tracks difference between average solar path and actual solar path
 - As earth is tilted, actual solar path is not straight
@@ -3679,5 +3686,4 @@ pH ของน้ำมะนาวมาเป็นตัวบ่งชี�
 
 \backmatter
 
-** บรรณานุกรม
 #+PRINT_BIBLIOGRAPHY:
