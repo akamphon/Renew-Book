@@ -95,7 +95,8 @@
 
 ผู้เขียนหวังว่าข้อมูลที่ได้รับการรวบรวมไว้ในตำราเล่มนี้จะเป็นประโยชน์ต่อผู้อ่านในวงกว้าง มิใช่เฉพาะระดับนักศึกษาหรือนักวิชาการเท่านั้น อย่างไรก็ดี ถ้าหากผู้อ่านมีความรู้พื้นฐานทางด้านฟิสิกส์พื้นฐาน จะทำให้สามารถเข้าใจเนื้อหาและบทวิเคราะห์ได้ดียิ่งขึ้น รวมถึงสามารถนำความรู้ที่ได้รับนำไปวิเคราะห์ข้อมูลอื่นๆได้ด้วยตนเอง
 
-สัปปินันทน์ เอกอำพน
+\vspace{2cm}
+*สัปปินันทน์ เอกอำพน*
 
 \tableofcontents
 
@@ -107,7 +108,7 @@
 
 ** พลังงานแสงอาทิตย์
 
-\epigraph{ผมพนันไว้เลยว่าพระอาทิตย์และพลังงานแสงอาทิตย์จะต้องมาแน่ๆ พลังงานมันมากมายมหาศาลเหลือเกิน หวังว่าเราคงจะไม่ต้องรอจนกว่าน้ำมันกับถ่านหินจะหมดก่อนถึงจะได้ใช้นะ I'd put my money on the sun and solar energy. What a source of power! I hope we don't have to wait until oil and coal run out before we tackle that.}{Thomas A. Edison}
+\epigraph{ผมพนันไว้เลยว่าพระอาทิตย์และพลังงานแสงอาทิตย์จะต้องมาแน่ๆ พลังงานมันมากมายมหาศาลเหลือเกิน หวังว่าเราคงจะไม่ต้องรอจนกว่าน้ำมันกับถ่านหินหมดก่อนถึงจะได้ใช้นะ I'd put my money on the sun and solar energy. What a source of power! I hope we don't have to wait until oil and coal run out before we tackle that.}{Thomas A. Edison}
 
 เวลาพูดถึงพลังงานแสงอาทิตย์นั้น
 หลายๆคนอาจจะนึกถึงแดดร้อนๆในช่วงเดือนมีนาคมหรือเมษายน
@@ -268,53 +269,50 @@
 
 เมื่อเรารู้วิธีการคำนวณเวลาสุริยคติปรากฏแล้ว เราสามารถหาตำแหน่งของดวงอาทิตย์ได้ โดยการบอกตำแหน่งดวงอาทิตย์นั้นมีสองระบบพิกัดหลักอันได้แก่ระบบพิกัดดวงอาทิตย์-โลก (ระบบพิกัดศูนย์สูตร) 
 และระบบพิกัดดวงอาทิตย์-ผู้สังเกต (ระบบพิกัดขอบฟ้า) 
-#+ATTR_LATEX: :width 0.7\textwidth
-[[./pictures/solar-angles.png]]
+# #+ATTR_LATEX: :width 0.7\textwidth
+# [[./pictures/solar-angles.png]]
 
 มาลองเริ่มพิจาณาจากตำแหน่งของดวงอาทิตย์เทียบกับโลก ชื่อของมุมและทิศต่างๆถูกแสดงในรูปที่ [[fig: sun-earth-angles]]
 
 #+NAME: fig: sun-earth-angles
 [[./pictures/sun-earth-angles.png]]
 
+
+พิจารณาความสัมพันธ์ระหว่างเวกเตอร์ $\mathbf{S}′$ ซึ่งลากจากจุดศูนย์กลางของโลก $\mathbf{C}$ ไปยังดวงอาทิตย์ เราจะสามารถแตก \(\mathbf{S}′\) เป็นส่วนประกอบในแกน $p$, $e$, และ $m$ ได้ดังนี้
+  \begin{align*}
+    S_p′ &= \sin \delta \\
+    S_e′ &= -\cos \delta \sin h \\
+    S_m′ &= \cos \delta \cos h
+  \end{align*}
+
   - $\delta$ :: declination angle
   - $h$ :: hour angle
 
-- Consider unit vector $\mathbf{S}$ pointing at the sun from center of earth $\mathbf{C}$
-  \begin{align*}
-    S_p^{\prime} &= \sin \delta \\
-    S_e^{\prime} &= -\cos \delta \sin h \\
-    S_m^{\prime} &= \cos \delta \cos h
-  \end{align*}
-
-- Note that $S_e′$ is pointing in a negative direction
+สังเกตว่าเวกเตอร์ $S_e′$ หันไปในทิศตะวันตกจึงมีค่าติดลบ
 
 ส่วนมุมและทิศทางในระบบพิกัดขอบฟ้าถูกแสดงในรูปที่ [[fig: sun-observer-angles]]
 
 #+NAME: fig: sun-observer-angles
 [[./pictures/sun-observer-angles.png]]
 
+คราวนี้มาพิจารณาเวกเตอร์ $\mathbf{S}$ ซึ่งลากจากผู้สังเกตไปยังดวงอาทิตย์ $\mathbf{Q}$ เราจะสามารถแตก \(\mathbf{S}\) เป็นส่วนประกอบในแกน $z$, $e$, และ $n$ ได้ดังนี้ เป็นส่วนประกอบในแกน $z$, $e$, และ $n$ ได้ดังนี้
 
-  - $\alpha$ :: elevation angle
-  - $z$ :: zenith angle
-  - $A$ :: azimuth angle
-
-- Consider unit vector $\mathbf{S}$ pointing at the sun from observer $\mathbf{Q}$
-  \begin{align*}
+  #+NAME: eq: vectors in sun-earth
+  \begin{align}
     S_z &= \sin \alpha = \cos z \\
     S_e &= \cos \alpha \sin A \\
     S_n &= \cos \alpha \cos A
-  \end{align*}
-  
+  \end{align}
 
-*** Transforming between Two Coord Systems
+  - $\alpha$ :: elevation or altitude angle
+  - $z$ :: zenith angle
+  - $A$ :: มุมภาค (azimuth angle)
 
-- The two coordinate systems are related by the rotation of *latitude angle* $L$ about the east (e) axis
+การจะแปลงเวกเตอร์ตำแหน่งจากระบบพิกัดศูนย์สูตรเป็นระบบพิกัดขอบฟ้า สามารถพิจารณาได้ขจากความสัมพันธ์ของทั้งสองระบบพิกัด โดยเห็นได้ว่าแกน $e$ ของทั้งสองระบบหันไปทางเดียวกัน ส่วนเวกเตอร์ที่เหลือ $n, m$ ก็จะเป็นเพียงการหมุนเวกเตอร์ $m, p$ รอบแกน $e$ ไปเท่ากับมุมเส้นรุ้ง \(L\) ที่ผู้สังเกตอยู่ การแปลงระบบพิกัดด้วยการหมุนรอบแกน $e$ ไปเท่ากับมุม $L$ ทำได้โดยใช้เมตริกซ์ดังนี้
 
- [[./pictures/coord-rotation.png]]
-
-*** Relationship Sun-Observer and Sun-Earth coords
-
- - Rotation of $L$ about $e$ axis can be written as
+\begin{marginfigure}
+  \includegraphics{./pictures/coord-rotation.png}
+\end{marginfigure}
  
    \begin{align*}
      \begin{bmatrix}
@@ -335,52 +333,33 @@
      \end{bmatrix}
    \end{align*}
  
-   \begin{align*}
+   #+NAME: eq: vectors in sun-observer
+   \begin{align}
      S_z &= S_m^{\prime} \cos L + S_p^{\prime} \sin L \\
      S_e &= S_e^{\prime} \\
      S_n &= -S_m^{\prime} \sin L + S_p^{\prime} \cos L
-   \end{align*}
+   \end{align}
 
-*** Relationship between the Angles
+ดังนั้น เมื่อเราแทนค่าจากสมการ [[eq: vectors in sun-earth]] ลงในสมการ [[eq: vectors in sun-observer]] จะได้ความสัมพันธ์ระหว่างมุมในระบบพิกัดทั้งสองดังนี้
  
- - Substitute the trig functions to establish the relationship
- 
-   \begin{align*}
+   #+NAME: eq: relationship between the angles
+   \begin{align}
      \sin \alpha &= \sin \delta \sin L + \cos \delta \cos L cos h \\
      \cos \alpha \sin A &= -\cos \delta \sin h \\
      \cos \alpha \cos A &= -\cos \delta \cos h \sin L + \sin \delta \cos L
-   \end{align*}
+   \end{align}
 
-*** Solar Altitude Angle
+ในกรณีของมุมเดคลิเนชัน $\delta$ ซึ่งเป็นมุมที่แนวลำแสงของดวงอาทิตย์ไปยังจุดศูนย์กลางของโลกทำกับระนาบเส้นศูนย์สูตร มุมนี้เป็นค่าที่สามารถคำนวณได้โดยไม่ขึ้นกับตำแหน่งของผู้สังเกต แต่ขึ้นกับตำแหน่งของโลกในวงโคจรรอบดวงอาทิตย์ ซึ่งมุมนี้คำนวณได้จาก
 
-$\alpha$
-
- [[./pictures/sun-observer-angles.png]]
-
-   \begin{align*}
-     \alpha + z &= \frac{\pi}{2} \\
-     \sin \alpha &= \cos z = \sin L \sin \delta + \cos L \cos \delta \cos h
-   \end{align*}
-
- - $L$ :: latitude angle
- - $\delta$ :: solar declination angle (seasonal angle of sun)
- - $h$ :: hour angle (angle between your and sun's longitudes)
-
-*** Solar Declination angle 
-
-$\delta$
- 
- - Angle the sun is shining on earth compared to equator
-
- [[./pictures/solar-dec-angle.png]]
+\begin{figure*}
+  \includegraphics{./pictures/solar-dec-angle.png}
+\end{figure*}
  
  \begin{align*}
    \delta = 23.45 \sin \left[ \frac{360}{365}(284+N) \right]
  \end{align*}
  
- - Note: $\delta$ is independent of your location
-
-*** Declination angles over the Year
+ ซึ่งค่ามุมเดคลิเนชันนี้สามารถแสดงกราฟได้ดังนี้
 \begin{figure}[htbp]
  \centering
  \begin{tikzpicture}
