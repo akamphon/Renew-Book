@@ -36,6 +36,7 @@
 #+LATEX_HEADER: \newfontfamily{\thaifontsf}[Script=Thai]{Laksaman}
 # #+LATEX_HEADER: \newfontfamily{\englishfont}{Libertinus Serif}
 #+LATEX_HEADER: \usepackage{booktabs}
+#+LATEX_HEADER: \usepackage{multirow}
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usepackage[american]{circuitikz}
 #+LATEX_HEADER: \usetikzlibrary{arrows,calc,decorations,shapes,shapes.arrows,shapes.misc,positioning,decorations.pathmorphing,patterns}
@@ -62,7 +63,7 @@
 \begin{titlepage}
   \newgeometry{top=1cm,left=1cm} %defines the geometry for the titlepage
   \pagecolor{ForestGreen}
-  % INSERT KKU LOGO?
+  % INSERT ขอนแก่นU LOGO?
   % \raggedright \includegraphics[height=0.15\textheight]{pictures/logo-tu} \\
   \noindent
   \color{white}
@@ -244,6 +245,7 @@
 \end{figure*}
 
 ***** ตัวอย่าง: คำนวณเวลาสุริยคติสำหรับขอนแก่น
+#+NAME: example: time calc for kk
 
 จงคำนวณหาเวลาสุริยคติประกฏของขอนแก่น (102.8° ตะวันออก) ที่เวลา 13:30 น. ของวันที่ 12 กุมภาพันธ์ โดยที่เส้นแวงมาตรฐานอยู่ที่ 105° ตะวันออก 
 
@@ -341,7 +343,6 @@
    \end{align}
 
 ดังนั้น เมื่อเราแทนค่าจากสมการ [[eq: vectors in sun-earth]] ลงในสมการ [[eq: vectors in sun-observer]] จะได้ความสัมพันธ์ระหว่างมุมในระบบพิกัดทั้งสองดังนี้
- 
    #+NAME: eq: relationship between the angles
    \begin{align}
      \sin \alpha &= \sin \delta \sin L + \cos \delta \cos L cos h \\
@@ -377,22 +378,38 @@
     \end{axis}
   \end{tikzpicture}
 \end{figure}
+ตามสมการนี้ ถ้า $\delta > 0$ แสดงว่าดวงอาทิตย์คล้อยมาทางซีกโลกเหนือ และถ้า $\delta < 0$ แสดงว่าดวงอาทิตย์คล้อยมาทางซีกโลกใต้
 
-- Note: $\delta > 0$ is north, $\delta < 0$ is south
+ในกรณีที่เราต้องการคำนวณค่าพลังงานของดวงอาทิตย์ในช่วงเวลายาวเช่นรายเดือนหรือรายปี เราสามารถทำคำนวณได้โดยใช้ค่าเฉลี่ยรายเดือนแทนที่การคำนวณค่ารายวันแล้วนำมารวมกัน โดยสามารถอ้างอิงวันและค่ามุมที่เป็นค่าเฉลี่ยรายเดือนดังตารางที่ [[tab: average day values]]
 
-*** Useful Table for Calculating Averages
+#+ATTR_LATEX: :booktabs t :align lcrrr
+#+NAME: tab: average day values
+#+CAPTION: ตารางแสดงวัน วันสำหรับคำนวณค่าเฉลี่ย และมุมเดคลิเนชันของแต่ละเดือน
+| \multirow{2}{*}{เดือน} | \multirow{2}{*}{$N$ สำหรับวันที่ $i$ ของเดือน} | \multicolumn{3}{c}{สำหรับวันที่เป็นค่าเฉลี่ยของเดือน} |
+|                      |                                          |                                        วันที่ | $N$ | $\delta$ |
+|----------------------+------------------------------------------+--------------------------------------------+-----+----------|
+| มกราคม               | $i$                                      |                                         17 |  17 |    -20.9 |
+| กุมภาพันธ์              | 31 + $i$                                 |                                         16 |  47 |    -13.0 |
+| มีนาคม                | 59 + $i$                                 |                                         16 |  75 |     -2.4 |
+| เมษายน                | 90 + $i$                                 |                                         15 | 105 |      9.4 |
+| พฤษภาคม              | 120 + $i$                                |                                         15 | 135 |     18.8 |
+| มิถุนายน               | 151 + $i$                                |                                         11 | 162 |     23.1 |
+| กรกฎาคม              | 181 + $i$                                |                                         17 | 198 |     21.2 |
+| สิงหาคม               | 212 + $i$                                |                                         16 | 228 |     13.5 |
+| กันยายน               | 243 + $i$                                |                                         15 | 258 |      2.2 |
+| ตุลาคม                | 273 + $i$                                |                                         15 | 288 |     -9.6 |
+| พฤศจิกายน             | 304 + $i$                                |                                         14 | 318 |    -18.9 |
+| ธันวาคม               | 334 + $i$                                |                                         10 | 344 |    -23.0 |
 
-[[./pictures/day-of-year-table.png]]
+***** มุมชั่วโมง (Hour Angle)
 
-*** Hour Angle
+#+NAME: fig: hour angle
+#+CAPTION: ภาพแสดงให้เห็นมุมชั่วโมง
+\begin{marginfigure}
+  \includegraphics{./pictures/hour-angle.jpg} 
+\end{marginfigure}
 
-- Angle between observer's meridian and sun's meridian
-
-[[./pictures/hour-angle.jpg]] 
-
-*** Calculating Hour Angle
-
-- Hour angle is simply the difference between the apparent solar (AST) time from local solar noon (12).
+มุมชั่วโมงของดวงอาทิตย์หมายถึงมุมระหว่างระนาบเมอริเดียน (ซึ่งประกอบด้วยแกนของโลก จุดเหนือศีรษะ (zenith)) กับวงกลมชั่วโมง (hour circle) (ซึ่งลากผ่านแกนของโลกและดวงอาทิตย์) ดังรูปที่ [[fig: hour angle]] หรืออีกนัยหนึ่ง มุมชั่วโมงคือค่าแตกต่างระหว่างเวลาสุริยคติปรากฏ (AST) และเวลาเที่ยงวันสุริยคติ (12)
 
   \begin{align*}
     h = (AST - 12) \text{ [hr]} = 15(AST - 12) \text{ [degrees]}
@@ -400,7 +417,7 @@
 
 # *** Example: Solar Hour Angle of Khon Kaen
 # 
-# - Determine the solar hour angle for KK where the local time (on the clock) is 6 AM on Feb 12. KK is at 102.8E.
+# - Determine the solar hour angle for ขอนแก่น where the local time (on the clock) is 6 AM on Feb 12. ขอนแก่น is at 102.8E.
 # 
 # *** Solution: Solar Hour Angle of Khon Kaen
 # 
@@ -426,77 +443,82 @@
 #       &= -6.39 \text{ hr}
 #   \end{align*}
 
-*** Solar Azimuth Angle
+***** มุมอาซิมุธ (Solar Azimuth Angle) $A$
+
+เป็นมุมที่วัดจากแนวทิศเหนือไปยังภาพฉายของเส้นตรงที่เชื่อมต่อระหว่างผู้สังเกตกับดวงอาทิตย์บนระนาบในแนวระดับ โดยวัดมุมไปทางทิศตะวันออก ดังนั้นมุมอาซิมุธ $0° \leqslant A < 360°$ และ $A \leqslant 180°$ ถ้าภาพฉายอยู่ทางทิศตะวันออก และ $A \geqslant 180°$ เมื่อภาพฉายอยู่ทางทิศตะวันตก
 
 #+ATTR_LATEX: :width 0.6\textwidth
 [[./pictures/solar-angles.png]]
-
-- angle beetween sun's ray projection to horizontal plane from *true north* in a *clockwise* direction
 
 \begin{align*}
   \sin A = -\frac{\cos \delta \sin h}{\cos \alpha}
 \end{align*}
 
-- Note: $\sin^{-1}$ has multiple solutions. Always double check your solution.
+ข้อควรระวัง: ฟังก์ชัน $\sin^{-1}$ ถูกกำหนดให้อยู่ในช่วงค่า $-\pi/2 \leqslant \sin^{-1} x \leqslant \pi/2$  ซึ่งไม่ครอบคลุมช่วงของมุมอาซิมุธทั้งหมด ดังนั้นเมื่อต้องการคำนวณมุม จำเป็นจะต้องมีการพิจารณาเพิ่มเติมถึงช่วงเวลาตามสมการ [[eq: additional azimuth considerations]]
 
-*** Example: Solar Altitude and Azimuth Angles in KK
+#+NAME: eq: additional azimuth considerations
+\begin{align}
+  A = \left\{
+  \begin{array}{ll}
+    \sin^{-1} -\frac{\cos \delta \sin h}{\cos \alpha} + 2\pi; & \sin \delta - \sin \alpha \sin L \geqslant 0 \\
+    \pi - \sin^{-1} -\frac{\cos \delta \sin h}{\cos \alpha}; & \sin \delta - \sin \alpha \sin L < 0
+  \end{array} \right.
+\end{align}
 
-- Continuing from previous example. Calculate solar altitude and zimuth angles on Feb 12 at 6 AM.
+***** ข้อคิดชวนปวดหัว: อธิบายเหตุผลที่ฟังก์ชันมุมอาซิมุธเปลี่ยนเมื่อค่าเงื่อนไข $\sin \delta - \sin \alpha \sin L$ มากหรือน้อยกว่า 0
   
-*** Solution: Solar Altitude and Azimuth Angle in KK 
+***** ตัวอย่าง: การคำนวณค่ามุมเงยและมุมอาซิมุธดวงอาทิตย์ที่ขอนแก่น
 
-- Given: day of year $N$ = 43, latitude angle $L$ = 16.4 (KK is at 16.4N)
-- Need: solar altitude $\alpha$ and azimuth angle $z$
+#+TODO: fix this link
+ใช้ตัวอย่างข้อที่ [[example: time calc for kk]]... คำนวณค่ามุมเงย (elevation angle) และมุมอาซิมุธ (azimuth angle) ของดวงอาทิตย์ที่เวลา 6:00 น.ของวันที่ 12 กุมภาพันธ์
+  
+***** วิธีทำ: การคำนวณค่ามุมเงยและมุมอาซิมุธดวงอาทิตย์ที่ขอนแก่น
+
+จากโจทย์ข้อที่ ... $N$ = 43, $L$ = 16.4 (ขอนแก่นอยู่ที่ 16.4N)
+
+เราต้องการคำนวณมุมเงย $\alpha$ และมุมอาซิมุธ $A$ ซึ่งมีสมการว่า
 \begin{align*}
   \sin \alpha &= \sin L \sin \delta + \cos L \cos \delta \cos h \\
   \sin A &= -\frac{\cos \delta \sin h}{\cos \alpha}
 \end{align*}
 
-- Let's find declination angle $\delta$ first
+เริ่มจากการคำนวณมุมเดคลิเนชัน ซึ่งใช้ในการหามุมทั้งสองที่เหลือ
 \begin{align*}
   \delta &= 23.45^{\circ} \sin \left[ \frac{360}{365}(284+N) \right] \\
          &= 23.45^{\circ} \sin \left[ \frac{360}{365}(284+43) \right] \\
          &= -14.3^{\circ}
 \end{align*}
 
-- Winter time, the sun is south (ok)
+ตรวจตำตอบเบื้องต้น กุมภาพันธ์เป็นช่วงฤดูหนาว ดวงอาทิตย์ควรจะอยู่ทางทิศใต้
 
-*** Solution: Solar Altitude and Azimuth Angles in KK
-
-- Hour angle $h$ can be calculated from apparent solar time ($AST$), which has been calculated for Feb 12 already
+มุมชั่วโมงสามารถคำนวณโดยใช้มุมสุริยคติปรากฏ ซึ่งเราได้คำนวณมาจากตัวอย่าง ... แล้วสำหรับวันที่ 12 กุมภาพันธ์
   \begin{align*}
     h &= AST - 12 = LST - 0.39 - 12 \\
       &= 6 - 0.39 - 12 \\
       &= -6.39 \text{ hr} = -6.39 \times 15 = -95.85^{\circ}
   \end{align*}
 
-- Next, solar altitude angle $\alpha$
+จากนั้นเราจะคำนวณมุมเงย $\alpha$ 
   \begin{align*}
     \sin \alpha &= \sin L \sin \delta + \cos L \cos \delta \cos h \\
 		&= \sin 16.4^{\circ} \sin -14.3^{\circ} + \cos 16.4^{\circ} \cos -14.3^{\circ} \cos (-95.85) \\
 		&= -0.164 \\
     \alpha &= -9.44
   \end{align*}
-
-- The sun hasn't risen yet at 6 AM, in winter. (OK)
-
-*** Solution: Solar Altitude and Azimuth Angles in KK
-
-- Finally, the azimuth
+  ลองตรวจสอบคำตอบ ในช่วงเช้าของฤดูหนาว ดวงอาทิตย์ขึ้นช้า จึงไม่ผิดปกติที่ยังอยู่ใต้เส้นขอบฟ้า และเราสามารถหามุมอาซิมุธได้จาก
 \begin{align*}
   \sin A &= -\frac{\cos \delta \sin h}{\cos \alpha} \\
          &= -\frac{\cos -14.3^{\circ} \sin(-95.85)}{\cos -9.44^{\circ}} \\
          &= 0.977 \\
-  A &= 77.7^{\circ}
+  \sin^{-1} (0.977) &= 77.7^{\circ}
 \end{align*}
 
-- $A = 77.7^{\circ}$ means the sun is to the east, and a little to the north...
+ตรวจสอบค่าเงื่อนไขของมุมอาซิมุธ $\sin \delta - \sin \alpha \sin L$ ได้ $\sin -14.3 - \sin -9.44 \sin 16.4 = -0.2$
+\begin{align*}
+  A &= \pi - 77.7^{\circ} = 102.3^{\circ}
+\end{align*}
 
-- In winter? Sun to the north?
-
-- $-90 < \sin^{-1} < 90$, but $0 < A < 360$
-
-- Another $A$ that gives equal $\sin A$ is $180-77.7 = 102.3$ (east with a bit of south)
+$A = 102.3^{\circ}$ means the sun is to the east, and a little to the south (winter time)
 
 # *** Sunrise, sunset, and day length
 
@@ -532,7 +554,7 @@ $\theta$
   
 *** Example: Solar Incident Angle on Solar Panel
 
-Determine solar incident angle on solar panel with a tilt angle of 15$^{\circ}$ and azimuth angle of 180$^{\circ}$ in KK on Feb 12, Thailand.
+Determine solar incident angle on solar panel with a tilt angle of 15$^{\circ}$ and azimuth angle of 180$^{\circ}$ in ขอนแก่น on Feb 12, Thailand.
 
 *** Solution: Solar Incident Angle on Solar Panel
 
@@ -778,11 +800,11 @@ $$ m = \sec z $$
   R = \frac{I_t}{I} = \frac{I_{bn}}{I}R_b + \frac{I_{dn}}{I}\left[\frac{1 + \cos \beta}{2} \right] + \rho_g\left[ \frac{1 - \cos \beta}{2} \right]
 \end{align*}
 
-*** Example: Solar Irradiation on PV in KK
+*** Example: Solar Irradiation on PV in ขอนแก่น
 
-Estimate beam, diffuse, and reflected components of solar radiation on PV tilted 30 degree to the south at KK (16.4N, 102.8E) from 10:00-11:00 on Feb 12. Here $I$ = 1.2 MJ/m^2 and $\rho_g$ = 0.6.
+Estimate beam, diffuse, and reflected components of solar radiation on PV tilted 30 degree to the south at ขอนแก่น (16.4N, 102.8E) from 10:00-11:00 on Feb 12. Here $I$ = 1.2 MJ/m^2 and $\rho_g$ = 0.6.
 
-*** Solution: Solar Irradiation on PV in KK
+*** Solution: Solar Irradiation on PV in ขอนแก่น
 
 - First, evaluate extraterrestrial solar radiation $I_o$
 - Evaluate all required angles (a lot!)
@@ -794,7 +816,7 @@ Estimate beam, diffuse, and reflected components of solar radiation on PV tilted
 
 $L$ = 16.4, $h$ for Feb 12 = 15(LST - 12.39), $h_1$ = -35.85, $h_2$ = -20.85
 
-*** Solution: Solar Irradiation on PV in KK
+*** Solution: Solar Irradiation on PV in ขอนแก่น
 
 - Substitute to find $I_o$, we have
 
@@ -807,7 +829,7 @@ $L$ = 16.4, $h$ for Feb 12 = 15(LST - 12.39), $h_1$ = -35.85, $h_2$ = -20.85
          &= 3.76 \text{ MJ/m}^2
 \end{align*}
 
-*** Solution: Solar Irradiation on PV in KK
+*** Solution: Solar Irradiation on PV in ขอนแก่น
 
 - We can calculate the clearness index $k_T$, which can then be used to determine the fractions of diffusion and beam radiations. 
 
@@ -817,7 +839,7 @@ $L$ = 16.4, $h$ for Feb 12 = 15(LST - 12.39), $h_1$ = -35.85, $h_2$ = -20.85
       &= 0.93
 \end{align*}
 
-*** Solution: Solar Irradiation on PV in KK
+*** Solution: Solar Irradiation on PV in ขอนแก่น
 
 - To calculate $R_b$, we need midpoint of hour angle between 10:00-11:00. $h$ = (-20.85-35.85)/2 = -28.35
 
@@ -827,7 +849,7 @@ $L$ = 16.4, $h$ for Feb 12 = 15(LST - 12.39), $h_1$ = -35.85, $h_2$ = -20.85
       &= 1.18
 \end{align*}
 
-*** Solution: Solar Irradiation on PV in KK
+*** Solution: Solar Irradiation on PV in ขอนแก่น
 
 - Finally, we can calculate the components
 
