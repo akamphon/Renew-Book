@@ -124,7 +124,7 @@
 
 การแผ่รังสีของวัตถุดำ (blackbody radiation) เกิดจากการแผ่รังสีคลื่นแม่เหล็กไฟฟ้าจากความร้อนของวัตถุซึ่งอยู่ในสภาวะสมดุลทางอุณหพลศาสตร์กับสิ่งแวดล้อม ซึ่งช่วงความถี่และความเข้มข้นของคลื่นต่างๆนั้นขึ้นอยู่กับอุณหภูมิของวัตถุดังกล่าว อย่างไรก็ดี ในความเป็นจริงแล้วไม่มีวัตถุได้ที่มีการแผ่รังสีเหมือนวัตถุดำแท้จริง โดนเฉพาะอย่างยิ่งดาวฤกษ์อย่างพระอาทิตย์นั้นก็ไม่ได้อยู่ในสภาวะสมดุลกับสิ่งแวดล้อม แต่ความเข้าใจเรื่องของการแผ่รังสีนี้ก็สามารถนำมาใช้ทำความเข้าใจส่วนประกอบของแสงอาทิตย์ได้
 
-ยกตัวอย่างเช่น ในวัตถุที่มีอุณหภูมิต่ำนั้น ในห้องมืดจะมองเห็นเป็นสีดำเนื่องจากช่วงคลื่นที่แผ่ออกมาเป็นช่วงอินฟราเรดซึ่งมองด้วยตาเปล่าไม่เห็น เมื่ออุณหภูมิสูงขึ้นถึงราว 500$^{\circ}$ C การแผ่รังสีเริ่มเข้าอยู่ในช่วงความถี่ที่ตามองเห็น (visible spectrum) และจะเริ่มมีสีแดง เมื่ออุณหภูมิสูงมากจะออกเป็นสีฟ้าขาว เมื่อวัตถุมีการแผ่รังสีเป็นสีขาว แสดงว่ามีการแผ่รังสีบางส่วนออกมาเป็นรังสีอัลตราไวโอเลต
+ยกตัวอย่างเช่น ในวัตถุที่มีอุณหภูมิต่ำนั้น ในห้องมืดจะมองเห็นเป็นสีดำเนื่องจากช่วงคลื่นที่แผ่ออกมาเป็นช่วงอินฟราเรดซึ่งมองด้วยตาเปล่าไม่เห็น เมื่ออุณหภูมิสูงขึ้นถึงราว 500$°$ C การแผ่รังสีเริ่มเข้าอยู่ในช่วงความถี่ที่ตามองเห็น (visible spectrum) และจะเริ่มมีสีแดง เมื่ออุณหภูมิสูงมากจะออกเป็นสีฟ้าขาว เมื่อวัตถุมีการแผ่รังสีเป็นสีขาว แสดงว่ามีการแผ่รังสีบางส่วนออกมาเป็นรังสีอัลตราไวโอเลต
 
 ดวงอาทิตย์ซึ่งมีอุณหภูมิที่ผิวประมาณ 5800 K นั้น มีการแผ่รังสีออกมามากที่สุดในช่วงคลื่นแสงและอินฟราเรด และมีจำนวนอีกเล็กน้อยในช่วงอัลตราไวโอเลต
 
@@ -484,9 +484,9 @@
 
 เริ่มจากการคำนวณมุมเดคลิเนชัน ซึ่งใช้ในการหามุมทั้งสองที่เหลือ
 \begin{align*}
-  \delta &= 23.45^{\circ} \sin \left[ \frac{360}{365}(284+N) \right] \\
-         &= 23.45^{\circ} \sin \left[ \frac{360}{365}(284+43) \right] \\
-         &= -14.3^{\circ}
+  \delta &= 23.45° \sin \left[ \frac{360}{365}(284+N) \right] \\
+         &= 23.45° \sin \left[ \frac{360}{365}(284+43) \right] \\
+         &= -14.3°
 \end{align*}
 
 ตรวจตำตอบเบื้องต้น กุมภาพันธ์เป็นช่วงฤดูหนาว ดวงอาทิตย์ควรจะอยู่ทางทิศใต้
@@ -495,36 +495,45 @@
   \begin{align*}
     h &= AST - 12 = LST - 0.39 - 12 \\
       &= 6 - 0.39 - 12 \\
-      &= -6.39 \text{ hr} = -6.39 \times 15 = -95.85^{\circ}
+      &= -6.39 \text{ hr} = -6.39 \times 15 = -95.85°
   \end{align*}
 
 จากนั้นเราจะคำนวณมุมเงย $\alpha$ 
   \begin{align*}
     \sin \alpha &= \sin L \sin \delta + \cos L \cos \delta \cos h \\
-		&= \sin 16.4^{\circ} \sin -14.3^{\circ} + \cos 16.4^{\circ} \cos -14.3^{\circ} \cos (-95.85) \\
+		&= \sin 16.4° \sin -14.3° + \cos 16.4° \cos -14.3° \cos (-95.85) \\
 		&= -0.164 \\
     \alpha &= -9.44
   \end{align*}
   ลองตรวจสอบคำตอบ ในช่วงเช้าของฤดูหนาว ดวงอาทิตย์ขึ้นช้า จึงไม่ผิดปกติที่ยังอยู่ใต้เส้นขอบฟ้า และเราสามารถหามุมอาซิมุธได้จาก
 \begin{align*}
   \sin A &= -\frac{\cos \delta \sin h}{\cos \alpha} \\
-         &= -\frac{\cos -14.3^{\circ} \sin(-95.85)}{\cos -9.44^{\circ}} \\
+         &= -\frac{\cos -14.3° \sin(-95.85)}{\cos -9.44°} \\
          &= 0.977 \\
-  \sin^{-1} (0.977) &= 77.7^{\circ}
+  \sin^{-1} (0.977) &= 77.7°
 \end{align*}
 
 ตรวจสอบค่าเงื่อนไขของมุมอาซิมุธ $\sin \delta - \sin \alpha \sin L$ ได้ $\sin -14.3 - \sin -9.44 \sin 16.4 = -0.2$
 \begin{align*}
-  A &= \pi - 77.7^{\circ} = 102.3^{\circ}
+  A &= \pi - 77.7° = 102.3°
 \end{align*}
 
-$A = 102.3^{\circ}$ means the sun is to the east, and a little to the south (winter time)
+$A = 102.3°$ แปลว่าดวงอาทิตย์อยู่ทางทิศตะวันออก(เฉียงใต้เล็กน้อย) เนื่องจาก 12 กุมภาพันธ์เป็นช่วงฤดูหนาว คำตอบนี้จึงสมเหตุผลแล้ว เนื่องจาก 12 กุมภาพันธ์เป็นช่วงฤดูหนาว คำตอบนี้จึงสมเหตุผลแล้ว
 
 # *** Sunrise, sunset, and day length
 
-*** Incident angle 
+***** มุมตกกระทบ (Incident Angles)
 # GET This into equation for R_b
-$\theta$
+ในที่สุดเราก็เดินทางมาถึงจุดหมายปลายทางของเรา เราอยากจะรู้พลังงานแสงอาทิตย์ที่ตกกระทบพื้นผิว ณ เวลาใดๆ ดังนั้นเราจะต้องรู้ตำแหน่งของดวงอาทิตย์บนท้องฟ้า (ซึ่งเรารู้แล้ว) และคำนวณมุมของดวงอาทิตย์เมื่อเทียบกับพื้นผิว เราสามารถคำนวณมุมตกกระทบ (\(\theta\)) บนพื้นผิวที่มีมุมเอียง (\(\beta\)) และมุมอาซิมุธของระนาบ (\(A_s\)) ได้โดยการพิจารณาเวกเตอร์หนึ่งหน่วย *n* ที่ตั้งฉากกับพื้นผิวและ *s* ที่ลากจากพื้นผิวไปยังดวงอาทิตย์ เราจะสามารถเขียนรูป *n* และ *s* ในระบบพิกัดขอบฟ้าได้โดย
+  \begin{align*}
+    \mathrm{n} &= \sin \beta \sin A_{s} \hat{i} - \sin \beta \cos A_{s} \hat{j} + \cos \beta \hat{k} \\
+    \mathrm{s} &= \cos z \sin A \hat{i} - \sin z \cos A \hat{j} + \cos z \hat{k}
+  \end{align*}
+
+การคำนวณมุมระหว่าง 2 *n* และ *s* สามารถทำได้โดย
+  \begin{align*}
+    \mathrm{n}\cdot\mathrm{s} &= |\mathrm{n}||\mathrm{s}| \cos \theta 
+  \end{align*}
 
 #+ATTR_LATEX: :height 0.4\textheight
 [[./pictures/incident-angle-on-tilted-surface.png]]
@@ -534,9 +543,6 @@ $\theta$
                &- \sin L \cos \delta \cos h \sin \beta \cos A_s \\
                &- \cos \delta \sin h \sin \beta \sin A_s
 \end{align*}
-
-- $\beta$ :: tilt angle
-- $A_s$ :: surface azimuth angle
 
 *** Simplified Equation of Incident Angle
 
@@ -554,7 +560,7 @@ $\theta$
   
 *** Example: Solar Incident Angle on Solar Panel
 
-Determine solar incident angle on solar panel with a tilt angle of 15$^{\circ}$ and azimuth angle of 180$^{\circ}$ in ขอนแก่น on Feb 12, Thailand.
+Determine solar incident angle on solar panel with a tilt angle of 15$°$ and azimuth angle of 180$°$ in ขอนแก่น on Feb 12, Thailand.
 
 *** Solution: Solar Incident Angle on Solar Panel
 
@@ -1026,7 +1032,7 @@ P-N junction
       \addlegendentry{$10^{-5}$};
     \end{axis}
   \end{tikzpicture}
-  \caption{กราฟแสดงความสัมพันธ์ระหว่างกระแส แรงดันไฟฟ้า และกำลังไฟฟ้าที่ผลิตได้จากในเซลล์แสงอาทิตย์ที่อุณหภูมิ 25$^{\circ}$C}
+  \caption{กราฟแสดงความสัมพันธ์ระหว่างกระแส แรงดันไฟฟ้า และกำลังไฟฟ้าที่ผลิตได้จากในเซลล์แสงอาทิตย์ที่อุณหภูมิ 25$°$C}
 \end{figure}
 #+END_EXPORT
 
@@ -2232,7 +2238,7 @@ $= 6.02 \times 10^{23} \times 1.6 \times 19^{-19} = 9.65 \times 10^4 \text{ C}$
 จากสมการการสันดาปไฮโดเจนในเซลล์เชื้อเพลิง
 \[\ce{H2 + 1/2 O2 -> H2O}\]
 
-- อุณหภูมิที่เซลล์ทำงาน = 200$^{\circ}$ C = 200 + 273 = 473 K
+- อุณหภูมิที่เซลล์ทำงาน = 200$°$ C = 200 + 273 = 473 K
 
 - เนื่องจากอากาศมีออกซิเจนอยู่ประมาณ 21%
   ความดันของออกซิเจนเข้าสู่เซลล์มีค่าเป็น 0.21 1 = 0.21 atm
@@ -2514,7 +2520,7 @@ $C_L = 0.6$
     \node at (mill.south west) [below right] {\footnotesize{Turn into powder}};
     \node at (mill.east) [below right, text width=1.5cm] {\footnotesize{fine powder}};
     \node at (mill) [xshift=4cm, fill=CornflowerBlue, minimum height=1.5cm, minimum width=2.5cm, ](liq){Liquefaction};
-    \node at (liq.south west) [below right, text width=5cm] {\footnotesize{Mix with water \& $\alpha$-amylase\\Heat to 120-150 $^{\circ}$C}};
+    \node at (liq.south west) [below right, text width=5cm] {\footnotesize{Mix with water \& $\alpha$-amylase\\Heat to 120-150 $°$C}};
     \node at (liq) [xshift=4cm, fill=CornflowerBlue, minimum height=1.5cm, minimum width=2.5cm, text width=2.5cm, align=center](sac){Saccharification\\(Hydrolysis)};
     \node at (sac.south west) [below right, text width=3cm] {\footnotesize{Cool the mash\\Add glucoamylase}};
     \node at (sac.east) [below right] {\footnotesize{dextrose}};
