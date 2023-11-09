@@ -252,19 +252,19 @@
 ***** วิธีทำ: คำนวณเวลาสุริยคติสำหรับขอนแก่น
 
 เริ่มจากการคำนวณสมการเวลา $ET$ โดยวันที่ 12 กุมภาพันธ์เป็นวันที่ $N$ = 12 + 31 = 43 ของปี เวลาท้องถิ่น $LT$ = 13:30 = 13.5
-  \begin{align*}
-    ET &= 9.87\sin(2B) - 7.53\cos(B) - 1.5\sin(B) \\
-    B &= (N-81)\frac{360}{364} \\
-       &= (43 - 81)\frac{360}{364} \\
-       &= -37.58 \\
-    ET &= 9.87 \sin(2(-37.58)) - 7.53\cos(-37.58) - 1.5 \sin(-37.58) \\
-       &= -14.59 \text{ min} \\
-  AST &= LT + ET - 4|LL - SL| - DS \\
-      &= LT \text{ hr} + (-14.59) \text{ min} - 4|102.8 - 105| \text{ min} - 0 \\
-      &= LT - 0.24 - 0.15 = LST - 0.39 \\
-      &= 13.5 - 0.39 \\
-      &= 13.11
-\end{align*}
+    \begin{align*}
+      ET &= 9.87\sin(2B) - 7.53\cos(B) - 1.5\sin(B) \\
+      B &= (N-81)\frac{360}{364} \\
+	 &= (43 - 81)\frac{360}{364} \\
+	 &= -37.58 \\
+      ET &= 9.87 \sin(2(-37.58)) - 7.53\cos(-37.58) - 1.5 \sin(-37.58) \\
+	 &= -14.59 \text{ min} \\
+    AST &= LT + ET - 4|LL - SL| - DS \\
+	&= LT \text{ hr} + (-14.59) \text{ min} - 4|102.8 - 105| \text{ min} - 0 \\
+	&= LT - 0.24 - 0.15 = LST - 0.39 \\
+	&= 13.5 - 0.39 \\
+	&= 13.11
+  \end{align*}
 
 
 *** ตำแหน่งของดวงอาทิตย์
@@ -566,7 +566,7 @@ $A = 102.3°$ แปลว่าดวงอาทิตย์อยู่ทา
     \cos \theta &= \sin \beta \sin z \cos(A - A_{s}) + \cos \beta \cos z
   \end{align*}
 
-$\beta$ = 15, $A_s$ = 180, $z$ = 90° - \(\alpha\) = 90° - (-9.44°) = 99.44°
+\(\beta = 15, A_s = 180, z = 90° - \alpha = 90° - (-9.44°) = 99.44°\)
 
 ส่วนเลขชั่วโมงเราได้หามาก่อนหน้านี้ในตัวอย่าง ...
   \begin{align*}
@@ -576,46 +576,46 @@ $\beta$ = 15, $A_s$ = 180, $z$ = 90° - \(\alpha\) = 90° - (-9.44°) = 99.44°
 เมื่อได้ตัวแปรทุกตัวครบแล้ว เราจะสามารถคำนวณฟังก์ชันมุมตกกระทบบนแผงโซลาร์เซลล์ที่เวลาใดๆได้ว่า
 
   \begin{align*}
-    \cos \theta &= \sin 16.4 \sin (-14.3) \cos 15 + \cos 16.4 \sin (-14.3) \sin 15 \cos 180 \\
-        & \hspace{5mm} + \cos 16.4 \cos (-14.3) \cos 15(LST - 12.39) \cos 15 \\
-        & \hspace{5mm} - \sin 16.4 \cos (-14.3) \cos 15(LST - 12.39) \sin 15 \cos 180 \\
-        & \hspace{5mm} - \cos (-14.3) \sin 15(LST - 12.39) \sin 15 \sin 180 \\
-        &= -0.067 + 0.237 - 0.898\cos 15(LST - 12.39) \\
-        & \hspace{5mm} +0.071\cos 15(LST - 12.39) + 0 \\
-        &= 0.17 - 0.827\cos 15(LST - 12.39)
+    \cos \theta &= \sin 15 \sin 99.44 \cos A + \cos 15 \cos 99.44 \\
+		&= 0.255 \cos A - 0.158 \\
+  \end{align*}
+  ค่ามุมอาซิมุธ $A$ ขึ้นอยู่กับฟังก์ชันเงื่อนไข $\sin \delta - \sin \alpha \sin L$ ซึ่งมีค่าเท่ากับ
+  \begin{align*}
+    \sin \delta - \sin \alpha \sin L &= \sin (-14.3) - \sin (-9.44)  \sin (16.4) = -0.2
+  \end{align*}
+  ดังนั้น แทนค่ามุมอาซิมุธจากสมการ [[eq: additional azimuth considerations]]
+  \begin{align*}
+    \cos \theta &= 0.255 \cos\left( \pi - \sin^{-1}\left( -\frac{\cos \delta \sin h}{\cos \alpha} \right) \right) - 0.158 \\
+		&= -0.255 \cos \left( \sin^{-1} \left(  - \frac{\cos -14.3 \cos 15(LT - 12.39)}{\cos -9.44} \right) \right) - 0.158 \\
+		&= -0.255 \cos (\sin^{-1} [-0.98\cos 15(LT - 12.39)]) - 0.158
   \end{align*}
 
-Angle can be solved numerically
+เราสามารถแทนค่าเวลาท้องถิ่น (LT) ลงไปในสมการเพื่อหามุมตกกระทบได้
 
-*** Evaluating Solar Radiation
+*** การประเมินค่ารังสีดวงอาทิตย์
 
-*** How Much of the Sun is Reaching Ground?
+ใน section ที่ผ่านมาเราได้ทราบเกี่ยวกับการหาตำแหน่งและมุมตกกระทบของรังสีดวงอาทิตย์บนพื้นผิวที่เวลาใดๆ ใน section นี้ เราจะมาพิารณาหารังสีที่จะตกลงมาถึงพื้นโลก เพื่อใช้ในการคำนวณปริมาณรังสีตกกระทบ อย่างที่เราทราบกันดีว่ากำลังรังสีที่ตกลงมาถึงพื้นโลกขึ้นอยู่กับหลายปัจจัย ไม่ว่าจะเป็นเรื่องของระยะระหว่างดวงอาทิตย์จากโลก สภาพอากาศ มุมที่ตกกระทบโลก เราจะมาพิจารณาผลกระทบจากปัจจัยเหล่านี้
 
-- Typically calculated as a fraction of extraterrestrial radiation on horizontal surface
-  - following cosine rule
-  - Need to adjust for small variations over the year as distance varies
+เริ่มจากระยะทางระหว่างดวงอาทิตย์และโลก กำลังของแสงอาทิตย์ที่มาถึงโลกก่อนผ่านชั้นบรรยากาศสามารถอธิบายได้โดยสมการ [[eq: extraterrestrial solar radiation]]
+  #+NAME: eq: extraterrestrial solar radiation
+  \begin{align}
+    G_o &= G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] \cos z \nonumber \\
+        &= G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] (\cos L \cos \delta \cos h + \sin L \sin \delta)
+  \end{align}
+  
+  - $G_{o}$ :: extraterrestrial radiation [W/m$^2$]
+  - $G_{sc}$ :: solar constant = 1366 W/m$^2$
+  - $N$ :: day in the year (1...365)
+  - $z$ :: zenith angle
 
-\begin{align*}
-  G_o &= G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] \cos z \\
-      &= G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] (\cos L \cos \delta \cos h + \sin L \sin \delta) \\
-\end{align*}
+  สำหรับการพิจารณาพลังงานแสงอาทิตย์ที่มาถึงโลกต่อชั่วโมงหรือต่อวัน เราสามารถทำได้โดยการอินทิเกรตสมการ [[eq: extraterrestrial solar radiation]] จากมุมชั่วโมงเริ่มต้น $h_1$ จนถึงมุมชั่วโมงท้าย $h_2$
 
-- $G_{o}$ :: extraterrestrial radiation [W/m$^2$]
-- $G_{sc}$ :: solar constant = 1366 W/m$^2$
-- $N$ :: day in the year (1...365)
-- $z$ :: zenith angle
-
-*** Hourly and Daily Extraterrestrial Radiation
-
-- Hourly and daily values can be evaluated by integrating from $h_1$ to $h_2$ (or from sunrise till sunset)
-
-\begin{align*}
-  I_o &= \int_{h_1}^{h_2} G_o dt = \int_{h_1}^{h_2} G_o dh \\
-      &= \frac{12(3600)}{\pi}G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] \\
-      & \hspace{5mm} \times \left[\cos L \cos \delta (\sin h_2 - \sin h_1) + \frac{\pi(h_2 - h_1)}{180} \sin L \sin \delta \right] \\
-\end{align*}
-
-- Note that $h_1,h_2$ are in degrees
+  \begin{align*}
+    I_o &= \int_{h_1}^{h_2} G_o dt = \int_{h_1}^{h_2} G_o dh \\
+        &= \frac{12(3600)}{\pi}G_{sc} \left[ 1 + 0.033 \cos \left( \frac{360N}{365} \right) \right] \\
+        & \hspace{5mm} \times \left[\cos L \cos \delta (\sin h_2 - \sin h_1) + \frac{\pi(h_2 - h_1)}{180} \sin L \sin \delta \right]
+  \end{align*}
+  ข้อควรระวัง ในสมการนี้ค่า $h_1, h_2$ ต้องใช้เป็นหน่วยเรเดียน
 
 # *** Monthly Average Daily Extraterrestrial Radiation, MJ/m^2
 # 
@@ -625,81 +625,69 @@ Angle can be solved numerically
 # 
 # [[./pictures/monthly-average-daily-extraterrestrial-radiation-0--90.png]]
 
-*** Atmospheric Effect on Solar Radiation
+***** ผลของชั้นบรรยากาศต่อปริมาณรังสีของดวงอาทิตย์
 
-#+ATTR_LATEX: :height 0.9\textheight
-[[./pictures/solar-radiation.jpg]] 
+#+caption: ผลกระทบของชั้นบรรยากาศต่อรังสีดวงอาทิตย์
+#+name: fig-effect of atmosphere to solar rad
+#+ATTR_LATEX: :height 0.4\textheight
+\begin{marginfigure}
+  \includegraphics{~/Renew-Book/pictures/solar-radiation.jpg}
+\end{marginfigure}
 
-*** Factors Affecting Solar radiation
-
-- Radiation at any point depends on
-
-  1. Ozone layer thickness
-  2. distance traveled through atmosphere
-  3. amount of haze (dust, water vapor, etc)
-  4. cloud cover
-
-- We don't care why. We only care how much the sun is coming through.
-
-*** Air Mass (AM)
-
-
-#+ATTR_LATEX: :height 0.6\textheight
-[[./pictures/air-mass.jpg]]
-
-- Thickness of air layer the sun needs to go through before reaching earth
-
-$$ m = \sec z $$
-
+# มวลอากาศ
+# 
+# 
+# #+ATTR_LATEX: :height 0.6\textheight
+[[# ./pictures/air-mass.jpg]]
+# 
+# - Thickness of air layer the sun needs to go through before reaching earth
+# 
+# $$ m = \sec z $$
+# 
 # A more accurate value of air mass is
 #  \begin{align*}
 #    m &= \frac{1}{\sin \alpha + 0.50572(6.07995 + \alpha)^{-1.6364}}
 #  \end{align*}
 # 
 #  where $\alpha$ is the altitude angle in degrees
+# 
+# *** Terrestrial Solar Radiation
+# 
+# - According to ASHRAE model, the beam and diffuse components are
+#   \begin{align*}
+#     I_{bn} &= I_oe^{-\tau_{b}m^{b}} \\
+#     I_{dh} &= I_oe^{-\tau_{d}m^{d}}
+#   \end{align*}
+# 
+#   - $I_{bn}$ :: beam radiation per unit area normal to sun ray
+#   - $I_{dh}$ :: diffuse radiation per unit area on horizontal surface
+#   - $I_o$ :: extraterrestrial normal radiation
+#   - $m$ :: air mass
+#   - $\tau_b,\tau_d$ :: beam and diffuse optical depth (can be looked up from table)
+#   - $b,d$ :: beam and diffuse air mass exponents
+# 
+# *** Air Mass Exponent
+# 
+# - $b,d$ are determined empirically as
+#   \begin{align*}
+#     b = 1.219 - 0.043\tau_{b} - 0.151\tau_{d} - 0.204\tau_{b}\tau_{d} \\
+#     d = 0.202 + 0.852\tau_{b} - 0.007\tau_{d} - 0.357\tau_{b}\tau_{d}
+#   \end{align*}
 
-*** Terrestrial Solar Radiation
-
-- According to ASHRAE model, the beam and diffuse components are
-  \begin{align*}
-    I_{bn} &= I_oe^{-\tau_{b}m^{b}} \\
-    I_{dh} &= I_oe^{-\tau_{d}m^{d}}
-  \end{align*}
-
-  - $I_{bn}$ :: beam radiation per unit area normal to sun ray
-  - $I_{dh}$ :: diffuse radiation per unit area on horizontal surface
-  - $I_o$ :: extraterrestrial normal radiation
-  - $m$ :: air mass
-  - $\tau_b,\tau_d$ :: beam and diffuse optical depth (can be looked up from table)
-  - $b,d$ :: beam and diffuse air mass exponents
-
-*** Air Mass Exponent
-
-- $b,d$ are determined empirically as
-  \begin{align*}
-    b = 1.219 - 0.043\tau_{b} - 0.151\tau_{d} - 0.204\tau_{b}\tau_{d} \\
-    d = 0.202 + 0.852\tau_{b} - 0.007\tau_{d} - 0.357\tau_{b}\tau_{d}
-  \end{align*}
-
-*** Total Radiation on Horizontal Surface
-
-- Total radiation on a horizontal surface is
+ระหว่างที่รังสีดวงอาทิตย์เดินทางผ่านชั้นบรรยากาศ ถูกบดบัง สะท้อน หรือกระเจิงทำให้กำลังของรังสีที่ตกกระทบบนพื้นผิวใดบนสามารถแบ่งได้เป็น 3 ส่วนหลัก คือ รังสีตรง (direct or beam radiation, $I_b$) รังสีกระจาย (diffuse radiation, $I_d$) และรังสีสะท้อน (ground-reflected radiation, $I_g$) ในกรณีของพื้นผิวที่วางราบกับพื้น ($\beta$ = 0) รังสีที่ตกกระทบมีเพียงรังสีตรงและรังสีกระจายเท่านั้น
   \begin{align*}
     I &= I_{bn} + I_{dn}
   \end{align*}
 
-  - $I_{bn}$ :: beam radiation on horizontal surface
-  - $I_{dn}$ :: diffuse radiation on horizontal surface
+สำหรับรังสีที่ตกตั้งฉากลงกับพื้นโลก เราสามารถคำนวณได้จากรังสีที่ก่อนถึงชั้นบรรยากาศและค่าดัชนีความโปร่งใสของชั้นบรรยากาศ ($k_T$)
+  \begin{align}
+    k_T = \frac{I}{I_o}
+  \end{align}
 
-*** Clearness Index
+โดยที่ค่า $k_T$ สามารถเก็บเป็นข้อมูลแบบ ณ ช่วงเวลา เฉลี่ยรายชั่วโมง รายวัน หรือรายเดือนได้แล้วแต่ความละเอียดของข้อมูลที่ต้องการ นอกจากนี้ดัชนีความโปร่งใสของชั้นบรรยากาศยังส่งผลถึงอัตราส่วนของรังสีตรงและรังสีกระจายที่ตกตั้งฉากกับพื้นโลกด้วย ดังสมการ [[eqn-clearness index vs beam and diffuse]]
 
-- Ratio between radiation on horizontal surface vs extraterrestrial radiation
-  $$ k_T = \frac{I}{I_o} $$
-
-- $k_T$ can be calculated hourly or daily (or even monthly)
-
-- $k_T$ also affects how much solar radiation is scattered and become diffuse radiation
-\begin{align*}
+#+name: eqn-clearness index vs beam and diffuse
+\begin{align}
   \small
   \frac{I_{dn}}{I} = \left\{
   \begin{array}{ll}
@@ -708,24 +696,19 @@ $$ m = \sec z $$
     0.165 & k_T > 0.8
   \end{array} 
   \right.
-\end{align*}
+\end{align}
  
-*** Total Radiation on Tilted Surfaces
+***** รังสีตกกระทบบนพื้นผิวเอียง
 # CHECK How azimuth angle of tilt comes into play.
-
-- Total radiation on a tilted surface ($I_t$) is
+ในกรณีที่พื้นผิวเอียง รังสีที่ตกกระทบทั้งหมด $I_t$ จะมีทั้งสามส่วน: รังสีตรง $I_{bt}$ รังสีกระจาย $I_{dt}$ และรังสีสะท้อน $I_{gt}$
   \begin{align*}
     I_t &= I_{bt} + I_{dt} + I_{gt}
   \end{align*}
-
-  - $I_{bt}$ :: beam radiation on tilted surface
-  - $I_{dt}$ :: diffuse radiation on tilted surface
-  - $I_{gt}$ :: ground-reflected radiation on tilted surface
   
-*** Beam Radiation on a Tilted Surface
-
-- Beam radiation on a surface follows a cosine rule. For a horizontal surface under beam radiation intensity $I_b$
-  $$ I_{bn} = I_{b} \cos z $$
+รังสีตรงตกกระทบบนพื้นผิวเอียงเป็นไปตามกฏของ cosine
+  \begin{align}
+    I_{bn} &= I_{b} \cos z
+  \end{align}
 
 - Beam radiation on a tilted surface $I_{bt}$ is
 \begin{align*}
