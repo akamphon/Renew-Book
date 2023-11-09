@@ -193,7 +193,7 @@
   \includegraphics{./pictures/solar-time.jpg}
 \end{marginfigure}
 
-สิ่งแรกที่จะต้องใช้ในการคำนวนตำแหน่งดวงอาทิตย์คือเวลา 
+สิ่งแรกที่จะต้องใช้ในการคำนวณตำแหน่งดวงอาทิตย์คือเวลา 
 
 *** เวลาสุริยคติ (Solar Time)
 
@@ -460,8 +460,8 @@
 \begin{align}
   A = \left\{
   \begin{array}{ll}
-    \sin^{-1} -\frac{\cos \delta \sin h}{\cos \alpha} + 2\pi; & \sin \delta - \sin \alpha \sin L \geqslant 0 \\
-    \pi - \sin^{-1} -\frac{\cos \delta \sin h}{\cos \alpha}; & \sin \delta - \sin \alpha \sin L < 0
+    \sin^{-1} \left( -\dfrac{\cos \delta \sin h}{\cos \alpha} + 2\pi \right); & \sin \delta - \sin \alpha \sin L \geqslant 0 \\
+    \pi - \sin^{-1} \left( -\dfrac{\cos \delta \sin h}{\cos \alpha}\right); & \sin \delta - \sin \alpha \sin L < 0
   \end{array} \right.
 \end{align}
 
@@ -513,10 +513,11 @@
   \sin^{-1} (0.977) &= 77.7°
 \end{align*}
 
-ตรวจสอบค่าเงื่อนไขของมุมอาซิมุธ $\sin \delta - \sin \alpha \sin L$ ได้ $\sin -14.3 - \sin -9.44 \sin 16.4 = -0.2$
-\begin{align*}
-  A &= \pi - 77.7° = 102.3°
-\end{align*}
+ตรวจสอบค่าเงื่อนไขของมุมอาซิมุธจะได้ว่า
+  \begin{align*}
+    \sin \delta &- \sin \alpha \sin L = \sin -14.3 - \sin -9.44 \sin 16.4 = -0.2 \\
+    A &= \pi - 77.7° = 102.3°
+  \end{align*}
 
 $A = 102.3°$ แปลว่าดวงอาทิตย์อยู่ทางทิศตะวันออก(เฉียงใต้เล็กน้อย) เนื่องจาก 12 กุมภาพันธ์เป็นช่วงฤดูหนาว คำตอบนี้จึงสมเหตุผลแล้ว เนื่องจาก 12 กุมภาพันธ์เป็นช่วงฤดูหนาว คำตอบนี้จึงสมเหตุผลแล้ว
 
@@ -527,86 +528,62 @@ $A = 102.3°$ แปลว่าดวงอาทิตย์อยู่ทา
 ในที่สุดเราก็เดินทางมาถึงจุดหมายปลายทางของเรา เราอยากจะรู้พลังงานแสงอาทิตย์ที่ตกกระทบพื้นผิว ณ เวลาใดๆ ดังนั้นเราจะต้องรู้ตำแหน่งของดวงอาทิตย์บนท้องฟ้า (ซึ่งเรารู้แล้ว) และคำนวณมุมของดวงอาทิตย์เมื่อเทียบกับพื้นผิว เราสามารถคำนวณมุมตกกระทบ (\(\theta\)) บนพื้นผิวที่มีมุมเอียง (\(\beta\)) และมุมอาซิมุธของระนาบ (\(A_s\)) ได้โดยการพิจารณาเวกเตอร์หนึ่งหน่วย *n* ที่ตั้งฉากกับพื้นผิวและ *s* ที่ลากจากพื้นผิวไปยังดวงอาทิตย์ เราจะสามารถเขียนรูป *n* และ *s* ในระบบพิกัดขอบฟ้าได้โดย
   \begin{align*}
     \mathrm{n} &= \sin \beta \sin A_{s} \hat{i} - \sin \beta \cos A_{s} \hat{j} + \cos \beta \hat{k} \\
-    \mathrm{s} &= \cos z \sin A \hat{i} - \sin z \cos A \hat{j} + \cos z \hat{k}
+    \mathrm{s} &= \sin z \sin A \hat{i} - \sin z \cos A \hat{j} + \cos z \hat{k}
   \end{align*}
 
-การคำนวณมุมระหว่าง 2 *n* และ *s* สามารถทำได้โดย
-  \begin{align*}
-    \mathrm{n}\cdot\mathrm{s} &= |\mathrm{n}||\mathrm{s}| \cos \theta 
-  \end{align*}
-
+#+TODO: Include axis direction in figure
 #+ATTR_LATEX: :height 0.4\textheight
 [[./pictures/incident-angle-on-tilted-surface.png]]
-\begin{align*}
-  \cos \theta =& \sin L \sin \delta \cos \beta + \cos L \sin \delta \sin \beta \cos A_s \\
-               &+ \cos L \cos \delta \cos h \cos \beta \\
-               &- \sin L \cos \delta \cos h \sin \beta \cos A_s \\
-               &- \cos \delta \sin h \sin \beta \sin A_s
-\end{align*}
 
-*** Simplified Equation of Incident Angle
-
-- Usually, best $A_s$ is 180 in northern hemisphere and 0 in southern hemisphere
-
-- Equation reduces to 
+#+TODO: correct axes in equation
+การคำนวณมุมระหว่าง *n* และ *s* สามารถทำได้โดย
   \begin{align*}
-    \cos \theta &= \sin L \sin \delta \cos \beta \mp \cos L \sin \delta \sin \beta \\
-                & \hspace{5mm} + \cos L \cos \delta \cos h \cos \beta \\
-                & \hspace{5mm} \pm \sin L \cos \delta \cos h \sin \beta \\
-                &= \sin \delta \sin (L \mp \beta) + \cos \delta \cos h \cos (L \mp \beta)
+    \mathrm{n}\cdot\mathrm{s} &= |\mathrm{n}||\mathrm{s}| \cos \theta \\
+			      &= \sin \beta \sin A \cos z \sin A_{s} + \sin \beta \cos A \sin z \cos A_{s} + \cos \beta \cos z
   \end{align*}
 
-- Top sign for $A_s$ = 180, bottom for $A_s$ = 0. $L, \delta > 0$ = north
+เราสามารถแก้สมการหา $\cos \theta$ ได้ว่า
+  #+NAME: eq: incident angle
+  \begin{align}
+    \cos \theta &= \sin \beta \sin A \cos z \sin A_{s} + \sin \beta \cos A \sin z \cos A_{s} + \cos \beta \cos z \nonumber \\
+		&= \sin \beta \sin z (\sin A \sin A_{s} + \cos A \cos A_{s}) + \cos \beta \cos z \nonumber \\
+		&= \sin \beta \sin z \cos(A - A_{s}) + \cos \beta \cos z
+  \end{align}
+
+ในกรณีที่แผงหันไปทางทิศเหนือ (\(A_s = 0°\)) เราสามารถแทนค่าลงในสมการ [[eq: incident angle]] 
+  \begin{align*}
+    \cos \theta &= \sin \beta \sin z \cos A + \cos \beta \cos z
+  \end{align*}
   
-*** Example: Solar Incident Angle on Solar Panel
+***** ตัวอย่าง: มุมตกกระทบบนแผงโซลาร์เซลล์
 
-Determine solar incident angle on solar panel with a tilt angle of 15$°$ and azimuth angle of 180$°$ in ขอนแก่น on Feb 12, Thailand.
+จงคำนวณหามุมตกกระทบบนแผงโซลาร์เซลล์ซึ่งมีมุมเอียง 15° หันไปทางทิศใต้ ซึ่งตั้งอยู่ในขอนแก่นในวันที่ 12 กุมภาพันธ์
 
-*** Solution: Solar Incident Angle on Solar Panel
+***** วิธีทำ: มุมตกกระทบบนแผงโซลาร์เซลล์
 
-From
-\begin{align*}
-  \cos \theta =& \sin L \sin \delta \cos \beta + \cos L \sin \delta \sin \beta \cos A_s \\
-               &+ \cos L \cos \delta \cos h \cos \beta \\
-               &- \sin L \cos \delta \cos h \sin \beta \cos A_s \\
-               &- \cos \delta \sin h \sin \beta \sin A_s
-\end{align*}
+จากสมการ
+  \begin{align*}
+    \cos \theta &= \sin \beta \sin z \cos(A - A_{s}) + \cos \beta \cos z
+  \end{align*}
 
-$L$ = 16.4, $\delta$ = -14.3, $\beta$ = 15, $A_s$ = 180 ...
+$\beta$ = 15, $A_s$ = 180, $z$ = 90° - \(\alpha\) = 90° - (-9.44°) = 99.44°
 
-Still need $h$
+ส่วนเลขชั่วโมงเราได้หามาก่อนหน้านี้ในตัวอย่าง ...
+  \begin{align*}
+    h &= 15(LST - 0.39 - 12) = 15(LST - 12.39)
+  \end{align*}
 
-\begin{align*}
-  h &= 15(AST - 12) = 15(LST + ET \pm 4|SL - LL| - DS - 12)
-\end{align*}
+เมื่อได้ตัวแปรทุกตัวครบแล้ว เราจะสามารถคำนวณฟังก์ชันมุมตกกระทบบนแผงโซลาร์เซลล์ที่เวลาใดๆได้ว่า
 
-*** Solution: Solar Incident Angle of Solar Panel
-
-$AST$ as a function of $LST$ on Feb 12 is
-
-\begin{align*}
-  AST &= LST - 0.39
-\end{align*}
-
-Hour angle can then be easily calculated as
-
-\begin{align*}
-  h &= 15(LST - 0.39 - 12) = 15(LST - 12.39)
-\end{align*}
-
-*** Solution: Solar Incident Angle of Solar Panel
-
-Finally, the incident angle on Solar Panel is
-
-\begin{align*}
-  \cos \theta &= \sin 16.4 \sin (-14.3) \cos 15 + \cos 16.4 \sin (-14.3) \sin 15 \cos 180 \\
-      & \hspace{5mm} + \cos 16.4 \cos (-14.3) \cos 15(LST - 12.39) \cos 15 \\
-      & \hspace{5mm} - \sin 16.4 \cos (-14.3) \cos 15(LST - 12.39) \sin 15 \cos 180 \\
-      & \hspace{5mm} - \cos (-14.3) \sin 15(LST - 12.39) \sin 15 \sin 180 \\
-      &= -0.067 + 0.237 - 0.898\cos 15(LST - 12.39) \\
-      & \hspace{5mm} +0.071\cos 15(LST - 12.39) + 0 \\
-      &= 0.17 - 0.827\cos 15(LST - 12.39)
-\end{align*}
+  \begin{align*}
+    \cos \theta &= \sin 16.4 \sin (-14.3) \cos 15 + \cos 16.4 \sin (-14.3) \sin 15 \cos 180 \\
+        & \hspace{5mm} + \cos 16.4 \cos (-14.3) \cos 15(LST - 12.39) \cos 15 \\
+        & \hspace{5mm} - \sin 16.4 \cos (-14.3) \cos 15(LST - 12.39) \sin 15 \cos 180 \\
+        & \hspace{5mm} - \cos (-14.3) \sin 15(LST - 12.39) \sin 15 \sin 180 \\
+        &= -0.067 + 0.237 - 0.898\cos 15(LST - 12.39) \\
+        & \hspace{5mm} +0.071\cos 15(LST - 12.39) + 0 \\
+        &= 0.17 - 0.827\cos 15(LST - 12.39)
+  \end{align*}
 
 Angle can be solved numerically
 
