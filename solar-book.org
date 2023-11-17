@@ -2247,6 +2247,470 @@ print('\\end{align*}')
    &= 0.072
    \end{align*}
 
+
+** การทำความร้อนด้วยพลังงานแสงอาทิตย์
+
+- Passive Heating: natural means such as natural convection and radiation to collect and transfer heat
+
+- Active Heating: use pumps or fan to enhance fluid flow and heat transfer
+
+*** การประเมินภาระความร้อน
+
+- Heat gain: rate that energy is transferred to or generated within a space (sensible + latent)
+
+#+ATTR_LATEX: :width \textwidth
+[[./pictures/heat-gain-sources.jpg]]
+
+- Thermal load: rate that energy must be added or remove to maintain space at desired temperature and humidity
+
+- Note: thermal load \neq heat gain
+
+- Why?
+
+- Heat extraction rate: rate energy is removed from space (by cooling or dehumidifying)
+
+- Heat extraction rate = Cooling load under steady state
+
+*** วิธีการประเมินภาระความร้อน
+
+1. Heat balance -> most detailed + provide transient bahavior
+2. Transfer function method -> simplified method to provide loads from different building components
+3. Heat extraction rate and room temperature -> assume constant room temp to derive heat extraction rate
+4. Degree-day method -> simplest method with reasonable results --> we will employ this method
+
+*** Degree-Day Method
+
+Assumption: people like temperature at 65 F or 18.3 C.
+
+- Number of heating degree-days is
+  \begin{align*}
+    (DD)_{h} = \sum_{m}(T_{b} - T_{av})^{+}
+  \end{align*}
+
+- Number of cooling degree-days is
+  \begin{align*}
+    (DD)_{c} = \sum_{m}(T_{av} - T_{b})^{+}
+  \end{align*}
+
+  - $T_b$ :: base temperature = 18.3 C (65 F)
+  - $T_{av}$ :: average outdoor air temperature = $(T_{\max} + T_{\min})/2$
+
+- This info is usually available for most large cities or countries (Thailand = 5752 C-day)
+
+\begin{align*}
+  D_{h} &= (UA)(DD)_{h}
+\end{align*}
+
+- $UA$ :: heat loss characteristics of the building
+\begin{align*}
+  UA &= \frac{Q_{h}}{T_{i} - T_{o}}
+\end{align*}
+
+- $Q_h$ :: design peak sensible heat loss
+- $T_i - T_o$ :: design indoor-outdoor temp difference
+
+- Multiply cooling load in degree-days with 3600 \times 24 = 86400, we have
+  \begin{align*}
+    D_{h} &= \frac{86.4 \times 10^{3} Q_{h}}{T_{i} - T_{o}}(DD)_{h} \\
+    D_{c} &= \frac{86.4 \times 10^{3} Q_{c}}{T_{o} - T_{i}}(DD)_{c}
+  \end{align*}
+
+***** Example: Calculate required cooling load for Thailand
+
+Determine required cooling load of a building in Thailand whose cooling degree days (CDD) = 5752 and peak heat loss of 25 kW. The design outdoor temperature for the building is 42 C and the design indoor temperature is 25 C.
+
+***** Solution:
+
+From
+\begin{align*}
+  D_{c} &= \frac{86.4 \times 10^{3}Q_{c}}{T_{o} - T_{i}}(DD)_{c} \\
+        &= \frac{86.4 \times 10^{3} (25 \times 10^{3})}{42 - 25}(5752) \\
+        &= 7.31 \times 10^{11} \text{ J} = 731 \text{ GJ}
+\end{align*}
+
+# ** Wall, Roof, Ceilings, Glass
+# 
+# \begin{align*}
+#   q  = U \cdot A(T_{i} - T_{o})
+# \end{align*}
+# 
+# - $T_i, T_o$ :: inside and outside temperature
+# - $U$ :: thermal transmittance
+# 
+# ** Basement floors and Walls below Ground Level
+# 
+# \begin{align*}
+#   q_{f} = U_{f}A_{f}
+# \end{align*}
+# 
+# ** Concrete floors on ground
+# 
+# \begin{align*}
+#   q_{fe} = F_{e}P_{e}(T_{i} - T_{o})
+# \end{align*}
+# 
+# ** Infiltration and Ventilation
+# 
+# \begin{align*}
+#   q_{\text{sensible}} &= \dot{V}\rho_{a}c_{p}(T_{i} - T_{o})
+# \end{align*}
+# 
+# ** Example: Heat Load of a House
+# 
+# Calculate the heat load on a house for which the wall area is 200 m^2, the 
+# floor area is 600 m^2, the roof area is 690 m^2, and the window area totals 
+# 100 m^2. Inside wall height is 3 m.
+# 
+# [[./pictures/house-heating-example.png]]
+# 
+# ** Solution: Heat Load of a House
+# 
+# Thermal resistance of the wall can be described by a thermal circuit as
+# \begin{align*}
+#   R_{wall} &= R_{\text{outside air}} + R_{\text{wood siding}} + R_{\text{sheathing}} + R_{\text{wall board}} + R_{\text{inside air}}
+# \end{align*}
+# 
+# Combined thermal resistance for the studs and insulatation is found (by weighted average) as
+# \begin{align*}
+#   \frac{1}{R_{\text{comb}}} &= \frac{A_{\text{stud}}}{R_{\text{stud}}} + \frac{A_{\text{insulation}}}{R_{\text{insulation}}}\frac{1}{A_{\text{stud}} + A_{\text{insulation}}}
+# \end{align*}
+# 
+# ** Solution: Heat Load of a House
+# 
+# Assuming that studs occupy 15% of the wall area
+# \begin{align*}
+#   \frac{1}{R_{\text{comb}}} &= \frac{0.15}{0.77} + \frac{0.85}{1.94} \\
+#   R_{\text{comb}} &=  1.58 \text{ m}^{2}\text{K/W}
+# \end{align*}
+# 
+# # TODO: Where do the outside and inside thermal resistance come from
+# #+ATTR_LATEX: :booktabs t
+# | Element                     |       Thermal Resistance |
+# | Outside air                 |                     0.03 |
+# | Wood bevel                  |                     0.14 |
+# | 12.7 mm sheathing           |                     0.23 |
+# | wood stud and mineral fiber |                     1.58 |
+# | Gypsum wallboard            |                    0.079 |
+# | Inside air                  |                     0.12 |
+# |                             | $R_{\text{wall}}$ = 2.179 |
+# 
+# ** Solution: Heat Load of a House
+# 
+# $R_{\text{wall}}$ is
+# \begin{align*}
+#   U_{\text{wall}} = \frac{1}{R_{\text{wall}}} = \frac{1}{2.179} = 0.46 \text{ W/m}^2\text{K}
+# \end{align*}
+
+*** Passive Solar Space Heating
+
+**** Thermal Storage Wall
+
+- A high heat-capacitance collector coupled to the room
+
+- Absorbed radiation reaches the inside wall by conduction, then convected into the room
+
+- Or convected from the outside through a designed gap
+
+
+[[./pictures/trombe-wall.png]]
+
+
+[[./pictures/thermal-storage-wall-performance.png]]
+
+- Energy loss in the house is
+
+\begin{align*}
+  L_{m} = \sum \left[(UA)(T_R - T_a) - \dot{g}\right] dt = \sum \left[ (UA)(T_b - T_a) \right] dt
+\end{align*}
+
+- $UA$ :: product of overall heat transfer and surface area of building
+- $\dot{g}$ :: rate of internal heat generation
+- $T_R$ :: mean room temperature
+- $T_b$ :: mean indoor balance temperature
+- $T_a$ :: mean outdoor ambient temperature
+
+*** Energy Balance in Thermal Storage Walled Room
+
+- Assume steady state, energy loss = energy required
+  \begin{align*}
+    L_{m} &= (UA)(DD)_{b}
+  \end{align*}
+
+- \((DD)_b\) = monthly degree-days evaluated at \(T_b\)
+
+*** Energy Loss from Building Through Thermal Storage Wall
+
+- monthly energy loss from building through thermal storage wall is
+  \begin{align*}
+    L_{w} = U_{w}A_{w}(DD)_{R}
+  \end{align*}
+
+  - $A_w$ :: thermal storage wall area
+  - \(U_w\) :: overall heat transfer coefficient of thermal storage wall, including glazing
+  - \((DD)_R\) :: monthly degree-days evaluated at $T_R$
+
+*** Overall Heat Transfer of Thermal Storage Wall
+
+****                                                                    :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+#+ATTR_LATEX: :width 1.2\textwidth
+[[./pictures/thermal-storage-wall-performance.png]]
+
+****                                                                    :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+\begin{align*}
+  U_{w} = \frac{1}{\dfrac{1}{\overline{U}_{o}} + \dfrac{w}{k} + \dfrac{1}{h_{i}}}
+\end{align*}
+
+- $h_i$ :: internal convective heat transfer coeff \approx 8.33 W/m^{2}K
+- $w$ :: wall thickness
+- $k$ :: thermal conductivity of wall
+- $\overline{U}_o$ :: overall heat transfer coefficient from outer wall to ambient
+
+*** Getting Most out of Thermal Storage Wall
+
+- Night insulation is normally installed to reduce heat loss
+
+- This modifies $\overline{U}_o$ so that
+  \begin{align*}
+    \overline{U}_{o} = (1 - F)U_{o} + F\left( \frac{U_{o}}{{1 + R_{ins}U_{o}}} \right)
+  \end{align*}
+
+  - \(U_o\) :: overall coefficient with no insulation
+  - \(R_{ins}\) :: thermal resistance of insulation
+  - \(F\) :: fraction of time in which insulation is used
+
+*** Monthly Energy Balance of Thermal storage Wall
+\begin{align*}
+  I_{t}(\overline{\tau\alpha}) &= U_{k}(T_{w} - T_{R})\Delta t + \overline{U}_{o}(T_{w} - T_{a})\Delta t \\
+    T_{w} &= \frac{I_{t} \overline{\tau\alpha} + \left( U_{k}T_{R} + U_{o}T_{a} \right)\Delta t}{\left( U_{k} + U_{o} \right)\Delta t} 
+\end{align*}
+
+- \(I_t\) :: monthly average radiation per unit area on the wall
+- \(\overline{\tau\alpha}\) :: average transmittance of glazing and absorptance of wall
+- \(T_w\) :: average outer wall temperature
+- \(T_R\) :: average room temperature
+- \(T_a\) :: average ambient temperature
+- \(U_k\) :: overall heat transfer coefficient from outer wall to indoor space
+
+*** Net Monthly Heat Gain through Thermal Storage Wall
+
+\begin{align*}
+  Q_{g} = U_{k}A_{w}(T_{w} - T_{R})N\Delta t
+\end{align*}
+
+***** Example: Monthly Heat Transfer Through Wall into Building
+# ###### Kalogirou 6.3 ######## #
+
+A building has a south-facing thermal storage wall with night insulation $R_{ins}$ equal to 1.52 m^2 K/W,
+applied for 8 h. Estimate the monthly heat transfer through the wall into the indoor space with and
+without night insulation for the month of December. The following data are given:
+ 
+$U_o$ = 3.7 W/m^{2}K, $w$ = 0.42 m, $k$ = 2.0 W/mK, $h_i$ = 8.3 W/m^{2}K, $I_t$ = 9.8 MJ/m^{2}K, $\overline{\tau\alpha}$ = 0.73, $T_R$ = 20 C, $T_a$ = 1 C, $A_w$ = 21.3 m^2
+
+***** Solution: Monthly Heat Transfer Through Wall into Building
+
+- Overall heat transfer from outer wall to indoor space is
+  \begin{align*}
+    U_{k} &= \frac{1}{\frac{w}{k} + \frac{1}{h_{i}}} = \frac{h_{i}k}{wh_{i} + k} \\
+          &= \frac{1}{\frac{0.42}{2.0} + \frac{1}{8.3}} = 3.03 \text{ W/m}^{2}\text{K}
+  \end{align*}
+
+- We can now determine the case *without* night insulation
+
+- Outer wall temperature is
+  \begin{align*}
+    T_{w} &= \frac{I_{t} (\overline{\tau\alpha}) + \left( U_{k}T_{R} + U_{o}T_{a} \right)\Delta t}{\left( U_{k} + U_{o} \right)\Delta t} \\
+          &= \frac{9.8 \times 10^{6}(0.73) + (3.03(20) + 3.7(1))86400}{(3.03 + 3.7)(86400)} \\
+          &= 21.9^{\circ}\text{C}
+  \end{align*}
+
+- Heat gain from thermal storage wall is
+  \begin{align*}
+    Q_{g} &= U_{k}A_{w}(T_{w} - T_{R})N\Delta t \\
+          &= 3.03(21.3)(21.9 - 20)(31)(86400) \\
+          &= 3.21 \times 10^{8} \text{ J}
+  \end{align*}
+
+- Now, for the case *with* night insulation. We must first determine $\overline{U}_{o}$.
+
+- The night insulation is applied for 8 h a day \rightarrow $F$ = 8/24 = 0.33
+  \begin{align*}
+    \overline{U}_{o} &= (1 - F)U_{o} + F\left( \frac{U_{o}}{1 + R_{ins}U_{o}} \right) \\
+              &= (1 - 0.33)(3.7) + 0.33\left( \frac{3.7}{1 + 1.52(3.7)} \right) \\
+              &= 2.65 \text{ W/m}^{2}\text{K}
+  \end{align*}
+
+- Outer wall temperature is
+  \begin{align*}
+    T_{w} &= \frac{I_{t} (\overline{\tau\alpha}) + \left( U_{k}T_{R} + \overline{U}_{o}T_{a} \right)\Delta t}{\left( U_{k} + \overline{U}_{o} \right)\Delta t} \\
+          &= \frac{9.8 \times 10^{6}(0.73) + (3.03(20) + 2.65(1))86400}{(3.03 + 2.65)(86400)} \\
+          &= 25.7^{\circ}\text{C}
+  \end{align*}
+
+- Heat gain from thermal storage wall is
+  \begin{align*}
+    Q_{g} &= U_{k}A_{w}(T_{w} - T_{R})N\Delta t \\
+          &= 3.03(21.3)(25.7 - 20)(31)(86400) \\
+          &= 9.86 \times 10^{8} \text{ J}
+  \end{align*}
+  
+** Active Solar Space Heating
+
+*** Active Heating Systems
+
+#+ATTR_LATEX: :height 0.7\textheight
+[[./pictures/air-solar-heating-house.jpg]]
+
+- Air heating systems
+- Water heating systems
+
+*** Basic Working Principles
+
+1. When solar energy is available and heat is not required in the building, solar energy is added to storage.
+2. When solar energy is available and heat is required in the building, solar energy is used to supply the building load demand.
+3. When solar energy is not available, heat is required in the building, and the storage unit has stored energy, the stored energy is used to supply the building load demand.
+4. When solar energy is not available, heat is required in the building, and the storage unit has been depleted, auxiliary energy is used to supply the building load demand.
+5. When the storage unit is fully heated, there are no loads to meet, and the collector is absorbing heat, solar energy is discarded.
+
+*** Basic Air Heating System
+
+#+ATTR_LATEX: :width \textwidth
+[[./pictures/air-heating-system.png]]
+
+*** Detailed Air Heating System
+
+#+ATTR_LATEX: :width \textwidth
+[[./pictures/detailed-solar-air-heater-schematic.png]]
+
+*** Strength and Weaknesses of Air Heating System
+
+- Strengths:
+  1. air is non-corrosive + no freezing + free
+  2. no expansion equipment needed
+
+- Weaknesses:
+  1. air equipment (ducts + fans) needs more space than pipings and pumps
+  2. air leaks are hard to detect
+  3. energy required for fans is usually higher than for liquid systems
+  4. lower performance due to lower heat capacity of working fluid
+
+*** Water System
+
+#+ATTR_LATEX: :width \textwidth
+[[./pictures/solar-water-heater-schematic.png]]
+
+*** Thermal Analysis
+
+- Considers energy balance of storage tanks (water or pebble bed), we have
+  \begin{align*}
+    mc_{p}\frac{dT_{s}}{dt} &= Q_{u} - Q_{ls} - Q_{lw} - Q_{tl}
+  \end{align*}
+
+  - $Q_u$ :: rate of collected solar energy delivered to storage (useful energy gain)
+  - $Q_{ls}$ :: space load
+  - $Q_{lw}$ :: water heating load
+  - $Q_{tl}$ :: rate of energy loss from storage to ambient
+
+*** Space Heating Loads $Q_{ls}$
+
+- Space heating load is simply
+  \begin{align*}
+    Q_{hl} &= (UA)(T_{R} - T_{a})^{+}
+  \end{align*}
+
+- Rate of heat transferred through heat exchanger $Q_{le}$ is
+  \begin{align*}
+    Q_{le} &= \varepsilon\dot{m}c_{p}(T_{s} - T_{R})
+  \end{align*}
+
+  - \(\varepsilon\) :: heat exchanger effectiveness
+  - \(\dot{m}c_p\) :: mass flow rate and specific heat of working fluid
+  - \(T_s\) :: storage temperature
+
+- Required space load taken from storage is
+  \begin{align*}
+    Q_{ls} &= \left[ \min(Q_{le}, Q_{hl}) \right]^{+}
+  \end{align*}
+
+*** Water Heating Load $Q_w$
+
+- Water heating load can be determined simply 
+  \begin{align*}
+    Q_{lw} &= \varepsilon\dot{m}c_{p}(T_{s} - T_{main})
+  \end{align*}
+
+  - $T_s$ :: storage tank temperature
+  - $T_{main}$ :: temperature of water from water mains
+
+*** Auxiliary Energy Required $Q_{aux}$
+
+- Auxiliary energy required for water heating $Q_{aux,w}$ is
+  \begin{align*}
+    Q_{aux} &= \dot{m}c_{p}(T_{w} - T_{s})^{+}
+  \end{align*}
+
+  - \(T_{w}\) :: required hot water temperature (usually 60 C)
+
+- Auxiliary energy required for water heating and space loads is
+  \begin{align*}
+    Q_{aux} = \left( Q_{hl} + Q_{aux,w} + Q_{tl} - Q_{ls} \right)^{+}
+  \end{align*}
+
+*** Example: Space Heating Load, Water Heating Load, and Auxiliary Energy
+
+A space is maintained at room temperature $T_R$ = 21 C and has a (UA) = 2500 W/K. The ambient temperature is 10 C and storage tank temperature is 80 C. Estimate the space load, water heating load, and auxiliary energy required.
+The following are the operating conditions:
+
+1. Heat exchanger effectiveness = 0.7
+2. Flow rate of air in heat exchanger = 1.1 kg/s
+3. \(c_p\) of air = 1050 J/kgK
+4. Ambient storage temp = 15 C
+5. \(UA\) of storage tank = 2.5 W/K
+6. Mass flow rate of water = 0.2 kg/s
+7. Required water temperature = 60 C
+8. Water from main pipe = 12 C
+
+*** Solution: Space Heating Load, Water Heating Load, and Auxiliary Energy
+
+- Space heating load is
+  \begin{align*}
+    Q_{hl} = (UA)(T_{R} - T_{a}) = 2500(21 - 10) = 27500 \text{ W}
+  \end{align*}
+
+- Rate of heat transferred across heat exchanger is 
+  \begin{align*}
+    Q_{le} = \varepsilon(\dot{m}c_{p})(T_{s} - T_{R}) = 0.7(1.1)(1050)(80 - 21) = 47700 \text{ W}
+  \end{align*}
+
+- The space load is
+  \begin{align*}
+    Q_{ls} &= \left[ \min(Q_{le},Q_{hl}) \right]^{+} = \left[ \min(27500, 47700) \right] \\
+           &= 27500 \text{ W}
+  \end{align*}
+
+*** Solution: Space Heating Load, Water Heating Load, and Auxiliary Energy
+
+- The storage losses can be estimated as
+  \begin{align*}
+    Q_{tl} &= (UA)_{s}(T_{s} - T_{a}) = (2.5)(80 - 15) = 162.5 \text{ W}
+  \end{align*}
+
+- Rate of auxiliary energy required is
+  \begin{align*}
+    Q_{aux,w} &= \dot{m}c_{p}(T_{w} - T_{s})^{+} = 0.2(4180)(60 - 80)^+ \\
+              &= -16.7 \text{ kW} \\
+              &= 0 \text{ (negatie value is discarded)}
+  \end{align*}
+
+- Rate of auxiliary energy required to cover both water heating and space heating is
+  \begin{align*}
+    Q_{aux} &= \left( Q_{hl} + Q_{aux,w} - Q_{tl} - Q_{ls} \right)^{+} = 27500 + 0 + 162.5 - 27500 = 162.5 \text{ W}
+  \end{align*}
 ** เซลล์เชื้อเพลิง
 
 \epigraph{ไม่สำคัญหรอกว่าคุณจะสามารถหาตัวนำยิ่งยวดที่อุณหภูมิสูงหรือเซลล์เชื้อเพลิงได้หรือไม่ ยังไงมันก็จะอยู่ในความสนใจของทุกคนเสมอ เพราะถ้าทำได้เมื่อใด มันก็จะมีประโยชน์มากมายมหาศาล It doesn't matter whether you can or cannot achieve high temperature superconductivity or fuel cells, they will always be on the list because if you could achieve them they would be extremely valuable.}{Martin Fleischmann}
