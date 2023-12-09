@@ -416,11 +416,11 @@
     h = (AST - 12) \text{ [hr]} = 15(AST - 12) \text{ [degrees]}
   \end{align*}
 
-# *** Example: Solar Hour Angle of Khon Kaen
+# *** ตัวอย่าง: Solar Hour Angle of Khon Kaen
 # 
 # - Determine the solar hour angle for ขอนแก่น where the local time (on the clock) is 6 AM on Feb 12. ขอนแก่น is at 102.8E.
 # 
-# *** Solution: Solar Hour Angle of Khon Kaen
+# *** วิธีทำ: Solar Hour Angle of Khon Kaen
 # 
 # - Feb 12 -> N = 43, Local latitude = 102.8E, Standard latitude = 105E
 # 
@@ -436,7 +436,7 @@
 #        &= -14.6 \text{ min}
 #   \end{align*}
 # 
-# *** Solution: Solar Hour Angle of Khon Kaen
+# *** วิธีทำ: Solar Hour Angle of Khon Kaen
 #
 #   \begin{align*}
 #     h &= 6 + (-14.6 \text{ min}) + 4(102.8 - 105) \text{ min} - 12 \\
@@ -1449,7 +1449,7 @@ $$ U_L = U_t + U_b + U_e = 6.59 + 0.9 + 0.12 = 7.61 \text{ W/m}^2\text{K} $$
 | ระยะห่างระหว่างท่อ $W$                | 150 | mm              |
 | เส้นผ่านศูนย์กลางท่อ $D$               |  10 | mm              |
 | ความหนาของแผ่น $\delta$           | 0.5 | mm              |
-| การนำความร้อนขอแผ่น $k$            | 385 | W/m$^2\text{K}$ |
+| การนำความร้อนของแผ่น $k$          | 385 | W/m$^2\text{K}$ |
 | สัมประสิทธิ์การพาความร้อนในท่อ $h_{fi}$ | 300 | W/m$^2\text{K}$ |
 
 ***** วิธีทำ: คำนวณหา Collector Efficiency Factor ของแผงรับแสงอาทิตย์
@@ -2318,11 +2318,11 @@ print('\\end{align*}')
     D_{c} &= \frac{86.4 \times 10^{3} Q_{c}}{T_{o} - T_{i}}(DD)_{c}
   \end{align*}
 
-***** Example: Calculate required cooling load for Thailand
+***** ตัวอย่าง: Calculate required cooling load for Thailand
 
 Determine required cooling load of a building in Thailand whose cooling degree days (CDD) = 5752 and peak heat loss of 25 kW. The design outdoor temperature for the building is 42 C and the design indoor temperature is 25 C.
 
-***** Solution:
+***** วิธีทำ:
 
 From
 \begin{align*}
@@ -2358,7 +2358,7 @@ From
 #   q_{\text{sensible}} &= \dot{V}\rho_{a}c_{p}(T_{i} - T_{o})
 # \end{align*}
 # 
-# ** Example: Heat Load of a House
+# ** ตัวอย่าง: Heat Load of a House
 # 
 # Calculate the heat load on a house for which the wall area is 200 m^2, the 
 # floor area is 600 m^2, the roof area is 690 m^2, and the window area totals 
@@ -2366,7 +2366,7 @@ From
 # 
 # [[./pictures/house-heating-example.png]]
 # 
-# ** Solution: Heat Load of a House
+# ** วิธีทำ: Heat Load of a House
 # 
 # Thermal resistance of the wall can be described by a thermal circuit as
 # \begin{align*}
@@ -2378,7 +2378,7 @@ From
 #   \frac{1}{R_{\text{comb}}} &= \frac{A_{\text{stud}}}{R_{\text{stud}}} + \frac{A_{\text{insulation}}}{R_{\text{insulation}}}\frac{1}{A_{\text{stud}} + A_{\text{insulation}}}
 # \end{align*}
 # 
-# ** Solution: Heat Load of a House
+# ** วิธีทำ: Heat Load of a House
 # 
 # Assuming that studs occupy 15% of the wall area
 # \begin{align*}
@@ -2397,7 +2397,7 @@ From
 # | Inside air                  |                     0.12 |
 # |                             | $R_{\text{wall}}$ = 2.179 |
 # 
-# ** Solution: Heat Load of a House
+# ** วิธีทำ: Heat Load of a House
 # 
 # $R_{\text{wall}}$ is
 # \begin{align*}
@@ -2410,109 +2410,90 @@ From
 
 วิธีที่ตรงที่สุดวิธีหนึ่งในการทำความร้อนแก่อาคารคือ การใช้กำแพงซึ่งรับรังสีแสงอาทิตย์แล้วเก็บความร้อนไว้ แล้วนำความร้อนเข้ามาในห้องหรือพาความร้อนเข้ามาด้วยการพาความร้อนแบบธรรมชาติ
 
+#+CAPTION: ส่วนประกอบของกำแพงเก็บความร้อนแบบพาความร้อน (Trombe wall)
 [[./pictures/trombe-wall.png]]
 
-
-[[./pictures/thermal-storage-wall-performance.png]]
-
-- Energy loss in the house is
-
+การสูญเสียความร้อนในบ้านสามารถคำนวณได้จาก
 \begin{align*}
   L_{m} = \sum \left[(UA)(T_R - T_a) - \dot{g}\right] dt = \sum \left[ (UA)(T_b - T_a) \right] dt
 \end{align*}
 
-- $UA$ :: product of overall heat transfer and surface area of building
-- $\dot{g}$ :: rate of internal heat generation
-- $T_R$ :: mean room temperature
-- $T_b$ :: mean indoor balance temperature
-- $T_a$ :: mean outdoor ambient temperature
+- $UA$ :: ผลคูณของสัมประสิทธิ์การเสียความร้อนและพื้นที่ผิว
+- $\dot{g}$ :: อัตราการเกิดความร้อนภายในห้อง
+- $T_R$ :: อุณหภูมิห้องเฉลี่ย
+- $T_b$ :: อุณหภูมิฐาน
+- $T_a$ :: อุณหภูมินอกอาคารเฉลี่ย
 
-*** Energy Balance in Thermal Storage Walled Room
-
-- Assume steady state, energy loss = energy required
+หรืออีกนัยหนึ่งสามารถเขียนได้ว่า
   \begin{align*}
     L_{m} &= (UA)(DD)_{b}
   \end{align*}
 
-- \((DD)_b\) = monthly degree-days evaluated at \(T_b\)
+- \((DD)_b\) = ค่าองศาวันเมื่อประเมินค่าที่ \(T_b\)
 
-*** Energy Loss from Building Through Thermal Storage Wall
+*** การถ่ายเทความร้อนในกำแพงเก็บความร้อน
 
-- monthly energy loss from building through thermal storage wall is
-  \begin{align*}
+สำหรับอัคราการสูญเสียความร้อนผ่านกำแพงเก็บความร้อนนั้น สามารถเขียนได้ดังสมการ [[eqn-heat balance in room]]
+#+name: eqn-heat balance in room
+  \begin{align}
     L_{w} = U_{w}A_{w}(DD)_{R}
-  \end{align*}
+  \end{align}
 
   - $A_w$ :: thermal storage wall area
   - \(U_w\) :: overall heat transfer coefficient of thermal storage wall, including glazing
   - \((DD)_R\) :: monthly degree-days evaluated at $T_R$
 
-*** Overall Heat Transfer of Thermal Storage Wall
-
-****                                                                    :BMCOL:
-:PROPERTIES:
-:BEAMER_col: 0.5
-:END:
-#+ATTR_LATEX: :width 1.2\textwidth
+#+name: fig-heat loss through room
+#+CAPTION: a) การถ่ายเทความร้อนที่พื้นผิวของห้องที่มีกำแพงเก็บความร้อน b) วงจรเทียบเท่า
 [[./pictures/thermal-storage-wall-performance.png]]
 
-****                                                                    :BMCOL:
-:PROPERTIES:
-:BEAMER_col: 0.5
-:END:
+ในการคำนวณค่า $U_w$ ของกำแพง สามารถพิจารณาได้จากการแยกการถ่ายเทความร้อนในกำแพงออกเป็น 3 กลไก: จากกำแพงด้านนอกไปสู่สภาพแวดล้อม จากกำแพงด้านนอกสู่ด้านใน และจากกำแพงด้านในเข้าสู่ภายในห้อง เปรียบเทียบได้กับวงจรความร้อนเทียบเท่าในรูป [[fig-heat loss through room]]b
 \begin{align*}
   U_{w} = \frac{1}{\dfrac{1}{\overline{U}_{o}} + \dfrac{w}{k} + \dfrac{1}{h_{i}}}
 \end{align*}
 
-- $h_i$ :: internal convective heat transfer coeff \approx 8.33 W/m^{2}K
-- $w$ :: wall thickness
-- $k$ :: thermal conductivity of wall
+- $h_i$ :: สัมประสิทธิ์การพาความร้อนจากกำแพงสู่ห้อง \approx 8.33 W/m^{2}K
+- $w$ :: ความหนาของกำแพง
+- $k$ :: การนำความร้อนของกำแพง
 - $\overline{U}_o$ :: overall heat transfer coefficient from outer wall to ambient
 
-*** Getting Most out of Thermal Storage Wall
-
-- Night insulation is normally installed to reduce heat loss
-
-- This modifies $\overline{U}_o$ so that
+การติดตั้งกำแพงเก็บความร้อนนี้จะช่วยทำความร้อนให้ห้องในเวลากลางวัน แต่ก็จะทำให้มีการสูญเสียความร้อนเพิ่มในเวลากลางคืน ดังนั้นเพื่อจะลดผลกระทบส่วนนี้ เราสามารถติดตั้งฉนวนความร้อนแบบเปิด-ปิดได้ เพื่อใช้ในเวลากลางคืน ซึ่งจะทำให้สัมประสิทธิ์การสูญเสียความร้อนมีค่าเท่ากับ
   \begin{align*}
     \overline{U}_{o} = (1 - F)U_{o} + F\left( \frac{U_{o}}{{1 + R_{ins}U_{o}}} \right)
   \end{align*}
 
-  - \(U_o\) :: overall coefficient with no insulation
-  - \(R_{ins}\) :: thermal resistance of insulation
-  - \(F\) :: fraction of time in which insulation is used
+  - \(U_o\) :: สัมประสิทธิ์การสูญเสียความร้อนเรวม
+  - \(R_{ins}\) :: ความต้านทานความร้อนของฉนวน
+  - \(F\) :: สัดส่วนของเวลาที่เปิดใช้ฉนวน
 
-*** Monthly Energy Balance of Thermal storage Wall
+หากาเราพิจารณาสมดุลการถ่ายเทความร้อนเฉลี่ยในช่วงเวลาที่ยาวขึ้นเป็นรายเดือน เราจะได้สมการว่า
 \begin{align*}
   I_{t}(\overline{\tau\alpha}) &= U_{k}(T_{w} - T_{R})\Delta t + \overline{U}_{o}(T_{w} - T_{a})\Delta t \\
     T_{w} &= \frac{I_{t} \overline{\tau\alpha} + \left( U_{k}T_{R} + U_{o}T_{a} \right)\Delta t}{\left( U_{k} + U_{o} \right)\Delta t} 
 \end{align*}
+โดยที่
+- \(I_t\) :: รังสีดวงอาทิตย์ตกกระทบเฉลี่ย
+- \(\overline{\tau\alpha}\) :: ค่าการปล่อยผ่านรังสีและค่าดูดกลืนของกระจกครอบ
+- \(T_w\) :: อุณหภูมิกำแพงเฉลี่ย
+- \(T_R\) :: อุณหภูมิห้องเฉลี่ย
+- \(T_a\) :: อุณหภูมิสภาพแวดล้อมเฉลี่ย
+- \(U_k\) :: สัมประสิทธิ์การถ่ายเทความร้อนจากกำแพงด้านนอกสู่ในห้อง
 
-- \(I_t\) :: monthly average radiation per unit area on the wall
-- \(\overline{\tau\alpha}\) :: average transmittance of glazing and absorptance of wall
-- \(T_w\) :: average outer wall temperature
-- \(T_R\) :: average room temperature
-- \(T_a\) :: average ambient temperature
-- \(U_k\) :: overall heat transfer coefficient from outer wall to indoor space
-
-*** Net Monthly Heat Gain through Thermal Storage Wall
-
+พลังงานความร้อนสุทธิรายเดือนผ่านกำแพงเก็บความร้อนสามารถหาได้จาก
 \begin{align*}
   Q_{g} = U_{k}A_{w}(T_{w} - T_{R})N\Delta t
 \end{align*}
 
-***** Example: Monthly Heat Transfer Through Wall into Building
+***** ตัวอย่าง: การถ่ายเทความร้อนเข้าสู่อาคารผ่านกำแพงรายเดือน
 # ###### Kalogirou 6.3 ######## #
 
-A building has a south-facing thermal storage wall with night insulation $R_{ins}$ equal to 1.52 m^2 K/W,
-applied for 8 h. Estimate the monthly heat transfer through the wall into the indoor space with and
-without night insulation for the month of December. The following data are given:
+อาคารหนึ่งมีกำแพงเก็บความร้อนหันไปทางทิศใต้โดยที่มีฉนวนความร้อนซึ่งมีค่า $R_{ins}$ เป็น 1.52 m^2 K/W เปิดไว้คืนละ 8 ชั่วโมง คำนวณอัตราการถ่ายเทความร้อนผ่านกำแพงเข้าสู่ภายในห้องในเดือนธันวาคมทั้งแบบที่มีและไม่มีฉนวนความร้อน โดยมีข้อมูลเพิ่มเติมต่อไปนี้
  
 $U_o$ = 3.7 W/m^{2}K, $w$ = 0.42 m, $k$ = 2.0 W/mK, $h_i$ = 8.3 W/m^{2}K, $I_t$ = 9.8 MJ/m^{2}K, $\overline{\tau\alpha}$ = 0.73, $T_R$ = 20 C, $T_a$ = 1 C, $A_w$ = 21.3 m^2
 
-***** Solution: Monthly Heat Transfer Through Wall into Building
+***** วิธีทำ: การถ่ายเทความร้อนเข้าสู่อาคารผ่านกำแพงรายเดือน
 
-- Overall heat transfer from outer wall to indoor space is
+สัมประสิทธิ์การถ่ายเทความร้อนรวมจากกำแพงด้านนอกสู่ในห้องเป็น
   \begin{align*}
     U_{k} &= \frac{1}{\frac{w}{k} + \frac{1}{h_{i}}} = \frac{h_{i}k}{wh_{i} + k} \\
           &= \frac{1}{\frac{0.42}{2.0} + \frac{1}{8.3}} = 3.03 \text{ W/m}^{2}\text{K}
@@ -2659,7 +2640,7 @@ $U_o$ = 3.7 W/m^{2}K, $w$ = 0.42 m, $k$ = 2.0 W/mK, $h_i$ = 8.3 W/m^{2}K, $I_t$ 
     Q_{aux} = \left( Q_{hl} + Q_{aux,w} + Q_{tl} - Q_{ls} \right)^{+}
   \end{align*}
 
-*** Example: Space Heating Load, Water Heating Load, and Auxiliary Energy
+*** ตัวอย่าง: Space Heating Load, Water Heating Load, and Auxiliary Energy
 
 A space is maintained at room temperature $T_R$ = 21 C and has a (UA) = 2500 W/K. The ambient temperature is 10 C and storage tank temperature is 80 C. Estimate the space load, water heating load, and auxiliary energy required.
 The following are the operating conditions:
@@ -2673,7 +2654,7 @@ The following are the operating conditions:
 7. Required water temperature = 60 C
 8. Water from main pipe = 12 C
 
-*** Solution: Space Heating Load, Water Heating Load, and Auxiliary Energy
+*** วิธีทำ: Space Heating Load, Water Heating Load, and Auxiliary Energy
 
 - Space heating load is
   \begin{align*}
@@ -2691,7 +2672,7 @@ The following are the operating conditions:
            &= 27500 \text{ W}
   \end{align*}
 
-*** Solution: Space Heating Load, Water Heating Load, and Auxiliary Energy
+*** วิธีทำ: Space Heating Load, Water Heating Load, and Auxiliary Energy
 
 - The storage losses can be estimated as
   \begin{align*}
